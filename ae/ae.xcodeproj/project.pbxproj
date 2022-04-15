@@ -19,7 +19,6 @@
 		011F487C280769C000B359EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F487A280769C000B359EB /* ContentView.swift */; };
 		011F487D280769C000B359EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F487A280769C000B359EB /* ContentView.swift */; };
 		011F487E280769C000B359EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F487A280769C000B359EB /* ContentView.swift */; };
-		011F488128076AA500B359EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011F488028076AA500B359EB /* GRDB */; };
 		011F488328076AF000B359EB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488228076AF000B359EB /* MainTabView.swift */; };
 		011F488428076AF000B359EB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488228076AF000B359EB /* MainTabView.swift */; };
 		011F489B28076B3B00B359EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488A28076B3B00B359EB /* SettingsView.swift */; };
@@ -58,13 +57,14 @@
 		011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C428076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C528076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
-		011F48C828076D0200B359EB /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011F48C728076D0200B359EB /* aeble */; };
 		011F48CA28076D1100B359EB /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011F48C928076D1100B359EB /* aeble */; };
 		011F48CC28076D1400B359EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011F48CB28076D1400B359EB /* GRDB */; };
 		011F48CE28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		011FE2912807D11E006CCA92 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2902807D11E006CCA92 /* aeble */; };
+		011FE2932807D11E006CCA92 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2922807D11E006CCA92 /* GRDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +119,7 @@
 		011F48BE28076CA600B359EB /* aeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aeble.swift; sourceTree = "<group>"; };
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011F48C828076D0200B359EB /* aeble in Frameworks */,
-				011F488128076AA500B359EB /* GRDB in Frameworks */,
+				011FE2912807D11E006CCA92 /* aeble in Frameworks */,
+				011FE2932807D11E006CCA92 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +186,7 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
+				011FE29428085BEB006CCA92 /* Info.plist */,
 				011F48B728076C6100B359EB /* Utils */,
 				011F488928076B3B00B359EB /* Settings */,
 				011F488528076B2700B359EB /* Experimentation */,
@@ -342,8 +344,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				011F488028076AA500B359EB /* GRDB */,
-				011F48C728076D0200B359EB /* aeble */,
+				011FE2902807D11E006CCA92 /* aeble */,
+				011FE2922807D11E006CCA92 /* GRDB */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -656,9 +658,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ae-ios/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Using bluetooth to connect and stream data from AE devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortraitUpsideDown;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -733,9 +738,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ae-ios/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Using bluetooth to connect and stream data from AE devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortraitUpsideDown;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -1252,20 +1260,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		011F488028076AA500B359EB /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
-		011F48C728076D0200B359EB /* aeble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = aeble;
-		};
 		011F48C928076D1100B359EB /* aeble */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = aeble;
 		};
 		011F48CB28076D1400B359EB /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		011FE2902807D11E006CCA92 /* aeble */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = aeble;
+		};
+		011FE2922807D11E006CCA92 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
