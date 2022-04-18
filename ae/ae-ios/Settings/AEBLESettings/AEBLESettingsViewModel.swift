@@ -70,7 +70,7 @@ import aeble
         }
         
         if isRemoteServerEnabled {
-            aeble.settings.sensorDataBucketName =  bucketNames[bucketNameIndex]
+            aeble.settings.sensorDataBucketName = bucketNames[bucketNameIndex]
         }
         
         aeble.settings.apiURL = url
