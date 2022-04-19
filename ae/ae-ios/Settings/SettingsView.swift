@@ -36,6 +36,14 @@ struct SettingsView: View {
                             Text("Data Explorer")
                         }
                     )
+                
+                    Button ("Purge Uploaded Records") {
+                        Task { await aeble.db.purgeAllDynamicRecords() }
+                    }
+                    
+                    Button("Purge All Records") {
+                        Task { await aeble.db.purgeAllDynamicRecords() }
+                    }
                     
                     Button("Share Database") {
                         ShareUtil.share(path: aeble.db.dbPath)
