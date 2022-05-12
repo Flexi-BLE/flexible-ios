@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DataExplorerTableView: View {
-    @ObservedObject var vm: DataExplorerTableViewModel
+    @StateObject var vm: DataExplorerTableViewModel
     
     var body: some View {
         List(vm.data) { row in
@@ -22,6 +22,9 @@ struct DataExplorerTableView: View {
                 }
             }
             
+        }
+        .task() {
+            await vm.refreshTableMetadata()
         }
         .refreshable {
             await vm.refreshTableMetadata()

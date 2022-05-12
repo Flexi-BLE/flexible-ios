@@ -65,6 +65,54 @@
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011FE2912807D11E006CCA92 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2902807D11E006CCA92 /* aeble */; };
 		011FE2932807D11E006CCA92 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2922807D11E006CCA92 /* GRDB */; };
+		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
+		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
+		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
+		01CA3B9E2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
+		01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */; };
+		01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */; };
+		01CA3BA3281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
+		01CA3BA4281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
+		01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA5281A34370004875D /* DataStreamDataView.swift */; };
+		01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA5281A34370004875D /* DataStreamDataView.swift */; };
+		01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */; };
+		01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */; };
+		01CA3BAC281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
+		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
+		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
+		01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
+		01E7F2742818562C00ED6F15 /* ConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */; };
+		01E7F2752818562C00ED6F15 /* ConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */; };
+		01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */; };
+		01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */; };
+		01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */; };
+		01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */; };
+		01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */; };
+		01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */; };
+		01E7F284281871C300ED6F15 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F283281871C300ED6F15 /* String.swift */; };
+		01E7F285281871C300ED6F15 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F283281871C300ED6F15 /* String.swift */; };
+		01E7F2872818734A00ED6F15 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2862818734A00ED6F15 /* Color.swift */; };
+		01E7F2882818734A00ED6F15 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2862818734A00ED6F15 /* Color.swift */; };
+		01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* AEThingsView.swift */; };
+		01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* AEThingsView.swift */; };
+		01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* AEViewModel.swift */; };
+		01E7F28E281C0FE400ED6F15 /* AEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* AEViewModel.swift */; };
+		01E7F290281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */; };
+		01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */; };
+		01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
+		01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
+		01E7F295281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
+		01E7F296281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
+		01E7F298281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
+		01E7F299281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
+		01E7F29A281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
+		01E7F29B281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
+		01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
+		01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
+		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
+		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +168,27 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingWriteIndicatorView.swift; sourceTree = "<group>"; };
+		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
+		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
+		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		01CA3BA5281A34370004875D /* DataStreamDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
+		01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
+		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
+		01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsView.swift; sourceTree = "<group>"; };
+		01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingBannerView.swift; sourceTree = "<group>"; };
+		01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingViewModel.swift; sourceTree = "<group>"; };
+		01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDetailCellView.swift; sourceTree = "<group>"; };
+		01E7F283281871C300ED6F15 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		01E7F2862818734A00ED6F15 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		01E7F289281C0FB500ED6F15 /* AEThingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingsView.swift; sourceTree = "<group>"; };
+		01E7F28C281C0FE400ED6F15 /* AEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEViewModel.swift; sourceTree = "<group>"; };
+		01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingDetailCellView.swift; sourceTree = "<group>"; };
+		01E7F292281C153500ED6F15 /* HelpHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHeaderView.swift; sourceTree = "<group>"; };
+		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +255,9 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
+				01E7F276281858B900ED6F15 /* Thing */,
+				01E7F2712818560700ED6F15 /* Configurations */,
+				01E7F26D2818559900ED6F15 /* DataStreams */,
 				011FE29428085BEB006CCA92 /* Info.plist */,
 				011F48B728076C6100B359EB /* Utils */,
 				011F488928076B3B00B359EB /* Settings */,
@@ -248,6 +320,9 @@
 				011F487A280769C000B359EB /* ContentView.swift */,
 				011F48C128076CCD00B359EB /* KeyValueView.swift */,
 				011F48CD28076D5600B359EB /* Logger.swift */,
+				01E7F292281C153500ED6F15 /* HelpHeaderView.swift */,
+				01E7F297281C277500ED6F15 /* Card.swift */,
+				01E7F29C281C3A9C00ED6F15 /* HelpView.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -289,6 +364,8 @@
 				011F489128076B3B00B359EB /* DataExplorerColumnView.swift */,
 				011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */,
 				011F489328076B3B00B359EB /* DataExplorerViewModel.swift */,
+				01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */,
+				01CA3BAE281A472B0004875D /* LineView.swift */,
 			);
 			path = DataExplorer;
 			sourceTree = "<group>";
@@ -316,6 +393,10 @@
 			children = (
 				011F48B928076C6D00B359EB /* ShareUtil.swift */,
 				011F48B828076C6D00B359EB /* UIDevice.swift */,
+				01E7F283281871C300ED6F15 /* String.swift */,
+				01E7F2862818734A00ED6F15 /* Color.swift */,
+				01CA3BA2281A1ACC0004875D /* Int.swift */,
+				01CA3BAB281A46CE0004875D /* Path.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -325,6 +406,39 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		01E7F26D2818559900ED6F15 /* DataStreams */ = {
+			isa = PBXGroup;
+			children = (
+				01E7F26E281855B100ED6F15 /* DataStreamsView.swift */,
+				01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */,
+				01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */,
+				01CA3BA5281A34370004875D /* DataStreamDataView.swift */,
+			);
+			path = DataStreams;
+			sourceTree = "<group>";
+		};
+		01E7F2712818560700ED6F15 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		01E7F276281858B900ED6F15 /* Thing */ = {
+			isa = PBXGroup;
+			children = (
+				01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */,
+				01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */,
+				01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */,
+				01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */,
+				01E7F289281C0FB500ED6F15 /* AEThingsView.swift */,
+				01E7F28C281C0FE400ED6F15 /* AEViewModel.swift */,
+				01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */,
+			);
+			path = Thing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,21 +615,42 @@
 				011F489B28076B3B00B359EB /* SettingsView.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				011F48B328076B3B00B359EB /* ExperimentView.swift in Sources */,
+				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
+				01E7F2742818562C00ED6F15 /* ConfigurationsView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
+				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
+				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
+				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
+				01E7F290281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
+				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
+				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				011F48BF28076CA600B359EB /* aeble.swift in Sources */,
+				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
+				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
+				01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
+				01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
+				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
+				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48B128076B3B00B359EB /* NewExperimentView.swift in Sources */,
+				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
+				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
 				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48AB28076B3B00B359EB /* MarkTime.swift in Sources */,
 				011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
+				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
+				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
+				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
@@ -529,21 +664,42 @@
 				011F489C28076B3B00B359EB /* SettingsView.swift in Sources */,
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				011F48B428076B3B00B359EB /* ExperimentView.swift in Sources */,
+				01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */,
+				01E7F2752818562C00ED6F15 /* ConfigurationsView.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
+				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
 				011F489E28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
+				01E7F28E281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
+				01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
+				01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
+				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				011F48B028076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
+				01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				011F48C028076CA600B359EB /* aeble.swift in Sources */,
+				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
+				01CA3BA4281A1ACC0004875D /* Int.swift in Sources */,
+				01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,
 				011F48342807693000B359EB /* ae_iosTests.swift in Sources */,
+				01CA3B9E2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
+				01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
+				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48B228076B3B00B359EB /* NewExperimentView.swift in Sources */,
+				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
+				01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */,
 				011F48AE28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48AC28076B3B00B359EB /* MarkTime.swift in Sources */,
 				011F48A028076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
+				01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
+				01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
+				01CA3BB0281A472B0004875D /* LineView.swift in Sources */,
 				011F488428076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */,
@@ -555,8 +711,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				011F48512807695500B359EB /* ae_macosApp.swift in Sources */,
+				01E7F29A281C277500ED6F15 /* Card.swift in Sources */,
 				011F487D280769C000B359EB /* ContentView.swift in Sources */,
+				01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				011F48C428076CCD00B359EB /* KeyValueView.swift in Sources */,
+				01E7F295281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48D028076D5600B359EB /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,8 +725,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				011F487E280769C000B359EB /* ContentView.swift in Sources */,
+				01E7F29B281C277500ED6F15 /* Card.swift in Sources */,
 				011F48632807695600B359EB /* ae_macosTests.swift in Sources */,
+				01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				011F48C528076CCD00B359EB /* KeyValueView.swift in Sources */,
+				01E7F296281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48D128076D5600B359EB /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,7 +825,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortraitUpsideDown;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -743,7 +905,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortraitUpsideDown;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;

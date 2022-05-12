@@ -12,19 +12,13 @@ import GRDB
 import aeble
 
 
-class DataExplorerTableViewModel: ObservableObject {
+@MainActor class DataExplorerTableViewModel: ObservableObject {
     @Published var metadata: [TableInfo]?
     @Published var data: [GenericRow] = [GenericRow]()
     @Published var tableName: String
     
-    
-    // TODO: push entire table to influxDB
-    
     init(tableName: String) {
         self.tableName = tableName
-        Task.init {
-            await self.refreshTableMetadata()
-        }
     }
     
     func refreshTableMetadata() async {
