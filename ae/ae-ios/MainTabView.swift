@@ -6,14 +6,26 @@
 //
 
 import SwiftUI
+import aeble
 
 struct MainTabView: View {
+    
     var body: some View {
         TabView {
-            ContentView()
+            AEThingsView(vm: AEViewModel(AEDeviceConfig.mock))
                 .tabItem{
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    Image(systemName: "memorychip")
+                    Text("Devices")
+                }
+            DataStreamsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+                .tabItem {
+                    Image(systemName: "arrow.left.arrow.right")
+                    Text("Data Streams")
+                }
+            ConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+                .tabItem {
+                    Image(systemName: "gearshape")
+                    Text("Configurations")
                 }
             ExperimentView()
                 .tabItem {

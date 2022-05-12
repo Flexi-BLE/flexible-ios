@@ -12,6 +12,7 @@ struct ae_iosApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .preferredColorScheme(.light)
         }
     }
 }
