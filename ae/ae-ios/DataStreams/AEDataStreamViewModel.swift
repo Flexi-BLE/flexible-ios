@@ -23,7 +23,7 @@ import GRDB
     private var timerCount: Int = 0
     
     var estimatedReload: Double {
-        return Double(dataStream.intendedFrequencyMs * dataStream.batchSize) / 1000.0
+        return 0
     }
     
     init(_ dataStream: AEDataStream) {

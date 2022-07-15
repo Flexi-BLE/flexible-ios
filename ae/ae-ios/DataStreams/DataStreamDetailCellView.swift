@@ -25,10 +25,10 @@ struct DataStreamDetailCellView: View {
             
             KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
             
-            KeyValueView(
-                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
-                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
-            )
+//            KeyValueView(
+//                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
+//                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
+//            )
             
             KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
             

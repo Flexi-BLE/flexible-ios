@@ -26,7 +26,7 @@ struct DataExplorerLineGraphView: View {
     var body: some View {
         VStack {
             Button(
-                action: { Task { self.data = await vm.fetchData(limit: vm.dataStream.batchSize*2, offset: 0) } },
+                action: { Task { self.data = await vm.fetchData(limit: 200, offset: 0) } },
                 label: { Text("Refresh") }
             )
             Spacer()
@@ -44,14 +44,14 @@ struct DataExplorerLineGraphView: View {
                 )
                 .task {
                     self.data = await vm.fetchData(
-                        limit: vm.dataStream.batchSize*2,
+                        limit: 200,
                         offset: 0
                     )
                 }
                 .onReceive(timer) { _ in
                     Task {
                         self.data = await vm.fetchData(
-                            limit: vm.dataStream.batchSize*2,
+                            limit: 200,
                             offset: 0
                         )
                     }

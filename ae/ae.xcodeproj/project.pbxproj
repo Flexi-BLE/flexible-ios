@@ -57,14 +57,11 @@
 		011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C428076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C528076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
-		011F48CA28076D1100B359EB /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011F48C928076D1100B359EB /* aeble */; };
 		011F48CC28076D1400B359EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011F48CB28076D1400B359EB /* GRDB */; };
 		011F48CE28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
-		011FE2912807D11E006CCA92 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2902807D11E006CCA92 /* aeble */; };
-		011FE2932807D11E006CCA92 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 011FE2922807D11E006CCA92 /* GRDB */; };
 		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
@@ -81,6 +78,8 @@
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01CF9043288192010077ED55 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01CF9042288192010077ED55 /* GRDB */; };
+		01CF9049288193A60077ED55 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 01CF9048288193A60077ED55 /* aeble */; };
 		01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F2742818562C00ED6F15 /* ConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */; };
@@ -161,7 +160,6 @@
 		011F489828076B3B00B359EB /* ActiveExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveExperimentView.swift; sourceTree = "<group>"; };
 		011F489928076B3B00B359EB /* NewExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentView.swift; sourceTree = "<group>"; };
 		011F489A28076B3B00B359EB /* ExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentView.swift; sourceTree = "<group>"; };
-		011F48B628076C3F00B359EB /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		011F48B828076C6D00B359EB /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		011F48B928076C6D00B359EB /* ShareUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtil.swift; sourceTree = "<group>"; };
 		011F48BE28076CA600B359EB /* aeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aeble.swift; sourceTree = "<group>"; };
@@ -176,6 +174,7 @@
 		01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01CF90472881939D0077ED55 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
 		01E7F2732818562C00ED6F15 /* ConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsView.swift; sourceTree = "<group>"; };
 		01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingBannerView.swift; sourceTree = "<group>"; };
@@ -196,8 +195,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011FE2912807D11E006CCA92 /* aeble in Frameworks */,
-				011FE2932807D11E006CCA92 /* GRDB in Frameworks */,
+				01CF9049288193A60077ED55 /* aeble in Frameworks */,
+				01CF9043288192010077ED55 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +211,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011F48CA28076D1100B359EB /* aeble in Frameworks */,
 				011F48CC28076D1400B359EB /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +381,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				011F48B628076C3F00B359EB /* aeble-swift */,
+				01CF90472881939D0077ED55 /* aeble-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -458,8 +456,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				011FE2902807D11E006CCA92 /* aeble */,
-				011FE2922807D11E006CCA92 /* GRDB */,
+				01CF9042288192010077ED55 /* GRDB */,
+				01CF9048288193A60077ED55 /* aeble */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -497,7 +495,6 @@
 			);
 			name = "ae-macos";
 			packageProductDependencies = (
-				011F48C928076D1100B359EB /* aeble */,
 				011F48CB28076D1400B359EB /* GRDB */,
 			);
 			productName = "ae-macos";
@@ -559,6 +556,7 @@
 			mainGroup = 011F47E62807685C00B359EB;
 			packageReferences = (
 				011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				01CF9041288192010077ED55 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 011F47F22807687900B359EB /* Products */;
 			projectDirPath = "";
@@ -1419,26 +1417,30 @@
 				kind = branch;
 			};
 		};
+		01CF9041288192010077ED55 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		011F48C928076D1100B359EB /* aeble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = aeble;
-		};
 		011F48CB28076D1400B359EB /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		011FE2902807D11E006CCA92 /* aeble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = aeble;
-		};
-		011FE2922807D11E006CCA92 /* GRDB */ = {
+		01CF9042288192010077ED55 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		01CF9048288193A60077ED55 /* aeble */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = aeble;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
