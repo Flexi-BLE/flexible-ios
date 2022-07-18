@@ -41,7 +41,12 @@ struct DataStreamDetailCellView: View {
             Button(
                 action: { dataExplorePopover.toggle() },
                 label: { Text("Explore Data") }
-            ).fullScreenCover(isPresented: $dataExplorePopover) {
+            )
+            .frame(width: 200, height: 30)
+            .foregroundColor(.white)
+            .background(.gray)
+            .cornerRadius(10.0)
+            .fullScreenCover(isPresented: $dataExplorePopover) {
                 NavigationView {
                     DataStreamDataView(vm: vm)
                 }
@@ -57,7 +62,12 @@ struct DataStreamDetailCellView: View {
             Button(
                 action: { editConfigPopover.toggle() },
                 label: { Text("Edit Configuration") }
-            ).fullScreenCover(isPresented: $editConfigPopover) {
+            )
+            .frame(width: 200, height: 30)
+            .foregroundColor(.white)
+            .background(.gray)
+            .cornerRadius(10.0)
+            .fullScreenCover(isPresented: $editConfigPopover) {
                 NavigationView {
                     DataStreamConfigEditView(vm: vm)
                 }
@@ -76,28 +86,3 @@ struct DataStreamDetailCellView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-
-
-//Button(
-//    action: { isShowingConfig.toggle() },
-//    label: { Text("Edit Configuration") }
-//).fullScreenCover(isPresented: $isShowingConfig) {
-//    NavigationView {
-//        DataStreamDataView(vm: vm)
-//    }
-//}
-//
-//            if isShowingConfig {
-//                ForEach(vm.dataStream.configValues, id: \.name) { config in
-//                    DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: config))
-//                    Spacer().frame(height: 11)
-//                }
-//            }
-//            Button(
-//                action: {
-//                    withAnimation(Animation.linear(duration: 1.0)) {
-//                        isShowingConfig.toggle()}
-//                },
-//                label: {
-//                    Text("Edit configurations")
-//                })

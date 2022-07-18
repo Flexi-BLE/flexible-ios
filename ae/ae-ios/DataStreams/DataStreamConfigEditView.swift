@@ -14,19 +14,27 @@ struct DataStreamConfigEditView: View {
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 11)
+            Spacer().frame(height: 21)
             ForEach(vm.dataStream.configValues, id: \.name) { config in
+                Spacer().frame(height: 11)
                 DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: config))
                 Spacer().frame(height: 21)
+                Divider()
             }
+            Spacer().frame(height: 21)
             Button(
                 action: { dismiss() },
                 label: { Text("Dismiss") }
-            ).padding()
+            )
+            .frame(width: 200, height: 40)
+            .foregroundColor(.white)
+            .background(.gray)
+            .cornerRadius(10.0)
+
             Spacer()
         }
         .padding()
-        .navigationBarTitle("Configurations")
+        .navigationBarTitle("Edit Configuration")
     }
 }
 
