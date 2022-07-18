@@ -11,6 +11,7 @@ import aeble
 struct DataStreamDetailCellView: View {
     @StateObject var vm: AEDataStreamViewModel
     @State private var dataExplorePopover = false
+    @State private var editConfigPopover = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,10 +26,10 @@ struct DataStreamDetailCellView: View {
             
             KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
             
-//            KeyValueView(
-//                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
-//                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
-//            )
+            //            KeyValueView(
+            //                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
+            //                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
+            //            )
             
             KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
             
@@ -45,6 +46,23 @@ struct DataStreamDetailCellView: View {
                     DataStreamDataView(vm: vm)
                 }
             }
+            Divider()
+            
+            ForEach(vm.dataStream.configValues, id: \.name) { config in
+                KeyValueView(
+                    key: config.name,
+                    value: config.defaultValue
+                )
+            }
+            Button(
+                action: { editConfigPopover.toggle() },
+                label: { Text("Edit Configuration") }
+            ).fullScreenCover(isPresented: $editConfigPopover) {
+                NavigationView {
+                    DataStreamConfigEditView(vm: vm)
+                }
+            }
+            
         }
         .padding()
     }
@@ -58,3 +76,28 @@ struct DataStreamDetailCellView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+
+//Button(
+//    action: { isShowingConfig.toggle() },
+//    label: { Text("Edit Configuration") }
+//).fullScreenCover(isPresented: $isShowingConfig) {
+//    NavigationView {
+//        DataStreamDataView(vm: vm)
+//    }
+//}
+//
+//            if isShowingConfig {
+//                ForEach(vm.dataStream.configValues, id: \.name) { config in
+//                    DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: config))
+//                    Spacer().frame(height: 11)
+//                }
+//            }
+//            Button(
+//                action: {
+//                    withAnimation(Animation.linear(duration: 1.0)) {
+//                        isShowingConfig.toggle()}
+//                },
+//                label: {
+//                    Text("Edit configurations")
+//                })
