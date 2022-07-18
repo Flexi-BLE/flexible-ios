@@ -22,14 +22,26 @@ struct DataStreamConfigEditView: View {
                 Divider()
             }
             Spacer().frame(height: 21)
-            Button(
-                action: { dismiss() },
-                label: { Text("Dismiss") }
-            )
-            .frame(width: 200, height: 40)
-            .foregroundColor(.white)
-            .background(.gray)
-            .cornerRadius(10.0)
+            HStack {
+                Button(
+                    action: { dismiss() },
+                    label: { Text("Dismiss") }
+                )
+                .frame(width: 100, height: 40)
+                .foregroundColor(.white)
+                .background(.gray)
+                .cornerRadius(10.0)
+                
+                Button(
+                    action: { },
+                    label: { Text("Save") }
+                )
+                .frame(width: 100, height: 40)
+                .foregroundColor(.white)
+                .background(.gray)
+                .cornerRadius(10.0)
+
+            }
 
             Spacer()
         }
