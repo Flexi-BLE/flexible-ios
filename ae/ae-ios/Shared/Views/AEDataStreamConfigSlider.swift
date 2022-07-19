@@ -28,7 +28,7 @@ struct AEDataStreamConfigSlider: View {
 }
 
 
-struct RangeSlider_Previews: PreviewProvider {
+struct AEDataStreamConfigSlider_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds)
