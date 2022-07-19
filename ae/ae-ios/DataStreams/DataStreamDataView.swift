@@ -40,11 +40,9 @@ struct DataStreamDataView: View {
                 Text("")
             }
             .pickerStyle(.segmented)
-            Button(
-                action: { dismiss() },
-                label: { Text("Dismiss") }
-            ).padding()
-
+            AEButton(action: { dismiss() }){
+                Text("Dismiss")
+            }
         }
     }
 }

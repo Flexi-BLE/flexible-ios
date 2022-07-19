@@ -112,10 +112,11 @@
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		5C1973082881EB470048AAB2 /* DataStreamConfigDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973072881EB470048AAB2 /* DataStreamConfigDataView.swift */; };
-		5C19730C2881F7880048AAB2 /* AERangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19730B2881F7880048AAB2 /* AERangeSlider.swift */; };
+		5C19730C2881F7880048AAB2 /* AEDataStreamConfigSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19730B2881F7880048AAB2 /* AEDataStreamConfigSlider.swift */; };
 		5C1973122881FA6F0048AAB2 /* AEDataStreamConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* AEDataStreamConfigViewModel.swift */; };
-		5C4183162884D94D00328E8E /* AEPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4183152884D94D00328E8E /* AEPickerView.swift */; };
+		5C4183162884D94D00328E8E /* AEDataStreamConfigPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */; };
 		5C85EDB828860ECF003DF9D1 /* DataStreamConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* DataStreamConfigEditView.swift */; };
+		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
 		5CD3AD742881E0730082F983 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 5CD3AD732881E0730082F983 /* aeble */; };
 /* End PBXBuildFile section */
 
@@ -193,11 +194,12 @@
 		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		5C1973072881EB470048AAB2 /* DataStreamConfigDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamConfigDataView.swift; sourceTree = "<group>"; };
-		5C19730B2881F7880048AAB2 /* AERangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERangeSlider.swift; sourceTree = "<group>"; };
+		5C19730B2881F7880048AAB2 /* AEDataStreamConfigSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamConfigSlider.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* AEDataStreamConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamConfigViewModel.swift; sourceTree = "<group>"; };
 		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
-		5C4183152884D94D00328E8E /* AEPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPickerView.swift; sourceTree = "<group>"; };
+		5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamConfigPickerView.swift; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* DataStreamConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamConfigEditView.swift; sourceTree = "<group>"; };
+		5CBAAB4128871B3400367FDC /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,8 +466,9 @@
 		5C19730E2881FA4C0048AAB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C19730B2881F7880048AAB2 /* AERangeSlider.swift */,
-				5C4183152884D94D00328E8E /* AEPickerView.swift */,
+				5C19730B2881F7880048AAB2 /* AEDataStreamConfigSlider.swift */,
+				5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */,
+				5CBAAB4128871B3400367FDC /* AEButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -666,7 +669,7 @@
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
-				5C19730C2881F7880048AAB2 /* AERangeSlider.swift in Sources */,
+				5C19730C2881F7880048AAB2 /* AEDataStreamConfigSlider.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				011F48BF28076CA600B359EB /* aeble.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
@@ -676,6 +679,7 @@
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
 				01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* AEDataStreamConfigViewModel.swift in Sources */,
+				5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */,
 				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
@@ -686,7 +690,7 @@
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
 				5C1973082881EB470048AAB2 /* DataStreamConfigDataView.swift in Sources */,
-				5C4183162884D94D00328E8E /* AEPickerView.swift in Sources */,
+				5C4183162884D94D00328E8E /* AEDataStreamConfigPickerView.swift in Sources */,
 				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48AB28076B3B00B359EB /* MarkTime.swift in Sources */,
 				011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */,

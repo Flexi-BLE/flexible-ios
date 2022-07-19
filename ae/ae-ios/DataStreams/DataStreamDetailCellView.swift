@@ -38,19 +38,19 @@ struct DataStreamDetailCellView: View {
                 value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
             )
             
-            Button(
-                action: { dataExplorePopover.toggle() },
-                label: { Text("Explore Data") }
-            )
-            .frame(width: 200, height: 30)
-            .foregroundColor(.white)
-            .background(.gray)
-            .cornerRadius(10.0)
-            .fullScreenCover(isPresented: $dataExplorePopover) {
-                NavigationView {
-                    DataStreamDataView(vm: vm)
+            HStack {
+                Spacer()
+                AEButton(action: { dataExplorePopover.toggle() }) {
+                    Text("Explore Data")
                 }
+                .fullScreenCover(isPresented: $dataExplorePopover) {
+                    NavigationView {
+                        DataStreamDataView(vm: vm)
+                    }
+                }
+                Spacer()
             }
+            
             Divider()
             
             ForEach(vm.dataStream.configValues, id: \.name) { config in
@@ -59,20 +59,18 @@ struct DataStreamDetailCellView: View {
                     value: config.defaultValue
                 )
             }
-            Button(
-                action: { editConfigPopover.toggle() },
-                label: { Text("Edit Configuration") }
-            )
-            .frame(width: 200, height: 30)
-            .foregroundColor(.white)
-            .background(.gray)
-            .cornerRadius(10.0)
-            .fullScreenCover(isPresented: $editConfigPopover) {
-                NavigationView {
-                    DataStreamConfigEditView(vm: vm)
+            HStack {
+                Spacer()
+                AEButton(action: {editConfigPopover.toggle()}) {
+                    Text("Edit Configuration")
                 }
+                .fullScreenCover(isPresented: $editConfigPopover) {
+                    NavigationView {
+                        DataStreamConfigEditView(vm: vm)
+                    }
+                }
+                Spacer()
             }
-            
         }
         .padding()
     }

@@ -14,15 +14,14 @@ struct DataStreamConfigDataView: View {
     var body: some View {
         if vm.config.options != nil {
             VStack {
-                AEPickerView(selectedValue: $vm.selectedValue, values: vm.config.options!, name: vm.config.name)
-                Text("New Value - \(vm.selectedValue)")
+                AEDataStreamConfigPickerView(selectedValue: $vm.selectedValue, values: vm.config.options!, name: vm.config.name)
             }
         }
         
         if vm.config.range != nil {
             VStack {
-                AERangeSlider(vm: vm)
-                Text("\(String(format: "%.0f", vm.selectedRangeValue)) Hz")
+                AEDataStreamConfigSlider(vm: vm)
+                Text("\(String(format: "%.0f", vm.selectedRangeValue)) \(vm.config.unit ?? "")")
             }
         }
     }
@@ -32,6 +31,6 @@ struct DataStreamConfigDataView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds)
-        DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: vm.dataStream.configValues[0]))
+        DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: vm.dataStream.configValues[2]))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  AERangeSlider.swift
+//  AEDataStreamConfigSlider.swift
 //  ae-ios
 //
 //  Created by Nikhil Khandelwal on 7/15/22.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import aeble
 
-struct AERangeSlider: View {
+struct AEDataStreamConfigSlider: View {
     @StateObject var vm: AEDataStreamConfigViewModel
 
     var body: some View {
@@ -32,6 +32,6 @@ struct RangeSlider_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds)
-        AERangeSlider(vm: AEDataStreamConfigViewModel(config: vm.dataStream.configValues[1]))
+        AEDataStreamConfigSlider(vm: AEDataStreamConfigViewModel(config: vm.dataStream.configValues[1]))
     }
 }

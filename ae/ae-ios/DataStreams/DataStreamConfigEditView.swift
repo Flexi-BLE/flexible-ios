@@ -11,38 +11,21 @@ import aeble
 struct DataStreamConfigEditView: View {
     @StateObject var vm: AEDataStreamViewModel
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         VStack {
-            Spacer().frame(height: 21)
             ForEach(vm.dataStream.configValues, id: \.name) { config in
-                Spacer().frame(height: 11)
                 DataStreamConfigDataView(vm: AEDataStreamConfigViewModel(config: config))
-                Spacer().frame(height: 21)
                 Divider()
             }
-            Spacer().frame(height: 21)
             HStack {
-                Button(
-                    action: { dismiss() },
-                    label: { Text("Dismiss") }
-                )
-                .frame(width: 100, height: 40)
-                .foregroundColor(.white)
-                .background(.gray)
-                .cornerRadius(10.0)
-                
-                Button(
-                    action: { },
-                    label: { Text("Save") }
-                )
-                .frame(width: 100, height: 40)
-                .foregroundColor(.white)
-                .background(.gray)
-                .cornerRadius(10.0)
-
+                AEButton(action: {dismiss() }) {
+                    Text("Dismiss")
+                }
+                AEButton(action: { }) {
+                    Text("Save")
+                }
             }
-
             Spacer()
         }
         .padding()
