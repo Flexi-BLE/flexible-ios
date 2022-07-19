@@ -19,8 +19,8 @@ struct AERangeSlider: View {
             Slider(value: $vm.selectedRangeValue,
                    in: Double(vm.config.range!.start)...Double(vm.config.range!.end),
                    step: 1.0,
-                   minimumValueLabel: Text("\(vm.config.range!.start) Hz"),
-                   maximumValueLabel: Text("\(vm.config.range!.end) Hz"),
+                   minimumValueLabel: Text("\(vm.config.range!.start) \(vm.config.unit ?? "")"),
+                   maximumValueLabel: Text("\(vm.config.range!.end) \(vm.config.unit ?? "")"),
                    label: { Text("Config Slider") })
 
         }
