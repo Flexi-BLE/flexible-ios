@@ -10,7 +10,7 @@ import SwiftUI
 import aeble
 
 struct AEDataStreamConfigSlider: View {
-    @StateObject var vm: AEDataStreamConfigViewModel
+    @StateObject var vm: ConfigViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,6 +32,6 @@ struct AEDataStreamConfigSlider_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds)
-        AEDataStreamConfigSlider(vm: AEDataStreamConfigViewModel(config: vm.dataStream.configValues[1]))
+        AEDataStreamConfigSlider(vm: ConfigViewModel(config: vm.dataStream.configValues[1]))
     }
 }

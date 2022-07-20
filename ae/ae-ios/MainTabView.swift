@@ -22,7 +22,7 @@ struct MainTabView: View {
                     Image(systemName: "arrow.left.arrow.right")
                     Text("Data Streams")
                 }
-            ConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+            GlobalConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Configurations")

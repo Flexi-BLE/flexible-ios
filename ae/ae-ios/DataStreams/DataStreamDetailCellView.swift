@@ -26,10 +26,10 @@ struct DataStreamDetailCellView: View {
             
             KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
             
-            //            KeyValueView(
-            //                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
-            //                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
-            //            )
+//            KeyValueView(
+//                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
+//                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
+//            )
             
             KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
             
@@ -53,11 +53,8 @@ struct DataStreamDetailCellView: View {
             
             Divider()
             
-            ForEach(vm.dataStream.configValues, id: \.name) { config in
-                KeyValueView(
-                    key: config.name,
-                    value: config.defaultValue
-                )
+            ForEach(vm.configVMs, id: \.config.name) { configVM in
+                ConfigValueView(vm: configVM)
             }
             HStack {
                 Spacer()
@@ -66,7 +63,7 @@ struct DataStreamDetailCellView: View {
                 }
                 .fullScreenCover(isPresented: $editConfigPopover) {
                     NavigationView {
-                        DataStreamConfigEditView(vm: vm)
+                        ConfigEditView(vm: vm)
                     }
                 }
                 Spacer()

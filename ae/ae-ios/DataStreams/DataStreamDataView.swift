@@ -18,9 +18,10 @@ struct DataStreamDataView: View {
         VStack {
             switch viewSelection {
             case 0:
+                // TODO: maybe? switch between config values aswell
                 DataExplorerTableView(
                     vm: DataExplorerTableViewModel(
-                        tableName: vm.dataStream.name
+                        tableName: "\(vm.dataStream.name)_data"
                     )
                 )
             case 1:
