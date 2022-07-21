@@ -12,13 +12,24 @@ struct ConfigOptionEditView: View {
     @StateObject var vm: ConfigViewModel
     
     var body: some View {
-        if vm.config.options != nil {
+        if let options = vm.config.options {
             VStack {
-                AEDataStreamConfigPickerView(
-                    selectedValue: $vm.selectedValue,
-                    values: vm.config.options!,
-                    name: vm.config.name
-                )
+                HStack {
+                    
+                    VStack(alignment: .leading) {
+                        Text(vm.config.name)
+                            .bold()
+                        Text(vm.config.description)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
+                    Spacer()
+                    Picker("Options", selection: $vm.selectedValue) {
+                        ForEach(options, id: \.value) { option in
+                            Text(option.name).tag(option.value)
+                        }
+                    }
+                }
             }
         }
     }

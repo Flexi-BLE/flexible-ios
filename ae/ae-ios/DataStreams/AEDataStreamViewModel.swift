@@ -93,6 +93,11 @@ import GRDB
             data: data
         )
         
+        Task(priority: .userInitiated) { [weak self] in
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            await self?.fetchLatestConfig()
+        }
+        
     }
     
     func fetchData<T: AEDataValue & DatabaseValueConvertible>(limit: Int = 1000, offset: Int = 0) async -> [T] {

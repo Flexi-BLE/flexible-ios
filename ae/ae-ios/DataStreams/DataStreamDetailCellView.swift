@@ -30,13 +30,13 @@ struct DataStreamDetailCellView: View {
 //                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
 //                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
 //            )
-            
-            KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
-            
-            KeyValueView(
-                key: "Uploads",
-                value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
-            )
+//
+//            KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
+//
+//            KeyValueView(
+//                key: "Uploads",
+//                value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
+//            )
             
             HStack {
                 Spacer()

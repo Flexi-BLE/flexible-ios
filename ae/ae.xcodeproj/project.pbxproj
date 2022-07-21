@@ -116,7 +116,6 @@
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
-		5C4183162884D94D00328E8E /* AEDataStreamConfigPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
 		5CD3AD742881E0730082F983 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 5CD3AD732881E0730082F983 /* aeble */; };
@@ -200,7 +199,6 @@
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
-		5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamConfigPickerView.swift; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -441,6 +439,7 @@
 				013F767028888324000D88E2 /* ConfigOptionEditView.swift */,
 				013F767228888536000D88E2 /* ConfigRangeEditView.swift */,
 				013F767428888577000D88E2 /* ConfigValueView.swift */,
+				5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -471,7 +470,6 @@
 		5C19730E2881FA4C0048AAB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C4183152884D94D00328E8E /* AEDataStreamConfigPickerView.swift */,
 				5CBAAB4128871B3400367FDC /* AEButton.swift */,
 			);
 			path = Views;
@@ -480,7 +478,6 @@
 		5C19730F2881FA540048AAB2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -694,7 +691,6 @@
 				011F48B128076B3B00B359EB /* NewExperimentView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
-				5C4183162884D94D00328E8E /* AEDataStreamConfigPickerView.swift in Sources */,
 				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48AB28076B3B00B359EB /* MarkTime.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,

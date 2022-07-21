@@ -13,7 +13,7 @@ struct ConfigValueView: View {
     
     var body: some View {
         KeyValueView(
-            key: "\(vm.config.name) (\(vm.is_updated ? "" : "default"))",
+            key: "\(vm.config.name)",
             value: vm.selectedValue
         )
     }

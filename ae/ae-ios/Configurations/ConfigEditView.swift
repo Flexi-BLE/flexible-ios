@@ -15,18 +15,21 @@ struct ConfigEditView: View {
     
     var body: some View {
         VStack {
-            ForEach(vm.configVMs, id: \.config.name) { configVM in
-                
-                if configVM.config.options != nil {
-                    ConfigOptionEditView(vm: configVM)
+            ScrollView {
+                ForEach(vm.configVMs, id: \.config.name) { configVM in
+                    
+                    if configVM.config.options != nil {
+                        ConfigOptionEditView(vm: configVM)
+                    }
+                    
+                    if configVM.config.range != nil {
+                        ConfigRangeEditView(vm: configVM)
+                    }
+                    
+                    Divider()
                 }
-                
-                if configVM.config.range != nil {
-                    ConfigRangeEditView(vm: configVM)
-                }
-                
-                Divider()
             }
+            
             HStack {
                 AEButton(action: {dismiss() }) {
                     Text("Dismiss")

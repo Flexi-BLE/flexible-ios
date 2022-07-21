@@ -15,8 +15,12 @@ struct ConfigRangeEditView: View {
         
         if let range = vm.config.range {
             VStack(alignment: .leading) {
-                Text(String(vm.config.name))
+                
+                Text(vm.config.name)
                     .bold()
+                Text(vm.config.description)
+                
+                Spacer().frame(width: 16.0)
                 
                 HStack {
                     Spacer()
@@ -28,8 +32,8 @@ struct ConfigRangeEditView: View {
                     value: $vm.selectedRangeValue,
                     in: Double(range.start)...Double(range.end),
                     step: Double(range.step),
-                    minimumValueLabel: Text("\(range.start) \(vm.config.unit ?? "")"),
-                    maximumValueLabel: Text("\(range.end) \(vm.config.unit ?? "")"),
+                    minimumValueLabel: Text("\(range.start)"),
+                    maximumValueLabel: Text("\(range.end)"),
                     label: { Text("Config Slider") }
                 )
             }

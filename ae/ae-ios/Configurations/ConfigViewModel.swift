@@ -42,8 +42,6 @@ import aeble
         
         if self.config.range != nil {
             self.selectedRangeValue = Double(selectedValue)!
-        } else {
-            self.selectedRangeValue = 0.0
         }
     }
 }
