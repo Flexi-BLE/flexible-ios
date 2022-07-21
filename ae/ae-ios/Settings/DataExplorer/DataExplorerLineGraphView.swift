@@ -64,7 +64,7 @@ struct DataExplorerLineGraphView: View {
 struct DataExplorerLineGraphView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds)
+        let vm = AEDataStreamViewModel(ds, deviceName: "none")
         DataExplorerLineGraphView(vm: vm)
     }
 }

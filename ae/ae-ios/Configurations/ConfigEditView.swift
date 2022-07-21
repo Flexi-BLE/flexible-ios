@@ -31,7 +31,7 @@ struct ConfigEditView: View {
                 AEButton(action: {dismiss() }) {
                     Text("Dismiss")
                 }
-                AEButton(action: { }) {
+                AEButton(action: { vm.updateConfigs() }) {
                     Text("Save")
                 }
             }
@@ -45,7 +45,7 @@ struct ConfigEditView: View {
 struct DataStreamConfigEditView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds)
+        let vm = AEDataStreamViewModel(ds, deviceName: "none")
         ConfigEditView(vm: vm)
     }
 }

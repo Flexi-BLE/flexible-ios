@@ -21,7 +21,7 @@ struct DataStreamsView: View {
                 TabView {
                     ForEach(vm.thing.dataStreams, id: \.name) { ds in
                         ScrollView {
-                            DataStreamDetailCellView(vm: AEDataStreamViewModel(ds))
+                            DataStreamDetailCellView(vm: AEDataStreamViewModel(ds, deviceName: vm.thing.name))
                                 .modifier(Card())
                         }
                     }

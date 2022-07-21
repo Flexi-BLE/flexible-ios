@@ -14,7 +14,11 @@ import aeble
     let config: AEDataStreamConfig
     
     @Published var selectedValue: String
-    @Published var selectedRangeValue: Double
+    @Published var selectedRangeValue: Double {
+        didSet {
+            selectedValue = String(selectedRangeValue)
+        }
+    }
     
     @Published var is_updated: Bool
     

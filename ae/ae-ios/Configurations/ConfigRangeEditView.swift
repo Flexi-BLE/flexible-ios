@@ -13,10 +13,25 @@ struct ConfigRangeEditView: View {
     
     var body: some View {
         
-        if vm.config.range != nil {
-            VStack {
-                AEDataStreamConfigSlider(vm: vm)
-                Text("\(String(format: "%.0f", vm.selectedRangeValue)) \(vm.config.unit ?? "")")
+        if let range = vm.config.range {
+            VStack(alignment: .leading) {
+                Text(String(vm.config.name))
+                    .bold()
+                
+                HStack {
+                    Spacer()
+                    Text("\(String(format: "%.0f", vm.selectedRangeValue)) \(vm.config.unit ?? "")")
+                    Spacer()
+                }
+                
+                Slider(
+                    value: $vm.selectedRangeValue,
+                    in: Double(range.start)...Double(range.end),
+                    step: Double(range.step),
+                    minimumValueLabel: Text("\(range.start) \(vm.config.unit ?? "")"),
+                    maximumValueLabel: Text("\(range.end) \(vm.config.unit ?? "")"),
+                    label: { Text("Config Slider") }
+                )
             }
         }
     }

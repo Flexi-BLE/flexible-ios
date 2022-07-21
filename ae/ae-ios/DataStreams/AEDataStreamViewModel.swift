@@ -23,12 +23,15 @@ import GRDB
     private var timer: Timer?
     private var timerCount: Int = 0
     
+    private var deviceName: String
+    
     var estimatedReload: Double {
         return 0
     }
     
-    init(_ dataStream: AEDataStream) {
+    init(_ dataStream: AEDataStream, deviceName: String) {
         self.dataStream = dataStream
+        self.deviceName = deviceName
         
         timer = Timer.scheduledTimer(
             withTimeInterval: 5.0,
@@ -73,13 +76,22 @@ import GRDB
         }
     }
     
-    func updateConfigs() async {
+    func updateConfigs() {
         var data: Data = Data()
         
         for vm in configVMs {
-            data.append(vm.config.pack(value: vm.selectedValue))
+            if let _ = vm.config.range {
+                data.append(vm.config.pack(value: String(Int(vm.selectedRangeValue))))
+            } else {
+                data.append(vm.config.pack(value: vm.selectedValue))
+            }
         }
         
+        aeble.conn.updateConfig(
+            thingName: deviceName,
+            dataSteam: dataStream,
+            data: data
+        )
         
     }
     
