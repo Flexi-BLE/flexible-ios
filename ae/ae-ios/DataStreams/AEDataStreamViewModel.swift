@@ -18,22 +18,34 @@ import GRDB
     @Published var unUploadCount: Int = 0
     @Published var uploadAgg: AEBLEDBManager.UploadAggregate = AEBLEDBManager.UploadAggregate(0,0,0)
     
+    @Published var configVMs: [ConfigViewModel] = []
     
     private var timer: Timer?
     private var timerCount: Int = 0
+    
+    private var deviceName: String
     
     var estimatedReload: Double {
         return 0
     }
     
-    init(_ dataStream: AEDataStream) {
+    init(_ dataStream: AEDataStream, deviceName: String) {
         self.dataStream = dataStream
+        self.deviceName = deviceName
         
         timer = Timer.scheduledTimer(
             withTimeInterval: 5.0,
             repeats: true,
             block: { _ in self.onTimer() }
         )
+        
+        for config in dataStream.configValues {
+            configVMs.append(ConfigViewModel(config: config))
+        }
+        
+        Task {
+            await fetchLatestConfig()
+        }
     }
     
     private func onTimer() {
@@ -46,6 +58,46 @@ import GRDB
             }
             timerCount += 1
         }
+    }
+    
+    func fetchLatestConfig() async {
+        guard let persistedConfig = await aeble.db.config(for: dataStream) else {
+            return
+        }
+        
+        for configDef in dataStream.configValues {
+            if let vm = configVMs.first(where: { $0.config.name == configDef.name }) {
+                if let colDef = persistedConfig.metadata.first(where: { $0.name == configDef.name }),
+                    let value = persistedConfig.columns[colDef.cid].value as? String {
+                    
+                    vm.update(with: value)
+                }
+            }
+        }
+    }
+    
+    func updateConfigs() {
+        var data: Data = Data()
+        
+        for vm in configVMs {
+            if let _ = vm.config.range {
+                data.append(vm.config.pack(value: String(Int(vm.selectedRangeValue))))
+            } else {
+                data.append(vm.config.pack(value: vm.selectedValue))
+            }
+        }
+        
+        aeble.conn.updateConfig(
+            thingName: deviceName,
+            dataSteam: dataStream,
+            data: data
+        )
+        
+        Task(priority: .userInitiated) { [weak self] in
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            await self?.fetchLatestConfig()
+        }
+        
     }
     
     func fetchData<T: AEDataValue & DatabaseValueConvertible>(limit: Int = 1000, offset: Int = 0) async -> [T] {

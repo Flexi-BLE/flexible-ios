@@ -18,9 +18,10 @@ struct DataStreamDataView: View {
         VStack {
             switch viewSelection {
             case 0:
+                // TODO: maybe? switch between config values aswell
                 DataExplorerTableView(
                     vm: DataExplorerTableViewModel(
-                        tableName: vm.dataStream.name
+                        tableName: "\(vm.dataStream.name)_data"
                     )
                 )
             case 1:
@@ -50,7 +51,7 @@ struct DataStreamDataView: View {
 struct DataStreamDataView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds)
+        let vm = AEDataStreamViewModel(ds, deviceName: "none")
         DataStreamDataView(vm: vm)
     }
 }

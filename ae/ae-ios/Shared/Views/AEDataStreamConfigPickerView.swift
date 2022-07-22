@@ -13,14 +13,6 @@ struct AEDataStreamConfigPickerView: View {
     var values : [AEDataStreamConfigOption]
     var name : String
     var body: some View {
-        HStack {
-            Text(name)
-            Spacer()
-            Picker("Selection Options", selection: $selectedValue) {
-                ForEach(values, id: \.value) { option in
-                    Text(option.name).tag(option.value)
-                }
-            }
-        }
+        
     }
 }

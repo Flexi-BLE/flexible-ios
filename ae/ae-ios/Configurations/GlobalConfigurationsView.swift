@@ -8,7 +8,7 @@
 import SwiftUI
 import aeble
 
-struct ConfigurationsView: View {
+struct GlobalConfigurationsView: View {
     
     @StateObject var vm: AEThingViewModel
     
@@ -27,6 +27,6 @@ struct ConfigurationsView: View {
 
 struct ConfigurationsView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        GlobalConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
     }
 }

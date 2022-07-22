@@ -26,17 +26,17 @@ struct DataStreamDetailCellView: View {
             
             KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
             
-            //            KeyValueView(
-            //                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
-            //                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
-            //            )
-            
-            KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
-            
-            KeyValueView(
-                key: "Uploads",
-                value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
-            )
+//            KeyValueView(
+//                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
+//                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
+//            )
+//
+//            KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
+//
+//            KeyValueView(
+//                key: "Uploads",
+//                value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
+//            )
             
             HStack {
                 Spacer()
@@ -53,11 +53,8 @@ struct DataStreamDetailCellView: View {
             
             Divider()
             
-            ForEach(vm.dataStream.configValues, id: \.name) { config in
-                KeyValueView(
-                    key: config.name,
-                    value: config.defaultValue
-                )
+            ForEach(vm.configVMs, id: \.config.name) { configVM in
+                ConfigValueView(vm: configVM)
             }
             HStack {
                 Spacer()
@@ -66,7 +63,7 @@ struct DataStreamDetailCellView: View {
                 }
                 .fullScreenCover(isPresented: $editConfigPopover) {
                     NavigationView {
-                        DataStreamConfigEditView(vm: vm)
+                        ConfigEditView(vm: vm)
                     }
                 }
                 Spacer()
@@ -79,7 +76,7 @@ struct DataStreamDetailCellView: View {
 struct DataStreamDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds)
+        let vm = AEDataStreamViewModel(ds, deviceName: "none")
         DataStreamDetailCellView(vm: vm)
             .previewLayout(.sizeThatFits)
     }
