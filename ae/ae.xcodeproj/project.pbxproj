@@ -115,6 +115,7 @@
 		01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
+		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
@@ -197,6 +198,7 @@
 		01E7F292281C153500ED6F15 /* HelpHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHeaderView.swift; sourceTree = "<group>"; };
 		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				011F48282807693000B359EB /* Preview Content */,
 				011F488228076AF000B359EB /* MainTabView.swift */,
 				011F48BE28076CA600B359EB /* aeble.swift */,
+				01F585F12892D24A00E0F8E5 /* AppDelegate.swift */,
 			);
 			path = "ae-ios";
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
+				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
