@@ -16,9 +16,16 @@ struct AEThingsView: View {
             HelpHeaderView(title: "Devices", helpText: "todo ...")
             TabView {
                 ScrollView {
-                    ForEach(vm.config.things, id: \.name) { thing in
-                        AEThingDetailCellView(vm: AEThingViewModel(with: thing))
-                            .modifier(Card())
+                    Group {
+                        ForEach(vm.config.things, id: \.name) { thing in
+                            AEThingDetailCellView(vm: AEThingViewModel(with: thing))
+                                .modifier(Card())
+                        }
+                        ForEach(vm.config.bleRegisteredDevices, id: \.name) { device in
+                            AERegisteredDeviceDetailCellView(
+                                vm: AERegisteredDeviceViewModel(with: device)
+                            ).modifier(Card())
+                        }
                     }
                 }
             }
