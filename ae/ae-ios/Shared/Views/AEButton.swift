@@ -22,13 +22,15 @@ struct AEButton<Content: View>: View {
             action: { action() },
             label: {
                 content
+                    .font(.headline)
             }
         )
-        .padding()
-        .frame(height: 45.0)
+        .padding(11)
+        .background(Color(UIColor.systemIndigo))
         .foregroundColor(.white)
-        .background(.gray)
-        .cornerRadius(10.0)
+        .cornerRadius(8)
+        .frame(height: 45.0)
+
     }
 }
 

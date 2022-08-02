@@ -27,10 +27,10 @@ struct MainTabView: View {
                     Image(systemName: "gearshape")
                     Text("Configurations")
                 }
-            ExperimentView()
+            ExperimentDashboardView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")
-                    Text("Experiment")
+                    Text("Experiments")
                 }
             SettingsView()
                 .tabItem {

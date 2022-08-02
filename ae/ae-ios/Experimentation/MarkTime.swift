@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MarkTime: View {
-    var vm: ExperimentViewModel
+//    var vm: ExperimentViewModel
     
     @State var name: String = ""
     @State var description: String = ""
@@ -23,7 +23,7 @@ struct MarkTime: View {
                 
                 Button("Mark") {
                     Task {
-                        await vm.markTime(name: name, description: description)
+//                        await vm.markTime(name: name, description: description)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -34,6 +34,7 @@ struct MarkTime: View {
 
 struct MarkTime_Previews: PreviewProvider {
     static var previews: some View {
-        MarkTime(vm: ExperimentViewModel())
+//        MarkTime(vm: ExperimentViewModel())
+        MarkTime()
     }
 }
