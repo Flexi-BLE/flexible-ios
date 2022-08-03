@@ -68,6 +68,8 @@
 		013F767528888577000D88E2 /* ConfigValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767428888577000D88E2 /* ConfigValueView.swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
+		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
+		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
@@ -181,6 +183,8 @@
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
+		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
+		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
 		01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingWriteIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 				01E7F289281C0FB500ED6F15 /* AEThingsView.swift */,
 				01E7F28C281C0FE400ED6F15 /* AEViewModel.swift */,
 				01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */,
+				01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */,
+				01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */,
 			);
 			path = Thing;
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011F489B28076B3B00B359EB /* SettingsView.swift in Sources */,
+				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
@@ -691,6 +698,7 @@
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
+				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				011F48BF28076CA600B359EB /* aeble.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
