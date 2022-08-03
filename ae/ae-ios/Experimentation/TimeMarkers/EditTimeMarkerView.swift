@@ -14,12 +14,12 @@ struct EditTimeMarkerView: View {
         Form {
             Section(header: Text("Edit Timemarker")) {
                 TextField("Name", text: $vm.name)
-                if #available(iOS 16.0, *) {
-                    TextField("Description", text: $vm.description,  axis: .vertical)
-                        .lineLimit(4...10)
-                } else {
+//                if #available(iOS 16.0, *) {
+//                    TextField("Description", text: $vm.description,  axis: .vertical)
+//                        .lineLimit(4...10)
+//                } else {
                     TextField("Description", text: $vm.description)
-                }
+//                }
                 
                 Button("Confirm Edit") {
                     Task {
