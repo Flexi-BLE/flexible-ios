@@ -11,7 +11,11 @@ import Combine
 
 struct DataExplorerLineGraphView: View {
     @StateObject var vm: AEDataStreamViewModel
+    
     @State var data: [Float] = []
+    @State private var selectedField: String
+    
+    
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>
     
     init(vm: AEDataStreamViewModel) {
@@ -21,15 +25,31 @@ struct DataExplorerLineGraphView: View {
             on: .main,
             in: .common
         ).autoconnect()
+        selectedField = vm.dataStream.dataValues[0].name
     }
     
     var body: some View {
         VStack {
-            Button(
-                action: { Task { self.data = await vm.fetchData(limit: 200, offset: 0) } },
-                label: { Text("Refresh") }
-            )
-            Spacer()
+            HStack {
+                Picker("Field", selection: $selectedField) {
+                    ForEach(vm.dataStream.dataValues, id: \.name) { dv in
+                        Text(dv.name).tag(dv.name)
+                    }
+                }
+                Spacer()
+                AEButton {
+                    Task {
+                        self.data = await vm.fetchData(
+                            limit: 200,
+                            offset: 0,
+                            measurement: selectedField
+                        )
+                    }
+                } content: {
+                    Text("Refresh")
+                }
+            }.padding()
+            Divider()
             GeometryReader { reader in
                 LineView(
                     data: data,

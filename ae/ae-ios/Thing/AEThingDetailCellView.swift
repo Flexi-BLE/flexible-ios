@@ -10,6 +10,7 @@ import aeble
 
 struct AEThingDetailCellView: View {
     @StateObject var vm: AEThingViewModel
+    @State var isShowingDataStream = false
     
     
     var body: some View {
@@ -25,6 +26,25 @@ struct AEThingDetailCellView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .font(.body)
             
+            Spacer().frame(height: 10.0)
+            
+            NavigationLink(
+                isActive: $isShowingDataStream,
+                destination: {
+                    
+                    DataStreamsView(vm: vm)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationTitle("Data Streams")
+                },
+                label: { EmptyView() }
+            )
+            AEButton {
+                isShowingDataStream = true
+            } content: {
+                Text("Data Streams")
+            }
+
+
             Divider()
             KeyValueView(key: "Status", value: "\(vm.connectionStatus)")
         }

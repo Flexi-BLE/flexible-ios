@@ -34,7 +34,7 @@ import GRDB
         self.deviceName = deviceName
         
         timer = Timer.scheduledTimer(
-            withTimeInterval: 5.0,
+            withTimeInterval: 0.5,
             repeats: true,
             block: { _ in self.onTimer() }
         )
@@ -100,10 +100,14 @@ import GRDB
         
     }
     
-    func fetchData<T: AEDataValue & DatabaseValueConvertible>(limit: Int = 1000, offset: Int = 0) async -> [T] {
+    func fetchData<T: AEDataValue & DatabaseValueConvertible>(
+        limit: Int = 1000,
+        offset: Int = 0,
+        measurement: String?=nil
+    ) async -> [T] {
         return await aeble.db.dataValues(
             for: dataStream.name,
-            measurement: dataStream.dataValues[0].name,
+            measurement: measurement ?? dataStream.dataValues[0].name,
             offset: offset,
             limit: limit
         )

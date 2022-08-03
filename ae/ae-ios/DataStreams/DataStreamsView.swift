@@ -15,10 +15,10 @@ struct DataStreamsView: View {
     
     var body: some View {
         VStack {
-            HelpHeaderView(title: "Data Streams", helpText: "todo ...")
+//            HelpHeaderView(title: "Data Streams", helpText: "todo ...")
             AEThingBannerView(vm: vm)
             VStack(alignment: .leading) {
-                TabView {
+                ScrollView {
                     ForEach(vm.thing.dataStreams, id: \.name) { ds in
                         ScrollView {
                             DataStreamDetailCellView(vm: AEDataStreamViewModel(ds, deviceName: vm.thing.name))
@@ -26,8 +26,6 @@ struct DataStreamsView: View {
                         }
                     }
                 }
-                .tabViewStyle(.page)
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             }
         }
     }

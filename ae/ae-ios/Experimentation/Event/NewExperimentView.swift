@@ -31,14 +31,14 @@ struct NewExperimentView: View {
                 VStack(alignment: .leading) {
                     Text("Experiment Description")
                         .bold()
-                    if #available(iOS 16.0, *) {
-                        TextField("Description", text: $description,  axis: .vertical)
-                            .lineLimit(4...10)
-                            .textFieldStyle(.roundedBorder)
-                    } else {
+//                    if #available(iOS 16.0, *) {
+//                        TextField("Description", text: $description,  axis: .vertical)
+//                            .lineLimit(4...10)
+//                            .textFieldStyle(.roundedBorder)
+//                    } else {
                         TextField("Description", text: $description)
                             .textFieldStyle(.roundedBorder)
-                    }
+//                    }
                 }
                 .padding()
                 

@@ -21,7 +21,7 @@ extension AEBLEPeripheralState {
 }
 
 @MainActor class AEThingViewModel: ObservableObject {
-    let thing: AEThing
+    @Published var thing: AEThing
     
     @Published var connectionStatus: String = AEBLEPeripheralState.disconnected.humanReadable
     @Published var lastWrite: Date? = nil
