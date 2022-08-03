@@ -70,6 +70,9 @@ import aeble
                 active: exp.active
             )
             self.experiments.append(expo)
+            if tracksGPS {
+                LocationManager.sharedInstance.trackGPS(status: tracksGPS)
+            }
             
         case .failure(let err):
             self.state = .error(error: err)

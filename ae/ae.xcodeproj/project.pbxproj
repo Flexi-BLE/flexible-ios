@@ -121,6 +121,8 @@
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
+		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
+		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
 		5C54194C28997A66005CBA25 /* ExperimentListDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */; };
 		5C54194E28997F37005CBA25 /* ExperimentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */; };
 		5C5419502899809C005CBA25 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194F2899809C005CBA25 /* String+Util.swift */; };
@@ -131,7 +133,6 @@
 		5CA59A6828999EBA003785EA /* TimeMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */; };
 		5CA59A6A28999EEC003785EA /* TimeMarkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */; };
 		5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */; };
-		5CA59A6E2899E084003785EA /* LocationTrial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6D2899E084003785EA /* LocationTrial.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
 		5CBE6CCB28986A7B0048AEDE /* ExperimentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE6CCA28986A7B0048AEDE /* ExperimentsViewModel.swift */; };
 		5CBE6CCD28986F1A0048AEDE /* ExperimentDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE6CCC28986F1A0048AEDE /* ExperimentDashboardView.swift */; };
@@ -221,6 +222,8 @@
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
+		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithUserLocationView.swift; sourceTree = "<group>"; };
 		5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentListDataView.swift; sourceTree = "<group>"; };
 		5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentListCellView.swift; sourceTree = "<group>"; };
 		5C54194F2899809C005CBA25 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
@@ -231,7 +234,6 @@
 		5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkersViewModel.swift; sourceTree = "<group>"; };
 		5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkerViewModel.swift; sourceTree = "<group>"; };
 		5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveExperimentView.swift; sourceTree = "<group>"; };
-		5CA59A6D2899E084003785EA /* LocationTrial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTrial.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
 		5CBE6CCA28986A7B0048AEDE /* ExperimentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsViewModel.swift; sourceTree = "<group>"; };
 		5CBE6CCC28986F1A0048AEDE /* ExperimentDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDashboardView.swift; sourceTree = "<group>"; };
@@ -380,7 +382,6 @@
 				011F489528076B3B00B359EB /* EditTimeMarkerView.swift */,
 				011F489A28076B3B00B359EB /* ExperimentView.swift */,
 				011F489628076B3B00B359EB /* Event */,
-				5CA59A6D2899E084003785EA /* LocationTrial.swift */,
 			);
 			path = Experimentation;
 			sourceTree = "<group>";
@@ -433,6 +434,8 @@
 				5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */,
 				5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */,
 				5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */,
+				5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */,
+				5C3E7399289B165300511D56 /* LocationManager.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -723,8 +726,10 @@
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
+				5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */,
 				0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
+				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
@@ -762,7 +767,6 @@
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
 				5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */,
-				5CA59A6E2899E084003785EA /* LocationTrial.swift in Sources */,
 				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48AB28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
@@ -945,7 +949,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Using bluetooth to connect and stream data from AE devices.";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1025,7 +1032,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Using bluetooth to connect and stream data from AE devices.";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
