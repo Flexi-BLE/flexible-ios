@@ -37,8 +37,8 @@
 		011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */; };
 		011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
 		011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
-		011F48AB28076B3B00B359EB /* MarkTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489528076B3B00B359EB /* MarkTime.swift */; };
-		011F48AC28076B3B00B359EB /* MarkTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489528076B3B00B359EB /* MarkTime.swift */; };
+		011F48AB28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489528076B3B00B359EB /* EditTimeMarkerView.swift */; };
+		011F48AC28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489528076B3B00B359EB /* EditTimeMarkerView.swift */; };
 		011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489728076B3B00B359EB /* ExperimentViewModel.swift */; };
 		011F48AE28076B3B00B359EB /* ExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489728076B3B00B359EB /* ExperimentViewModel.swift */; };
 		011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489828076B3B00B359EB /* ActiveExperimentView.swift */; };
@@ -125,9 +125,9 @@
 		5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		5CA59A6428999DB2003785EA /* MarkTimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6328999DB2003785EA /* MarkTimeListView.swift */; };
-		5CA59A6628999DF8003785EA /* MarkTimeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6528999DF8003785EA /* MarkTimeCellView.swift */; };
-		5CA59A6828999EBA003785EA /* MarkTimesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6728999EBA003785EA /* MarkTimesViewModel.swift */; };
-		5CA59A6A28999EEC003785EA /* MarkTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6928999EEC003785EA /* MarkTimeViewModel.swift */; };
+		5CA59A6628999DF8003785EA /* TimeMarkerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */; };
+		5CA59A6828999EBA003785EA /* TimeMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */; };
+		5CA59A6A28999EEC003785EA /* TimeMarkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */; };
 		5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */; };
 		5CA59A6E2899E084003785EA /* LocationTrial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6D2899E084003785EA /* LocationTrial.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
@@ -177,7 +177,7 @@
 		011F489128076B3B00B359EB /* DataExplorerColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerColumnView.swift; sourceTree = "<group>"; };
 		011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerTableViewModel.swift; sourceTree = "<group>"; };
 		011F489328076B3B00B359EB /* DataExplorerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerViewModel.swift; sourceTree = "<group>"; };
-		011F489528076B3B00B359EB /* MarkTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkTime.swift; sourceTree = "<group>"; };
+		011F489528076B3B00B359EB /* EditTimeMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimeMarkerView.swift; sourceTree = "<group>"; };
 		011F489728076B3B00B359EB /* ExperimentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentViewModel.swift; sourceTree = "<group>"; };
 		011F489828076B3B00B359EB /* ActiveExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveExperimentView.swift; sourceTree = "<group>"; };
 		011F489928076B3B00B359EB /* NewExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentView.swift; sourceTree = "<group>"; };
@@ -223,9 +223,9 @@
 		5C5419512899836B005CBA25 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
 		5CA59A6328999DB2003785EA /* MarkTimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTimeListView.swift; sourceTree = "<group>"; };
-		5CA59A6528999DF8003785EA /* MarkTimeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTimeCellView.swift; sourceTree = "<group>"; };
-		5CA59A6728999EBA003785EA /* MarkTimesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTimesViewModel.swift; sourceTree = "<group>"; };
-		5CA59A6928999EEC003785EA /* MarkTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTimeViewModel.swift; sourceTree = "<group>"; };
+		5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkerCellView.swift; sourceTree = "<group>"; };
+		5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkersViewModel.swift; sourceTree = "<group>"; };
+		5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkerViewModel.swift; sourceTree = "<group>"; };
 		5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveExperimentView.swift; sourceTree = "<group>"; };
 		5CA59A6D2899E084003785EA /* LocationTrial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTrial.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 		011F488528076B2700B359EB /* Experimentation */ = {
 			isa = PBXGroup;
 			children = (
-				011F489528076B3B00B359EB /* MarkTime.swift */,
+				011F489528076B3B00B359EB /* EditTimeMarkerView.swift */,
 				011F489A28076B3B00B359EB /* ExperimentView.swift */,
 				011F489628076B3B00B359EB /* Event */,
 				5CA59A6D2899E084003785EA /* LocationTrial.swift */,
@@ -425,9 +425,9 @@
 				5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */,
 				5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */,
 				5CA59A6328999DB2003785EA /* MarkTimeListView.swift */,
-				5CA59A6528999DF8003785EA /* MarkTimeCellView.swift */,
-				5CA59A6728999EBA003785EA /* MarkTimesViewModel.swift */,
-				5CA59A6928999EEC003785EA /* MarkTimeViewModel.swift */,
+				5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */,
+				5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */,
+				5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */,
 				5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */,
 			);
 			path = Event;
@@ -737,7 +737,7 @@
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
-				5CA59A6828999EBA003785EA /* MarkTimesViewModel.swift in Sources */,
+				5CA59A6828999EBA003785EA /* TimeMarkersViewModel.swift in Sources */,
 				01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
@@ -756,13 +756,13 @@
 				5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */,
 				5CA59A6E2899E084003785EA /* LocationTrial.swift in Sources */,
 				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
-				011F48AB28076B3B00B359EB /* MarkTime.swift in Sources */,
+				011F48AB28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
-				5CA59A6A28999EEC003785EA /* MarkTimeViewModel.swift in Sources */,
+				5CA59A6A28999EEC003785EA /* TimeMarkerViewModel.swift in Sources */,
 				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
-				5CA59A6628999DF8003785EA /* MarkTimeCellView.swift in Sources */,
+				5CA59A6628999DF8003785EA /* TimeMarkerCellView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
@@ -811,7 +811,7 @@
 				01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
 				011F48AE28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
-				011F48AC28076B3B00B359EB /* MarkTime.swift in Sources */,
+				011F48AC28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */,
 				011F48A028076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
 				01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,

@@ -14,11 +14,11 @@ struct ExperimentListDataView: View {
             ForEach(vm.experiments, id: \.id) { experiment in
                 switch experiment.isActive {
                 case true:
-                    NavigationLink(destination: ActiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
+                    NavigationLink(destination: ActiveExperimentView(experiment: experiment, timemarker: TimeMarkersViewModel(expId: experiment.id))) {
                         ExperimentListCellView(vm: experiment)
                     }
                 case false:
-                    NavigationLink(destination: InactiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
+                    NavigationLink(destination: InactiveExperimentView(experiment: experiment, timemarker: TimeMarkersViewModel(expId: experiment.id))) {
                         ExperimentListCellView(vm: experiment)
                     }
                 }

@@ -1,5 +1,5 @@
 //
-//  MarkTimesViewModel.swift
+//  TimeMarkersViewModel.swift
 //  ae-ios
 //
 //  Created by Nikhil Khandelwal on 8/2/22.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-@MainActor class MarkTimesViewModel: ObservableObject {
-    @Published var timestamps: [MarkTimeViewModel]
+@MainActor class TimeMarkersViewModel: ObservableObject {
+    @Published var timestamps: [TimeMarkerViewModel]
     
     init(expId: Int64?) {
         self.timestamps = []
@@ -28,7 +28,7 @@ import Foundation
                 return
             }
             for stamp in stamps {
-                let timestamp = MarkTimeViewModel(id: stamp.id, name: stamp.name ?? "N/A", description: stamp.description ?? "--", experimentID: id, datetime: stamp.datetime)
+                let timestamp = TimeMarkerViewModel(id: stamp.id, name: stamp.name ?? "N/A", description: stamp.description ?? "--", experimentID: id, datetime: stamp.datetime)
                 self.timestamps.append(timestamp)
             }
         case .failure(let err):
@@ -43,11 +43,10 @@ import Foundation
         
         switch res {
         case .success(let ts):
-            let marker = MarkTimeViewModel(id: ts.id, name: ts.name ?? name, description: ts.description ?? "--", experimentID: ts.experimentId, datetime: ts.datetime)
+            let marker = TimeMarkerViewModel(id: ts.id, name: ts.name ?? name, description: ts.description ?? "--", experimentID: ts.experimentId, datetime: ts.datetime)
             self.timestamps.append(marker)
         case .failure(let err):
             print(err.localizedDescription)
         }
     }
-    
 }

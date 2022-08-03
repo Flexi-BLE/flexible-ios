@@ -10,7 +10,7 @@ import aeble
 
 struct ActiveExperimentView: View {
     @ObservedObject var experiment: ExperimentViewModel
-    @ObservedObject var timemarker: MarkTimesViewModel
+    @ObservedObject var timemarker: TimeMarkersViewModel
     @State var nowDate = Date()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -109,7 +109,7 @@ struct ActiveExperimentView_Previews: PreviewProvider {
             description: "Sample Description for the selected experiment and it is a long one at that.",
             start: Date(),
             end: Date(),
-            active: true), timemarker: MarkTimesViewModel(expId: nil)
+            active: true), timemarker: TimeMarkersViewModel(expId: nil)
         )
     }
 }

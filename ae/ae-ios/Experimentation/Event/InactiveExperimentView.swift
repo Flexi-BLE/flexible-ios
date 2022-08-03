@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InactiveExperimentView: View {
     var experiment: ExperimentViewModel
-    @ObservedObject var timemarker: MarkTimesViewModel
+    @ObservedObject var timemarker: TimeMarkersViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 29) {
@@ -56,6 +56,6 @@ struct InactiveExperimentView_Previews: PreviewProvider {
             description: "Sample Description for the selected experiment and it is a long one at that.",
             start: Date(),
             end: Date(),
-            active: true), timemarker: MarkTimesViewModel(expId: nil))
+            active: true), timemarker: TimeMarkersViewModel(expId: nil))
     }
 }

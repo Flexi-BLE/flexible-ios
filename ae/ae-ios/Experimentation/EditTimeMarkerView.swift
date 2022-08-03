@@ -1,5 +1,5 @@
 //
-//  MarkTime.swift
+//  EditTimeMarkerView.swift
 //  ntrain-exthub (iOS)
 //
 //  Created by Blaine Rothrock on 2/24/22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MarkTime: View {
-    @StateObject var vm: MarkTimeViewModel
+struct EditTimeMarkerView: View {
+    @StateObject var vm: TimeMarkerViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         Form {
@@ -32,8 +32,8 @@ struct MarkTime: View {
     }
 }
 
-struct MarkTime_Previews: PreviewProvider {
+struct EditTimeMarkerView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkTime(vm: MarkTimeViewModel(id: nil, name: "Sample Name", description: "Sample Description", experimentID: nil, datetime: Date.now))
+        EditTimeMarkerView(vm: TimeMarkerViewModel(id: nil, name: "Sample Name", description: "Sample Description", experimentID: nil, datetime: Date.now))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MarkTimeViewModel.swift
+//  TimeMarkerViewModel.swift
 //  ae-ios
 //
 //  Created by Nikhil Khandelwal on 8/2/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class MarkTimeViewModel: ObservableObject {
+@MainActor class TimeMarkerViewModel: ObservableObject {
     let id: Int64?
     @Published var name: String
     @Published var description: String
