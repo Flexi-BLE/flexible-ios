@@ -18,6 +18,8 @@ struct ExperimentListCellView: View {
                     Text(vm.description ?? "--")
                         .lineLimit(1)
                         .truncationMode(.tail)
+                    Text(getExperimentDisplayDate(start:vm.startDate, end:vm.endDate))
+                        .font(.subheadline)
                 }
                 Spacer()
                 switch vm.isActive {
@@ -29,8 +31,6 @@ struct ExperimentListCellView: View {
                         .font(.system(size: 25))
                 }
             }
-            Text(getExperimentDisplayDate(start:vm.startDate, end:vm.endDate))
-                .font(.subheadline)
         }
         .padding()
     }

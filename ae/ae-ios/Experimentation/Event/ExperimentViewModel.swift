@@ -14,8 +14,8 @@ import aeble
     let name: String
     let description: String?
     var startDate: Date
-    var endDate: Date?
-    var isActive: Bool
+    @Published var endDate: Date?
+    @Published var isActive: Bool
     
     init(id: Int64?, name: String, description: String?, start: Date, end: Date?, active: Bool) {
         self.id = id
@@ -32,11 +32,11 @@ import aeble
         let res = await aeble.exp.stopExperiment(id: id)
         
         switch res {
-        case .success(_):
-            self.isActive = false
-            self.endDate = Date.now
+        case .success(let exp):
+            self.isActive = exp.active
+            self.endDate = exp.end
         case .failure(let e):
-            print("FAIL")
+            print(e.localizedDescription)
         }
     }
 }

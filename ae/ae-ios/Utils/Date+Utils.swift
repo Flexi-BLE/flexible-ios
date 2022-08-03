@@ -27,6 +27,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func getDateAndTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, YYYY HH:mm:ss"
+        return dateFormatter.string(from: self)
+    }
+    
     func getDetailedDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss"

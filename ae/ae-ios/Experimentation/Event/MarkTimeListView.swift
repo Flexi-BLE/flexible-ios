@@ -21,6 +21,6 @@ struct MarkTimeListView: View {
 
 struct MarkTimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkTimeListView(markTimes: MarkTimesViewModel(expId: 0))
+        MarkTimeListView(markTimes: MarkTimesViewModel(expId: nil))
     }
 }

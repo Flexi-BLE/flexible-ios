@@ -12,15 +12,25 @@ struct ExperimentListDataView: View {
     var body: some View {
         List {
             ForEach(vm.experiments, id: \.id) { experiment in
-                if experiment.isActive {
+                switch experiment.isActive {
+                case true:
                     NavigationLink(destination: ActiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
                         ExperimentListCellView(vm: experiment)
                     }
-                } else {
+                case false:
                     NavigationLink(destination: InactiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
                         ExperimentListCellView(vm: experiment)
                     }
                 }
+//                if experiment.isActive {
+//                    NavigationLink(destination: ActiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
+//                        ExperimentListCellView(vm: experiment)
+//                    }
+//                } else {
+//                    NavigationLink(destination: InactiveExperimentView(experiment: experiment, timemarker: MarkTimesViewModel(expId: experiment.id))) {
+//                        ExperimentListCellView(vm: experiment)
+//                    }
+//                }
             }
             .onDelete(perform: deleteExperiment)
         }

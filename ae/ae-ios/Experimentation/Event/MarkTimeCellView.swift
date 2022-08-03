@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct MarkTimeCellView: View {
-    var vm: MarkTimeViewModel
+    @StateObject var vm: MarkTimeViewModel
     var body: some View {
-        Text(vm.name)
-            .modifier(Card())
+        NavigationLink(destination: MarkTime(vm: vm)) {
+            Text(vm.name)
+                .foregroundColor(.black)
+                .font(.subheadline)
+        }
     }
 }
 

@@ -21,14 +21,14 @@ struct ActiveExperimentView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 29) {
+        VStack(alignment: .leading, spacing: 35) {
             HStack(alignment: .center) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 11) {
                     HStack {
                         Text(experiment.name)
                             .font(.title)
                         Spacer()
-                        
+                                                
                         Button(action: {
                             Task {
                                 await experiment.stopExperiment()
@@ -48,13 +48,20 @@ struct ActiveExperimentView: View {
                 }
             }
             
-            VStack(alignment: .leading, spacing: 11) {
+            Divider()
+            
+            VStack(alignment: .leading, spacing: 17) {
                 Label("Experiment Details", systemImage: "info.circle.fill")
                     .font(.title3)
-                KeyValueView(key: "Start Date",value: experiment.startDate.getShortDate())
-                KeyValueView(key: "Runtime",value: countDownString(from: experiment.startDate))
-                KeyValueView(key: "End Date", value: experiment.endDate?.getShortDate() ?? "N/A")
+                VStack(alignment: .leading, spacing: 9) {
+                    KeyValueView(key: "Start Date",value: experiment.startDate.getDateAndTime())
+                    KeyValueView(key: "Runtime",value: countDownString(from: experiment.startDate))
+                    KeyValueView(key: "End Date", value: experiment.endDate?.getDateAndTime() ?? "N/A")
+                    KeyValueView(key: "GPS", value: "🚫")
+                }
             }
+            
+            Divider()
             
             VStack(alignment: .leading, spacing: 11) {
                 HStack {
@@ -79,6 +86,9 @@ struct ActiveExperimentView: View {
     }
     
     func countDownString(from date: Date) -> String {
+        if date > nowDate {
+            return "Yet to begin"
+        }
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar
             .dateComponents([.hour, .minute, .second],

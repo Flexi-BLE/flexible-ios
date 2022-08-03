@@ -9,12 +9,12 @@ import Foundation
 
 @MainActor class MarkTimeViewModel: ObservableObject {
     let id: Int64?
-    let name: String
-    let description: String?
+    @Published var name: String
+    @Published var description: String
     let experimentID: Int64?
-    var datetime: Date
+    let datetime: Date
 
-    init(id: Int64?, name: String, description: String?, experimentID: Int64?, datetime: Date) {
+    init(id: Int64?, name: String, description: String, experimentID: Int64?, datetime: Date) {
         self.id = id
         self.name = name
         self.description = description

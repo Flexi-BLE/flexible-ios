@@ -28,7 +28,7 @@ import Foundation
                 return
             }
             for stamp in stamps {
-                let timestamp = MarkTimeViewModel(id: stamp.id, name: stamp.name ?? "N/A", description: stamp.description, experimentID: id, datetime: stamp.datetime)
+                let timestamp = MarkTimeViewModel(id: stamp.id, name: stamp.name ?? "N/A", description: stamp.description ?? "--", experimentID: id, datetime: stamp.datetime)
                 self.timestamps.append(timestamp)
             }
         case .failure(let err):
@@ -43,7 +43,7 @@ import Foundation
         
         switch res {
         case .success(let ts):
-            let marker = MarkTimeViewModel(id: ts.id, name: ts.name ?? name, description: ts.description, experimentID: ts.experimentId, datetime: ts.datetime)
+            let marker = MarkTimeViewModel(id: ts.id, name: ts.name ?? name, description: ts.description ?? "--", experimentID: ts.experimentId, datetime: ts.datetime)
             self.timestamps.append(marker)
         case .failure(let err):
             print(err.localizedDescription)
