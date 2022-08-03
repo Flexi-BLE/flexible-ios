@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct MarkTime: View {
-    var vm: ExperimentViewModel
-    
-    @State var name: String = ""
-    @State var description: String = ""
-    
+    @StateObject var vm: MarkTimeViewModel
     @Environment(\.presentationMode) var presentationMode
-    
     var body: some View {
         Form {
-            Section(header: Text("Create Timestamp")) {
-                TextField("Name", text: $name)
-                TextField("Description", text: $description)
+            Section(header: Text("Edit Timemarker")) {
+                TextField("Name", text: $vm.name)
+//                if #available(iOS 16.0, *) {
+//                    TextField("Description", text: $vm.description,  axis: .vertical)
+//                        .lineLimit(4...10)
+//                } else {
+                    TextField("Description", text: $vm.description)
+//                }
                 
-                Button("Mark") {
+                Button("Confirm Edit") {
                     Task {
-                        await vm.markTime(name: name, description: description)
+//                        await vm.markTime(name: name, description: description)
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -34,6 +34,6 @@ struct MarkTime: View {
 
 struct MarkTime_Previews: PreviewProvider {
     static var previews: some View {
-        MarkTime(vm: ExperimentViewModel())
+        MarkTime(vm: MarkTimeViewModel(id: nil, name: "Sample Name", description: "Sample Description", experimentID: nil, datetime: Date.now))
     }
 }

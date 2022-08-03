@@ -29,17 +29,7 @@ struct DeviceConfigSelectionView: View {
                     "Device Config JSON URL",
                     text: $urlString
                 )
-                .onSubmit {
-                    if let url = URL(string: urlString) {
-                        dismiss()
-                        Task {
-                            await vm.loadDeviceConfig(with: url)
-                        }
-                    } else {
-                        dismiss()
-                        vm.state = .error(message: "invalid URL")
-                    }
-                }
+                .onSubmit { load() }
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .border(.primary)
@@ -48,22 +38,41 @@ struct DeviceConfigSelectionView: View {
                     "Local File Name",
                     text: $fileNameString
                 )
-                .onSubmit {
-                    vm.loadDeviceConfig(with: fileNameString)
-                    dismiss()
-                }
+                .onSubmit { load() }
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .border(.primary)
             }
             Spacer()
-            AEButton(action: { dismiss() }) {
-                Text("Dismiss")
+            HStack {
+                AEButton(action: { load() }) {
+                    Text("Load")
+                }
+                AEButton(action: { dismiss() }) {
+                    Text("Cancel")
+                }
             }
         }.onAppear {
             useRemote = vm.localFileName == nil ? true : false
             urlString = vm.url?.absoluteString ?? ""
             fileNameString = vm.localFileName ?? ""
+        }
+    }
+    
+    private func load() {
+        if useRemote {
+            if let url = URL(string: urlString) {
+                Task {
+                    await vm.loadDeviceConfig(with: url)
+                    self.dismiss()
+                }
+            } else {
+                dismiss()
+                vm.state = .error(message: "invalid URL")
+            }
+        } else {
+            vm.loadDeviceConfig(with: fileNameString)
+            dismiss()
         }
     }
 }

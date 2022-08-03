@@ -52,6 +52,8 @@ import aeble
     func loadDeviceConfig(with fileName: String) {
         self.localFileName = fileName
         
+        self.state = .loading(name: fileName)
+        
         if let config = AEDeviceConfig.load(from: fileName) {
             self.state = .selected(config: config, name: fileName)
         } else {

@@ -17,20 +17,25 @@ struct MainTabView: View {
                     Image(systemName: "memorychip")
                     Text("Devices")
                 }
-            DataStreamsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
-                .tabItem {
-                    Image(systemName: "arrow.left.arrow.right")
-                    Text("Data Streams")
-                }
+//            DataStreamsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+//                .tabItem {
+//                    Image(systemName: "arrow.left.arrow.right")
+//                    Text("Data Streams")
+//                }
 //            GlobalConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
 //                .tabItem {
 //                    Image(systemName: "gearshape")
 //                    Text("Configurations")
 //                }
-            ExperimentView()
+//            GlobalConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+//                .tabItem {
+//                    Image(systemName: "gearshape")
+//                    Text("Configurations")
+//                }
+            ExperimentDashboardView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")
-                    Text("Experiment")
+                    Text("Experiments")
                 }
             SettingsView()
                 .tabItem {

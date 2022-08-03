@@ -9,80 +9,107 @@ import SwiftUI
 import aeble
 
 struct ActiveExperimentView: View {
-    var vm: ExperimentViewModel
-    var experiment: Experiment
-    
+    @ObservedObject var experiment: ExperimentViewModel
+    @ObservedObject var timemarker: MarkTimesViewModel
+    @State var nowDate = Date()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    var countupTimer: Timer {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.nowDate = Date()
+        }
+    }
+
     var body: some View {
-        List {
-            Section(header: Text("Active Experiment")) {
-                KeyValueView(key: "Name", value: experiment.name)
-                KeyValueView(key: "Description", value: experiment.description)
-                KeyValueView(key: "Start", value: String(describing: experiment.start))
-            }
-            
-            Section(header: Text("Actions")) {
-                Button("End Experiment") {
-                    Task { await vm.endExperiment() }
-                }
-                NavigationLink(
-                    destination: MarkTime(vm: vm),
-                    label: {
-                        Text("Mark Time")
+        VStack(alignment: .leading, spacing: 35) {
+            HStack(alignment: .center) {
+                VStack(alignment: .leading, spacing: 11) {
+                    HStack {
+                        Text(experiment.name)
+                            .font(.title)
+                        Spacer()
+                                                
+                        Button(action: {
+                            Task {
+                                await experiment.stopExperiment()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        }, label: {
+                            Image(systemName: "stop.circle")
+                                .font(.title)
+                        })
+                        .foregroundColor(.red)
+                        
+                        Image(systemName: "square.and.arrow.up.circle")
+                            .font(.title)
                     }
-                )
+                    Text(experiment.description ?? "")
+                        .font(.subheadline)
+                }
             }
             
-            Section(header: Text("Danger Zone")) {
-                Button("Delete Experiment") {
-                    Task { await vm.deleteExperiment() }
+            Divider()
+            
+            VStack(alignment: .leading, spacing: 17) {
+                Label("Experiment Details", systemImage: "info.circle.fill")
+                    .font(.title3)
+                VStack(alignment: .leading, spacing: 9) {
+                    KeyValueView(key: "Start Date",value: experiment.startDate.getDateAndTime())
+                    KeyValueView(key: "Runtime",value: countDownString(from: experiment.startDate))
+                    KeyValueView(key: "End Date", value: experiment.endDate?.getDateAndTime() ?? "N/A")
+                    KeyValueView(key: "GPS", value: "🚫")
                 }
+            }
+            
+            Divider()
+            
+            VStack(alignment: .leading, spacing: 11) {
+                HStack {
+                    Label("Timemark Details", systemImage: "calendar.badge.clock")
+                        .font(.title3)
+                    Spacer()
+                    AEButton(action: {
+                        Task {
+                            await timemarker.createTimemarker(id: experiment.id)
+                        }
+                    }, content: {
+                        Label("Mark Time", systemImage: "plus")
+                    })
+                }
+                MarkTimeListView(markTimes: timemarker)
             }
         }
-//        VStack(alignment: .leading) {
-//            Spacer()
-//            Text("Active Experiment")
-//                .font(.headline)
-//                .bold()
-//
-//            Divider()
-//
-//            HStack {
-//                Text("Name:")
-//                    .bold()
-//                Spacer()
-//                Text("\(experiment.name)")
-//            }
-//
-//            HStack {
-//                Text("Description:")
-//                    .bold()
-//                Spacer()
-//                Text("\(experiment.description ?? "--none--")")
-//            }
-//
-//            HStack {
-//                Text("Start Date:")
-//                    .bold()
-//                Spacer()
-//                Text("\(experiment.start)")
-//            }
-//
-//            Button("End Event") {
-//                Task {
-//                    await vm.endExperiment()
-//                }
-//            }
-//                .padding()
-//                .buttonStyle(BorderedProminentButtonStyle())
-//
-//            Spacer()
-//        }.padding()
+        .padding()
+        .onAppear(perform: {
+            _ = self.countupTimer
+        })
     }
+    
+    func countDownString(from date: Date) -> String {
+        if date > nowDate {
+            return "Yet to begin"
+        }
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar
+            .dateComponents([.hour, .minute, .second],
+                            from: date,
+                            to: nowDate)
+        return String(format: "%02d:%02d:%02d",
+                      abs(components.hour ?? 00),
+                      components.minute ?? 00,
+                      components.second ?? 00)
+    }
+
 }
 
 struct ActiveExperimentView_Previews: PreviewProvider {
     static var previews: some View {
-        let experiment = Experiment.dummyActive()
-        ActiveExperimentView(vm: ExperimentViewModel(), experiment: experiment)
+        ActiveExperimentView(experiment: ExperimentViewModel(
+            id: 312, name: "Sample Name",
+            description: "Sample Description for the selected experiment and it is a long one at that.",
+            start: Date(),
+            end: Date(),
+            active: true), timemarker: MarkTimesViewModel(expId: nil)
+        )
     }
 }

@@ -10,91 +10,33 @@ import Combine
 import aeble
 
 @MainActor class ExperimentViewModel: ObservableObject {
-    @Published var state: State
+    let id: Int64?
+    let name: String
+    let description: String?
+    var startDate: Date
+    @Published var endDate: Date?
+    @Published var isActive: Bool
     
-    init() {
-        self.state = .noExperiment
-        Task {
-            await self.getActiveEvent()
-        }
+    init(id: Int64?, name: String, description: String?, start: Date, end: Date?, active: Bool) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.startDate = start
+        self.endDate = end
+        self.isActive = active
     }
     
-    func getActiveEvent() async {
-        self.state = .loading
-        let res = await aeble.exp.activeEvent()
-    
-        switch res {
-        case .success(let e):
-            if let exp = e {
-                self.state = .activeExperiment(experiment: exp)
-            } else {
-                self.state = .noExperiment
-            }
-        case .failure(let e): self.state = .error(error: e)
-        }
-    }
-    
-    func createExperiment(name: String, description: String?=nil) async {
-        self.state = .loading
+    func stopExperiment() async {
+        guard let id = self.id else { return }
         
-        let res = await aeble.exp.startExperiment(
-            name: name,
-            description: description,
-            start: Date.now
-        )
+        let res = await aeble.exp.stopExperiment(id: id)
         
         switch res {
-        case .success(let e): self.state = .activeExperiment(experiment: e)
-        case .failure(let e): self.state = .error(error: e)
+        case .success(let exp):
+            self.isActive = exp.active
+            self.endDate = exp.end
+        case .failure(let e):
+            print(e.localizedDescription)
         }
-    }
-    
-    func endExperiment() async {
-        guard case .activeExperiment(experiment: let exp) = self.state,
-        let id = exp.id else { return }
-        
-        self.state = .loading
-        
-        let res = await aeble.exp.endExperiment(id: id)
-        
-        switch res {
-        case .success(_): self.state = .noExperiment
-        case .failure(let e): self.state = .error(error: e)
-        }
-    }
-    
-    func deleteExperiment() async {
-        guard case .activeExperiment(experiment: let exp) = self.state,
-              let id = exp.id else { return }
-        
-        let res = await aeble.exp.deleteExperiment(id: id)
-        
-        switch res {
-        case .success(_): self.state = .noExperiment
-        case .failure(let e): self.state = .error(error: e)
-        }
-    }
-    
-    func markTime(name: String, description: String?) async {
-        let res: Result<Bool, Error>
-        if case .activeExperiment(experiment: let exp) = self.state {
-            res = await aeble.exp.markTime(name: name, description: description, experiment: exp)
-        } else {
-            res = await aeble.exp.markTime(name: name, description: description)
-        }
-        
-        switch res {
-        case .success: break
-        case .failure(let e): self.state = .error(error: e)
-        }
-    }
-}
-
-extension ExperimentViewModel {
-    enum State {
-        case loading
-        case activeExperiment(experiment: Experiment)
-        case noExperiment
-        case error(error: Error)
     }
 }
