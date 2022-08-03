@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MarkTimeListView: View {
-    @ObservedObject var markTimes: TimeMarkersViewModel
+    @ObservedObject var timemarks: TimeMarkersViewModel
     var body: some View {
         List {
-            ForEach(markTimes.timestamps, id: \.datetime) { timestamp in
+            ForEach(timemarks.timestamps, id: \.datetime) { timestamp in
                 TimeMarkerCellView(vm: timestamp)
             }
         }
@@ -21,6 +21,6 @@ struct MarkTimeListView: View {
 
 struct MarkTimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkTimeListView(markTimes: TimeMarkersViewModel(expId: nil))
+        MarkTimeListView(timemarks: TimeMarkersViewModel(expId: nil))
     }
 }

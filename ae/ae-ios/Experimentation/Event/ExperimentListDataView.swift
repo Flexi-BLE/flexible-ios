@@ -39,6 +39,15 @@ struct ExperimentListDataView: View {
     
     func deleteExperiment(at offsets: IndexSet) {
         print("Deleting")
+        offsets.forEach { (index) in
+            let expToDelete = vm.experiments[index]
+            Task {
+                let status = await expToDelete.deleteExperiment()
+                if status {
+                    vm.experiments.remove(at: index)
+                }
+            }
+        }
     }
 }
 

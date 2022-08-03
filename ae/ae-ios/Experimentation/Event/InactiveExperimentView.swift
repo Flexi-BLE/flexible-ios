@@ -42,7 +42,7 @@ struct InactiveExperimentView: View {
                         .font(.title3)
                     Spacer()
                 }
-                MarkTimeListView(markTimes: timemarker)
+                MarkTimeListView(timemarks: timemarker)
             }
         }
         .padding()

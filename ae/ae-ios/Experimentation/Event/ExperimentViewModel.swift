@@ -39,4 +39,18 @@ import aeble
             print(e.localizedDescription)
         }
     }
+    
+
+    func deleteExperiment() async -> Bool {
+        guard let id = self.id else { return false}
+        let res = await aeble.exp.deleteExperiment(id: id)
+        switch res {
+        case .success(let status):
+            print(status)
+            return status
+        case .failure(let error):
+            print(error.localizedDescription)
+            return false
+        }
+    }
 }

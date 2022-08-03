@@ -14,14 +14,17 @@ struct ExperimentDashboardView: View {
             VStack {
                 HelpHeaderView(title: "Experiments", helpText: "todo...")
                 CreateExperimentButtonView(pvm: vm)
-                
+                Spacer()
                 switch vm.state {
                 case .noExperiment:
                     Text("No active Experiments")
+                        .font(.title3)
                 case .loading:
                     Text("Loading")
+                        .font(.title3)
                 case .error(error: let err):
                     Text(err.localizedDescription)
+                        .font(.title3)
                 case .fetched:
                     ExperimentListDataView(vm: vm)
                 }

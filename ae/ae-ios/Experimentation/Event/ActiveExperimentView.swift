@@ -28,20 +28,25 @@ struct ActiveExperimentView: View {
                         Text(experiment.name)
                             .font(.title)
                         Spacer()
-                                                
-                        Button(action: {
-                            Task {
-                                await experiment.stopExperiment()
-                                self.presentationMode.wrappedValue.dismiss()
-                            }
-                        }, label: {
-                            Image(systemName: "stop.circle")
-                                .font(.title)
-                        })
-                        .foregroundColor(.red)
                         
+                        Image(systemName: "stop.circle")
+                            .font(.title)
+                            .foregroundColor(.red)
+                            .onTapGesture {
+                                Task {
+                                    await experiment.stopExperiment()
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                            }
+                                                
                         Image(systemName: "square.and.arrow.up.circle")
                             .font(.title)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                Task {
+                                    print("TODO Sharing")
+                                }
+                            }
                     }
                     Text(experiment.description ?? "")
                         .font(.subheadline)
@@ -76,7 +81,7 @@ struct ActiveExperimentView: View {
                         Label("Mark Time", systemImage: "plus")
                     })
                 }
-                MarkTimeListView(markTimes: timemarker)
+                MarkTimeListView(timemarks: timemarker)
             }
         }
         .padding()

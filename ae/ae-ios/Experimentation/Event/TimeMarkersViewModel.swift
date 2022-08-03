@@ -39,7 +39,7 @@ import Foundation
     
     func createTimemarker(id: Int64?) async {
         let name = "Timestamp - \(Date().getDetailedDate())"
-        let res = await aeble.exp.createTimeMarkers(name: name, experimentId: id)
+        let res = await aeble.exp.createTimeMarker(name: name, experimentId: id)
         
         switch res {
         case .success(let ts):
