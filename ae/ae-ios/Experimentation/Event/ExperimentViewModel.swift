@@ -1,49 +1,42 @@
 //
-//  EventViewModel.swift
-//  ntrain-exthub (iOS)
+//  NewExperimentViewModel.swift
+//  ae-ios
 //
-//  Created by blaine on 2/28/22.
+//  Created by Blaine Rothrock on 8/3/22.
 //
 
 import Foundation
 import Combine
 import aeble
+import SwiftUI
+
 
 @MainActor class ExperimentViewModel: ObservableObject {
-    let id: Int64?
-    let name: String
-    let description: String?
-    var startDate: Date
-    @Published var endDate: Date?
-    @Published var isActive: Bool
+    @State var experiment: Experiment
+    @State var errorMsg: String?=nil
     
-    init(id: Int64?, name: String, description: String?, start: Date, end: Date?, active: Bool) {
-        self.id = id
-        self.name = name
-        self.description = description
-        self.startDate = start
-        self.endDate = end
-        self.isActive = active
+    init(_ experiment: Experiment) {
+        self.experiment = experiment
     }
     
     func stopExperiment() async {
-        guard let id = self.id else { return }
+        guard let id = self.experiment.id else { return }
         
         let res = await aeble.exp.stopExperiment(id: id)
         
         switch res {
         case .success(let exp):
-            self.isActive = exp.active
-            self.endDate = exp.end
+            self.experiment = exp
         case .failure(let e):
-            print(e.localizedDescription)
+            errorMsg = e.localizedDescription
         }
     }
     
-
     func deleteExperiment() async -> Bool {
-        guard let id = self.id else { return false}
+        guard let id = self.experiment.id else { return false}
+        
         let res = await aeble.exp.deleteExperiment(id: id)
+        
         switch res {
         case .success(let status):
             print(status)

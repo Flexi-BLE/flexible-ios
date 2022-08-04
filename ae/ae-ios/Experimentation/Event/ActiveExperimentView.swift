@@ -1,31 +1,34 @@
 //
-//  ActiveExperimentView.swift
-//  ntrain-exthub (iOS)
+//  NewActiveExperimentView.swift
+//  ae-ios
 //
-//  Created by blaine on 2/28/22.
+//  Created by Blaine Rothrock on 8/3/22.
 //
 
 import SwiftUI
 import aeble
 
 struct ActiveExperimentView: View {
-    @ObservedObject var experiment: ExperimentViewModel
-    @ObservedObject var timemarker: TimeMarkersViewModel
+    @StateObject var vm: ExperimentViewModel
+    
     @State var nowDate = Date()
+    
+    var onDismiss: () -> ()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var countupTimer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.nowDate = Date()
         }
     }
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 35) {
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 11) {
                     HStack {
-                        Text(experiment.name)
+                        Text(vm.experiment.name)
                             .font(.title)
                         Spacer()
                         
@@ -34,8 +37,9 @@ struct ActiveExperimentView: View {
                             .foregroundColor(.red)
                             .onTapGesture {
                                 Task {
-                                    await experiment.stopExperiment()
+                                    await vm.stopExperiment()
                                     self.presentationMode.wrappedValue.dismiss()
+                                    self.onDismiss()
                                 }
                             }
                                                 
@@ -48,10 +52,14 @@ struct ActiveExperimentView: View {
                                 }
                             }
                     }
-                    Text(experiment.description ?? "")
+                    Text(vm.experiment.description ?? "")
                         .font(.subheadline)
                 }
             }
+            
+//            if (vm.experiment.trackGPS) {
+//                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
+//            }
             
             Divider()
             
@@ -59,29 +67,19 @@ struct ActiveExperimentView: View {
                 Label("Experiment Details", systemImage: "info.circle.fill")
                     .font(.title3)
                 VStack(alignment: .leading, spacing: 9) {
-                    KeyValueView(key: "Start Date",value: experiment.startDate.getDateAndTime())
-                    KeyValueView(key: "Runtime",value: countDownString(from: experiment.startDate))
-                    KeyValueView(key: "End Date", value: experiment.endDate?.getDateAndTime() ?? "N/A")
-                    KeyValueView(key: "GPS", value: "🚫")
+                    KeyValueView(key: "Start Date",value: vm.experiment.start.getDateAndTime())
+                    KeyValueView(key: "Runtime",value: countDownString(from: vm.experiment.start))
+                    KeyValueView(key: "End Date", value: vm.experiment.end?.getDateAndTime() ?? "N/A")
+                    KeyValueView(key: "GPS", value: vm.experiment.trackGPS ? "👌" : "🚫")
                 }
             }
             
             Divider()
             
             VStack(alignment: .leading, spacing: 11) {
-                HStack {
-                    Label("Timemark Details", systemImage: "calendar.badge.clock")
-                        .font(.title3)
-                    Spacer()
-                    AEButton(action: {
-                        Task {
-                            await timemarker.createTimemarker(id: experiment.id)
-                        }
-                    }, content: {
-                        Label("Mark Time", systemImage: "plus")
-                    })
-                }
-                MarkTimeListView(timemarks: timemarker)
+                TimestampListView(
+                    vm: TimestampsViewModel(with: vm.experiment.id),
+                    canCreate: true)
             }
         }
         .padding()
@@ -104,17 +102,10 @@ struct ActiveExperimentView: View {
                       components.minute ?? 00,
                       components.second ?? 00)
     }
-
 }
 
-struct ActiveExperimentView_Previews: PreviewProvider {
+struct NewActiveExperimentView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveExperimentView(experiment: ExperimentViewModel(
-            id: 312, name: "Sample Name",
-            description: "Sample Description for the selected experiment and it is a long one at that.",
-            start: Date(),
-            end: Date(),
-            active: true), timemarker: TimeMarkersViewModel(expId: nil)
-        )
+        ActiveExperimentView(vm: ExperimentViewModel(Experiment.dummyActive()), onDismiss: {})
     }
 }

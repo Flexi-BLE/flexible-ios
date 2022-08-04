@@ -37,13 +37,6 @@
 		011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */; };
 		011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
 		011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
-		011F48AB28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489528076B3B00B359EB /* EditTimeMarkerView.swift */; };
-		011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489728076B3B00B359EB /* ExperimentViewModel.swift */; };
-		011F48AE28076B3B00B359EB /* ExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489728076B3B00B359EB /* ExperimentViewModel.swift */; };
-		011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489828076B3B00B359EB /* ActiveExperimentView.swift */; };
-		011F48B028076B3B00B359EB /* ActiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489828076B3B00B359EB /* ActiveExperimentView.swift */; };
-		011F48B128076B3B00B359EB /* NewExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489928076B3B00B359EB /* NewExperimentView.swift */; };
-		011F48B228076B3B00B359EB /* NewExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489928076B3B00B359EB /* NewExperimentView.swift */; };
 		011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B828076C6D00B359EB /* UIDevice.swift */; };
 		011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B828076C6D00B359EB /* UIDevice.swift */; };
 		011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B928076C6D00B359EB /* ShareUtil.swift */; };
@@ -63,6 +56,23 @@
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
 		013F767528888577000D88E2 /* ConfigValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767428888577000D88E2 /* ConfigValueView.swift */; };
+		014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6B7289B5235008982C6 /* ExperimentMapView.swift */; };
+		014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */; };
+		014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */; };
+		014DB6BE289B613B008982C6 /* ExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6BD289B613B008982C6 /* ExperimentViewModel.swift */; };
+		014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6C2289B626D008982C6 /* ActiveExperimentView.swift */; };
+		014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6C4289B63E4008982C6 /* NewExperimentViewModel.swift */; };
+		014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6C6289B63F2008982C6 /* NewExperimentView.swift */; };
+		014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6C8289B65E6008982C6 /* ExperimentsViewModel.swift */; };
+		014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6CA289B65F3008982C6 /* ExperimentsView.swift */; };
+		014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6CC289B6814008982C6 /* ExperimentsListView.swift */; };
+		014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6CE289B6907008982C6 /* ExperimentListCellView.swift */; };
+		014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6D0289B6A24008982C6 /* InactiveExperimentsView.swift */; };
+		014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6D6289B6F82008982C6 /* TimestampListView.swift */; };
+		014DB6D9289B6FA1008982C6 /* TimestampsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6D8289B6FA1008982C6 /* TimestampsViewModel.swift */; };
+		014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DA289B7189008982C6 /* TimestampCellView.swift */; };
+		014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */; };
+		014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6E0289B73C3008982C6 /* EditTimestampView.swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
@@ -120,19 +130,10 @@
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
 		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
-		5C54194C28997A66005CBA25 /* ExperimentListDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */; };
-		5C54194E28997F37005CBA25 /* ExperimentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */; };
 		5C5419502899809C005CBA25 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194F2899809C005CBA25 /* String+Util.swift */; };
 		5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
-		5CA59A6428999DB2003785EA /* MarkTimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6328999DB2003785EA /* MarkTimeListView.swift */; };
-		5CA59A6628999DF8003785EA /* TimeMarkerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */; };
-		5CA59A6828999EBA003785EA /* TimeMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */; };
-		5CA59A6A28999EEC003785EA /* TimeMarkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */; };
-		5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
-		5CBE6CCB28986A7B0048AEDE /* ExperimentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE6CCA28986A7B0048AEDE /* ExperimentsViewModel.swift */; };
-		5CBE6CCD28986F1A0048AEDE /* ExperimentDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE6CCC28986F1A0048AEDE /* ExperimentDashboardView.swift */; };
 		5CD3AD742881E0730082F983 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 5CD3AD732881E0730082F983 /* aeble */; };
 /* End PBXBuildFile section */
 
@@ -177,10 +178,6 @@
 		011F489128076B3B00B359EB /* DataExplorerColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerColumnView.swift; sourceTree = "<group>"; };
 		011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerTableViewModel.swift; sourceTree = "<group>"; };
 		011F489328076B3B00B359EB /* DataExplorerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerViewModel.swift; sourceTree = "<group>"; };
-		011F489528076B3B00B359EB /* EditTimeMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimeMarkerView.swift; sourceTree = "<group>"; };
-		011F489728076B3B00B359EB /* ExperimentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentViewModel.swift; sourceTree = "<group>"; };
-		011F489828076B3B00B359EB /* ActiveExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveExperimentView.swift; sourceTree = "<group>"; };
-		011F489928076B3B00B359EB /* NewExperimentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentView.swift; sourceTree = "<group>"; };
 		011F48B828076C6D00B359EB /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		011F48B928076C6D00B359EB /* ShareUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtil.swift; sourceTree = "<group>"; };
 		011F48BE28076CA600B359EB /* aeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aeble.swift; sourceTree = "<group>"; };
@@ -190,6 +187,23 @@
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
+		014DB6B7289B5235008982C6 /* ExperimentMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentMapView.swift; sourceTree = "<group>"; };
+		014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Utils.swift"; sourceTree = "<group>"; };
+		014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentMapViewModel.swift; sourceTree = "<group>"; };
+		014DB6BD289B613B008982C6 /* ExperimentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentViewModel.swift; sourceTree = "<group>"; };
+		014DB6C2289B626D008982C6 /* ActiveExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveExperimentView.swift; sourceTree = "<group>"; };
+		014DB6C4289B63E4008982C6 /* NewExperimentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExperimentViewModel.swift; sourceTree = "<group>"; };
+		014DB6C6289B63F2008982C6 /* NewExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExperimentView.swift; sourceTree = "<group>"; };
+		014DB6C8289B65E6008982C6 /* ExperimentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsViewModel.swift; sourceTree = "<group>"; };
+		014DB6CA289B65F3008982C6 /* ExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsView.swift; sourceTree = "<group>"; };
+		014DB6CC289B6814008982C6 /* ExperimentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsListView.swift; sourceTree = "<group>"; };
+		014DB6CE289B6907008982C6 /* ExperimentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentListCellView.swift; sourceTree = "<group>"; };
+		014DB6D0289B6A24008982C6 /* InactiveExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveExperimentsView.swift; sourceTree = "<group>"; };
+		014DB6D6289B6F82008982C6 /* TimestampListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampListView.swift; sourceTree = "<group>"; };
+		014DB6D8289B6FA1008982C6 /* TimestampsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampsViewModel.swift; sourceTree = "<group>"; };
+		014DB6DA289B7189008982C6 /* TimestampCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCellView.swift; sourceTree = "<group>"; };
+		014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampViewModel.swift; sourceTree = "<group>"; };
+		014DB6E0289B73C3008982C6 /* EditTimestampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTimestampView.swift; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
@@ -220,19 +234,10 @@
 		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithUserLocationView.swift; sourceTree = "<group>"; };
-		5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentListDataView.swift; sourceTree = "<group>"; };
-		5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentListCellView.swift; sourceTree = "<group>"; };
 		5C54194F2899809C005CBA25 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		5C5419512899836B005CBA25 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
-		5CA59A6328999DB2003785EA /* MarkTimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTimeListView.swift; sourceTree = "<group>"; };
-		5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkerCellView.swift; sourceTree = "<group>"; };
-		5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkersViewModel.swift; sourceTree = "<group>"; };
-		5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMarkerViewModel.swift; sourceTree = "<group>"; };
-		5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveExperimentView.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* AEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEButton.swift; sourceTree = "<group>"; };
-		5CBE6CCA28986A7B0048AEDE /* ExperimentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsViewModel.swift; sourceTree = "<group>"; };
-		5CBE6CCC28986F1A0048AEDE /* ExperimentDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,14 +423,15 @@
 		011F489628076B3B00B359EB /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				011F489728076B3B00B359EB /* ExperimentViewModel.swift */,
-				011F489828076B3B00B359EB /* ActiveExperimentView.swift */,
-				011F489928076B3B00B359EB /* NewExperimentView.swift */,
-				5CBE6CCA28986A7B0048AEDE /* ExperimentsViewModel.swift */,
-				5CBE6CCC28986F1A0048AEDE /* ExperimentDashboardView.swift */,
-				5C54194B28997A66005CBA25 /* ExperimentListDataView.swift */,
-				5C54194D28997F37005CBA25 /* ExperimentListCellView.swift */,
-				5CA59A6B2899BAA0003785EA /* InactiveExperimentView.swift */,
+				014DB6BD289B613B008982C6 /* ExperimentViewModel.swift */,
+				014DB6C2289B626D008982C6 /* ActiveExperimentView.swift */,
+				014DB6C4289B63E4008982C6 /* NewExperimentViewModel.swift */,
+				014DB6C6289B63F2008982C6 /* NewExperimentView.swift */,
+				014DB6C8289B65E6008982C6 /* ExperimentsViewModel.swift */,
+				014DB6CA289B65F3008982C6 /* ExperimentsView.swift */,
+				014DB6CC289B6814008982C6 /* ExperimentsListView.swift */,
+				014DB6CE289B6907008982C6 /* ExperimentListCellView.swift */,
+				014DB6D0289B6A24008982C6 /* InactiveExperimentsView.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 				01CA3BAB281A46CE0004875D /* Path.swift */,
 				5C54194F2899809C005CBA25 /* String+Util.swift */,
 				5C5419512899836B005CBA25 /* Date+Utils.swift */,
+				014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -537,11 +544,11 @@
 		5C3E739B289B185A00511D56 /* TimeMarkers */ = {
 			isa = PBXGroup;
 			children = (
-				5CA59A6328999DB2003785EA /* MarkTimeListView.swift */,
-				5CA59A6528999DF8003785EA /* TimeMarkerCellView.swift */,
-				5CA59A6728999EBA003785EA /* TimeMarkersViewModel.swift */,
-				5CA59A6928999EEC003785EA /* TimeMarkerViewModel.swift */,
-				011F489528076B3B00B359EB /* EditTimeMarkerView.swift */,
+				014DB6D6289B6F82008982C6 /* TimestampListView.swift */,
+				014DB6D8289B6FA1008982C6 /* TimestampsViewModel.swift */,
+				014DB6DA289B7189008982C6 /* TimestampCellView.swift */,
+				014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */,
+				014DB6E0289B73C3008982C6 /* EditTimestampView.swift */,
 			);
 			path = TimeMarkers;
 			sourceTree = "<group>";
@@ -551,6 +558,8 @@
 			children = (
 				5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */,
 				5C3E7399289B165300511D56 /* LocationManager.swift */,
+				014DB6B7289B5235008982C6 /* ExperimentMapView.swift */,
+				014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -727,68 +736,72 @@
 			buildActionMask = 2147483647;
 			files = (
 				011F489B28076B3B00B359EB /* SettingsView.swift in Sources */,
+				014DB6D9289B6FA1008982C6 /* TimestampsViewModel.swift in Sources */,
 				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
-				5C54194E28997F37005CBA25 /* ExperimentListCellView.swift in Sources */,
+				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
+				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
+				014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */,
+				014DB6BE289B613B008982C6 /* ExperimentViewModel.swift in Sources */,
 				5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */,
 				0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
 				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
+				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
+				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
+				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
+				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
 				01E7F290281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
-				5CBE6CCD28986F1A0048AEDE /* ExperimentDashboardView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
-				011F48AF28076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
+				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				011F48BF28076CA600B359EB /* aeble.swift in Sources */,
+				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
+				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
+				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
+				014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */,
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
-				5CA59A6828999EBA003785EA /* TimeMarkersViewModel.swift in Sources */,
 				01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */,
-				5CA59A6428999DB2003785EA /* MarkTimeListView.swift in Sources */,
 				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
-				5C54194C28997A66005CBA25 /* ExperimentListDataView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
-				011F48B128076B3B00B359EB /* NewExperimentView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
-				5CA59A6C2899BAA0003785EA /* InactiveExperimentView.swift in Sources */,
-				011F48AD28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
-				011F48AB28076B3B00B359EB /* EditTimeMarkerView.swift in Sources */,
+				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
+				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
-				5CA59A6A28999EEC003785EA /* TimeMarkerViewModel.swift in Sources */,
+				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
-				5CA59A6628999DF8003785EA /* TimeMarkerCellView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
-				5CBE6CCB28986A7B0048AEDE /* ExperimentsViewModel.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
 			);
@@ -812,7 +825,6 @@
 				01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
 				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
-				011F48B028076B3B00B359EB /* ActiveExperimentView.swift in Sources */,
 				01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				011F48C028076CA600B359EB /* aeble.swift in Sources */,
 				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
@@ -827,11 +839,9 @@
 				011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
-				011F48B228076B3B00B359EB /* NewExperimentView.swift in Sources */,
 				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
-				011F48AE28076B3B00B359EB /* ExperimentViewModel.swift in Sources */,
 				011F48A028076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
 				01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,

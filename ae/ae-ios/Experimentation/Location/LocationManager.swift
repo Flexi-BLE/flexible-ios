@@ -79,6 +79,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let latest = lastLocation else {
             return
         }
+        
         let _ = await aeble.exp.trackGPSLocation(
             latitude: latest.coordinate.latitude.magnitude,
             longitude: latest.coordinate.latitude.magnitude,

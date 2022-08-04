@@ -1,28 +1,30 @@
 //
-//  ExperimentListCellView.swift
+//  NewExperimentListCellView.swift
 //  ae-ios
 //
-//  Created by Nikhil Khandelwal on 8/2/22.
+//  Created by Blaine Rothrock on 8/3/22.
 //
 
 import SwiftUI
+import aeble
 
 struct ExperimentListCellView: View {
-    @ObservedObject var vm: ExperimentViewModel
+    @StateObject var vm: ExperimentViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 9) {
             HStack(spacing: 19) {
                 VStack(alignment: .leading, spacing: 7) {
-                    Text(vm.name)
+                    Text(vm.experiment.name)
                         .font(.headline)
-                    Text(vm.description ?? "--")
+                    Text(vm.experiment.description ?? "--")
                         .lineLimit(1)
                         .truncationMode(.tail)
-                    Text(getExperimentDisplayDate(start:vm.startDate, end:vm.endDate))
+                    Text(getExperimentDisplayDate(start:vm.experiment.start, end:vm.experiment.end))
                         .font(.subheadline)
                 }
                 Spacer()
-                switch vm.isActive {
+                switch vm.experiment.active {
                 case true:
                     Image(systemName: "checklist.unchecked")
                         .font(.system(size: 25))
@@ -35,7 +37,6 @@ struct ExperimentListCellView: View {
         .padding()
     }
     
-    
     func getExperimentDisplayDate(start: Date, end: Date?) -> String {
         guard let end = end else {
             return "\(start.getShortDate())"
@@ -44,14 +45,8 @@ struct ExperimentListCellView: View {
     }
 }
 
-struct ExperimentListCellView_Previews: PreviewProvider {
+struct NewExperimentListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentListCellView(vm: ExperimentViewModel(
-            id: 1, name: "Heart rate - ALT",
-            description: "To measure heart rate while running uphill and capturing other data points and sensor data.",
-            start: Date(),
-            end: nil,
-            active: false)
-        )
+        ExperimentListCellView(vm: ExperimentViewModel(Experiment.dummyActive()))
     }
 }

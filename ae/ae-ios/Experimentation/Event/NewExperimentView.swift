@@ -1,20 +1,17 @@
 //
-//  NewExperimentView.swift
-//  ntrain-exthub (iOS)
+//  NewNewExperimentView.swift
+//  ae-ios
 //
-//  Created by blaine on 2/28/22.
+//  Created by Blaine Rothrock on 8/3/22.
 //
 
 import SwiftUI
 
 struct NewExperimentView: View {
-    var vm: ExperimentsViewModel
-    @State var name: String = ""
-    @State var description: String = ""
-    @State var startDate: Date = Date()
-    @State var endDate: Date = Date()
-    @State private var hasEndDate = false
-    @State private var trackGPS = false
+    @StateObject var vm: NewExperimentViewModel = NewExperimentViewModel()
+    
+    var onDismiss: () -> ()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -23,7 +20,7 @@ struct NewExperimentView: View {
                 VStack(alignment: .leading) {
                     Text("Experiment Name")
                         .bold()
-                    TextField("Name", text: $name)
+                    TextField("Name", text: $vm.name)
                         .textFieldStyle(.roundedBorder)
                 }
                 .padding()
@@ -36,7 +33,7 @@ struct NewExperimentView: View {
 //                            .lineLimit(4...10)
 //                            .textFieldStyle(.roundedBorder)
 //                    } else {
-                        TextField("Description", text: $description)
+                    TextField("Description", text: $vm.description)
                             .textFieldStyle(.roundedBorder)
 //                    }
                 }
@@ -45,7 +42,7 @@ struct NewExperimentView: View {
                 VStack(alignment: .leading) {
                     Text("Start Date")
                         .bold()
-                    DatePicker("", selection: $startDate,displayedComponents: [.date,.hourAndMinute])
+                    DatePicker("", selection: $vm.startDate,displayedComponents: [.date,.hourAndMinute])
                         .datePickerStyle(.compact)
                         .labelsHidden()
                 }
@@ -56,11 +53,11 @@ struct NewExperimentView: View {
                         Text("End Date")
                             .bold()
                         Spacer()
-                        Toggle("Show welcome message", isOn: $hasEndDate)
+                        Toggle("Show welcome message", isOn: $vm.hasEndDate)
                             .labelsHidden()
                     }
-                    if hasEndDate {
-                        DatePicker("", selection: $endDate,displayedComponents: [.date,.hourAndMinute])
+                    if vm.hasEndDate {
+                        DatePicker("", selection: $vm.endDate,displayedComponents: [.date,.hourAndMinute])
                             .datePickerStyle(.compact)
                             .labelsHidden()
                     }
@@ -72,7 +69,7 @@ struct NewExperimentView: View {
                         Text("GPS Tracking")
                             .bold()
                         Spacer()
-                        Toggle("Show welcome message", isOn: $trackGPS)
+                        Toggle("Show welcome message", isOn: $vm.trackGPS)
                             .labelsHidden()
                     }
                 }
@@ -83,18 +80,12 @@ struct NewExperimentView: View {
                     Spacer()
                     AEButton(action: {
                         Task{
-                            await vm.createExperiment(
-                                name: name,
-                                description: description,
-                                startDate: startDate,
-                                hasEndDate: hasEndDate,
-                                endDate: endDate,
-                                tracksGPS: trackGPS
-                            )
+                            await vm.createExperiment()
+                            self.onDismiss()
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }) {
-                        Text("Create Experiment")
+                        Text("Create")
                     }
                     Spacer()
                 }
@@ -104,8 +95,8 @@ struct NewExperimentView: View {
     }
 }
 
-struct NewExperimentView_Previews: PreviewProvider {
+struct NewNewExperimentView_Previews: PreviewProvider {
     static var previews: some View {
-        NewExperimentView(vm: ExperimentsViewModel())
+        NewExperimentView(onDismiss: {})
     }
 }

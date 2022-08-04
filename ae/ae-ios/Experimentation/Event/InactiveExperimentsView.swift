@@ -1,22 +1,22 @@
 //
-//  InactiveExperimentView.swift
+//  NewInactiveExperimentsView.swift
 //  ae-ios
 //
-//  Created by Nikhil Khandelwal on 8/2/22.
+//  Created by Blaine Rothrock on 8/3/22.
 //
 
 import SwiftUI
+import aeble
 
-struct InactiveExperimentView: View {
-    var experiment: ExperimentViewModel
-    @ObservedObject var timemarker: TimeMarkersViewModel
-
+struct InactiveExperimentsView: View {
+    @StateObject var vm: ExperimentViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 29) {
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(experiment.name)
+                        Text(vm.experiment.name)
                             .font(.title)
                         Spacer()
                         Image(systemName: "stop.circle")
@@ -24,7 +24,7 @@ struct InactiveExperimentView: View {
                         Image(systemName: "square.and.arrow.up.circle")
                             .font(.title)
                     }
-                    Text(experiment.description ?? "")
+                    Text(vm.experiment.description ?? "")
                         .font(.subheadline)
                 }
             }
@@ -32,8 +32,8 @@ struct InactiveExperimentView: View {
             VStack(alignment: .leading, spacing: 11) {
                 Label("Experiment Details", systemImage: "info.circle.fill")
                     .font(.title3)
-                KeyValueView(key: "Start Date",value: experiment.startDate.getShortDate())
-                KeyValueView(key: "End Date", value: experiment.endDate?.getShortDate() ?? "N/A")
+                KeyValueView(key: "Start Date",value: vm.experiment.start.getShortDate())
+                KeyValueView(key: "End Date", value: vm.experiment.end?.getShortDate() ?? "N/A")
             }
             
             VStack(alignment: .leading, spacing: 11) {
@@ -42,20 +42,18 @@ struct InactiveExperimentView: View {
                         .font(.title3)
                     Spacer()
                 }
-                MarkTimeListView(timemarks: timemarker)
+                TimestampListView(
+                    vm: TimestampsViewModel(with: vm.experiment.id),
+                    canCreate: false
+                )
             }
         }
         .padding()
     }
 }
 
-struct InactiveExperimentView_Previews: PreviewProvider {
+struct NewInactiveExperimentsView_Previews: PreviewProvider {
     static var previews: some View {
-        InactiveExperimentView(experiment: ExperimentViewModel(
-            id: 312, name: "Sample Name",
-            description: "Sample Description for the selected experiment and it is a long one at that.",
-            start: Date(),
-            end: Date(),
-            active: true), timemarker: TimeMarkersViewModel(expId: nil))
+        InactiveExperimentsView(vm: ExperimentViewModel(Experiment.dummyActive()))
     }
 }
