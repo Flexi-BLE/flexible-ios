@@ -23,8 +23,29 @@ import aeble
     
     private func fetchLocations() {
         Task {
-            self.locations = try await aeble.read.GetLocations()
-            self.region = MKCoordinateRegion(coordinates: self.locations)
+            self.locations = try await aeble.read.GetLocations(
+                startDate: experiment.start,
+                endDate: experiment.end,
+                limit: nil,
+                offset: nil
+            )
+            if self.locations.count > 0 {
+                self.region = MKCoordinateRegion(coordinates: self.locations)
+            }
+        }
+    }
+    
+    func points() -> [Point] {
+        return locations.map({ Point(lat: $0.latitude, long: $0.longitude) })
+    }
+    
+    struct Point: Identifiable {
+        let id: UUID
+        let location: CLLocationCoordinate2D
+        
+        init(id: UUID=UUID(), lat: Double, long: Double) {
+            self.id = id
+            self.location = CLLocationCoordinate2D(latitude: lat, longitude: long)
         }
     }
 }

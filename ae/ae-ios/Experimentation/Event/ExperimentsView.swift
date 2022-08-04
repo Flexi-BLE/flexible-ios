@@ -25,10 +25,12 @@ struct ExperimentsView: View {
                                 }
                             }
                         )
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitle("New Experiment")
                     ) {
                         HStack {
                             Image(systemName: "plus")
-                            Text("New Experiment")
+                            Text("New")
                                 .font(.headline)
                         }
                         .padding(11)
@@ -55,6 +57,8 @@ struct ExperimentsView: View {
                 }
                 Spacer()
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

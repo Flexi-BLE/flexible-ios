@@ -21,12 +21,11 @@ import aeble
     
     func createExperiment() async {
         
-        let end = hasEndDate ? endDate : nil
         let res = await aeble.exp.createExperiment(
             name: name,
-            description: description,
+            description: description == "" ? nil : description,
             start: startDate,
-            end: end,
+            end: hasEndDate ? endDate : nil,
             active: true,
             trackGPS: trackGPS
         )

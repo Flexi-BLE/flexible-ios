@@ -25,12 +25,18 @@ struct ExperimentsListView: View {
                                 }
                             }
                         )
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitle(experiment.name)
                     ) {
                         ExperimentListCellView(vm: ExperimentViewModel(experiment))
                     }
                 case false:
                     EmptyView()
-                    NavigationLink(destination: InactiveExperimentsView(vm: ExperimentViewModel(experiment))) {
+                    NavigationLink(
+                        destination: InactiveExperimentsView(vm: ExperimentViewModel(experiment))
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarTitle(experiment.name)
+                    ) {
                         ExperimentListCellView(vm: ExperimentViewModel(experiment))
                     }
                 }

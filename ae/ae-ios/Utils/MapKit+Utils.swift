@@ -20,17 +20,23 @@ extension MKCoordinateRegion {
         for loc in coordinates {
             if loc.latitude < minLat { minLat = loc.latitude }
             if loc.longitude < minLong { minLong = loc.longitude }
-            if loc.latitude > maxLat { maxLat = loc.longitude }
+            if loc.latitude > maxLat { maxLat = loc.latitude }
             if loc.longitude > maxLong { maxLong = loc.longitude }
         }
         
+        let minDelta = 0.05
+        
+        let latDelta = maxLat - minLat
+        let longDelta = maxLong - minLong
+        
         let span = MKCoordinateSpan(
-            latitudeDelta: maxLat - minLat,
-            longitudeDelta: maxLong - minLong
+            latitudeDelta: max(latDelta, minDelta),
+            longitudeDelta: max(longDelta, minDelta)
         )
+        
         let center = CLLocationCoordinate2D(
-            latitude: maxLat - span.latitudeDelta / 2,
-            longitude: maxLong - span.longitudeDelta / 2
+            latitude: latDelta < minDelta ? coordinates[0].latitude : (maxLat - span.latitudeDelta / 2),
+            longitude: longDelta < minDelta ? coordinates[0].longitude : (maxLong - span.longitudeDelta / 2)
         )
         
         self.init(center: center, span: span)

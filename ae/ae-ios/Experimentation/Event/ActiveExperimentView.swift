@@ -24,16 +24,16 @@ struct ActiveExperimentView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 35) {
+        VStack(alignment: .leading, spacing: 12) {
+            if (vm.experiment.trackGPS) {
+                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
+            }
             HStack(alignment: .center) {
-                VStack(alignment: .leading, spacing: 11) {
+                VStack(alignment: .leading, spacing: 12) {
                     HStack {
-                        Text(vm.experiment.name)
-                            .font(.title)
-                        Spacer()
-                        
                         Image(systemName: "stop.circle")
-                            .font(.title)
+                            .resizable()
+                            .frame(width: 30.0, height: 30.0)
                             .foregroundColor(.red)
                             .onTapGesture {
                                 Task {
@@ -44,35 +44,30 @@ struct ActiveExperimentView: View {
                             }
                                                 
                         Image(systemName: "square.and.arrow.up.circle")
-                            .font(.title)
+                            .resizable()
+                            .frame(width: 30.0, height: 30.0)
                             .foregroundColor(.blue)
                             .onTapGesture {
                                 Task {
                                     print("TODO Sharing")
                                 }
                             }
+                        Spacer()
                     }
-                    Text(vm.experiment.description ?? "")
-                        .font(.subheadline)
+                    if let description = vm.experiment.description {
+                        Text(description)
+                            .font(.subheadline)
+                    }
                 }
-            }
-            
-//            if (vm.experiment.trackGPS) {
-//                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
-//            }
-            
+            }.padding()
             Divider()
             
-            VStack(alignment: .leading, spacing: 17) {
-                Label("Experiment Details", systemImage: "info.circle.fill")
-                    .font(.title3)
-                VStack(alignment: .leading, spacing: 9) {
-                    KeyValueView(key: "Start Date",value: vm.experiment.start.getDateAndTime())
-                    KeyValueView(key: "Runtime",value: countDownString(from: vm.experiment.start))
-                    KeyValueView(key: "End Date", value: vm.experiment.end?.getDateAndTime() ?? "N/A")
-                    KeyValueView(key: "GPS", value: vm.experiment.trackGPS ? "👌" : "🚫")
-                }
-            }
+            VStack(alignment: .leading, spacing: 8) {
+                KeyValueView(key: "Start Date",value: vm.experiment.start.getDateAndTime())
+                KeyValueView(key: "Runtime",value: countDownString(from: vm.experiment.start))
+                KeyValueView(key: "End Date", value: vm.experiment.end?.getDateAndTime() ?? "N/A")
+                KeyValueView(key: "GPS", value: vm.experiment.trackGPS ? "👌" : "🚫")
+            }.padding()
             
             Divider()
             
@@ -80,9 +75,8 @@ struct ActiveExperimentView: View {
                 TimestampListView(
                     vm: TimestampsViewModel(with: vm.experiment.id),
                     canCreate: true)
-            }
+            }.padding()
         }
-        .padding()
         .onAppear(perform: {
             _ = self.countupTimer
         })

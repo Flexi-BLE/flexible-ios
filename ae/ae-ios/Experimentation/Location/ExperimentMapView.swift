@@ -13,7 +13,13 @@ struct ExperimentMapView: View {
     @StateObject var vm: ExperimentMapViewModel
     
     var body: some View {
-        Map(coordinateRegion: $vm.region)
+        Map(coordinateRegion: $vm.region, annotationItems: vm.points()) { point in
+            MapAnnotation(coordinate: point.location) {
+                Rectangle()
+                    .stroke(Color.blue)
+                    .frame(width: 5.0, height: 5.0)
+            }
+        }
     }
 }
 
