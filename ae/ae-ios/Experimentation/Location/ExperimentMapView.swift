@@ -15,11 +15,11 @@ struct ExperimentMapView: View {
     var body: some View {
         Map(coordinateRegion: $vm.region, annotationItems: vm.points()) { point in
             MapAnnotation(coordinate: point.location) {
-                Rectangle()
-                    .stroke(Color.blue)
+                Circle()
+                    .fill(Color.blue)
                     .frame(width: 5.0, height: 5.0)
             }
-        }
+        }.allowsHitTesting(false)
     }
 }
 

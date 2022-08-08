@@ -24,7 +24,7 @@ extension MKCoordinateRegion {
             if loc.longitude > maxLong { maxLong = loc.longitude }
         }
         
-        let minDelta = 0.05
+        let minDelta = 0.01
         
         let latDelta = maxLat - minLat
         let longDelta = maxLong - minLong

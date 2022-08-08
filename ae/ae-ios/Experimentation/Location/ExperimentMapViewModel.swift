@@ -23,12 +23,25 @@ import aeble
     
     private func fetchLocations() {
         Task {
-            self.locations = try await aeble.read.GetLocations(
+            let allLocations = try await aeble.read.GetLocations(
                 startDate: experiment.start,
                 endDate: experiment.end,
                 limit: nil,
                 offset: nil
             )
+            
+            self.locations = [allLocations[0]]
+            
+            var lastLoc = CLLocation(latitude: allLocations[0].latitude, longitude: allLocations[0].longitude)
+            for loc in allLocations[1...] {
+                let clLoc = CLLocation(latitude: loc.latitude, longitude: loc.longitude)
+                if clLoc.distance(from: lastLoc) > 25 {
+                    self.locations.append(loc)
+                    lastLoc = clLoc
+                }
+            }
+            
+            
             if self.locations.count > 0 {
                 self.region = MKCoordinateRegion(coordinates: self.locations)
             }
