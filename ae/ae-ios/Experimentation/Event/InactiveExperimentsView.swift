@@ -13,6 +13,9 @@ struct InactiveExperimentsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 29) {
+            if (vm.experiment.trackGPS) {
+                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
+            }
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     HStack {

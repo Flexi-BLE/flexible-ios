@@ -77,6 +77,8 @@
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
+		01C4F8D1289DA84C00969AE5 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01C4F8D0289DA84C00969AE5 /* GRDB */; };
+		01C4F8D5289DA8C600969AE5 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 01C4F8D4289DA8C600969AE5 /* aeble */; };
 		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
@@ -134,7 +136,6 @@
 		5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		5CBAAB4228871B3400367FDC /* AEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* AEButton.swift */; };
-		5CD3AD742881E0730082F983 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 5CD3AD732881E0730082F983 /* aeble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,7 @@
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01C4F8D3289DA8BB00969AE5 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingWriteIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
@@ -231,7 +233,6 @@
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
-		5C29FCF62881DECB0005F6D4 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithUserLocationView.swift; sourceTree = "<group>"; };
 		5C54194F2899809C005CBA25 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
@@ -245,7 +246,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CD3AD742881E0730082F983 /* aeble in Frameworks */,
+				01C4F8D5289DA8C600969AE5 /* aeble in Frameworks */,
+				01C4F8D1289DA84C00969AE5 /* GRDB in Frameworks */,
 				01CF9043288192010077ED55 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +441,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				5C29FCF62881DECB0005F6D4 /* aeble-swift */,
+				01C4F8D3289DA8BB00969AE5 /* aeble-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -582,7 +584,8 @@
 			name = "ae-ios";
 			packageProductDependencies = (
 				01CF9042288192010077ED55 /* GRDB */,
-				5CD3AD732881E0730082F983 /* aeble */,
+				01C4F8D0289DA84C00969AE5 /* GRDB */,
+				01C4F8D4289DA8C600969AE5 /* aeble */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -681,7 +684,6 @@
 			mainGroup = 011F47E62807685C00B359EB;
 			packageReferences = (
 				011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				01CF9041288192010077ED55 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 011F47F22807687900B359EB /* Products */;
 			projectDirPath = "";
@@ -1571,14 +1573,6 @@
 				kind = branch;
 			};
 		};
-		01CF9041288192010077ED55 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1587,14 +1581,19 @@
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		01CF9042288192010077ED55 /* GRDB */ = {
+		01C4F8D0289DA84C00969AE5 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		5CD3AD732881E0730082F983 /* aeble */ = {
+		01C4F8D4289DA8C600969AE5 /* aeble */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = aeble;
+		};
+		01CF9042288192010077ED55 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
