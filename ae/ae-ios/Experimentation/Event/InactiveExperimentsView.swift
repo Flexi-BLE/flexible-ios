@@ -19,8 +19,8 @@ struct InactiveExperimentsView: View {
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(vm.experiment.name)
-                            .font(.title)
+//                        Text(vm.experiment.name)
+//                            .font(.title)
                         Spacer()
                         Image(systemName: "stop.circle")
                             .font(.title)
@@ -33,15 +33,17 @@ struct InactiveExperimentsView: View {
             }
             
             VStack(alignment: .leading, spacing: 11) {
-                Label("Experiment Details", systemImage: "info.circle.fill")
+                Label("Details", systemImage: "info.circle.fill")
                     .font(.title3)
-                KeyValueView(key: "Start Date",value: vm.experiment.start.getShortDate())
-                KeyValueView(key: "End Date", value: vm.experiment.end?.getShortDate() ?? "N/A")
+                KeyValueView(key: "Start Date",value: vm.experiment.start.getDateAndTime())
+                KeyValueView(key: "End Date", value: vm.experiment.end?.getDateAndTime() ?? "N/A")
+                KeyValueView(key: "Elapsed Time", value: vm.elapsedTimeString)
+                KeyValueView(key: "Total Records", value: "\(vm.totalRecords.fuzzy)")
             }
             
             VStack(alignment: .leading, spacing: 11) {
                 HStack {
-                    Label("Timemark Details", systemImage: "calendar.badge.clock")
+                    Label("Time Markers", systemImage: "calendar.badge.clock")
                         .font(.title3)
                     Spacer()
                 }

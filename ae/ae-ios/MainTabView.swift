@@ -12,7 +12,8 @@ struct MainTabView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
-            AEThingsView(vm: AEViewModel(with: URL(string: "https://gist.githubusercontent.com/blainerothrock/61383de0ac5358fed78a6a45f660b91d/raw/2c61b7a0f9552c54c51c1d0704dedd13611ad782/flexible-sample.json")!))
+//            AEThingsView(vm: AEViewModel(with: URL(string: "https://gist.githubusercontent.com/blainerothrock/61383de0ac5358fed78a6a45f660b91d/raw/2c61b7a0f9552c54c51c1d0704dedd13611ad782/flexible-sample.json")!))
+            AEThingsView(vm: AEViewModel(with: "exthub.json"))
                 .tabItem{
                     Image(systemName: "memorychip")
                     Text("Devices")

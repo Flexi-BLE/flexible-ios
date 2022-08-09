@@ -39,9 +39,8 @@ struct DataStreamDetailCellView: View {
 //            )
             
             HStack {
-                Spacer()
                 AEButton(action: { dataExplorePopover.toggle() }) {
-                    Text("Explore Data")
+                    Text("View Data")
                 }
                 .fullScreenCover(isPresented: $dataExplorePopover) {
                     NavigationView {
@@ -57,9 +56,8 @@ struct DataStreamDetailCellView: View {
                 ConfigValueView(vm: configVM)
             }
             HStack {
-                Spacer()
                 AEButton(action: {editConfigPopover.toggle()}) {
-                    Text("Edit Configuration")
+                    Text("Edit Parameters")
                 }
                 .fullScreenCover(isPresented: $editConfigPopover) {
                     NavigationView {

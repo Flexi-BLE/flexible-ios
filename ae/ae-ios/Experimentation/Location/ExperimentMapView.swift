@@ -17,7 +17,7 @@ struct ExperimentMapView: View {
             MapAnnotation(coordinate: point.location) {
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 5.0, height: 5.0)
+                    .frame(width: 3.0, height: 3.0)
             }
         }.allowsHitTesting(false)
     }
