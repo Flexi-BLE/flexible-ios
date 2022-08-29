@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct DataStreamDataView: View {
     @Environment(\.dismiss) var dismiss
@@ -50,7 +50,7 @@ struct DataStreamDataView: View {
 
 struct DataStreamDataView_Previews: PreviewProvider {
     static var previews: some View {
-        let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
+        let ds = FXBSpec.mock.devices[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds, deviceName: "none")
         DataStreamDataView(vm: vm)
     }

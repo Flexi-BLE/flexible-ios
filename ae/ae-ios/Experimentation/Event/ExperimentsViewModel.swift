@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import aeble
+import FlexiBLE
 
 @MainActor class ExperimentsViewModel: ObservableObject {
     
@@ -18,7 +18,7 @@ import aeble
     }
     
     @Published var state: State
-    @Published var experiments: [Experiment] = []
+    @Published var experiments: [FXBExperiment] = []
     
     init() {
         self.state = .noExperiment
@@ -29,7 +29,7 @@ import aeble
     
     func getExperiments() async {
         self.state = .loading
-        let res = await aeble.exp.activeEvent()
+        let res = await fxb.exp.activeEvent()
         
         switch res {
         case .success(let experiments):
@@ -52,7 +52,7 @@ import aeble
         guard let id = experiments[index].id else { return }
         self.state = .loading
         
-        let _ = await aeble.exp.deleteExperiment(id: id)
+        let _ = await fxb.exp.deleteExperiment(id: id)
         await self.getExperiments()
     }
 }

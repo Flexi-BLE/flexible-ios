@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 import Combine
-//import aeble
+//import FlexiBLE
 
 struct SettingsView: View {
 
@@ -25,12 +25,6 @@ struct SettingsView: View {
                 
                 Section(header: Text("Data Management")) {
                     NavigationLink(
-                        destination: AEBLESettingsView(),
-                        label: {
-                            Text("AEBLE Settings")
-                        }
-                    )
-                    NavigationLink(
                         destination: DataExplorerView(),
                         label: {
                             Text("Data Explorer")
@@ -38,15 +32,15 @@ struct SettingsView: View {
                     )
                 
                     Button ("Purge Uploaded Records") {
-                        Task { await aeble.db.purgeAllDynamicRecords() }
+                        Task { await fxb.db.purgeAllDynamicRecords() }
                     }
                     
                     Button("Purge All Records") {
-                        Task { await aeble.db.purgeAllDynamicRecords() }
+                        Task { await fxb.db.purgeAllDynamicRecords() }
                     }
                     
                     Button("Share Database") {
-                        ShareUtil.share(path: aeble.db.dbPath)
+                        ShareUtil.share(path: fxb.db.dbPath)
                     }
                 }
                 

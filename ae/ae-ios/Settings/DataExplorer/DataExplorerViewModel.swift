@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
-import aeble
+import FlexiBLE
 
 class DataExplorerViewModel: ObservableObject {
     @Published var tables: [String] = []
@@ -18,7 +18,7 @@ class DataExplorerViewModel: ObservableObject {
     }
     
     func refreshTables() {
-        self.tables = aeble.db.getTableNames()
+        self.tables = fxb.db.getTableNames()
 //        DBManager.shared.getTableMetadata(for: "dynamic_table")
     }
 }

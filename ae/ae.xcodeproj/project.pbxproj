@@ -23,10 +23,6 @@
 		011F488428076AF000B359EB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488228076AF000B359EB /* MainTabView.swift */; };
 		011F489B28076B3B00B359EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488A28076B3B00B359EB /* SettingsView.swift */; };
 		011F489C28076B3B00B359EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488A28076B3B00B359EB /* SettingsView.swift */; };
-		011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488C28076B3B00B359EB /* AEBLESettingsViewModel.swift */; };
-		011F489E28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488C28076B3B00B359EB /* AEBLESettingsViewModel.swift */; };
-		011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488D28076B3B00B359EB /* AEBLESettingsView.swift */; };
-		011F48A028076B3B00B359EB /* AEBLESettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488D28076B3B00B359EB /* AEBLESettingsView.swift */; };
 		011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488F28076B3B00B359EB /* DataExplorerTableView.swift */; };
 		011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488F28076B3B00B359EB /* DataExplorerTableView.swift */; };
 		011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489028076B3B00B359EB /* DataExplorerView.swift */; };
@@ -41,8 +37,8 @@
 		011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B828076C6D00B359EB /* UIDevice.swift */; };
 		011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B928076C6D00B359EB /* ShareUtil.swift */; };
 		011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B928076C6D00B359EB /* ShareUtil.swift */; };
-		011F48BF28076CA600B359EB /* aeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48BE28076CA600B359EB /* aeble.swift */; };
-		011F48C028076CA600B359EB /* aeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48BE28076CA600B359EB /* aeble.swift */; };
+		011F48BF28076CA600B359EB /* fxb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48BE28076CA600B359EB /* fxb.swift */; };
+		011F48C028076CA600B359EB /* fxb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48BE28076CA600B359EB /* fxb.swift */; };
 		011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
 		011F48C428076CCD00B359EB /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48C128076CCD00B359EB /* KeyValueView.swift */; };
@@ -52,6 +48,7 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		013B877E28BD763100D3860B /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 013B877D28BD763100D3860B /* flexible-swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -78,7 +75,6 @@
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01C4F8D1289DA84C00969AE5 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01C4F8D0289DA84C00969AE5 /* GRDB */; };
-		01C4F8D5289DA8C600969AE5 /* aeble in Frameworks */ = {isa = PBXBuildFile; productRef = 01C4F8D4289DA8C600969AE5 /* aeble */; };
 		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
@@ -172,8 +168,6 @@
 		011F487A280769C000B359EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		011F488228076AF000B359EB /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		011F488A28076B3B00B359EB /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		011F488C28076B3B00B359EB /* AEBLESettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEBLESettingsViewModel.swift; sourceTree = "<group>"; };
-		011F488D28076B3B00B359EB /* AEBLESettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEBLESettingsView.swift; sourceTree = "<group>"; };
 		011F488F28076B3B00B359EB /* DataExplorerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerTableView.swift; sourceTree = "<group>"; };
 		011F489028076B3B00B359EB /* DataExplorerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerView.swift; sourceTree = "<group>"; };
 		011F489128076B3B00B359EB /* DataExplorerColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerColumnView.swift; sourceTree = "<group>"; };
@@ -181,10 +175,11 @@
 		011F489328076B3B00B359EB /* DataExplorerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerViewModel.swift; sourceTree = "<group>"; };
 		011F48B828076C6D00B359EB /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		011F48B928076C6D00B359EB /* ShareUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtil.swift; sourceTree = "<group>"; };
-		011F48BE28076CA600B359EB /* aeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aeble.swift; sourceTree = "<group>"; };
+		011F48BE28076CA600B359EB /* fxb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fxb.swift; sourceTree = "<group>"; };
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		013B877C28BD708E00D3860B /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
@@ -209,7 +204,6 @@
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
-		01C4F8D3289DA8BB00969AE5 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingWriteIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
@@ -246,9 +240,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C4F8D5289DA8C600969AE5 /* aeble in Frameworks */,
 				01C4F8D1289DA84C00969AE5 /* GRDB in Frameworks */,
 				01CF9043288192010077ED55 /* GRDB in Frameworks */,
+				013B877E28BD763100D3860B /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +311,7 @@
 				011F48262807693000B359EB /* Assets.xcassets */,
 				011F48282807693000B359EB /* Preview Content */,
 				011F488228076AF000B359EB /* MainTabView.swift */,
-				011F48BE28076CA600B359EB /* aeble.swift */,
+				011F48BE28076CA600B359EB /* fxb.swift */,
 				01F585F12892D24A00E0F8E5 /* AppDelegate.swift */,
 			);
 			path = "ae-ios";
@@ -393,19 +387,9 @@
 			isa = PBXGroup;
 			children = (
 				011F488A28076B3B00B359EB /* SettingsView.swift */,
-				011F488B28076B3B00B359EB /* AEBLESettings */,
 				011F488E28076B3B00B359EB /* DataExplorer */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		011F488B28076B3B00B359EB /* AEBLESettings */ = {
-			isa = PBXGroup;
-			children = (
-				011F488C28076B3B00B359EB /* AEBLESettingsViewModel.swift */,
-				011F488D28076B3B00B359EB /* AEBLESettingsView.swift */,
-			);
-			path = AEBLESettings;
 			sourceTree = "<group>";
 		};
 		011F488E28076B3B00B359EB /* DataExplorer */ = {
@@ -441,7 +425,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				01C4F8D3289DA8BB00969AE5 /* aeble-swift */,
+				013B877C28BD708E00D3860B /* aeble-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -585,7 +569,7 @@
 			packageProductDependencies = (
 				01CF9042288192010077ED55 /* GRDB */,
 				01C4F8D0289DA84C00969AE5 /* GRDB */,
-				01C4F8D4289DA8C600969AE5 /* aeble */,
+				013B877D28BD763100D3860B /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -760,7 +744,6 @@
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
-				011F489D28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
@@ -771,7 +754,7 @@
 				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
-				011F48BF28076CA600B359EB /* aeble.swift in Sources */,
+				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
@@ -797,7 +780,6 @@
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
-				011F489F28076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
@@ -821,14 +803,13 @@
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
-				011F489E28076B3B00B359EB /* AEBLESettingsViewModel.swift in Sources */,
 				01E7F28E281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
 				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
-				011F48C028076CA600B359EB /* aeble.swift in Sources */,
+				011F48C028076CA600B359EB /* fxb.swift in Sources */,
 				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				01CA3BA4281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
@@ -844,7 +825,6 @@
 				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
-				011F48A028076B3B00B359EB /* AEBLESettingsView.swift in Sources */,
 				01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
 				01CA3BB0281A472B0004875D /* LineView.swift in Sources */,
@@ -969,10 +949,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Provide location permission to track user while conducting a experiment.";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_CFBundleDisplayName = flexiBLE;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app records location when conducting experiments.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -984,18 +965,18 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.ae-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1052,10 +1033,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Provide location permission to track user while conducting a experiment.";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_CFBundleDisplayName = flexiBLE;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide location permission to track user while conducting a experiment.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app records location when conducting experiments.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1067,17 +1049,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.ae-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1581,14 +1563,14 @@
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
+		013B877D28BD763100D3860B /* flexible-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexible-swift";
+		};
 		01C4F8D0289DA84C00969AE5 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 011F487F28076AA500B359EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		01C4F8D4289DA8C600969AE5 /* aeble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = aeble;
 		};
 		01CF9042288192010077ED55 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;

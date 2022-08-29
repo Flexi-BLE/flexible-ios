@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct AEThingBannerView: View {
     
@@ -56,7 +56,7 @@ struct AEThingBannerView: View {
 
 struct AEThingBannerView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingBannerView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        AEThingBannerView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
             .previewLayout(.sizeThatFits)
     }
 }

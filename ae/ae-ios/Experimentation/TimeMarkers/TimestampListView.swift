@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct TimestampListView: View {
     @StateObject var vm: TimestampsViewModel
@@ -41,7 +41,7 @@ struct TimestampListView: View {
 
 struct NewMarkTimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        TimestampListView(vm: TimestampsViewModel(with: Experiment.dummyActive().id), canCreate: true)
+        TimestampListView(vm: TimestampsViewModel(with: FXBExperiment.dummyActive().id), canCreate: true)
     }
 }
 

@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import aeble
+import FlexiBLE
 
 @MainActor class TimestampViewModel: ObservableObject {
-    @Published var timestamp: Timestamp
+    @Published var timestamp: FXBTimestamp
     
     @Published var newName: String = ""
     @Published var newDescription: String = ""
     
-    init(timestamp: Timestamp) {
+    init(timestamp: FXBTimestamp) {
         self.timestamp = timestamp
         self.newName = timestamp.name ?? ""
         self.newDescription = timestamp.description ?? ""
@@ -24,7 +24,7 @@ import aeble
         guard let id = self.timestamp.experimentId else {
             return
         }
-        let res = await aeble.exp.updateTimemarker(
+        let res = await fxb.exp.updateTimemarker(
             forID: id,
             name: newName,
             description: newDescription

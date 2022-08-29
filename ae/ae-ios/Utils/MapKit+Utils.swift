@@ -7,11 +7,11 @@
 
 import Foundation
 import MapKit
-import aeble
+import FlexiBLE
 
 extension MKCoordinateRegion {
     
-    init(coordinates: [Location]) {
+    init(coordinates: [FXBLocation]) {
         var minLat: CLLocationDegrees = 90.0
         var maxLat: CLLocationDegrees = -90.0
         var minLong: CLLocationDegrees = 180.0

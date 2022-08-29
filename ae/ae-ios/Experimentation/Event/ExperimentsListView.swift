@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct ExperimentsListView: View {
     @StateObject var vm: ExperimentsViewModel

@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 import SwiftUI
-import aeble
+import FlexiBLE
 import GRDB
 
 @MainActor class AEDataStreamViewModel: ObservableObject {
-    @Published var dataStream: AEDataStream
+    @Published var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
     @Published var meanFreqLastK: Float = 0
     @Published var unUploadCount: Int = 0
-    @Published var uploadAgg: AEBLEDBManager.UploadAggregate = AEBLEDBManager.UploadAggregate(0,0,0)
+    @Published var uploadAgg: FXBDBManager.UploadAggregate = FXBDBManager.UploadAggregate(0,0,0)
     
     @Published var configVMs: [ConfigViewModel] = []
     
@@ -29,7 +29,7 @@ import GRDB
         return 0
     }
     
-    init(_ dataStream: AEDataStream, deviceName: String) {
+    init(_ dataStream: FXBDataStream, deviceName: String) {
         self.dataStream = dataStream
         self.deviceName = deviceName
         
@@ -50,18 +50,18 @@ import GRDB
     
     private func onTimer() {
         Task {
-            self.recordCount = await aeble.db.recordCountByIndex(for: dataStream)
-            self.unUploadCount = await aeble.db.unUploadedCount(for: dataStream)
+            self.recordCount = await fxb.db.recordCountByIndex(for: dataStream)
+            self.unUploadCount = await fxb.db.unUploadedCount(for: dataStream)
             if timerCount % 5 == 0 || timerCount == 1 {
-                self.meanFreqLastK = await aeble.db.meanFrequency(for: dataStream)
-                self.uploadAgg = await aeble.db.uploadAgg(for: dataStream)
+                self.meanFreqLastK = await fxb.db.meanFrequency(for: dataStream)
+                self.uploadAgg = await fxb.db.uploadAgg(for: dataStream)
             }
             timerCount += 1
         }
     }
     
     func fetchLatestConfig() async {
-        guard let persistedConfig = await aeble.db.config(for: dataStream) else {
+        guard let persistedConfig = await fxb.db.config(for: dataStream) else {
             return
         }
         
@@ -87,7 +87,7 @@ import GRDB
             }
         }
         
-        aeble.conn.updateConfig(
+        fxb.conn.updateConfig(
             thingName: deviceName,
             dataSteam: dataStream,
             data: data
@@ -105,7 +105,7 @@ import GRDB
         offset: Int = 0,
         measurement: String?=nil
     ) async -> [T] {
-        return await aeble.db.dataValues(
+        return await fxb.db.dataValues(
             for: dataStream.name,
             measurement: measurement ?? dataStream.dataValues[0].name,
             offset: offset,

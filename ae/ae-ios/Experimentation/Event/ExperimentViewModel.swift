@@ -7,16 +7,16 @@
 
 import Foundation
 import Combine
-import aeble
+import FlexiBLE
 import SwiftUI
 
 
 @MainActor class ExperimentViewModel: ObservableObject {
-    @Published var experiment: Experiment
+    @Published var experiment: FXBExperiment
     @Published var errorMsg: String?=nil
     @Published var totalRecords: Int = 0
     
-    init(_ experiment: Experiment) {
+    init(_ experiment: FXBExperiment) {
         self.experiment = experiment
         Task {
             await getTotalRecords()
@@ -48,7 +48,7 @@ import SwiftUI
         let end = experiment.end ?? Date()
         
         do {
-            self.totalRecords = try await aeble.read.GetTotalRecords(from: experiment.start, to: end)
+            self.totalRecords = try await fxb.read.GetTotalRecords(from: experiment.start, to: end)
         } catch {
             self.errorMsg = "unable to fetch total record count"
         }
@@ -59,7 +59,7 @@ import SwiftUI
     func stopExperiment() async {
         guard let id = self.experiment.id else { return }
         
-        let res = await aeble.exp.stopExperiment(id: id)
+        let res = await fxb.exp.stopExperiment(id: id)
         
         switch res {
         case .success(let exp):
@@ -76,7 +76,7 @@ import SwiftUI
     func deleteExperiment() async -> Bool {
         guard let id = self.experiment.id else { return false}
         
-        let res = await aeble.exp.deleteExperiment(id: id)
+        let res = await fxb.exp.deleteExperiment(id: id)
         
         switch res {
         case .success(let status):

@@ -8,22 +8,22 @@
 import Foundation
 import Combine
 import MapKit
-import aeble
+import FlexiBLE
 
 @MainActor class ExperimentMapViewModel: ObservableObject {
     
-    @Published var experiment: Experiment
+    @Published var experiment: FXBExperiment
     @Published var region: MKCoordinateRegion = MKCoordinateRegion.placeholder()
-    @Published var locations: [Location] = []
+    @Published var locations: [FXBLocation] = []
     
-    init(_ experiment: Experiment) {
+    init(_ experiment: FXBExperiment) {
         self.experiment = experiment
         fetchLocations()
     }
     
     private func fetchLocations() {
         Task {
-            let allLocations = try await aeble.read.GetLocations(
+            let allLocations = try await fxb.read.GetLocations(
                 startDate: experiment.start,
                 endDate: experiment.end,
                 limit: nil,

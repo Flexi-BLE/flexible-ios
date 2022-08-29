@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 import SwiftUI
-import aeble
+import FlexiBLE
 
-extension AEBLEPeripheralState {
+extension FXBPeripheralState {
     var humanReadable: String {
         switch self {
         case .connected: return "Connected"
@@ -21,9 +21,9 @@ extension AEBLEPeripheralState {
 }
 
 @MainActor class AEThingViewModel: ObservableObject {
-    @Published var thing: AEThing
+    @Published var thing: FXBDevice
     
-    @Published var connectionStatus: String = AEBLEPeripheralState.disconnected.humanReadable
+    @Published var connectionStatus: String = FXBPeripheralState.disconnected.humanReadable
     @Published var lastWrite: Date? = nil
     
     private var enabled: Bool=true
@@ -34,7 +34,7 @@ extension AEBLEPeripheralState {
     
     private var timer: Timer? = nil
     
-    private var peripheral: AEBLEPeripheral? {
+    private var peripheral: FXBPeripheral? {
         didSet {
             connectionStatusCancellable = peripheral?.$state.sink(receiveValue: {
                 self.connectionStatus = $0.humanReadable
@@ -42,7 +42,7 @@ extension AEBLEPeripheralState {
         }
     }
     
-    init(with thing: AEThing) {
+    init(with thing: FXBDevice) {
         self.thing = thing
         
         isEnabled = Binding<Bool>(
@@ -53,10 +53,10 @@ extension AEBLEPeripheralState {
             }
         )
         
-        bleStatusCancellable = aeble.conn.$centralState.sink(receiveValue: { cbstate in
+        bleStatusCancellable = fxb.conn.$centralState.sink(receiveValue: { cbstate in
             switch cbstate {
             case .poweredOn:
-                self.peripheral = aeble.conn.peripheral(for: thing.name)
+                self.peripheral = fxb.conn.peripheral(for: thing.name)
             default: break
             }
         })
@@ -65,21 +65,22 @@ extension AEBLEPeripheralState {
             withTimeInterval: 0.25,
             repeats: true,
             block: { _ in
-                Task {
-                    self.lastWrite = await aeble.db.lastDataStreamDate(for: thing)
+                Task { [weak self] in
+                    guard let self = self else { return }
+                    self.lastWrite = await fxb.db.lastDataStreamDate(for: thing)
                 }
             }
         )
         
-        self.peripheral = aeble.conn.peripheral(for: thing.name)
+        self.peripheral = fxb.conn.peripheral(for: thing.name)
     }
     
     private func didUpdateEnabled(_ isEnabled: Bool) {
         self.enabled = isEnabled
         if isEnabled {
-            aeble.conn.enable(thing: thing)
+            fxb.conn.enable(thing: thing)
         } else {
-            aeble.conn.disable(thing: thing)
+            fxb.conn.disable(thing: thing)
         }
     }
 }

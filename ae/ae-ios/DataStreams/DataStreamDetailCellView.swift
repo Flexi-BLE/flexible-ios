@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct DataStreamDetailCellView: View {
     @StateObject var vm: AEDataStreamViewModel
@@ -73,7 +73,7 @@ struct DataStreamDetailCellView: View {
 
 struct DataStreamDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
-        let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
+        let ds = FXBSpec.mock.devices[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds, deviceName: "none")
         DataStreamDetailCellView(vm: vm)
             .previewLayout(.sizeThatFits)

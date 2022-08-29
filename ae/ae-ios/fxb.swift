@@ -7,14 +7,13 @@
 
 import Foundation
 import UIKit
-import aeble
+import FlexiBLE
 
-var aeble: AEBLE = {
+var fxb: FlexiBLE = {
     do {
-        let aeble = try AEBLE()
-        aeble.settings.deviceId = UIDevice.current.id
+        let fxb = try FlexiBLE()
         
-        return aeble
+        return fxb
     } catch {
         fatalError("Canot initialize aeble")
     }

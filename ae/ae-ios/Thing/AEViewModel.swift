@@ -7,12 +7,12 @@
 
 import Foundation
 import Combine
-import aeble
+import FlexiBLE
 
 @MainActor class AEViewModel: ObservableObject {
     
     enum State {
-        case selected(config: AEDeviceConfig, name: String)
+        case selected(config: FXBSpec, name: String)
         case unselected
         case loading(name: String)
         case error(message: String)
@@ -42,7 +42,7 @@ import aeble
         self.url = url
         self.state = .loading(name: url.absoluteString)
         
-        if let config = try? await AEDeviceConfig.load(from: url) {
+        if let config = try? await FXBSpec.load(from: url) {
             self.state = .selected(config: config, name: url.absoluteString)
         } else {
             state = .error(message: "unable to load remote configuration")
@@ -54,7 +54,7 @@ import aeble
         
         self.state = .loading(name: fileName)
         
-        if let config = AEDeviceConfig.load(from: fileName) {
+        if let config = FXBSpec.load(from: fileName) {
             self.state = .selected(config: config, name: fileName)
         } else {
             self.state = .error(message: "unable to load local config")
