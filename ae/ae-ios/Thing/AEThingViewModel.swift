@@ -67,7 +67,7 @@ extension FXBPeripheralState {
             block: { _ in
                 Task { [weak self] in
                     guard let self = self else { return }
-                    self.lastWrite = await fxb.db.lastDataStreamDate(for: thing)
+//                    self.lastWrite = await fxb.db.lastDataStreamDate(for: thing)
                 }
             }
         )

@@ -68,8 +68,8 @@
 		014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DA289B7189008982C6 /* TimestampCellView.swift */; };
 		014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */; };
 		014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6E0289B73C3008982C6 /* EditTimestampView.swift */; };
+		018AFBFB28BD9BBE00C548FA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 018AFBFA28BD9BBE00C548FA /* flexible-swift */; };
 		01923AA828BD83F700F8055E /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01923AA728BD83F700F8055E /* GRDB */; };
-		01923AAB28BD841C00F8055E /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01923AAA28BD841C00F8055E /* flexible-swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
@@ -198,9 +198,6 @@
 		014DB6DA289B7189008982C6 /* TimestampCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCellView.swift; sourceTree = "<group>"; };
 		014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampViewModel.swift; sourceTree = "<group>"; };
 		014DB6E0289B73C3008982C6 /* EditTimestampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTimestampView.swift; sourceTree = "<group>"; };
-		01923AA428BD825000F8055E /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
-		01923AA528BD830100F8055E /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
-		01923AA928BD840700F8055E /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
@@ -242,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01923AA828BD83F700F8055E /* GRDB in Frameworks */,
-				01923AAB28BD841C00F8055E /* flexible-swift in Frameworks */,
+				018AFBFB28BD9BBE00C548FA /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,9 +422,6 @@
 			isa = PBXGroup;
 			children = (
 				013B877C28BD708E00D3860B /* aeble-swift */,
-				01923AA428BD825000F8055E /* aeble-swift */,
-				01923AA528BD830100F8055E /* aeble-swift */,
-				01923AA928BD840700F8055E /* aeble-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -570,7 +564,7 @@
 			name = "ae-ios";
 			packageProductDependencies = (
 				01923AA728BD83F700F8055E /* GRDB */,
-				01923AAA28BD841C00F8055E /* flexible-swift */,
+				018AFBFA28BD9BBE00C548FA /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1003,7 +997,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = flexiBLE;
+				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1019,7 +1013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1087,7 +1081,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ae-ios/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = flexiBLE;
+				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1103,7 +1097,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";
@@ -1614,14 +1608,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		018AFBFA28BD9BBE00C548FA /* flexible-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexible-swift";
+		};
 		01923AA728BD83F700F8055E /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		01923AAA28BD841C00F8055E /* flexible-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "flexible-swift";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

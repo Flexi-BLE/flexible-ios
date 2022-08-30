@@ -44,6 +44,7 @@ import FlexiBLE
         
         if let config = try? await FXBSpec.load(from: url) {
             self.state = .selected(config: config, name: url.absoluteString)
+            fxb.startScan(with: config)
         } else {
             state = .error(message: "unable to load remote configuration")
         }
@@ -56,6 +57,7 @@ import FlexiBLE
         
         if let config = FXBSpec.load(from: fileName) {
             self.state = .selected(config: config, name: fileName)
+            fxb.startScan(with: config)
         } else {
             self.state = .error(message: "unable to load local config")
         }
