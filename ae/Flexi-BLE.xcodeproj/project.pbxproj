@@ -19,6 +19,7 @@
 		0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
+		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -870,6 +871,7 @@
 				01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
+				0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */,
 				011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,

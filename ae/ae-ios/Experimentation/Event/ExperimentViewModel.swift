@@ -48,7 +48,7 @@ import SwiftUI
         let end = experiment.end ?? Date()
         
         do {
-            self.totalRecords = try await fxb.read.GetTotalRecords(from: experiment.start, to: end)
+            self.totalRecords = try await fxb.read.getTotalRecords(from: experiment.start, to: end)
         } catch {
             self.errorMsg = "unable to fetch total record count"
         }
