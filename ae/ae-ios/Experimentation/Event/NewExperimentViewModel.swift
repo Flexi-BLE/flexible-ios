@@ -27,7 +27,8 @@ import FlexiBLE
             start: startDate,
             end: hasEndDate ? endDate : nil,
             active: true,
-            trackGPS: trackGPS
+            trackGPS: trackGPS,
+            specId: fxb.specId
         )
         
         switch res {

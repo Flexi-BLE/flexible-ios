@@ -71,8 +71,10 @@ struct DeviceConfigSelectionView: View {
                 vm.state = .error(message: "invalid URL")
             }
         } else {
-            vm.loadDeviceConfig(with: fileNameString)
-            dismiss()
+            Task {
+                await vm.loadDeviceConfig(with: fileNameString)
+                self.dismiss()
+            }
         }
     }
 }

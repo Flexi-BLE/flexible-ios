@@ -10,11 +10,6 @@ import UIKit
 import FlexiBLE
 
 var fxb: FlexiBLE = {
-    do {
-        let fxb = try FlexiBLE()
-        
+        let fxb = FlexiBLE.shared
         return fxb
-    } catch {
-        fatalError("Canot initialize aeble")
-    }
 }()

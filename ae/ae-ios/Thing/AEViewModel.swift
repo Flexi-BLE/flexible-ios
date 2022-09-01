@@ -35,7 +35,9 @@ import FlexiBLE
     
     init(with localFileName: String) {
         state = .loading(name: localFileName)
-        loadDeviceConfig(with: localFileName)
+        Task {
+            await loadDeviceConfig(with: localFileName)
+        }
     }
     
     func loadDeviceConfig(with url: URL) async {
@@ -43,21 +45,31 @@ import FlexiBLE
         self.state = .loading(name: url.absoluteString)
         
         if let config = try? await FXBSpec.load(from: url) {
-            self.state = .selected(config: config, name: url.absoluteString)
-            fxb.startScan(with: config)
+            do {
+                try await fxb.setSpec(config)
+                self.state = .selected(config: config, name: url.absoluteString)
+                fxb.startScan(with: config)
+            } catch {
+                state = .error(message: "unable to store device specification in local database")
+            }
         } else {
             state = .error(message: "unable to load remote configuration")
         }
     }
     
-    func loadDeviceConfig(with fileName: String) {
+    func loadDeviceConfig(with fileName: String) async {
         self.localFileName = fileName
         
         self.state = .loading(name: fileName)
         
         if let config = FXBSpec.load(from: fileName) {
-            self.state = .selected(config: config, name: fileName)
-            fxb.startScan(with: config)
+            do {
+                try await fxb.setSpec(config)
+                self.state = .selected(config: config, name: fileName)
+                fxb.startScan(with: config)
+            } catch {
+                state = .error(message: "unable to store device specification in local database")
+            }
         } else {
             self.state = .error(message: "unable to load local config")
         }

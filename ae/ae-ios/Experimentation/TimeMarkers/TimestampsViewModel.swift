@@ -38,7 +38,10 @@ import UIKit
     
     func createTimemarker() async {
         let name = "Timestamp - \(Date().getDetailedDate())"
-        let res = await fxb.exp.createTimeMarker(name: name, experimentId: experimentId)
+        let res = await fxb.exp.createTimeMarker(
+            name: name,
+            experimentId: experimentId,
+            specId: fxb.specId)
         
         switch res {
         case .success(let ts): self.timestamps.append(ts)

@@ -86,7 +86,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             altitude: latest.altitude,
             horizontalAcc: latest.horizontalAccuracy,
             verticalAcc: latest.verticalAccuracy,
-            timestamp: latest.timestamp
+            timestamp: latest.timestamp,
+            specId: fxb.specId
         )
     }
 }

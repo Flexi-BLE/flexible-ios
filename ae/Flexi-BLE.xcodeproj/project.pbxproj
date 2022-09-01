@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
+		0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -112,8 +114,6 @@
 		01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28F281C106800ED6F15 /* AEThingDetailCellView.swift */; };
 		01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
-		01E7F295281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
-		01E7F296281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F298281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
 		01E7F299281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
 		01E7F29A281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
@@ -150,6 +150,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataView.swift; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011F48222807692E00B359EB /* ae_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ae_iosApp.swift; sourceTree = "<group>"; };
 		011F48262807693000B359EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -267,6 +268,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0105E36028C0F0F300AAB5E2 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
 		011F47E62807685C00B359EB = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +391,7 @@
 		011F488928076B3B00B359EB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0105E36028C0F0F300AAB5E2 /* Upload */,
 				011F488A28076B3B00B359EB /* SettingsView.swift */,
 				011F488E28076B3B00B359EB /* DataExplorer */,
 			);
@@ -736,6 +746,7 @@
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
+				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
@@ -809,6 +820,7 @@
 				01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,
 				011F48342807693000B359EB /* ae_iosTests.swift in Sources */,
+				0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				01CA3B9E2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
 				01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */,
@@ -837,7 +849,6 @@
 				011F487D280769C000B359EB /* ContentView.swift in Sources */,
 				01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				011F48C428076CCD00B359EB /* KeyValueView.swift in Sources */,
-				01E7F295281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48D028076D5600B359EB /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,7 +862,6 @@
 				011F48632807695600B359EB /* ae_macosTests.swift in Sources */,
 				01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				011F48C528076CCD00B359EB /* KeyValueView.swift in Sources */,
-				01E7F296281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				011F48D128076D5600B359EB /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
