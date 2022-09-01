@@ -45,10 +45,10 @@ struct DeviceConfigSelectionView: View {
             }
             Spacer()
             HStack {
-                AEButton(action: { load() }) {
+                FXBButton(action: { load() }) {
                     Text("Load")
                 }
-                AEButton(action: { dismiss() }) {
+                FXBButton(action: { dismiss() }) {
                     Text("Cancel")
                 }
             }

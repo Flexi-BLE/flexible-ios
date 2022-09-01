@@ -37,7 +37,7 @@ struct DataExplorerLineGraphView: View {
                     }
                 }
                 Spacer()
-                AEButton {
+                FXBButton {
                     Task {
                         self.data = await vm.fetchData(
                             limit: 200,

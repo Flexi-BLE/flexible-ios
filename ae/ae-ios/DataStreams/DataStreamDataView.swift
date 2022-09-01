@@ -41,7 +41,7 @@ struct DataStreamDataView: View {
                 Text("")
             }
             .pickerStyle(.segmented)
-            AEButton(action: { dismiss() }){
+            FXBButton(action: { dismiss() }){
                 Text("Dismiss")
             }
         }

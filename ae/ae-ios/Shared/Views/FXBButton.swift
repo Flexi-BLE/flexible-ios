@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct AEButton<Content: View>: View {
+struct FXBButton<Content: View>: View {
     let content: Content
     let action: ()->()
     
@@ -34,8 +34,8 @@ struct AEButton<Content: View>: View {
     }
 }
 
-struct AEButton_Previews: PreviewProvider {
+struct FXBButton_Previews: PreviewProvider {
     static var previews: some View {
-        AEButton(action: {}, content: { Text("What is up") })
+        FXBButton(action: {}, content: { Text("What is up") })
     }
 }

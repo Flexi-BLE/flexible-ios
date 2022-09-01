@@ -38,7 +38,7 @@ struct AEThingDetailCellView: View {
                 },
                 label: { EmptyView() }
             )
-            AEButton {
+            FXBButton {
                 isShowingDataStream = true
             } content: {
                 Text("Data Streams")

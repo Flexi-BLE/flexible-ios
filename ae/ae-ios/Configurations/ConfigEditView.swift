@@ -31,10 +31,10 @@ struct ConfigEditView: View {
             }
             
             HStack {
-                AEButton(action: {dismiss() }) {
+                FXBButton(action: {dismiss() }) {
                     Text("Dismiss")
                 }
-                AEButton(action: { vm.updateConfigs() }) {
+                FXBButton(action: { vm.updateConfigs() }) {
                     Text("Save")
                 }
             }

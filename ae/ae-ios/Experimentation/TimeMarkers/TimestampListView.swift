@@ -20,7 +20,7 @@ struct TimestampListView: View {
                     Label("Timemark Details", systemImage: "calendar.badge.clock")
                         .font(.title3)
                     Spacer()
-                    AEButton(action: {
+                    FXBButton(action: {
                         Task {
                             await vm.createTimemarker()
                         }

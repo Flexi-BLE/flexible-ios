@@ -39,7 +39,7 @@ struct DataStreamDetailCellView: View {
 //            )
             
             HStack {
-                AEButton(action: { dataExplorePopover.toggle() }) {
+                FXBButton(action: { dataExplorePopover.toggle() }) {
                     Text("View Data")
                 }
                 .fullScreenCover(isPresented: $dataExplorePopover) {
@@ -56,7 +56,7 @@ struct DataStreamDetailCellView: View {
                 ConfigValueView(vm: configVM)
             }
             HStack {
-                AEButton(action: {editConfigPopover.toggle()}) {
+                FXBButton(action: {editConfigPopover.toggle()}) {
                     Text("Edit Parameters")
                 }
                 .fullScreenCover(isPresented: $editConfigPopover) {

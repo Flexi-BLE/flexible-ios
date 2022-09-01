@@ -30,6 +30,17 @@ struct SettingsView: View {
                             Text("Data Explorer")
                         }
                     )
+                    
+                    NavigationLink(
+                        destination: {
+                            UploadDataView()
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarTitle("Remote Database")
+                        },
+                        label: {
+                            Text("Remote Database")
+                        }
+                    )
                 
                     Button ("Purge Uploaded Records") {
                         Task { await fxb.db.purgeAllDynamicRecords() }
