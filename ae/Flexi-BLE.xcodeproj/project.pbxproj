@@ -103,6 +103,10 @@
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
+		01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
+		01E59BCB28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */; };
+		01E59BCC28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */; };
 		01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */; };
@@ -227,6 +231,8 @@
 		01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButtonStyle.swift; sourceTree = "<group>"; };
+		01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingDataView.swift; sourceTree = "<group>"; };
 		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
 		01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfigurationsView.swift; sourceTree = "<group>"; };
 		01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingBannerView.swift; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
 				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
 				0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */,
+				01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -559,6 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				5CBAAB4128871B3400367FDC /* FXBButton.swift */,
+				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -786,6 +794,7 @@
 				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
+				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
@@ -813,6 +822,7 @@
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
+				01E59BCB28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */,
 				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
@@ -849,6 +859,7 @@
 				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */,
+				01E59BCC28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */,
 				0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
@@ -862,6 +873,7 @@
 				01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				011F48C028076CA600B359EB /* fxb.swift in Sources */,
 				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
+				01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				01CA3BA4281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,

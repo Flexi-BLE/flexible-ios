@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UploadDataQuestDBView: View {
-    @StateObject var vm: UploadDataQuestDBViewModel = UploadDataQuestDBViewModel()
+    @StateObject var vm: UploadDataQuestDBViewModel
     
     var body: some View {
         ScrollView {
@@ -20,6 +20,6 @@ struct UploadDataQuestDBView: View {
 
 struct UploadDataQuestDBView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadDataQuestDBView()
+        UploadDataQuestDBView(vm: UploadDataQuestDBViewModel())
     }
 }

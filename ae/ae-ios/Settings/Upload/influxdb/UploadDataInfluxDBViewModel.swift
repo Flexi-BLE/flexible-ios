@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 @MainActor class UploadDataInfluxDBViewModel: ObservableObject {
     
     enum UserDefaultsKey: String {
@@ -20,33 +19,40 @@ import Foundation
         
     }
     
+    @Published var isReady: Bool = false
+    
     @Published var url: String = UserDefaults.standard.string(forKey: UserDefaultsKey.url.rawValue) ?? "" {
         didSet {
             UserDefaults.standard.set(url, forKey: UserDefaultsKey.url.rawValue)
+            validate()
         }
     }
     
     @Published var port: String = UserDefaults.standard.string(forKey: UserDefaultsKey.port.rawValue) ?? "8086" {
         didSet {
             UserDefaults.standard.set(port, forKey: UserDefaultsKey.port.rawValue)
+            validate()
         }
     }
     
     @Published var org: String = UserDefaults.standard.string(forKey: UserDefaultsKey.org.rawValue) ?? "" {
         didSet {
             UserDefaults.standard.set(org, forKey: UserDefaultsKey.org.rawValue)
+            validate()
         }
     }
     
     @Published var bucket: String = UserDefaults.standard.string(forKey: UserDefaultsKey.bucket.rawValue) ?? "" {
         didSet {
             UserDefaults.standard.set(bucket, forKey: UserDefaultsKey.bucket.rawValue)
+            validate()
         }
     }
     
     @Published var token: String = UserDefaults.standard.string(forKey: UserDefaultsKey.token.rawValue) ?? "" {
         didSet {
             UserDefaults.standard.set(token, forKey: UserDefaultsKey.token.rawValue)
+            validate()
         }
     }
     
@@ -55,5 +61,13 @@ import Foundation
 //            UserDefaults.standard.set(batchSize, forKey: UserDefaultKey.batchSize.rawValue)
 //        }
 //    }
+    
+    func validate() {
+        isReady = !url.isEmpty &&
+            !port.isEmpty &&
+            !org.isEmpty &&
+            !bucket.isEmpty &&
+            !token.isEmpty
+    }
 }
 

@@ -18,7 +18,6 @@ struct UploadDataView: View {
                 Group {
                     Text("Database Target: ")
                         .bold()
-//                    Spacer()
                     Picker(selection: $vm.target, label: EmptyView()) {
                         ForEach(UploadDataViewModel.Target.allCases, id: \.self) { t in
                             Text(t.rawValue).tag(t.self)
@@ -41,9 +40,16 @@ struct UploadDataView: View {
         
             switch vm.target {
             case .influxDB:
-                UploadDataInfluxDBView()
+                UploadDataInfluxDBView(vm: vm.influxdbVM)
+//                NavigationLink {
+//                    UploadDataInfluxDBView()
+//                } label: {
+//                    Text("Config")
+//                }.buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
+
+                
             case .questDB:
-                UploadDataQuestDBView()
+                UploadDataQuestDBView(vm: vm.questdbVM)
             }
             
             
@@ -51,7 +57,7 @@ struct UploadDataView: View {
             
             HStack {
                 FXBButton(
-                    action: {  },
+                    action: { vm.save() },
                     content: { Text("Save") }
                 )
                 Spacer()
@@ -61,6 +67,9 @@ struct UploadDataView: View {
                 )
             }.padding()
         }
+//        .sheet(isPresented: ) {
+//            
+//        }
     }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FlexiBLE
 
 @MainActor class UploadDataViewModel: ObservableObject {
     enum Target: String, CaseIterable, Codable {
@@ -35,8 +36,35 @@ import UIKit
         }
     }
     
+    let influxdbVM = UploadDataInfluxDBViewModel()
+    let questdbVM = UploadDataQuestDBViewModel()
+    
+    @Published var showUpload: Bool = false
+    
     
     init() { }
+    
+    func save() {
+        switch target {
+        case .influxDB:
+            if influxdbVM.isReady {
+                let uploader = InfluxDBUploader(
+                    url: URL(string: "\(influxdbVM.url)")!,
+                    org: influxdbVM.org,
+                    bucket: influxdbVM.bucket,
+                    token: influxdbVM.token,
+                    batchSize: 1000
+                )
+                uploader.start()
+            }
+        case .questDB:
+            print()
+        }
+    }
+    
+    func upload() {
+        
+    }
     
     
 }

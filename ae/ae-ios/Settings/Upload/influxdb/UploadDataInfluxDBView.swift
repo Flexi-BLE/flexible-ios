@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UploadDataInfluxDBView: View {
-    @StateObject var vm: UploadDataInfluxDBViewModel = UploadDataInfluxDBViewModel()
+    @StateObject var vm: UploadDataInfluxDBViewModel
     
     var body: some View {
         ScrollView {
@@ -62,7 +62,9 @@ struct UploadDataInfluxDBView: View {
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                 }
-            }.padding()
+            }.padding().task {
+                vm.validate()
+            }
                 
 //          TextField("Record Batch Size", text: $vm.batchSize, prompt: Text("1000"))
         }
@@ -71,7 +73,7 @@ struct UploadDataInfluxDBView: View {
 
 struct UploadDataInfluxDBView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadDataInfluxDBView()
+        UploadDataInfluxDBView(vm: UploadDataInfluxDBViewModel())
     }
 }
 
