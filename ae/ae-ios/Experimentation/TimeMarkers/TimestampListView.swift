@@ -30,7 +30,7 @@ struct TimestampListView: View {
                 }
             }
             List {
-                ForEach(vm.timestamps, id: \.datetime) { timestamp in
+                ForEach(vm.timestamps, id: \.ts) { timestamp in
                     TimestampCellView(vm: TimestampViewModel(timestamp: timestamp))
                 }
             }

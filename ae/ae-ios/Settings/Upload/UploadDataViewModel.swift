@@ -37,9 +37,11 @@ import FlexiBLE
     }
     
     let influxdbVM = UploadDataInfluxDBViewModel()
+    var influxDBUploader: InfluxDBUploader?
     let questdbVM = UploadDataQuestDBViewModel()
     
-    @Published var showUpload: Bool = false
+    
+    @Published var showUploading: Bool = false
     
     
     init() { }
@@ -48,14 +50,18 @@ import FlexiBLE
         switch target {
         case .influxDB:
             if influxdbVM.isReady {
-                let uploader = InfluxDBUploader(
+                influxDBUploader = InfluxDBUploader(
                     url: URL(string: "\(influxdbVM.url)")!,
                     org: influxdbVM.org,
                     bucket: influxdbVM.bucket,
                     token: influxdbVM.token,
-                    batchSize: 1000
+                    startDate: nil,
+                    endDate: Date.now,
+                    batchSize: 50,
+                    deviceId: deviceId
                 )
-                uploader.start()
+                showUploading = true
+                influxDBUploader!.start()
             }
         case .questDB:
             print()

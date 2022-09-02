@@ -67,9 +67,9 @@ struct UploadDataView: View {
                 )
             }.padding()
         }
-//        .sheet(isPresented: ) {
-//            
-//        }
+        .sheet(isPresented: $vm.showUploading) {
+            UploadingDataView(uploader: vm.influxDBUploader!)
+        }
     }
 }
 
