@@ -15,7 +15,6 @@ struct DataStreamsView: View {
     
     var body: some View {
         VStack {
-//            HelpHeaderView(title: "Data Streams", helpText: "todo ...")
             AEThingBannerView(vm: vm)
             VStack(alignment: .leading) {
                 ScrollView {

@@ -10,7 +10,8 @@ import FlexiBLE
 
 struct DataStreamDetailCellView: View {
     @StateObject var vm: AEDataStreamViewModel
-    @State private var dataExplorePopover = false
+    @State private var dataTabularViewPopover = false
+    @State private var dataGraphViewPopover = false
     @State private var editConfigPopover = false
     
     var body: some View {
@@ -39,12 +40,21 @@ struct DataStreamDetailCellView: View {
 //            )
             
             HStack {
-                FXBButton(action: { dataExplorePopover.toggle() }) {
-                    Text("View Data")
+                FXBButton(action: { dataGraphViewPopover.toggle() }) {
+                    Text("View Graph")
                 }
-                .fullScreenCover(isPresented: $dataExplorePopover) {
+                .fullScreenCover(isPresented: $dataGraphViewPopover) {
                     NavigationView {
-                        DataStreamDataView(vm: vm)
+                        DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(vm.dataStream))
+                    }
+                }
+                
+                FXBButton(action: { dataTabularViewPopover.toggle() }) {
+                    Text("View Table")
+                }
+                .fullScreenCover(isPresented: $dataTabularViewPopover) {
+                    NavigationView {
+                        DataExplorerTableView(vm: DataExplorerTableViewModel(tableName: "\(vm.dataStream.name)_data"))
                     }
                 }
                 Spacer()
@@ -71,11 +81,11 @@ struct DataStreamDetailCellView: View {
     }
 }
 
-struct DataStreamDetailCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        let ds = FXBSpec.mock.devices[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds, deviceName: "none")
-        DataStreamDetailCellView(vm: vm)
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct DataStreamDetailCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let ds = FXBSpec.mock.devices[0].dataStreams[0]
+//        let vm = AEDataStreamViewModel(ds, deviceName: "none")
+//        DataStreamDetailCellView(vm: vm)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

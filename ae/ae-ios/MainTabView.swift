@@ -12,39 +12,17 @@ struct MainTabView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
-            AEThingsView(vm: AEViewModel(with: URL(string: "https://pastebin.com/raw/DaCiuNgL")!))
+            AEThingsView(vm: AEViewModel(with: URL(string: "https://pastebin.com/raw/djkzG9eN")!))
 //            AEThingsView(vm: AEViewModel(with: "exthub.json"))
                 .tabItem{
                     Image(systemName: "memorychip")
                     Text("Devices")
                 }
-//            DataStreamsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "arrow.left.arrow.right")
-//                    Text("Data Streams")
-//                }
-//            GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "gearshape")
-//                    Text("Configurations")
-//                }
-//            GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "gearshape")
-//                    Text("Configurations")
-//                }
             ExperimentsView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")
                     Text("Experiments")
                 }
-            
-//            MapWithUserLocationView()
-//                .tabItem {
-//                    Image(systemName: "map")
-//                    Text("Location")
-//                }
-            
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")

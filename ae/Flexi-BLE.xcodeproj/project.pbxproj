@@ -145,6 +145,11 @@
 		5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
+		5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */; };
+		5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */; };
+		5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */; };
+		5CD5141B28C2A77E00749637 /* FXBCheckboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */; };
+		5CD5141D28C2AA5600749637 /* DataStreamGraphVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +259,11 @@
 		5C5419512899836B005CBA25 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
+		5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyViewModel.swift; sourceTree = "<group>"; };
+		5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyView.swift; sourceTree = "<group>"; };
+		5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphParameterValueSelectionView.swift; sourceTree = "<group>"; };
+		5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBCheckboxEntry.swift; sourceTree = "<group>"; };
+		5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphVisualizerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +525,7 @@
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {
 			isa = PBXGroup;
 			children = (
+				5CD5141328C2A34B00749637 /* Graphs */,
 				01E7F26E281855B100ED6F15 /* DataStreamsView.swift */,
 				01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */,
 				01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */,
@@ -567,6 +578,7 @@
 			children = (
 				5CBAAB4128871B3400367FDC /* FXBButton.swift */,
 				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
+				5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -599,6 +611,17 @@
 				014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		5CD5141328C2A34B00749637 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */,
+				5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */,
+				5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */,
+				5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */,
+			);
+			path = Graphs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -776,11 +799,13 @@
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
+				5CD5141B28C2A77E00749637 /* FXBCheckboxEntry.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */,
 				014DB6BE289B613B008982C6 /* ExperimentViewModel.swift in Sources */,
@@ -807,6 +832,7 @@
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
+				5CD5141D28C2AA5600749637 /* DataStreamGraphVisualizerView.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
@@ -820,6 +846,7 @@
 				01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
+				5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */,
@@ -828,6 +855,7 @@
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
@@ -1078,7 +1106,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1162,7 +1190,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
