@@ -87,6 +87,18 @@
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
+		01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
+		01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
+		01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
+		01C232A228C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
+		01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */; };
+		01C232A528C6B1A5006C6B33 /* UploadPausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */; };
+		01C232A728C6B1E7006C6B33 /* UploadErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */; };
+		01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */; };
+		01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A928C6B255006C6B33 /* UploadCompletedView.swift */; };
+		01C232AB28C6B255006C6B33 /* UploadCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A928C6B255006C6B33 /* UploadCompletedView.swift */; };
+		01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */; };
+		01C232AE28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */; };
 		01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9B2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */; };
 		01CA3B9D2818EF840004875D /* AEThingUploadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */; };
@@ -105,8 +117,8 @@
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
 		01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
-		01E59BCB28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */; };
-		01E59BCC28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */; };
+		01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */; };
+		01E59BCC28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */; };
 		01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F26E281855B100ED6F15 /* DataStreamsView.swift */; };
 		01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */; };
@@ -223,6 +235,12 @@
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRunningView.swift; sourceTree = "<group>"; };
+		01C232A028C6B155006C6B33 /* UploadInitializingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInitializingView.swift; sourceTree = "<group>"; };
+		01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPausedView.swift; sourceTree = "<group>"; };
+		01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadErrorView.swift; sourceTree = "<group>"; };
+		01C232A928C6B255006C6B33 /* UploadCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCompletedView.swift; sourceTree = "<group>"; };
+		01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNotStartedView.swift; sourceTree = "<group>"; };
 		01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingWriteIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
@@ -232,7 +250,7 @@
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButtonStyle.swift; sourceTree = "<group>"; };
-		01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingDataView.swift; sourceTree = "<group>"; };
+		01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUploadingView.swift; sourceTree = "<group>"; };
 		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
 		01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfigurationsView.swift; sourceTree = "<group>"; };
 		01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingBannerView.swift; sourceTree = "<group>"; };
@@ -293,11 +311,11 @@
 		0105E36028C0F0F300AAB5E2 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				01C2329C28C6B029006C6B33 /* Uploading */,
 				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
 				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
 				0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */,
-				01E59BCA28C1B05D00C21FE9 /* UploadingDataView.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -510,6 +528,20 @@
 				0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */,
 			);
 			path = RegisteredDevice;
+			sourceTree = "<group>";
+		};
+		01C2329C28C6B029006C6B33 /* Uploading */ = {
+			isa = PBXGroup;
+			children = (
+				01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */,
+				01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */,
+				01C232A028C6B155006C6B33 /* UploadInitializingView.swift */,
+				01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */,
+				01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */,
+				01C232A928C6B255006C6B33 /* UploadCompletedView.swift */,
+				01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */,
+			);
+			path = Uploading;
 			sourceTree = "<group>";
 		};
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {
@@ -778,6 +810,7 @@
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
+				01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */,
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
@@ -806,6 +839,7 @@
 				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
+				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
@@ -822,7 +856,7 @@
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01CA3B9A2818D3840004875D /* AEThingWriteIndicatorView.swift in Sources */,
-				01E59BCB28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */,
+				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
@@ -833,13 +867,17 @@
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
+				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
+				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
 				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
+				01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
+				01C232A728C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
@@ -859,18 +897,23 @@
 				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */,
-				01E59BCC28C1B05D00C21FE9 /* UploadingDataView.swift in Sources */,
+				01C232AE28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
+				01E59BCC28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
+				01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				01E7F28E281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
+				01C232AB28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				01E7F291281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
 				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
 				011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				01E7F28B281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
+				01C232A528C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
+				01C232A228C6B155006C6B33 /* UploadInitializingView.swift in Sources */,
 				011F48C028076CA600B359EB /* fxb.swift in Sources */,
 				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
@@ -885,6 +928,7 @@
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */,
 				011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
