@@ -1,14 +1,14 @@
 //
-//  UploadingDataView.swift
+//  UploadRunningView.swift
 //  Flexi-BLE
 //
-//  Created by Blaine Rothrock on 9/1/22.
+//  Created by Blaine Rothrock on 9/5/22.
 //
 
 import SwiftUI
 import FlexiBLE
 
-struct UploadingDataView<T>: View where T: FXBRemoteDatabaseUploader {
+struct UploadRunningView<T>: View where T: FXBRemoteDatabaseUploader {
     @ObservedObject var uploader: T
     
     var body: some View {
@@ -34,16 +34,15 @@ struct UploadingDataView<T>: View where T: FXBRemoteDatabaseUploader {
     }
 }
 
-struct UploadingDataView_Previews: PreviewProvider {
+struct UploadRunningView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadingDataView(
+        UploadRunningView(
             uploader: InfluxDBUploader(
                 url: URL(string: "https://nasa.gov")!,
                 org: "cool",
                 bucket: "cool",
                 token: "123",
                 deviceId: "cool"
-            )
-        )
+            ))
     }
 }

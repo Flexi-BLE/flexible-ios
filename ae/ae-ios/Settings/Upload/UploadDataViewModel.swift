@@ -51,13 +51,13 @@ import FlexiBLE
         case .influxDB:
             if influxdbVM.isReady {
                 influxDBUploader = InfluxDBUploader(
-                    url: URL(string: "\(influxdbVM.url)")!,
+                    url: URL(string: "\(influxdbVM.url):\(influxdbVM.port)/api/v2/write")!,
                     org: influxdbVM.org,
                     bucket: influxdbVM.bucket,
                     token: influxdbVM.token,
                     startDate: nil,
                     endDate: Date.now,
-                    batchSize: 50,
+                    batchSize: 1000,
                     deviceId: deviceId
                 )
                 showUploading = true
