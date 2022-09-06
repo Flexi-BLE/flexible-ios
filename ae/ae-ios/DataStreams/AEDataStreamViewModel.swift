@@ -112,4 +112,69 @@ import GRDB
             limit: limit
         )
     }
+    
+    func fetchDatabaseValuesForGraph(graphProperty: DataExplorerGraphPropertyViewModel) async -> [(mark: String, data: [(ts: Date, val: Double)])] {
+        let readings = graphProperty.getSelectedReadings()
+        let propertyValues = graphProperty.getSelectedValuesFromProperty(forKey: graphProperty.selectedProperty)
+        var result: [(mark: String, data: [(ts: Date, val: Double)])] = []
+        var graphMin = Double.greatestFiniteMagnitude
+        var graphMax = -Double.greatestFiniteMagnitude
+        if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: graphProperty.selectedProperty) {
+            let queryLimit = 2000
+            if graphProperty.selectedProperty == nil {
+                if readings.count != 0 {
+                    for eachReading in readings {
+                        var sql = "SELECT ts, \(eachReading) "
+                        sql.append("FROM \(dataStream.name)_data ")
+                        if graphProperty.getConfigName() == "accelerometry" {
+                            sql.append("WHERE \(eachReading) <> 0 ")
+                        }
+                        
+                        if graphProperty.shouldFilterByTimestamp {
+                            sql.append(" AND created_at BETWEEN '\(graphProperty.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.endTimestamp.SQLiteDateFormat())' ")
+                        }
+                        sql.append("ORDER BY created_at DESC ")
+                        sql.append("LIMIT \(queryLimit)")
+                        let res = await fxb.read.getDatabaseValuesWithQuery(sqlQuery: sql, columnName: eachReading, propertyName: "")
+                        graphMax = max(graphMax, res.maxVal)
+                        graphMin = min(graphMin, res.minValue)
+                        if res.queryData.isEmpty {
+                            continue
+                        }
+                        result.append(res.queryData[0])
+                    }
+                    graphProperty.setYMinAndMax(yMin: graphMin, yMax: graphMax)
+                    return result
+                } else {
+                    print("No reading selected. Choose default ?")
+                }
+            } else {
+                guard let propertyValues = propertyValues, let selectedKey = graphProperty.selectedProperty else {
+                    return []
+                }
+                for eachReading in readings {
+                    for eachPropertyValue in propertyValues {
+                        var sql = "SELECT ts, \(eachReading) "
+                        sql.append("FROM \(dataStream.name)_data ")
+                        sql.append("WHERE \(selectedKey) = \(eachPropertyValue) ")
+                        if graphProperty.shouldFilterByTimestamp {
+                            sql.append(" AND created_at BETWEEN \(graphProperty.startTimestamp) AND \(graphProperty.endTimestamp) ")
+                        }
+                        sql.append("ORDER BY created_at DESC ")
+                        sql.append("LIMIT \(queryLimit) ")
+                        let res = await fxb.read.getDatabaseValuesWithQuery(sqlQuery: sql, columnName: eachReading, propertyName: eachPropertyValue)
+                        graphMax = max(graphMax, res.maxVal)
+                        graphMin = min(graphMin, res.minValue)
+                        if res.queryData.isEmpty {
+                            continue
+                        }
+                        result.append(res.queryData[0])
+                    }
+                }
+                graphProperty.setYMinAndMax(yMin: graphMin, yMax: graphMax)
+                return result
+            }
+        }
+        return []
+    }
 }

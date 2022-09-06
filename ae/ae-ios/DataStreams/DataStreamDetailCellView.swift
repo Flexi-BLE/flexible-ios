@@ -17,11 +17,11 @@ struct DataStreamDetailCellView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("\(vm.dataStream.name)")
-                .font(.title2)
+                .font(.custom("Arvo-Bold", size: 19))
             
             Text("\(vm.dataStream.description ?? "")")
                 .lineLimit(0)
-                .font(.body)
+                .font(.custom("Arvo", size: 13))
             
             Divider()
             

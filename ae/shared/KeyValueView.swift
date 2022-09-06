@@ -13,9 +13,11 @@ struct KeyValueView: View {
     
     var body: some View {
         HStack {
-            Text("\(key):").bold()
+            Text("\(key):")
+                .font(.custom("AlegreyaSans-Bold", size: 17))
             Spacer()
             Text(value ?? "--none--")
+                .font(.custom("Abel-Regular", size: 15))
         }
     }
 }
@@ -25,3 +27,15 @@ struct KeyValueView_Previews: PreviewProvider {
         KeyValueView(key: "key", value: "value")
     }
 }
+
+//headingFont: .custom("AlegreyaSans-Bold", size: 28),
+//titleFont: .custom("AlegreyaSans-Bold", size: 17),
+//sectionTitleFont: .custom("AlegreyaSans-Medium", fixedSize: 20),
+//subheadingFont: .custom("AlegreyaSans-Regular", size: 14),
+//bodyFont: .custom("AlegreyaSans-Regular", size: 16),
+//numericalFont: .custom("Abel-Regular", size: 14)
+//headingFont: .custom("Arvo-Bold", size: 28),
+//titleFont: .custom("Arvo-Bold", size: 17),
+//subheadingFont: .custom("Arvo", size: 15),
+//bodyFont: .custom("Ubuntu-Regular", size: 15),
+//numericalFont: .custom("Ubuntu-Bold", size: 18)

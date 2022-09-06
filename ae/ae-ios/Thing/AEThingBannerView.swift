@@ -22,13 +22,14 @@ struct AEThingBannerView: View {
                         .font(.system(size: 9))
                     
                     Text("\(vm.thing.name)")
-                        .font(.title)
+                        .font(.custom("AlegreyaSans-Medium", size: 27))
                     
                     HStack {
                         Text("Status: ")
-                            .font(.body)
-                            .bold()
+                            .font(.custom("AlegreyaSans-Bold", size: 17))
                         Text("\(vm.connectionStatus)")
+                            .font(.custom("Arvo", size: 15))
+
                     }
                     
                 }

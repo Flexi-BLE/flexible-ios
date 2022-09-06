@@ -37,6 +37,10 @@ import FlexiBLE
         }
     }
     
+    public func getConfigName() -> String {
+        return configName
+    }
+    
     private func filterPropertyAndReadings(from dataConfig: [FXBDataValueDefinition]) {
         for dc in dataConfig {
             if dc.variableType == .tag {

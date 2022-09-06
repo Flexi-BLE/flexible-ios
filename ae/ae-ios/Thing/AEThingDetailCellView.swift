@@ -17,14 +17,15 @@ struct AEThingDetailCellView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("\(vm.thing.name)")
-                    .font(.title2)
+                    .font(.custom("Arvo-Bold", size: 19))
                 Spacer()
                 Toggle("Enabled", isOn: vm.isEnabled!)
                     .labelsHidden()
             }
             Text("\(vm.thing.description)")
-                .fixedSize(horizontal: false, vertical: true)
-                .font(.body)
+//                .fixedSize(horizontal: false, vertical: true)
+                .font(.custom("Arvo", size: 13))
+
             
             Spacer().frame(height: 10.0)
             

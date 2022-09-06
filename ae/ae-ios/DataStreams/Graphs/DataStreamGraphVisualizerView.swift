@@ -72,7 +72,7 @@ struct DataStreamGraphVisualizerView: View {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {
                     Task {
-//                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
                     }
                 }) {
                     Image(systemName: "circle.hexagonpath")

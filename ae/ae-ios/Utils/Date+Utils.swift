@@ -38,5 +38,13 @@ extension Date {
         dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss"
         return dateFormatter.string(from: self)
     }
+    
+    func SQLiteDateFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        
+        return formatter.string(from: self)
+    }
 
 }

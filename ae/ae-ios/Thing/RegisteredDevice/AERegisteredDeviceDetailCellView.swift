@@ -15,14 +15,14 @@ struct AERegisteredDeviceDetailCellView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("\(vm.metadata.name)")
-                    .font(.title2)
+                    .font(.custom("Arvo-Bold", size: 19))
                 Spacer()
                 Toggle("Enabled", isOn: vm.isEnabled!)
                     .labelsHidden()
             }
             Text("\(vm.metadata.description)")
                 .fixedSize(horizontal: false, vertical: true)
-                .font(.body)
+                .font(.custom("Arvo", size: 13))
             
             Divider()
             KeyValueView(key: "Status", value: "\(vm.connectionStatus)")

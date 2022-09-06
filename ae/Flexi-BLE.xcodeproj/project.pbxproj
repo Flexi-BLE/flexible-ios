@@ -144,6 +144,12 @@
 		5C5419502899809C005CBA25 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54194F2899809C005CBA25 /* String+Util.swift */; };
 		5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
+		5C95DB6128C3176400396FA0 /* Arvo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5B28C3174A00396FA0 /* Arvo-Bold.ttf */; };
+		5C95DB6228C3176600396FA0 /* Arvo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5C28C3174C00396FA0 /* Arvo-Regular.ttf */; };
+		5C95DB6328C3176900396FA0 /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5D28C3174F00396FA0 /* Abel-Regular.ttf */; };
+		5C95DB6428C3176C00396FA0 /* AlegreyaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */; };
+		5C95DB6528C3176F00396FA0 /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */; };
+		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */; };
 		5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */; };
@@ -258,6 +264,12 @@
 		5C54194F2899809C005CBA25 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		5C5419512899836B005CBA25 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditView.swift; sourceTree = "<group>"; };
+		5C95DB5B28C3174A00396FA0 /* Arvo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Bold.ttf"; sourceTree = "<group>"; };
+		5C95DB5C28C3174C00396FA0 /* Arvo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Regular.ttf"; sourceTree = "<group>"; };
+		5C95DB5D28C3174F00396FA0 /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
+		5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Bold.ttf"; sourceTree = "<group>"; };
+		5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
+		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyViewModel.swift; sourceTree = "<group>"; };
 		5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyView.swift; sourceTree = "<group>"; };
@@ -567,6 +579,7 @@
 		5C19730D2881FA420048AAB2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5C95DB5228C310B500396FA0 /* Fonts */,
 				5C19730F2881FA540048AAB2 /* ViewModels */,
 				5C19730E2881FA4C0048AAB2 /* Views */,
 			);
@@ -611,6 +624,19 @@
 				014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		5C95DB5228C310B500396FA0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5C95DB5B28C3174A00396FA0 /* Arvo-Bold.ttf */,
+				5C95DB5C28C3174C00396FA0 /* Arvo-Regular.ttf */,
+				5C95DB5D28C3174F00396FA0 /* Abel-Regular.ttf */,
+				5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */,
+				5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */,
+				5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5CD5141328C2A34B00749637 /* Graphs */ = {
@@ -758,8 +784,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C95DB6328C3176900396FA0 /* Abel-Regular.ttf in Resources */,
+				5C95DB6128C3176400396FA0 /* Arvo-Bold.ttf in Resources */,
+				5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */,
 				011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */,
+				5C95DB6528C3176F00396FA0 /* AlegreyaSans-Medium.ttf in Resources */,
 				011F48272807693000B359EB /* Assets.xcassets in Resources */,
+				5C95DB6428C3176C00396FA0 /* AlegreyaSans-Bold.ttf in Resources */,
+				5C95DB6228C3176600396FA0 /* Arvo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
