@@ -311,7 +311,7 @@
 		0105E36028C0F0F300AAB5E2 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				01C2329C28C6B029006C6B33 /* Uploading */,
+				01C2329C28C6B029006C6B33 /* uploading */,
 				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
 				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
@@ -530,7 +530,7 @@
 			path = RegisteredDevice;
 			sourceTree = "<group>";
 		};
-		01C2329C28C6B029006C6B33 /* Uploading */ = {
+		01C2329C28C6B029006C6B33 /* uploading */ = {
 			isa = PBXGroup;
 			children = (
 				01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */,
@@ -541,7 +541,7 @@
 				01C232A928C6B255006C6B33 /* UploadCompletedView.swift */,
 				01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */,
 			);
-			path = Uploading;
+			path = uploading;
 			sourceTree = "<group>";
 		};
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {
@@ -1088,7 +1088,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1127,7 +1127,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1178,7 +1178,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1211,7 +1211,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

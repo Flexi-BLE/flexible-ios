@@ -13,23 +13,34 @@ struct UploadRunningView<T>: View where T: FXBRemoteDatabaseUploader {
     
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 VStack(alignment: .center) {
-                    Text("Total Estimated Records")
-                    Text("\(uploader.estNumRecs)")
+                    Text("Total Estimated Records").bold().font(.system(size: 10))
+                    Text("\(uploader.estNumRecs)").font(.system(size: 18))
                 }
                 Spacer()
                 VStack(alignment: .center) {
-                    Text("Total Uploaded")
-                    Text("\(uploader.totalUploaded)")
+                    Text("Total Uploaded").bold().font(.system(size: 10))
+                    Text("\(uploader.totalUploaded)").font(.system(size: 18))
                 }
             }
-            if #available(iOS 16, *) {
-                Gauge(value: uploader.progress, label: { Text("Upload Progress") })
-            } else {
+//            if #available(iOS 16, *) {
+//                Gauge(
+//                    value: uploader.progress,
+//                    label: { Text("Upload Progress") }
+//                )
+//            } else {
                 Text("\(Int(uploader.progress * 100.0))%")
-            }
-            Spacer()
+                .font(.system(size: 55.0))
+                Text(uploader.statusMessage)
+                    .font(.system(size: 18))
+                Spacer()
+                FXBButton(
+                    action: { uploader.pause() },
+                    content: { Text("Pause") }
+                )
+//            }
         }.padding()
     }
 }

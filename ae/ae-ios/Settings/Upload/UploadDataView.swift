@@ -56,20 +56,20 @@ struct UploadDataView: View {
             Divider()
             
             HStack {
-                FXBButton(
-                    action: { vm.save() },
-                    content: { Text("Save") }
-                )
                 Spacer()
                 FXBButton(
-                    action: {  },
-                    content: { Text("Upload Now") }
+                    action: { vm.save() },
+                    content: { Text("Upload") }
                 )
+                Spacer()
             }.padding()
         }
-        .sheet(isPresented: $vm.showUploading) {
+        .sheet(isPresented: $vm.showUploading, onDismiss: {
+                vm.influxDBUploader?.pause()
+                vm.influxDBUploader = nil
+        }, content: {
             DataUploadingView(uploader: vm.influxDBUploader!)
-        }
+        })
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  UploadErrorView.swift
+//  UploadCompletedView.swift
 //  Flexi-BLE
 //
 //  Created by Blaine Rothrock on 9/5/22.
@@ -8,30 +8,27 @@
 import SwiftUI
 import FlexiBLE
 
-struct UploadErrorView<T>: View where T: FXBRemoteDatabaseUploader {
+struct UploadCompletedView<T>: View where T: FXBRemoteDatabaseUploader {
     @ObservedObject var uploader: T
-    let errorMsg: String
     
     var body: some View {
         VStack {
             Spacer()
-            
+            Text("Upload Completed 🎉")
             Spacer()
         }.padding()
     }
 }
 
-struct UploadErrorView_Previews: PreviewProvider {
+struct UploadCompletedView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadErrorView(
+        UploadCompletedView(
             uploader: InfluxDBUploader(
-                url: URL(string: "https://nasa.gov")!,
+                url: URL(string: "https://josiahhester.com/lab/")!,
                 org: "cool",
                 bucket: "cool",
                 token: "123",
                 deviceId: "cool"
-            ),
-            errorMsg: "oops"
-        )
+            ))
     }
 }

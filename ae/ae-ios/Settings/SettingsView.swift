@@ -43,11 +43,23 @@ struct SettingsView: View {
                     )
                 
                     Button ("Purge Uploaded Records") {
-                        Task { await fxb.db.purgeAllDynamicRecords() }
+                        Task {
+                            do {
+                                try await fxb.write.purgeAllUploadedRecords()
+                            } catch {
+                                gLog.error("error purging uploaded records: \(error.localizedDescription)")
+                            }
+                        }
                     }
                     
                     Button("Purge All Records") {
-                        Task { await fxb.db.purgeAllDynamicRecords() }
+                        Task {
+                            do {
+                                try await fxb.write.purgeAllRecords()
+                            } catch {
+                                gLog.error("error purging database: \(error.localizedDescription)")
+                            }
+                        }
                     }
                     
                     Button("Share Database") {
