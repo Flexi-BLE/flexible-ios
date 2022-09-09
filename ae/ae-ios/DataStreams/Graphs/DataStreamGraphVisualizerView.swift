@@ -13,7 +13,7 @@ struct DataStreamGraphVisualizerView: View {
     @StateObject var graphPropertyVM: DataExplorerGraphPropertyViewModel
     @State var databaseResults: [(mark: String, data: [(ts: Date, val: Double)])] = []
     @State var presentSheet = true
-
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -30,7 +30,6 @@ struct DataStreamGraphVisualizerView: View {
                         .foregroundStyle(by: .value("mark", series.mark))
                     }
                 }
-
                 .chartYScale(domain: graphPropertyVM.getYMin() ... graphPropertyVM.getYMax())
                 .chartYAxis {
                     AxisMarks(preset: .extended, position: .leading) { value in
@@ -47,42 +46,42 @@ struct DataStreamGraphVisualizerView: View {
                         AxisValueLabel(horizontalSpacing: 5.0)
                     }
                 }
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+//                .onReceive(graphPropertyVM.variableModel.propertyDict, perform: { data in
+//                    print("GRAPH CHANGES")
+//                })
+                .padding()
             }
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .onReceive(graphPropertyVM.$propertyDict, perform: { data in
-                print("GRAPH CHANGES")
-            })
-            .padding()
-        }
-        .sheet(isPresented: $presentSheet) {
-            DataStreamGraphPropertyView(propertyVM: graphPropertyVM)
-                .presentationDetents([.fraction(0.15), .large])
-                .presentationDragIndicator(.visible)
-//                .interactiveDismissDisabled()
-        }
-        .toolbar(content: {
-            ToolbarItem(placement: .navigationBarLeading){
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "arrowshape.backward.fill")
-                }
+            .sheet(isPresented: $presentSheet) {
+                DataStreamGraphPropertyView(propertyVM: graphPropertyVM)
+                    .presentationDetents([.fraction(0.15), .large])
+                    .presentationDragIndicator(.visible)
+                //                .interactiveDismissDisabled()
             }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
-                    Task {
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "arrowshape.backward.fill")
                     }
-                }) {
-                    Image(systemName: "circle.hexagonpath")
                 }
-                Button(action: {
-                    presentSheet.toggle()
-                }) {
-                    Image(systemName: "slider.vertical.3")
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        Task {
+                            self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                        }
+                    }) {
+                        Image(systemName: "circle.hexagonpath")
+                    }
+                    Button(action: {
+                        presentSheet.toggle()
+                    }) {
+                        Image(systemName: "slider.vertical.3")
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 }

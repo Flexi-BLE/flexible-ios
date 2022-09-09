@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct DataStreamGraphPropertyView: View {
     @StateObject var propertyVM: DataExplorerGraphPropertyViewModel
     @State private var presentYMinAlert = false
     @State private var presentYMaxAlert = false
-    
+    @State private var selectedAnimal = GraphVisualStateInfo.live
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
@@ -23,61 +24,84 @@ struct DataStreamGraphPropertyView: View {
                     Spacer()
                 }
                 HStack {
-                    Text("Currently -: \(propertyVM.getCurrentConfigLabel())")
+//                    Text("Currently -: \(propertyVM.getCurrentConfigLabel())")
                     Spacer()
                 }
                 
                 List {
-                    if propertyVM.propertyDict.keys.count != 0 {
+                    
+                    Section(header: Text("Graph")) {
+                        Picker("Graph View", selection: $propertyVM.visualModel.graphState) {
+                            ForEach(GraphVisualStateInfo.allCases) {
+                                Text($0.rawValue).tag($0)
+                            }
+                        }
+                    }
+                    
+                    switch propertyVM.visualModel.graphState {
+                    case .live:
+                        Section(header: Text("Live Interval")) {
+                            VStack {
+                                Slider(value: $propertyVM.visualModel.liveInterval, in: 5...90, step: 5)
+                                Text("\(propertyVM.visualModel.liveInterval)")
+                            }
+                        }
+                    case .parameterized:
+                        EmptyView()
+                    }
+                    
+                    
+                    
+                    if propertyVM.variableModel.propertyDict.keys.count != 0, !propertyVM.variableModel.supportedProperty.isEmpty {
                         Section(header: Text("Property Options")) {
-                            Picker("Property to select:", selection: $propertyVM.selectedProperty) {
-                                ForEach(propertyVM.supportedProperty ?? [], id: \.self) { property in
-                                    Text(property).tag(property)
+                            Picker("Property to select:", selection: $propertyVM.variableModel.selectedProperty) {
+                                ForEach(propertyVM.variableModel.supportedProperty) { property in
+                                    Text(property).tag(property as String?)
                                 }
                             }
                         }
+                        
                         Section(header: Text("Property Values")) {
-                            ForEach(propertyVM.propertyDict.keys.sorted(), id: \.self) { key in
-                                NavigationLink(
-                                    destination: GraphParameterValueSelectionView(vm: DataValueOptionsListModel(withValues: propertyVM.propertyDict[key]?.values ?? [])),
-                                    label: {
-                                        Text(key)
-                                    }
-                                )
+                            ForEach(propertyVM.variableModel.propertyDict.keys.sorted(), id: \.self) { key in
+                                NavigationLink(destination: {
+                                    GraphParameterValueSelectionView(vm: propertyVM.variableModel.propertyDict[key] ?? [])
+                                }, label: {
+                                    Text(key)
+                                })
                             }
                         }
                     }
                     
                     Section(header: Text("Readings Values")) {
-                        ForEach(propertyVM.supportedReading.values, id: \.id) { reading in
+                        ForEach(propertyVM.variableModel.supportedReadings, id: \.value) { reading in
                             FXBCheckboxEntry(vm: reading)
                         }
                     }
                     
-                    Section(header: Text("Timestamp Range Filters")) {
+                    Section(header: Text("Timestamp Filters")) {
                         VStack {
                             HStack {
-                                Text("X-axis enabled ?")
+                                Text("Enable Range Filters")
                                 Spacer()
-                                Toggle("Show welcome message", isOn: $propertyVM.shouldFilterByTimestamp)
+                                Toggle("Show welcome message", isOn: $propertyVM.visualModel.shouldFilterByTimestamp)
                                     .labelsHidden()
                             }
-                            if propertyVM.shouldFilterByTimestamp {
+                            if propertyVM.visualModel.shouldFilterByTimestamp {
                                 VStack(alignment: .leading) {
                                     HStack {
                                         Text("Start")
                                             .bold()
                                         Spacer()
-                                        DatePicker("", selection: $propertyVM.startTimestamp,displayedComponents: [.date,.hourAndMinute])
+                                        DatePicker("", selection: $propertyVM.visualModel.startTimestamp,displayedComponents: [.date,.hourAndMinute])
                                             .datePickerStyle(.compact)
                                             .labelsHidden()
                                     }
-                                    
+
                                     HStack {
                                         Text("End")
                                             .bold()
                                         Spacer()
-                                        DatePicker("", selection: $propertyVM.endTimestamp,displayedComponents: [.date,.hourAndMinute])
+                                        DatePicker("", selection: $propertyVM.visualModel.endTimestamp,displayedComponents: [.date,.hourAndMinute])
                                             .datePickerStyle(.compact)
                                             .labelsHidden()
                                     }
@@ -86,47 +110,49 @@ struct DataStreamGraphPropertyView: View {
                         }
                     }
                     
-                    Section(header: Text("Y-Axis Range Filters")) {
-                        
+                    Section(header: Text("Readings Range Filters")) {
+
                         HStack {
-                            Text("Y-axis enabled ?")
+                            Text("Enable Range filters ")
                             Spacer()
-                            Toggle("Show welcome message", isOn: $propertyVM.shouldFilterByYAxisRange)
+                            Toggle("Show welcome message", isOn: $propertyVM.visualModel.shouldFilterByYAxisRange)
                                 .labelsHidden()
                         }
-                        if propertyVM.shouldFilterByYAxisRange {
+                        if propertyVM.visualModel.shouldFilterByYAxisRange {
                             HStack {
                                 Button("Minimum value") {
                                     presentYMinAlert = true
                                 }
                                 .alert("Y-Axis Minimum value", isPresented: $presentYMinAlert, actions: {
-                                    TextField("Y-min value", text: $propertyVM.userYMin)
+                                    TextField("Y-min value", text: $propertyVM.visualModel.userYMin)
                                         .keyboardType(.numbersAndPunctuation)
                                 }, message: {
                                     Text("Enter the Y-axis minimum value for the graph.")
                                 })
                                 Spacer()
-                                Text(propertyVM.userYMin)
+                                Text(propertyVM.visualModel.userYMin)
                             }
                             HStack {
                                 Button("Maximum value") {
                                     presentYMaxAlert = true
                                 }
                                 .alert("Y-Axis Maximum value", isPresented: $presentYMaxAlert, actions: {
-                                    TextField("Y-max value", text: $propertyVM.userYMax)
+                                    TextField("Y-max value", text: $propertyVM.visualModel.userYMax)
                                         .keyboardType(.numbersAndPunctuation)
-                                    
+
                                 }, message: {
                                     Text("Enter the Y-axis maximum value for the graph.")
                                 })
                                 Spacer()
-                                Text(propertyVM.userYMax)
+                                Text(propertyVM.visualModel.userYMax)
                             }
                         }
                     }
                     
                     Section(header: Text("Options")) {
                         Button("Apply Configurations", action: {
+//                            propertyVM.checkAndRetrieveUserDefaults()
+                            //                            propertyVM.saveInUserDefault(storeObject: propertyVM)
                             dismiss()
                         })
                     }
@@ -135,5 +161,14 @@ struct DataStreamGraphPropertyView: View {
             }
             .padding()
         }
+    }
+}
+
+
+struct DataStreamGraphPropertyView_Previews: PreviewProvider {
+    static var previews: some View {
+        let ds = FXBSpec.mock.devices[0].dataStreams[1]
+        let vmNK = DataExplorerGraphPropertyViewModel(dataStream: ds)
+        DataStreamGraphPropertyView(propertyVM: vmNK)
     }
 }

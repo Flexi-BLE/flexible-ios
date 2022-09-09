@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DataExplorerTableView: View {
     @StateObject var vm: DataExplorerTableViewModel
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         List(vm.data) { row in
             VStack {
@@ -29,6 +30,15 @@ struct DataExplorerTableView: View {
         .refreshable {
             await vm.refreshTableMetadata()
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading){
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "arrowshape.backward.fill")
+                }
+            }
+        })
         .navigationBarTitle(vm.tableName, displayMode: .inline)
     }
 }

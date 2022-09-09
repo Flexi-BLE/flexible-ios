@@ -45,7 +45,7 @@ struct DataStreamDetailCellView: View {
                 }
                 .fullScreenCover(isPresented: $dataGraphViewPopover) {
                     NavigationView {
-                        DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(vm.dataStream))
+                        DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(dataStream: vm.dataStream))
                     }
                 }
                 

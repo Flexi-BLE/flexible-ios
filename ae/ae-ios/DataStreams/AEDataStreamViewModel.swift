@@ -115,13 +115,14 @@ import GRDB
     
     func fetchDatabaseValuesForGraph(graphProperty: DataExplorerGraphPropertyViewModel) async -> [(mark: String, data: [(ts: Date, val: Double)])] {
         let readings = graphProperty.getSelectedReadings()
-        let propertyValues = graphProperty.getSelectedValuesFromProperty(forKey: graphProperty.selectedProperty)
+        let selectedProperty = graphProperty.variableModel.selectedProperty
+        let propertyValues = graphProperty.getSelectedValuesFromProperty(forKey: selectedProperty)
         var result: [(mark: String, data: [(ts: Date, val: Double)])] = []
         var graphMin = Double.greatestFiniteMagnitude
         var graphMax = -Double.greatestFiniteMagnitude
-        if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: graphProperty.selectedProperty) {
+        if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: selectedProperty) {
             let queryLimit = 2000
-            if graphProperty.selectedProperty == nil {
+            if selectedProperty == nil {
                 if readings.count != 0 {
                     for eachReading in readings {
                         var sql = "SELECT ts, \(eachReading) "
@@ -130,9 +131,16 @@ import GRDB
                             sql.append("WHERE \(eachReading) <> 0 ")
                         }
                         
-                        if graphProperty.shouldFilterByTimestamp {
-                            sql.append(" AND created_at BETWEEN '\(graphProperty.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.endTimestamp.SQLiteDateFormat())' ")
+                        if graphProperty.visualModel.graphState == .live {
+                            let endDate = Date()
+                            let startDate = endDate.getEarlierDateBySeconds(interval: Int(graphProperty.visualModel.liveInterval))
+                            sql.append(" AND created_at BETWEEN '\(startDate.SQLiteDateFormat())' AND '\(endDate.SQLiteDateFormat())' ")
+                        } else {
+                            if graphProperty.visualModel.shouldFilterByTimestamp {
+                                sql.append(" AND created_at BETWEEN '\(graphProperty.visualModel.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.visualModel.endTimestamp.SQLiteDateFormat())' ")
+                            }
                         }
+                        
                         sql.append("ORDER BY created_at DESC ")
                         sql.append("LIMIT \(queryLimit)")
                         let res = await fxb.read.getDatabaseValuesWithQuery(sqlQuery: sql, columnName: eachReading, propertyName: "")
@@ -149,7 +157,7 @@ import GRDB
                     print("No reading selected. Choose default ?")
                 }
             } else {
-                guard let propertyValues = propertyValues, let selectedKey = graphProperty.selectedProperty else {
+                guard let propertyValues = propertyValues, let selectedKey = graphProperty.variableModel.selectedProperty else {
                     return []
                 }
                 for eachReading in readings {
@@ -157,8 +165,15 @@ import GRDB
                         var sql = "SELECT ts, \(eachReading) "
                         sql.append("FROM \(dataStream.name)_data ")
                         sql.append("WHERE \(selectedKey) = \(eachPropertyValue) ")
-                        if graphProperty.shouldFilterByTimestamp {
-                            sql.append(" AND created_at BETWEEN \(graphProperty.startTimestamp) AND \(graphProperty.endTimestamp) ")
+                        
+                        if graphProperty.visualModel.graphState == .live {
+                            let endDate = Date()
+                            let startDate = endDate.getEarlierDateBySeconds(interval: Int(graphProperty.visualModel.liveInterval))
+                            sql.append(" AND created_at BETWEEN '\(startDate.SQLiteDateFormat())' AND '\(endDate.SQLiteDateFormat())' ")
+                        } else {
+                            if graphProperty.visualModel.shouldFilterByTimestamp {
+                                sql.append(" AND created_at BETWEEN '\(graphProperty.visualModel.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.visualModel.endTimestamp.SQLiteDateFormat())' ")
+                            }
                         }
                         sql.append("ORDER BY created_at DESC ")
                         sql.append("LIMIT \(queryLimit) ")

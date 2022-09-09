@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GraphParameterValueSelectionView: View {
-    @StateObject var vm: DataValueOptionsListModel
+    @State var vm: [DataValueOptionInformation]
     var body: some View {
         VStack {
             HStack {
@@ -17,7 +17,7 @@ struct GraphParameterValueSelectionView: View {
                 Spacer()
             }
             List {
-                ForEach(vm.values) { value in
+                ForEach(vm, id: \.value) { value in
                     FXBCheckboxEntry(vm: value)
                 }
             }
@@ -30,7 +30,7 @@ struct GraphParameterValueSelectionView: View {
 struct GraphParameterValueSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         let data = DataValueOptionInformation(value: "Sample value")
-        let vm = DataValueOptionsListModel(withValues: [data])
-        GraphParameterValueSelectionView(vm: vm)
+//        let vm = DataValueOptionsListModelNK(values: [data])
+        GraphParameterValueSelectionView(vm: [data])
     }
 }

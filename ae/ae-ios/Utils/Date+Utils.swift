@@ -46,5 +46,13 @@ extension Date {
         
         return formatter.string(from: self)
     }
+    
+    func getEarlierDateBySeconds(interval: Int) -> Date {
+        let calendar = Calendar.current
+        guard let date = calendar.date(byAdding: .second, value: -interval, to: self) else {
+            return Date()
+        }
+        return date
+    }
 
 }

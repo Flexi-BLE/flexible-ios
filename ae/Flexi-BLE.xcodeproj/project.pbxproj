@@ -107,10 +107,6 @@
 		01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */; };
 		01CA3BA3281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
 		01CA3BA4281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
-		01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA5281A34370004875D /* DataStreamDataView.swift */; };
-		01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA5281A34370004875D /* DataStreamDataView.swift */; };
-		01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */; };
-		01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */; };
 		01CA3BAC281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
@@ -163,6 +159,7 @@
 		5C95DB6528C3176F00396FA0 /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */; };
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
+		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
 		5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */; };
 		5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */; };
 		5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */; };
@@ -256,8 +253,6 @@
 		01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingUploadIndicatorView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		01CA3BA5281A34370004875D /* DataStreamDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
-		01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButtonStyle.swift; sourceTree = "<group>"; };
@@ -289,6 +284,7 @@
 		5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
+		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyViewModel.swift; sourceTree = "<group>"; };
 		5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyView.swift; sourceTree = "<group>"; };
 		5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphParameterValueSelectionView.swift; sourceTree = "<group>"; };
@@ -490,7 +486,6 @@
 				011F489128076B3B00B359EB /* DataExplorerColumnView.swift */,
 				011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */,
 				011F489328076B3B00B359EB /* DataExplorerViewModel.swift */,
-				01CA3BA8281A45E00004875D /* DataExplorerLineGraphView.swift */,
 				01CA3BAE281A472B0004875D /* LineView.swift */,
 			);
 			path = DataExplorer;
@@ -532,6 +527,7 @@
 				5C54194F2899809C005CBA25 /* String+Util.swift */,
 				5C5419512899836B005CBA25 /* Date+Utils.swift */,
 				014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */,
+				5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -573,7 +569,6 @@
 				01E7F26E281855B100ED6F15 /* DataStreamsView.swift */,
 				01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */,
 				01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */,
-				01CA3BA5281A34370004875D /* DataStreamDataView.swift */,
 			);
 			path = DataStreams;
 			sourceTree = "<group>";
@@ -861,6 +856,7 @@
 				014DB6D9289B6FA1008982C6 /* TimestampsViewModel.swift in Sources */,
 				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
+				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */,
@@ -925,7 +921,6 @@
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
-				01CA3BA6281A34370004875D /* DataStreamDataView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
@@ -933,7 +928,6 @@
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
-				01CA3BA9281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
 				01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
@@ -992,10 +986,8 @@
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
-				01CA3BA7281A34370004875D /* DataStreamDataView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
 				01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */,
-				01CA3BAA281A45E00004875D /* DataExplorerLineGraphView.swift in Sources */,
 				01CA3BB0281A472B0004875D /* LineView.swift in Sources */,
 				0105E36828C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
 				011F488428076AF000B359EB /* MainTabView.swift in Sources */,
