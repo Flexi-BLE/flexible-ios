@@ -48,15 +48,16 @@ struct DataStreamGraphVisualizerView: View {
                 }
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
-//                .onReceive(graphPropertyVM.variableModel.propertyDict, perform: { data in
-//                    print("GRAPH CHANGES")
-//                })
                 .padding()
             }
             .sheet(isPresented: $presentSheet) {
-                DataStreamGraphPropertyView(propertyVM: graphPropertyVM)
-                    .presentationDetents([.fraction(0.15), .large])
-                    .presentationDragIndicator(.visible)
+                DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
+                    Task {
+                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    }
+                })
+                .presentationDetents([.fraction(0.15), .large])
+                .presentationDragIndicator(.visible)
                 //                .interactiveDismissDisabled()
             }
             .toolbar(content: {
