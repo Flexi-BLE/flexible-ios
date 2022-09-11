@@ -10,9 +10,6 @@ import FlexiBLE
 
 struct DataStreamDetailCellView: View {
     @StateObject var vm: AEDataStreamViewModel
-    @State private var dataTabularViewPopover = false
-    @State private var dataGraphViewPopover = false
-    @State private var editConfigPopover = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -62,15 +59,6 @@ struct DataStreamDetailCellView: View {
                     Text("Edit Parameters")
                 }
                 .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
-//
-//                FXBButton(action: {editConfigPopover.toggle()}) {
-//                    Text("Edit Parameters")
-//                }
-//                .fullScreenCover(isPresented: $editConfigPopover) {
-//                    NavigationView {
-//                        ConfigEditView(vm: vm)
-//                    }
-//                }
                 Spacer()
             }
         }

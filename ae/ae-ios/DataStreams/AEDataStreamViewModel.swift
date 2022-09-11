@@ -20,7 +20,7 @@ import GRDB
     
     @Published var configVMs: [ConfigViewModel] = []
     
-//    private var timer: Timer?
+    private var timer: Timer?
     private var timerCount: Int = 0
     
     private var deviceName: String
@@ -34,11 +34,11 @@ import GRDB
         self.deviceName = deviceName
         
         // TODO: Timer reloads complete view of app each time it is triggered
-//        timer = Timer.scheduledTimer(
-//            withTimeInterval: 0.5,
-//            repeats: true,
-//            block: { _ in self.onTimer() }
-//        )
+        timer = Timer.scheduledTimer(
+            withTimeInterval: 2,
+            repeats: true,
+            block: { _ in self.onTimer() }
+        )
         
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))
@@ -122,7 +122,7 @@ import GRDB
         var graphMin = Double.greatestFiniteMagnitude
         var graphMax = -Double.greatestFiniteMagnitude
         if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: selectedProperty) {
-            let queryLimit = 2000
+            let queryLimit = graphProperty.visualModel.graphState == .live ? 0 : 2000
             if selectedProperty == nil {
                 if readings.count != 0 {
                     for eachReading in readings {

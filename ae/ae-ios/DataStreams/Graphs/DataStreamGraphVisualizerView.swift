@@ -22,74 +22,72 @@ struct DataStreamGraphVisualizerView: View {
     ).autoconnect()
     
     var body: some View {
-//        NavigationView {
-            VStack {
-                Chart {
-                    ForEach(self.databaseResults, id: \.mark) { series in
-                        ForEach(series.data, id: \.ts) {
-                            LineMark(
-                                x: .value("Time", $0.ts),
-                                y: .value("Value", $0.val)
-                            )
-                        }
-                        .foregroundStyle(by: .value("mark", series.mark))
+        VStack {
+            Chart {
+                ForEach(self.databaseResults, id: \.mark) { series in
+                    ForEach(series.data, id: \.ts) {
+                        LineMark(
+                            x: .value("Time", $0.ts),
+                            y: .value("Value", $0.val)
+                        )
                     }
+                    .foregroundStyle(by: .value("mark", series.mark))
                 }
-                .chartYScale(domain: graphPropertyVM.getYMin() ... graphPropertyVM.getYMax())
-                .chartYAxis {
-                    AxisMarks(preset: .extended, position: .leading) { value in
-                        AxisGridLine()
-                            .foregroundStyle(.gray)
-                        AxisValueLabel()
-                            .foregroundStyle(.black)
-                    }
-                }
-                .chartXAxis {
-                    AxisMarks(preset: .automatic, position: .bottom) { value in
-                        AxisGridLine()
-                            .foregroundStyle(.black)
-                        AxisValueLabel(horizontalSpacing: 5.0)
-                    }
-                }
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .padding()
             }
-            .sheet(isPresented: $presentSheet, onDismiss: {
-                presentSheet = false
-            }, content: {
-                DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
-                    Task {
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-                    }
-                })
-                .presentationDetents([.fraction(0.15), .large])
-                .presentationDragIndicator(.visible)
-            })
-            .toolbar(content: {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        presentSheet = true
-                    }) {
-                        HStack {
-                            Text("Edit")
-                            Image(systemName: "slider.vertical.3")
-                        }
-//                        Label("Edit", systemImage: "slider.vertical.3")
-                    }
+            .chartYScale(domain: graphPropertyVM.getYMin() ... graphPropertyVM.getYMax())
+            .chartYAxis {
+                AxisMarks(preset: .extended, position: .leading) { value in
+                    AxisGridLine()
+                        .foregroundStyle(.gray)
+                    AxisValueLabel()
+                        .foregroundStyle(.black)
+                }
+            }
+            .chartXAxis {
+                AxisMarks(preset: .automatic, position: .bottom) { value in
+                    AxisGridLine()
+                        .foregroundStyle(.black)
+                    AxisValueLabel(horizontalSpacing: 5.0)
+                }
+            }
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .padding()
+        }
+        .sheet(isPresented: $presentSheet, onDismiss: {
+            presentSheet = false
+        }, content: {
+            DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
+                Task {
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
                 }
             })
-            .onReceive(timer) { _ in
-                Task {
-                    if graphPropertyVM.shouldReloadGraphData {
-                        graphPropertyVM.shouldReloadGraphData = false
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+            .presentationDetents([.fraction(0.15), .large])
+            .presentationDragIndicator(.visible)
+        })
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    presentSheet = true
+                }) {
+                    HStack {
+                        Text("Edit")
+                        Image(systemName: "slider.vertical.3")
                     }
-                    
-                    if graphPropertyVM.visualModel.graphState == .live {
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-                    }
+                }
+            }
+        })
+        .onReceive(timer) { _ in
+            Task {
+                if graphPropertyVM.shouldReloadGraphData {
+                    graphPropertyVM.shouldReloadGraphData = false
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                }
+                
+                if graphPropertyVM.visualModel.graphState == .live {
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
                 }
             }
         }
+    }
 }

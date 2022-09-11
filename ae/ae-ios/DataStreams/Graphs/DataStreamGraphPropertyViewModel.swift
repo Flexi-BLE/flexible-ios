@@ -182,16 +182,16 @@ import FlexiBLE
     var minY: String = "-10.0"
     var maxY: String = "10.0"
 
-    var graphState: GraphVisualStateInfo = .live
-    var liveInterval: Double = 60.0
+    @Published var graphState: GraphVisualStateInfo = .live
+    @Published var liveInterval: Double = 60.0
 
-    var shouldFilterByTimestamp: Bool = false
-    var startTimestamp: Date = Date()
-    var endTimestamp: Date = Date()
+    @Published var shouldFilterByTimestamp: Bool = false
+    @Published var startTimestamp: Date = Date()
+    @Published var endTimestamp: Date = Date()
 
-    var shouldFilterByYAxisRange: Bool = false
-    var userYMin: String = "-10.0"
-    var userYMax: String = "10.0"
+    @Published var shouldFilterByYAxisRange: Bool = false
+    @Published var userYMin: String = "-10.0"
+    @Published var userYMax: String = "10.0"
     
     private enum CodingKeys : String, CodingKey {
         case graphState = "graphState"
@@ -217,12 +217,15 @@ import FlexiBLE
         self.userYMin = try container.decode(String.self, forKey: .userYMin)
         self.userYMax = try container.decode(String.self, forKey: .userYMax)
         self.shouldFilterByTimestamp = try container.decode(Bool.self, forKey: .shouldFilterByTimestamp)
-        self.startTimestamp = Date()
-        self.endTimestamp = Date()
+        if shouldFilterByTimestamp {
+            self.startTimestamp = try container.decode(Date.self, forKey: .startTimestamp)
+            self.endTimestamp = try container.decode(Date.self, forKey: .endTimestamp)
+        } else {
+            self.startTimestamp = Date()
+            self.endTimestamp = Date()
+        }
         self.minY = "-10.0"
         self.maxY = "10.0"
-
-
     }
     
     func encode(to encoder: Encoder) throws {
