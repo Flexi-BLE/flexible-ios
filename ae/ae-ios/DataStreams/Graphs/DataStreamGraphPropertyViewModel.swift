@@ -61,51 +61,15 @@ import FlexiBLE
 
     private func checkPreviousStoredConfiguration() {
         do {
-            try UserDefaults.standard.setCustomObject(variableModel, forKey: "checkNK")
-            let gotModelBack = try UserDefaults.standard.getCustomObject(forKey: "checkNK", castTo: GraphPropertyVariableModel.self)
-            
-            try UserDefaults.standard.setCustomObject(visualModel, forKey: "checkNK2")
-            let gotModelBack2 = try UserDefaults.standard.getCustomObject(forKey: "checkNK2", castTo: GraphPropertyVisualModel.self)
-
-            print("SAS")
-            let storedModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_model", castTo: GraphPropertyUserDefaultModel.self)
-            loadPreviousStoredConfiguration(prevModel: storedModel)
+            variableModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_variable_model", castTo: GraphPropertyVariableModel.self)
+            visualModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_visual_model", castTo: GraphPropertyVisualModel.self)
+            shouldReloadGraphData = true
         } catch {
             createDefaultConfigurationForGraph()
             shouldReloadGraphData = true
         }
     }
-    
-    
-    private func loadPreviousStoredConfiguration(prevModel: GraphPropertyUserDefaultModel) {
-        for eachSelectedReading in prevModel.selectedReadings {
-            let reading = variableModel.supportedReadings.filter({ $0.value == eachSelectedReading })
-            if !reading.isEmpty {
-                reading[0].isChecked = true
-            }
-        }
         
-        visualModel.graphState = prevModel.graphSelectionState
-        visualModel.liveInterval = prevModel.liveInterval
-        
-        if let selectedProperty = prevModel.selectedProperty, let spv = prevModel.supportedPropertyValues {
-            variableModel.selectedProperty = selectedProperty
-            for eachSelectedPropertyValue in spv {
-                guard let supportedValues = variableModel.propertyDict[eachSelectedPropertyValue.key] else {
-                    return
-                }
-                let selectedValues = eachSelectedPropertyValue.value
-                for eachSelectedValue in selectedValues {
-                    let values = supportedValues.filter({ $0.value == eachSelectedValue })
-                    if !values.isEmpty {
-                        values[0].isChecked = true
-                    }
-                }
-            }
-        }
-        shouldReloadGraphData = true
-    }
-    
     private func createDefaultConfigurationForGraph() {
         visualModel.graphState = .parameterized
         if let property = variableModel.selectedProperty, let values = variableModel.propertyDict[property] {
@@ -119,21 +83,9 @@ import FlexiBLE
     }
     
     public func saveSelectedConfigurationForGraph() {
-        var propertyDict = [String: [String]]()
-        for eachEntry in variableModel.propertyDict {
-            let selectedValues = eachEntry.value.filter({ $0.isChecked == true}).map({ $0.value })
-            propertyDict[eachEntry.key] = selectedValues
-        }
-        let selectedReading = variableModel.supportedReadings.filter({ $0.isChecked == true }).map({ $0.value })
-        let newGraphModel = GraphPropertyUserDefaultModel(
-            selectedProperty: variableModel.selectedProperty,
-            supportedPropertyValues: propertyDict,
-            selectedReadings: selectedReading,
-            graphSelectionState: visualModel.graphState,
-            liveInterval: visualModel.liveInterval
-        )
         do {
-            try UserDefaults.standard.setCustomObject(newGraphModel, forKey: "\(_configName)_model")
+            try UserDefaults.standard.setCustomObject(variableModel, forKey: "\(_configName)_variable_model")
+            try UserDefaults.standard.setCustomObject(visualModel, forKey: "\(_configName)_visual_model")
         } catch {
             print("Error saving configuration")
         }
@@ -188,22 +140,6 @@ import FlexiBLE
         queryYMax = yMax >= 0.0 ? yMax * 1.1 : (yMax - yMax * 0.1)
     }
 }
-
-
-struct GraphPropertyUserDefaultModel: Codable {
-    var selectedProperty: String?
-    var supportedPropertyValues: [String: [String]]?
-    var selectedReadings: [String]
-    var graphSelectionState: GraphVisualStateInfo
-    var liveInterval: Double = 60.0
-    var shouldFilterByTimestamp: Bool = false
-    var startTimestamp: Date = Date()
-    var endTimestamp: Date = Date()
-    var shouldFilterByYAxisRange: Bool = false
-    var userYMin: String = "-10.0"
-    var userYMax: String = "10.0"
-}
-
 
 @MainActor class GraphPropertyVariableModel: Codable, ObservableObject {
     
