@@ -61,6 +61,13 @@ import FlexiBLE
 
     private func checkPreviousStoredConfiguration() {
         do {
+            try UserDefaults.standard.setCustomObject(variableModel, forKey: "checkNK")
+            let gotModelBack = try UserDefaults.standard.getCustomObject(forKey: "checkNK", castTo: GraphPropertyVariableModel.self)
+            
+            try UserDefaults.standard.setCustomObject(visualModel, forKey: "checkNK2")
+            let gotModelBack2 = try UserDefaults.standard.getCustomObject(forKey: "checkNK2", castTo: GraphPropertyVisualModel.self)
+
+            print("SAS")
             let storedModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_model", castTo: GraphPropertyUserDefaultModel.self)
             loadPreviousStoredConfiguration(prevModel: storedModel)
         } catch {
@@ -118,7 +125,13 @@ import FlexiBLE
             propertyDict[eachEntry.key] = selectedValues
         }
         let selectedReading = variableModel.supportedReadings.filter({ $0.isChecked == true }).map({ $0.value })
-        let newGraphModel = GraphPropertyUserDefaultModel(selectedProperty: variableModel.selectedProperty, supportedPropertyValues: propertyDict, selectedReadings: selectedReading, graphSelectionState: visualModel.graphState, liveInterval: visualModel.liveInterval)
+        let newGraphModel = GraphPropertyUserDefaultModel(
+            selectedProperty: variableModel.selectedProperty,
+            supportedPropertyValues: propertyDict,
+            selectedReadings: selectedReading,
+            graphSelectionState: visualModel.graphState,
+            liveInterval: visualModel.liveInterval
+        )
         do {
             try UserDefaults.standard.setCustomObject(newGraphModel, forKey: "\(_configName)_model")
         } catch {
@@ -192,14 +205,44 @@ struct GraphPropertyUserDefaultModel: Codable {
 }
 
 
-@MainActor class GraphPropertyVariableModel: ObservableObject {
+@MainActor class GraphPropertyVariableModel: Codable, ObservableObject {
+    
     public var supportedProperty: [String] = []
     public var supportedReadings: [DataValueOptionInformation] = []
     public var propertyDict = [String: [DataValueOptionInformation]]()
     public var selectedProperty: String?
+    
+    
+    private enum CodingKeys : String, CodingKey {
+        case supportedProperty = "supportedProperty"
+        case supportedReadings = "supportedReadings"
+        case propertyDict = "propertyDict"
+        case selectedProperty = "selectedProperty"
+    }
+
+    init() { }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.supportedProperty = try container.decodeIfPresent([String].self, forKey: .supportedProperty) ?? []
+        self.supportedReadings = try container.decode([DataValueOptionInformation].self, forKey: .supportedReadings)
+        self.propertyDict = try container.decode([String: [DataValueOptionInformation]].self, forKey: .propertyDict)
+        self.selectedProperty = try container.decodeIfPresent(String.self, forKey: .selectedProperty)
+
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(supportedProperty, forKey: .supportedProperty)
+        try container.encode(supportedReadings, forKey: .supportedReadings)
+        try container.encode(propertyDict, forKey: .propertyDict)
+        try container.encode(selectedProperty, forKey: .selectedProperty)
+    }
+    
 }
 
-@MainActor class GraphPropertyVisualModel: ObservableObject {
+@MainActor class GraphPropertyVisualModel: Codable, ObservableObject {
+    
     var minY: String = "-10.0"
     var maxY: String = "10.0"
 
@@ -213,6 +256,54 @@ struct GraphPropertyUserDefaultModel: Codable {
     var shouldFilterByYAxisRange: Bool = false
     var userYMin: String = "-10.0"
     var userYMax: String = "10.0"
+    
+    private enum CodingKeys : String, CodingKey {
+        case graphState = "graphState"
+        case liveInterval = "liveInterval"
+        case shouldFilterByYAxisRange = "shouldFilterByYAxisRange"
+        case userYMin = "userYMin"
+        case userYMax = "userYMax"
+        case shouldFilterByTimestamp = "shouldFilterByTimestamp"
+        case startTimestamp = "startTimestamp"
+        case endTimestamp = "endTimestamp"
+        case minY = "minY"
+        case maxY = "maxY"
+    }
+    
+    init() { }
+
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.graphState = try container.decode(GraphVisualStateInfo.self, forKey: .graphState)
+        self.liveInterval = try container.decode(Double.self, forKey: .liveInterval)
+        self.shouldFilterByYAxisRange = try container.decode(Bool.self, forKey: .shouldFilterByYAxisRange)
+        self.userYMin = try container.decode(String.self, forKey: .userYMin)
+        self.userYMax = try container.decode(String.self, forKey: .userYMax)
+        self.shouldFilterByTimestamp = try container.decode(Bool.self, forKey: .shouldFilterByTimestamp)
+        self.startTimestamp = Date()
+        self.endTimestamp = Date()
+        self.minY = "-10.0"
+        self.maxY = "10.0"
+
+
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(graphState, forKey: .graphState)
+        try container.encode(liveInterval, forKey: .liveInterval)
+        try container.encode(shouldFilterByYAxisRange, forKey: .shouldFilterByYAxisRange)
+        try container.encode(userYMin, forKey: .userYMin)
+        try container.encode(userYMax, forKey: .userYMax)
+        try container.encode(shouldFilterByTimestamp, forKey: .shouldFilterByTimestamp)
+//        try container.encode(startTimestamp, forKey: .startTimestamp)
+//        try container.encode(endTimestamp, forKey: .endTimestamp)
+//        try container.encode(minY, forKey: .minY)
+//        try container.encode(maxY, forKey: .maxY)
+
+    }
+
 }
 
 enum GraphVisualStateInfo: String, Codable, CaseIterable, Identifiable {
@@ -223,7 +314,8 @@ enum GraphVisualStateInfo: String, Codable, CaseIterable, Identifiable {
 }
 
 
-@MainActor class DataValueOptionInformation: ObservableObject {
+@MainActor class DataValueOptionInformation: Codable, ObservableObject {
+    
     var value: String
     @Published var isChecked: Bool
 
@@ -231,4 +323,22 @@ enum GraphVisualStateInfo: String, Codable, CaseIterable, Identifiable {
         self.value = value
         self.isChecked = isChecked
     }
+    
+    private enum CodingKeys : String, CodingKey {
+        case value = "value"
+        case isChecked = "isChecked"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(value, forKey: .value)
+        try container.encode(isChecked, forKey: .isChecked)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.value = try container.decode(String.self, forKey: .value)
+        self.isChecked = try container.decode(Bool.self, forKey: .isChecked)
+    }
+
 }
