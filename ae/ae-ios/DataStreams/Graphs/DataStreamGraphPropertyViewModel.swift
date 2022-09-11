@@ -12,8 +12,11 @@ import FlexiBLE
 @MainActor class DataExplorerGraphPropertyViewModel: ObservableObject {
     private var _dataStream: FXBDataStream
     private var _configName: String
+    
     @Published var variableModel: GraphPropertyVariableModel = GraphPropertyVariableModel()
     @Published var visualModel: GraphPropertyVisualModel = GraphPropertyVisualModel()
+    @Published var shouldReloadGraphData = false
+
     private var queryYMin: Double?
     private var queryYMax: Double?
 
@@ -23,7 +26,6 @@ import FlexiBLE
         parsePropertyAndReadingsFromStream()
         Task {
             await getDistinctPropertyValuesCaptured()
-            checkPreviousStoredConfiguration()
         }
     }
     
@@ -41,6 +43,7 @@ import FlexiBLE
     
     private func getDistinctPropertyValuesCaptured() async {
         guard !variableModel.supportedProperty.isEmpty else {
+            checkPreviousStoredConfiguration()
             return
         }
         for eachProperty in variableModel.supportedProperty {
@@ -51,6 +54,7 @@ import FlexiBLE
             DispatchQueue.main.async { [self] in
                 let distinctValues = values.map { DataValueOptionInformation(value: $0) }
                 variableModel.propertyDict[eachProperty] = distinctValues
+                checkPreviousStoredConfiguration()
             }
         }
     }
@@ -60,7 +64,8 @@ import FlexiBLE
             let storedModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_model", castTo: GraphPropertyUserDefaultModel.self)
             loadPreviousStoredConfiguration(prevModel: storedModel)
         } catch {
-            print("ASD")
+            createDefaultConfigurationForGraph()
+            shouldReloadGraphData = true
         }
     }
     
@@ -91,11 +96,35 @@ import FlexiBLE
                 }
             }
         }
+        shouldReloadGraphData = true
     }
     
-//    private func createDefaultConfigurationForGraph() -> GraphPropertyUserDefaultModel {
-//
-//    }
+    private func createDefaultConfigurationForGraph() {
+        visualModel.graphState = .parameterized
+        if let property = variableModel.selectedProperty, let values = variableModel.propertyDict[property] {
+            for eachValue in values {
+                eachValue.isChecked = true
+            }
+        }
+        if let checkedReading = variableModel.supportedReadings.first {
+            checkedReading.isChecked = true
+        }
+    }
+    
+    public func saveSelectedConfigurationForGraph() {
+        var propertyDict = [String: [String]]()
+        for eachEntry in variableModel.propertyDict {
+            let selectedValues = eachEntry.value.filter({ $0.isChecked == true}).map({ $0.value })
+            propertyDict[eachEntry.key] = selectedValues
+        }
+        let selectedReading = variableModel.supportedReadings.filter({ $0.isChecked == true }).map({ $0.value })
+        let newGraphModel = GraphPropertyUserDefaultModel(selectedProperty: variableModel.selectedProperty, supportedPropertyValues: propertyDict, selectedReadings: selectedReading, graphSelectionState: visualModel.graphState, liveInterval: visualModel.liveInterval)
+        do {
+            try UserDefaults.standard.setCustomObject(newGraphModel, forKey: "\(_configName)_model")
+        } catch {
+            print("Error saving configuration")
+        }
+    }
     
     public func getConfigName() -> String {
         return _configName
@@ -160,7 +189,6 @@ struct GraphPropertyUserDefaultModel: Codable {
     var shouldFilterByYAxisRange: Bool = false
     var userYMin: String = "-10.0"
     var userYMax: String = "10.0"
-
 }
 
 

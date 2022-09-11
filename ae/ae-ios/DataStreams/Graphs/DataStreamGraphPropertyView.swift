@@ -12,11 +12,11 @@ struct DataStreamGraphPropertyView: View {
     @StateObject var propertyVM: DataExplorerGraphPropertyViewModel
     @State private var presentYMinAlert = false
     @State private var presentYMaxAlert = false
-    @State private var selectedAnimal = GraphVisualStateInfo.live
     var onConfigurationSelected: (() -> Void)?
     @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-//        NavigationView {
+        NavigationView {
             VStack(spacing: 13.0) {
                 HStack {
                     Text("Configure Graph Parameters")
@@ -152,9 +152,8 @@ struct DataStreamGraphPropertyView: View {
                     
                     Section(header: Text("Options")) {
                         Button("Apply Configurations", action: {
+                            propertyVM.saveSelectedConfigurationForGraph()
                             onConfigurationSelected?()
-//                            propertyVM.checkAndRetrieveUserDefaults()
-                            //                            propertyVM.saveInUserDefault(storeObject: propertyVM)
                             dismiss()
                         })
                     }
@@ -163,7 +162,7 @@ struct DataStreamGraphPropertyView: View {
             }
             .padding()
         }
-//    }
+    }
 }
 
 

@@ -62,6 +62,14 @@ struct SettingsView: View {
                         }
                     }
                     
+                    Button("Purge All Graph Configuration") {
+                        Task {
+                            if let id = Bundle.main.bundleIdentifier {
+                                UserDefaults.standard.removePersistentDomain(forName: id)
+                            }
+                        }
+                    }
+                    
                     Button("Share Database") {
                         ShareUtil.share(path: fxb.db.dbPath)
                     }

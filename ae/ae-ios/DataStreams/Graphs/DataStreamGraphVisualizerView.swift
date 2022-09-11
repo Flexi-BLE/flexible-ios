@@ -14,11 +14,12 @@ struct DataStreamGraphVisualizerView: View {
     @StateObject var graphPropertyVM: DataExplorerGraphPropertyViewModel
     @State var databaseResults: [(mark: String, data: [(ts: Date, val: Double)])] = []
     @State var presentSheet = false
-//    var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(
-//        every: 1,
-//        on: .main,
-//        in: .common
-//    ).autoconnect()
+    
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(
+        every: 1,
+        on: .main,
+        in: .common
+    ).autoconnect()
     
     var body: some View {
 //        NavigationView {
@@ -78,13 +79,17 @@ struct DataStreamGraphVisualizerView: View {
                     }
                 }
             })
-//            .onReceive(timer) { _ in
-//                Task {
-//                    print("Timer Called")
-////                    timer.upstream.connect().cancel()
-////                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-//                }
-//            }
+            .onReceive(timer) { _ in
+                Task {
+                    if graphPropertyVM.shouldReloadGraphData {
+                        graphPropertyVM.shouldReloadGraphData = false
+                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    }
+                    
+                    if graphPropertyVM.visualModel.graphState == .live {
+                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    }
+                }
+            }
         }
-//    }
 }
