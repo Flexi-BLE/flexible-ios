@@ -20,7 +20,7 @@ import GRDB
     
     @Published var configVMs: [ConfigViewModel] = []
     
-    private var timer: Timer?
+//    private var timer: Timer?
     private var timerCount: Int = 0
     
     private var deviceName: String
@@ -33,11 +33,12 @@ import GRDB
         self.dataStream = dataStream
         self.deviceName = deviceName
         
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 0.5,
-            repeats: true,
-            block: { _ in self.onTimer() }
-        )
+        // TODO: Timer reloads complete view of app each time it is triggered
+//        timer = Timer.scheduledTimer(
+//            withTimeInterval: 0.5,
+//            repeats: true,
+//            block: { _ in self.onTimer() }
+//        )
         
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))

@@ -16,7 +16,7 @@ struct DataStreamGraphPropertyView: View {
     var onConfigurationSelected: (() -> Void)?
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack(spacing: 13.0) {
                 HStack {
                     Text("Configure Graph Parameters")
@@ -163,7 +163,7 @@ struct DataStreamGraphPropertyView: View {
             }
             .padding()
         }
-    }
+//    }
 }
 
 

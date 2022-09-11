@@ -10,9 +10,6 @@ import FlexiBLE
 
 struct ConfigEditView: View {
     @StateObject var vm: AEDataStreamViewModel
-    
-    @Environment(\.dismiss) var dismiss
-    
     var body: some View {
         VStack {
             ScrollView {
@@ -31,9 +28,6 @@ struct ConfigEditView: View {
             }
             
             HStack {
-                FXBButton(action: {dismiss() }) {
-                    Text("Dismiss")
-                }
                 FXBButton(action: { vm.updateConfigs() }) {
                     Text("Save")
                 }

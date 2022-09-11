@@ -15,6 +15,7 @@ struct FCBButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding(11)
+            .font(.custom("Arvo-Bold", size: 13))
             .background(bgColor)
             .foregroundColor(fontColor)
             .cornerRadius(8)

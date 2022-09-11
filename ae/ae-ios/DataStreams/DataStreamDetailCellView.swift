@@ -40,23 +40,15 @@ struct DataStreamDetailCellView: View {
 //            )
             
             HStack {
-                FXBButton(action: { dataGraphViewPopover.toggle() }) {
+                NavigationLink(destination: DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(dataStream: vm.dataStream))) {
                     Text("View Graph")
                 }
-                .fullScreenCover(isPresented: $dataGraphViewPopover) {
-                    NavigationView {
-                        DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(dataStream: vm.dataStream))
-                    }
-                }
+                .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
                 
-                FXBButton(action: { dataTabularViewPopover.toggle() }) {
+                NavigationLink(destination: DataExplorerTableView(vm: DataExplorerTableViewModel(tableName: "\(vm.dataStream.name)_data"))) {
                     Text("View Table")
                 }
-                .fullScreenCover(isPresented: $dataTabularViewPopover) {
-                    NavigationView {
-                        DataExplorerTableView(vm: DataExplorerTableViewModel(tableName: "\(vm.dataStream.name)_data"))
-                    }
-                }
+                .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
                 Spacer()
             }
             
@@ -66,14 +58,19 @@ struct DataStreamDetailCellView: View {
                 ConfigValueView(vm: configVM)
             }
             HStack {
-                FXBButton(action: {editConfigPopover.toggle()}) {
+                NavigationLink(destination: ConfigEditView(vm: vm)) {
                     Text("Edit Parameters")
                 }
-                .fullScreenCover(isPresented: $editConfigPopover) {
-                    NavigationView {
-                        ConfigEditView(vm: vm)
-                    }
-                }
+                .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
+//
+//                FXBButton(action: {editConfigPopover.toggle()}) {
+//                    Text("Edit Parameters")
+//                }
+//                .fullScreenCover(isPresented: $editConfigPopover) {
+//                    NavigationView {
+//                        ConfigEditView(vm: vm)
+//                    }
+//                }
                 Spacer()
             }
         }

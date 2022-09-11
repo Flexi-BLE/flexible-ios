@@ -29,21 +29,31 @@ struct AEThingDetailCellView: View {
             
             Spacer().frame(height: 10.0)
             
-            NavigationLink(
-                isActive: $isShowingDataStream,
-                destination: {
-                    
-                    DataStreamsView(vm: vm)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .navigationTitle("Data Streams")
-                },
-                label: { EmptyView() }
-            )
-            FXBButton {
-                isShowingDataStream = true
-            } content: {
+            
+            NavigationLink(destination: {
+                DataStreamsView(vm: vm)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("Data Streams")
+            }) {
                 Text("Data Streams")
             }
+            .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
+
+//            NavigationLink(
+//                isActive: $isShowingDataStream,
+//                destination: {
+//
+//                    DataStreamsView(vm: vm)
+//                        .navigationBarTitleDisplayMode(.inline)
+//                        .navigationTitle("Data Streams")
+//                },
+//                label: { EmptyView() }
+//            )
+//            FXBButton {
+//                isShowingDataStream = true
+//            } content: {
+//                Text("Data Streams")
+//            }
 
 
             Divider()

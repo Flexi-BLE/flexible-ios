@@ -7,17 +7,21 @@
 
 import SwiftUI
 import Charts
+import Combine
 
 struct DataStreamGraphVisualizerView: View {
     @StateObject var vm: AEDataStreamViewModel
     @StateObject var graphPropertyVM: DataExplorerGraphPropertyViewModel
     @State var databaseResults: [(mark: String, data: [(ts: Date, val: Double)])] = []
-    @State var presentSheet = true
-    
-    @Environment(\.dismiss) var dismiss
+    @State var presentSheet = false
+//    var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(
+//        every: 1,
+//        on: .main,
+//        in: .common
+//    ).autoconnect()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 Chart {
                     ForEach(self.databaseResults, id: \.mark) { series in
@@ -50,7 +54,9 @@ struct DataStreamGraphVisualizerView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .padding()
             }
-            .sheet(isPresented: $presentSheet) {
+            .sheet(isPresented: $presentSheet, onDismiss: {
+                presentSheet = false
+            }, content: {
                 DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
                     Task {
                         self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
@@ -58,31 +64,27 @@ struct DataStreamGraphVisualizerView: View {
                 })
                 .presentationDetents([.fraction(0.15), .large])
                 .presentationDragIndicator(.visible)
-                //                .interactiveDismissDisabled()
-            }
+            })
             .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading){
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "arrowshape.backward.fill")
-                    }
-                }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
-                        Task {
-                            self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                        presentSheet = true
+                    }) {
+                        HStack {
+                            Text("Edit")
+                            Image(systemName: "slider.vertical.3")
                         }
-                    }) {
-                        Image(systemName: "circle.hexagonpath")
-                    }
-                    Button(action: {
-                        presentSheet.toggle()
-                    }) {
-                        Image(systemName: "slider.vertical.3")
+//                        Label("Edit", systemImage: "slider.vertical.3")
                     }
                 }
             })
+//            .onReceive(timer) { _ in
+//                Task {
+//                    print("Timer Called")
+////                    timer.upstream.connect().cancel()
+////                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+//                }
+//            }
         }
-    }
+//    }
 }

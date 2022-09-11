@@ -30,15 +30,15 @@ struct DataExplorerTableView: View {
         .refreshable {
             await vm.refreshTableMetadata()
         }
-        .toolbar(content: {
-            ToolbarItem(placement: .navigationBarLeading){
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "arrowshape.backward.fill")
-                }
-            }
-        })
+//        .toolbar(content: {
+//            ToolbarItem(placement: .navigationBarLeading){
+//                Button(action: {
+//                    dismiss()
+//                }) {
+//                    Image(systemName: "arrowshape.backward.fill")
+//                }
+//            }
+//        })
         .navigationBarTitle(vm.tableName, displayMode: .inline)
     }
 }
