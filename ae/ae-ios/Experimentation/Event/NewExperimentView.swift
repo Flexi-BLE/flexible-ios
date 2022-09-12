@@ -78,7 +78,7 @@ struct NewExperimentView: View {
                 
                 HStack {
                     Spacer()
-                    AEButton(action: {
+                    FXBButton(action: {
                         Task{
                             await vm.createExperiment()
                             self.onDismiss()

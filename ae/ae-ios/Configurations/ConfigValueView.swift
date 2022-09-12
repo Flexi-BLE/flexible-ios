@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct ConfigValueView: View {
     @StateObject var vm: ConfigViewModel
@@ -22,7 +22,7 @@ struct ConfigValueView: View {
 struct ConfigValueView_Previews: PreviewProvider {
     static var previews: some View {
         ConfigValueView(
-            vm: ConfigViewModel(config: AEDeviceConfig.mock.things[0].dataStreams[0].configValues[0])
+            vm: ConfigViewModel(config: FXBSpec.mock.devices[0].dataStreams[0].configValues[0])
         )
     }
 }

@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import aeble
+import FlexiBLE
 import UIKit
 
 @MainActor class TimestampsViewModel: ObservableObject {
-    @Published var timestamps: [Timestamp]
+    @Published var timestamps: [FXBTimestamp]
     @Published var errorMsg: String?=nil
     
     private let experimentId: Int64?
@@ -28,7 +28,7 @@ import UIKit
             return
         }
         
-        let res = await aeble.exp.getTimestampForExperiment(withID: id)
+        let res = await fxb.exp.getTimestampForExperiment(withID: id)
         switch res {
         case .success(let ts): self.timestamps = ts ?? []
         case .failure(let err): self.errorMsg = err.localizedDescription
@@ -38,7 +38,10 @@ import UIKit
     
     func createTimemarker() async {
         let name = "Timestamp - \(Date().getDetailedDate())"
-        let res = await aeble.exp.createTimeMarker(name: name, experimentId: experimentId)
+        let res = await fxb.exp.createTimeMarker(
+            name: name,
+            experimentId: experimentId,
+            specId: fxb.specId)
         
         switch res {
         case .success(let ts): self.timestamps.append(ts)

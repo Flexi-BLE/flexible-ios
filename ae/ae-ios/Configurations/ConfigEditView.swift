@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct ConfigEditView: View {
     @StateObject var vm: AEDataStreamViewModel
@@ -31,10 +31,10 @@ struct ConfigEditView: View {
             }
             
             HStack {
-                AEButton(action: {dismiss() }) {
+                FXBButton(action: {dismiss() }) {
                     Text("Dismiss")
                 }
-                AEButton(action: { vm.updateConfigs() }) {
+                FXBButton(action: { vm.updateConfigs() }) {
                     Text("Save")
                 }
             }
@@ -47,7 +47,7 @@ struct ConfigEditView: View {
 
 struct DataStreamConfigEditView_Previews: PreviewProvider {
     static var previews: some View {
-        let ds = AEDeviceConfig.mock.things[0].dataStreams[0]
+        let ds = FXBSpec.mock.devices[0].dataStreams[0]
         let vm = AEDataStreamViewModel(ds, deviceName: "none")
         ConfigEditView(vm: vm)
     }

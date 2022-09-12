@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct ExperimentListCellView: View {
     @StateObject var vm: ExperimentViewModel
@@ -47,6 +47,6 @@ struct ExperimentListCellView: View {
 
 struct NewExperimentListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentListCellView(vm: ExperimentViewModel(Experiment.dummyActive()))
+        ExperimentListCellView(vm: ExperimentViewModel(FXBExperiment.dummyActive()))
     }
 }

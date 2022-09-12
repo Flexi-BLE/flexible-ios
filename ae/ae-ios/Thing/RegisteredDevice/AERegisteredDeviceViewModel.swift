@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 import SwiftUI
-import aeble
+import FlexiBLE
 
 @MainActor class AERegisteredDeviceViewModel: ObservableObject {
-    let metadata: AEBLERegisteredDevice
+    let metadata: FXBRegisteredDevice
     
-    @Published var connectionStatus: String = AEBLEPeripheralState.disconnected.humanReadable
+    @Published var connectionStatus: String = FXBPeripheralState.disconnected.humanReadable
     
     private var enabled: Bool = true
     @Published var isEnabled: Binding<Bool>?
@@ -21,14 +21,14 @@ import aeble
     private var connectionStatusCancellable: AnyCancellable?
     private var bleStatusCancellable: AnyCancellable?
     
-    private var peripheral: AEBLERegisteredPeripheral? {
+    private var peripheral: FXBRegisteredPeripheral? {
         didSet {
             connectionStatusCancellable = peripheral?.$state.sink(receiveValue: { self.connectionStatus = $0.humanReadable
             })
         }
     }
     
-    init(with metdata: AEBLERegisteredDevice) {
+    init(with metdata: FXBRegisteredDevice) {
         self.metadata = metdata
         
         isEnabled = Binding<Bool>(
@@ -39,23 +39,23 @@ import aeble
             }
         )
         
-        bleStatusCancellable = aeble.conn.$centralState.sink(receiveValue: { cbstate in
+        bleStatusCancellable = fxb.conn.$centralState.sink(receiveValue: { cbstate in
             switch cbstate {
             case .poweredOn:
-                self.peripheral = aeble.conn.registeredPeripheral(for: self.metadata.name)
+                self.peripheral = fxb.conn.registeredPeripheral(for: self.metadata.name)
             default: break
             }
         })
         
-        self.peripheral = aeble.conn.registeredPeripheral(for: metadata.name)
+        self.peripheral = fxb.conn.registeredPeripheral(for: metadata.name)
     }
     
     private func didUpdateEnabled(_ isEnabled: Bool) {
         self.enabled = isEnabled
         if isEnabled {
-            aeble.conn.enable(registeredDevice: metadata)
+            fxb.conn.enable(registeredDevice: metadata)
         } else {
-            aeble.conn.disable(registeredDevice: metadata)
+            fxb.conn.disable(registeredDevice: metadata)
         }
     }
     

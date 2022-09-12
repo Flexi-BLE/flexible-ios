@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct AERegisteredDeviceDetailCellView: View {
     @StateObject var vm: AERegisteredDeviceViewModel
@@ -33,6 +33,6 @@ struct AERegisteredDeviceDetailCellView: View {
 
 struct AERegisteredDeviceDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AERegisteredDeviceDetailCellView(vm: AERegisteredDeviceViewModel(with: AEDeviceConfig.mock.bleRegisteredDevices.first!))
+        AERegisteredDeviceDetailCellView(vm: AERegisteredDeviceViewModel(with: FXBSpec.mock.bleRegisteredDevices.first!))
     }
 }

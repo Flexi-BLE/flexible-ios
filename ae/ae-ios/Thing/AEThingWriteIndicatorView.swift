@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct AEThingWriteIndicatorView: View {
     
@@ -35,7 +35,7 @@ struct AEThingWriteIndicatorView: View {
 
 struct AEThingWriteIndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingWriteIndicatorView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        AEThingWriteIndicatorView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
             .previewLayout(.sizeThatFits)
     }
 }

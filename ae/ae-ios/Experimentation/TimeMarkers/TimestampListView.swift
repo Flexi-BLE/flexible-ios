@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct TimestampListView: View {
     @StateObject var vm: TimestampsViewModel
@@ -20,7 +20,7 @@ struct TimestampListView: View {
                     Label("Timemark Details", systemImage: "calendar.badge.clock")
                         .font(.title3)
                     Spacer()
-                    AEButton(action: {
+                    FXBButton(action: {
                         Task {
                             await vm.createTimemarker()
                         }
@@ -30,7 +30,7 @@ struct TimestampListView: View {
                 }
             }
             List {
-                ForEach(vm.timestamps, id: \.datetime) { timestamp in
+                ForEach(vm.timestamps, id: \.ts) { timestamp in
                     TimestampCellView(vm: TimestampViewModel(timestamp: timestamp))
                 }
             }
@@ -41,7 +41,7 @@ struct TimestampListView: View {
 
 struct NewMarkTimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        TimestampListView(vm: TimestampsViewModel(with: Experiment.dummyActive().id), canCreate: true)
+        TimestampListView(vm: TimestampsViewModel(with: FXBExperiment.dummyActive().id), canCreate: true)
     }
 }
 

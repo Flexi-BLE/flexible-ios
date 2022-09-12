@@ -7,12 +7,12 @@
 
 import Foundation
 import Combine
-import aeble
+import FlexiBLE
 
 @MainActor class AEViewModel: ObservableObject {
     
     enum State {
-        case selected(config: AEDeviceConfig, name: String)
+        case selected(config: FXBSpec, name: String)
         case unselected
         case loading(name: String)
         case error(message: String)
@@ -35,27 +35,41 @@ import aeble
     
     init(with localFileName: String) {
         state = .loading(name: localFileName)
-        loadDeviceConfig(with: localFileName)
+        Task {
+            await loadDeviceConfig(with: localFileName)
+        }
     }
     
     func loadDeviceConfig(with url: URL) async {
         self.url = url
         self.state = .loading(name: url.absoluteString)
         
-        if let config = try? await AEDeviceConfig.load(from: url) {
-            self.state = .selected(config: config, name: url.absoluteString)
+        if let config = try? await FXBSpec.load(from: url) {
+            do {
+                try await fxb.setSpec(config)
+                self.state = .selected(config: config, name: url.absoluteString)
+                fxb.startScan(with: config)
+            } catch {
+                state = .error(message: "unable to store device specification in local database")
+            }
         } else {
             state = .error(message: "unable to load remote configuration")
         }
     }
     
-    func loadDeviceConfig(with fileName: String) {
+    func loadDeviceConfig(with fileName: String) async {
         self.localFileName = fileName
         
         self.state = .loading(name: fileName)
         
-        if let config = AEDeviceConfig.load(from: fileName) {
-            self.state = .selected(config: config, name: fileName)
+        if let config = FXBSpec.load(from: fileName) {
+            do {
+                try await fxb.setSpec(config)
+                self.state = .selected(config: config, name: fileName)
+                fxb.startScan(with: config)
+            } catch {
+                state = .error(message: "unable to store device specification in local database")
+            }
         } else {
             self.state = .error(message: "unable to load local config")
         }

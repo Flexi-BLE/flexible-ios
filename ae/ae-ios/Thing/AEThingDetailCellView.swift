@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct AEThingDetailCellView: View {
     @StateObject var vm: AEThingViewModel
@@ -38,7 +38,7 @@ struct AEThingDetailCellView: View {
                 },
                 label: { EmptyView() }
             )
-            AEButton {
+            FXBButton {
                 isShowingDataStream = true
             } content: {
                 Text("Data Streams")
@@ -54,6 +54,6 @@ struct AEThingDetailCellView: View {
 
 struct AEThingDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingDetailCellView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        AEThingDetailCellView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
     }
 }

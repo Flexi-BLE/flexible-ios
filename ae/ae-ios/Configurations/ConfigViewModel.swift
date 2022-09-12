@@ -7,11 +7,11 @@
 
 import Foundation
 import Combine
-import aeble
+import FlexiBLE
 
 @MainActor class ConfigViewModel: ObservableObject {
     
-    let config: AEDataStreamConfig
+    let config: FXBDataStreamConfig
     
     @Published var selectedValue: String
     @Published var selectedRangeValue: Double {
@@ -22,7 +22,7 @@ import aeble
     
     @Published var is_updated: Bool
     
-    init(config: AEDataStreamConfig) {
+    init(config: FXBDataStreamConfig) {
         self.config = config
         
         self.selectedValue = config.defaultValue

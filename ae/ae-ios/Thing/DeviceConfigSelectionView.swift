@@ -45,10 +45,10 @@ struct DeviceConfigSelectionView: View {
             }
             Spacer()
             HStack {
-                AEButton(action: { load() }) {
+                FXBButton(action: { load() }) {
                     Text("Load")
                 }
-                AEButton(action: { dismiss() }) {
+                FXBButton(action: { dismiss() }) {
                     Text("Cancel")
                 }
             }
@@ -71,8 +71,10 @@ struct DeviceConfigSelectionView: View {
                 vm.state = .error(message: "invalid URL")
             }
         } else {
-            vm.loadDeviceConfig(with: fileNameString)
-            dismiss()
+            Task {
+                await vm.loadDeviceConfig(with: fileNameString)
+                self.dismiss()
+            }
         }
     }
 }

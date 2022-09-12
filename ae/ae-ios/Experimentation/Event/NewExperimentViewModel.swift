@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import aeble
+import FlexiBLE
 
 @MainActor class NewExperimentViewModel: ObservableObject {
     @Published var name: String = ""
@@ -21,13 +21,14 @@ import aeble
     
     func createExperiment() async {
         
-        let res = await aeble.exp.createExperiment(
+        let res = await fxb.exp.createExperiment(
             name: name,
             description: description == "" ? nil : description,
             start: startDate,
             end: hasEndDate ? endDate : nil,
             active: true,
-            trackGPS: trackGPS
+            trackGPS: trackGPS,
+            specId: fxb.specId
         )
         
         switch res {

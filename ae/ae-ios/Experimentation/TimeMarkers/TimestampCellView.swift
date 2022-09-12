@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct TimestampCellView: View {
     @StateObject var vm: TimestampViewModel
@@ -22,6 +22,6 @@ struct TimestampCellView: View {
 
 struct NewTimeMarkerCellView_Previews: PreviewProvider {
     static var previews: some View {
-        TimestampCellView(vm: TimestampViewModel(timestamp: Timestamp.dummy()))
+        TimestampCellView(vm: TimestampViewModel(timestamp: FXBTimestamp.dummy()))
     }
 }

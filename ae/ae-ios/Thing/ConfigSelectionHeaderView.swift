@@ -24,7 +24,7 @@ struct ConfigSelectionHeaderView: View {
                 Text(name)
                 Spacer()
             }
-            AEButton {
+            FXBButton {
                 showConfigSelection.toggle()
             } content: {
                 Text("Select")

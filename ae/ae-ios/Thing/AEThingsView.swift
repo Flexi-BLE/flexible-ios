@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct AEThingsView: View {
     @StateObject var vm: AEViewModel
@@ -27,7 +27,7 @@ struct AEThingsView: View {
                     Spacer()
                 case .selected(let config, _):
                     ScrollView {
-                        ForEach(config.things, id: \.id) { thing in
+                        ForEach(config.devices, id: \.id) { thing in
                             AEThingDetailCellView(vm: AEThingViewModel(with: thing))
                                 .modifier(Card())
                         }

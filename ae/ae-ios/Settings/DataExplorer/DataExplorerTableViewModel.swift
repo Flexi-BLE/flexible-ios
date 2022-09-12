@@ -9,11 +9,11 @@ import Foundation
 import Combine
 import SwiftUI
 import GRDB
-import aeble
+import FlexiBLE
 
 
 @MainActor class DataExplorerTableViewModel: ObservableObject {
-    @Published var metadata: [TableInfo]?
+    @Published var metadata: [FXBTableInfo]?
     @Published var data: [GenericRow] = [GenericRow]()
     @Published var tableName: String
     
@@ -22,13 +22,13 @@ import aeble
     }
     
     func refreshTableMetadata() async {
-        metadata = aeble.db.tableInfo(for: self.tableName)
+        metadata = fxb.db.tableInfo(for: self.tableName)
         await self.refreshData()
     }
     
     func refreshData() async {
         guard let metadata = self.metadata else { return }
-        if let data = await aeble.db.data(for: self.tableName, metadata: metadata) {
+        if let data = await fxb.db.data(for: self.tableName, metadata: metadata) {
             DispatchQueue.main.async {
                 self.data = data
             }

@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 import Combine
-import aeble
+import FlexiBLE
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     public static var sharedInstance = LocationManager()
@@ -80,13 +80,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return
         }
         
-        let _ = await aeble.exp.trackGPSLocation(
+        let _ = await fxb.exp.trackGPSLocation(
             latitude: Double(latest.coordinate.latitude),
             longitude: Double(latest.coordinate.longitude),
             altitude: latest.altitude,
             horizontalAcc: latest.horizontalAccuracy,
             verticalAcc: latest.verticalAccuracy,
-            timestamp: latest.timestamp
+            timestamp: latest.timestamp,
+            specId: fxb.specId
         )
     }
 }

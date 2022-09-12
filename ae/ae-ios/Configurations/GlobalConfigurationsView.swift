@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct GlobalConfigurationsView: View {
     
@@ -27,6 +27,6 @@ struct GlobalConfigurationsView: View {
 
 struct ConfigurationsView_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalConfigurationsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
     }
 }

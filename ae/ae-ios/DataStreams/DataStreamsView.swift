@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import aeble
+import FlexiBLE
 
 struct DataStreamsView: View {
     
@@ -33,6 +33,6 @@ struct DataStreamsView: View {
 
 struct DataStreamsView_Previews: PreviewProvider {
     static var previews: some View {
-        DataStreamsView(vm: AEThingViewModel(with: AEDeviceConfig.mock.things.first!))
+        DataStreamsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
     }
 }
