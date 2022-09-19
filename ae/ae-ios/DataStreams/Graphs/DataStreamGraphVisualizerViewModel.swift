@@ -12,7 +12,8 @@ import FlexiBLE
     
     enum State {
         case loading
-        case graph
+        case graphing
+        case editing
         case error(message: String)
     }
     
@@ -20,6 +21,7 @@ import FlexiBLE
     typealias GraphResult = (mark: String, data: [GraphRecord])
     
     let dataStream: FXBDataStream
+    var state: State = .graphing
     
     init(with dataStream: FXBDataStream) {
         self.dataStream = dataStream
@@ -73,7 +75,7 @@ import FlexiBLE
                     graphProperty.setYMinAndMax(yMin: graphMin, yMax: graphMax)
                     return result
                 } else {
-                    print("No reading selected. Choose default ?")
+                    self.state = .error(message: "No reading selected. Choose default ?")
                 }
             } else {
                 guard let propertyValues = propertyValues, let selectedKey = graphProperty.variableModel.selectedProperty else {
