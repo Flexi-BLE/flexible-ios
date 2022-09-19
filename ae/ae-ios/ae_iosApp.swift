@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct ae_iosApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate

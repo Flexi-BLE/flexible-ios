@@ -79,10 +79,10 @@ struct DataStreamGraphPropertyView: View {
                         }
                     }
                     
-                    Section(header: Text("Timestamp Filters")) {
+                    Section(header: Text("Range Filters")) {
                         VStack {
                             HStack {
-                                Text("Enable Range Filters")
+                                Text("Enable Timestamp Filters")
                                 Spacer()
                                 Toggle("Show welcome message", isOn: $propertyVM.visualModel.shouldFilterByTimestamp)
                                     .labelsHidden()
@@ -106,46 +106,37 @@ struct DataStreamGraphPropertyView: View {
                                             .datePickerStyle(.compact)
                                             .labelsHidden()
                                     }
-                                }
+                                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                             }
-                        }
-                    }
-                    
-                    Section(header: Text("Readings Range Filters")) {
-
-                        HStack {
-                            Text("Enable Range filters ")
-                            Spacer()
-                            Toggle("Show welcome message", isOn: $propertyVM.visualModel.shouldFilterByYAxisRange)
-                                .labelsHidden()
-                        }
-                        if propertyVM.visualModel.shouldFilterByYAxisRange {
+                            
                             HStack {
-                                Button("Minimum value") {
-                                    presentYMinAlert = true
-                                }
-                                .alert("Y-Axis Minimum value", isPresented: $presentYMinAlert, actions: {
-                                    TextField("Y-min value", text: $propertyVM.visualModel.userYMin)
-                                        .keyboardType(.numbersAndPunctuation)
-                                }, message: {
-                                    Text("Enter the Y-axis minimum value for the graph.")
-                                })
+                                Text("Enable Range filters ")
                                 Spacer()
-                                Text(propertyVM.visualModel.userYMin)
+                                Toggle("Show welcome message", isOn: $propertyVM.visualModel.shouldFilterByYAxisRange)
+                                    .labelsHidden()
                             }
-                            HStack {
-                                Button("Maximum value") {
-                                    presentYMaxAlert = true
-                                }
-                                .alert("Y-Axis Maximum value", isPresented: $presentYMaxAlert, actions: {
-                                    TextField("Y-max value", text: $propertyVM.visualModel.userYMax)
-                                        .keyboardType(.numbersAndPunctuation)
-
-                                }, message: {
-                                    Text("Enter the Y-axis maximum value for the graph.")
-                                })
-                                Spacer()
-                                Text(propertyVM.visualModel.userYMax)
+                            if propertyVM.visualModel.shouldFilterByYAxisRange {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("Min Y-axis Value").bold()
+                                        TextField("Min Y-axis Value", text: $propertyVM.visualModel.userYMin)
+                                            .textFieldStyle(.roundedBorder)
+                                            .keyboardType(.default)
+                                    }
+                                    HStack {
+                                        Text("Max Y-axis Value").bold()
+                                        TextField("Max Y-axis Value", text: $propertyVM.visualModel.userYMax)
+                                            .textFieldStyle(.roundedBorder)
+                                            .keyboardType(.default)
+//                                            .toolbar(content: {
+//                                                ToolbarItem(placement: .keyboard) {
+//                                                    Button("+/-") {
+//                                                        propertyVM.visualModel.toggleUserMaxYSign()
+//                                                    }
+//                                                }
+//                                            })
+                                    }
+                                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                             }
                         }
                     }

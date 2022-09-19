@@ -37,10 +37,17 @@ struct DataStreamDetailCellView: View {
 //            )
             
             HStack {
-                NavigationLink(destination: DataStreamGraphVisualizerView(vm: vm, graphPropertyVM: DataExplorerGraphPropertyViewModel(dataStream: vm.dataStream))) {
-                    Text("View Graph")
+                if #available(iOS 16, *) {
+                    NavigationLink(
+                        destination: DataStreamGraphVisualizerView(
+                            vm: DataStreamGraphVisualizerViewModel(with: vm.dataStream),
+                            graphPropertyVM: DataExplorerGraphPropertyViewModel(dataStream: vm.dataStream)
+                        )
+                    ) {
+                        Text("View Graph")
+                    }
+                    .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
                 }
-                .buttonStyle(FCBButtonStyle(bgColor: .indigo, fontColor: .white))
                 
                 NavigationLink(destination: DataExplorerTableView(vm: DataExplorerTableViewModel(tableName: "\(vm.dataStream.name)_data"))) {
                     Text("View Table")

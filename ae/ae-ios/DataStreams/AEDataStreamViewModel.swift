@@ -15,8 +15,6 @@ import GRDB
     @Published var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
     @Published var meanFreqLastK: Float = 0
-    @Published var unUploadCount: Int = 0
-    @Published var uploadAgg: FXBDBManager.UploadAggregate = FXBDBManager.UploadAggregate(0,0,0)
     
     @Published var configVMs: [ConfigViewModel] = []
     
@@ -52,11 +50,6 @@ import GRDB
     private func onTimer() {
         Task {
             self.recordCount = await fxb.db.recordCountByIndex(for: dataStream)
-            self.unUploadCount = await fxb.db.unUploadedCount(for: dataStream)
-            if timerCount % 5 == 0 || timerCount == 1 {
-                self.meanFreqLastK = await fxb.db.meanFrequency(for: dataStream)
-                self.uploadAgg = await fxb.db.uploadAgg(for: dataStream)
-            }
             timerCount += 1
         }
     }
@@ -112,85 +105,5 @@ import GRDB
             offset: offset,
             limit: limit
         )
-    }
-    
-    func fetchDatabaseValuesForGraph(graphProperty: DataExplorerGraphPropertyViewModel) async -> [(mark: String, data: [(ts: Date, val: Double)])] {
-        let readings = graphProperty.getSelectedReadings()
-        let selectedProperty = graphProperty.variableModel.selectedProperty
-        let propertyValues = graphProperty.getSelectedValuesFromProperty(forKey: selectedProperty)
-        var result: [(mark: String, data: [(ts: Date, val: Double)])] = []
-        var graphMin = Double.greatestFiniteMagnitude
-        var graphMax = -Double.greatestFiniteMagnitude
-        if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: selectedProperty) {
-            let queryLimit = graphProperty.visualModel.graphState == .live ? 0 : 2000
-            if selectedProperty == nil {
-                if readings.count != 0 {
-                    for eachReading in readings {
-                        var sql = "SELECT ts, \(eachReading) "
-                        sql.append("FROM \(dataStream.name)_data ")
-                        if graphProperty.getConfigName() == "accelerometry" {
-                            sql.append("WHERE \(eachReading) <> 0 ")
-                        }
-                        
-                        if graphProperty.visualModel.graphState == .live {
-                            let endDate = Date()
-                            let startDate = endDate.getEarlierDateBySeconds(interval: Int(graphProperty.visualModel.liveInterval))
-                            sql.append(" AND created_at BETWEEN '\(startDate.SQLiteDateFormat())' AND '\(endDate.SQLiteDateFormat())' ")
-                        } else {
-                            if graphProperty.visualModel.shouldFilterByTimestamp {
-                                sql.append(" AND created_at BETWEEN '\(graphProperty.visualModel.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.visualModel.endTimestamp.SQLiteDateFormat())' ")
-                            }
-                        }
-                        
-                        sql.append("ORDER BY created_at DESC ")
-                        sql.append("LIMIT \(queryLimit)")
-                        let res = await fxb.read.getDatabaseValuesWithQuery(sqlQuery: sql, columnName: eachReading, propertyName: "")
-                        graphMax = max(graphMax, res.maxVal)
-                        graphMin = min(graphMin, res.minValue)
-                        if res.queryData.isEmpty {
-                            continue
-                        }
-                        result.append(res.queryData[0])
-                    }
-                    graphProperty.setYMinAndMax(yMin: graphMin, yMax: graphMax)
-                    return result
-                } else {
-                    print("No reading selected. Choose default ?")
-                }
-            } else {
-                guard let propertyValues = propertyValues, let selectedKey = graphProperty.variableModel.selectedProperty else {
-                    return []
-                }
-                for eachReading in readings {
-                    for eachPropertyValue in propertyValues {
-                        var sql = "SELECT ts, \(eachReading) "
-                        sql.append("FROM \(dataStream.name)_data ")
-                        sql.append("WHERE \(selectedKey) = \(eachPropertyValue) ")
-                        
-                        if graphProperty.visualModel.graphState == .live {
-                            let endDate = Date()
-                            let startDate = endDate.getEarlierDateBySeconds(interval: Int(graphProperty.visualModel.liveInterval))
-                            sql.append(" AND created_at BETWEEN '\(startDate.SQLiteDateFormat())' AND '\(endDate.SQLiteDateFormat())' ")
-                        } else {
-                            if graphProperty.visualModel.shouldFilterByTimestamp {
-                                sql.append(" AND created_at BETWEEN '\(graphProperty.visualModel.startTimestamp.SQLiteDateFormat())' AND '\(graphProperty.visualModel.endTimestamp.SQLiteDateFormat())' ")
-                            }
-                        }
-                        sql.append("ORDER BY created_at DESC ")
-                        sql.append("LIMIT \(queryLimit) ")
-                        let res = await fxb.read.getDatabaseValuesWithQuery(sqlQuery: sql, columnName: eachReading, propertyName: eachPropertyValue)
-                        graphMax = max(graphMax, res.maxVal)
-                        graphMin = min(graphMin, res.minValue)
-                        if res.queryData.isEmpty {
-                            continue
-                        }
-                        result.append(res.queryData[0])
-                    }
-                }
-                graphProperty.setYMinAndMax(yMin: graphMin, yMax: graphMax)
-                return result
-            }
-        }
-        return []
     }
 }

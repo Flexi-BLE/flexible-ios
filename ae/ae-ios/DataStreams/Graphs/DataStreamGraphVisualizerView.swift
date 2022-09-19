@@ -8,15 +8,17 @@
 import SwiftUI
 import Charts
 import Combine
+import FlexiBLE
 
 struct DataStreamGraphVisualizerView: View {
-    @StateObject var vm: AEDataStreamViewModel
+    @StateObject var vm: DataStreamGraphVisualizerViewModel
     @StateObject var graphPropertyVM: DataExplorerGraphPropertyViewModel
+    
     @State var databaseResults: [(mark: String, data: [(ts: Date, val: Double)])] = []
     @State var presentSheet = false
     
     var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(
-        every: 1,
+        every: 0.25,
         on: .main,
         in: .common
     ).autoconnect()
@@ -34,7 +36,7 @@ struct DataStreamGraphVisualizerView: View {
                     .foregroundStyle(by: .value("mark", series.mark))
                 }
             }
-            .chartYScale(domain: graphPropertyVM.getYMin() ... graphPropertyVM.getYMax())
+            .chartYScale(domain: graphPropertyVM.getGraphRange())
             .chartYAxis {
                 AxisMarks(preset: .extended, position: .leading) { value in
                     AxisGridLine()
@@ -62,22 +64,19 @@ struct DataStreamGraphVisualizerView: View {
                     self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
                 }
             })
-            .presentationDetents([.fraction(0.15), .large])
             .presentationDragIndicator(.visible)
         })
         .toolbar(content: {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {
-                    presentSheet = true
+                    presentSheet.toggle()
                 }) {
-                    HStack {
-                        Text("Edit")
-                        Image(systemName: "slider.vertical.3")
-                    }
+                   Image(systemName: "slider.vertical.3")
                 }
             }
         })
         .onReceive(timer) { _ in
+            guard !presentSheet else { return }
             Task {
                 if graphPropertyVM.shouldReloadGraphData {
                     graphPropertyVM.shouldReloadGraphData = false

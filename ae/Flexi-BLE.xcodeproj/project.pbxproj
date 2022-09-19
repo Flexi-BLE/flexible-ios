@@ -60,6 +60,8 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		012B302528D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */; };
+		012B302628D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -218,6 +220,7 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphVisualizerViewModel.swift; sourceTree = "<group>"; };
 		013B877C28BD708E00D3860B /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
@@ -673,6 +676,7 @@
 				5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */,
 				5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */,
 				5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */,
+				012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */,
 			);
 			path = Graphs;
 			sourceTree = "<group>";
@@ -899,6 +903,7 @@
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
+				012B302528D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
@@ -947,6 +952,7 @@
 				011F489C28076B3B00B359EB /* SettingsView.swift in Sources */,
 				0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
+				012B302628D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
@@ -1140,7 +1146,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1179,7 +1185,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1230,7 +1236,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1263,7 +1269,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

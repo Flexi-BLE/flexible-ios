@@ -135,6 +135,15 @@ import FlexiBLE
         return yMax
     }
     
+    public func getGraphRange() -> ClosedRange<Double> {
+        let min = getYMin()
+        let max = getYMax()
+        guard max > min else {
+            return 0.0...0.0
+        }
+        return min...max
+    }
+    
     public func setYMinAndMax(yMin: Double, yMax: Double) {
         queryYMin = yMin >= 0.0 ? yMin * 0.9 : (yMin + yMin * 0.1)
         queryYMax = yMax >= 0.0 ? yMax * 1.1 : (yMax - yMax * 0.1)
@@ -242,7 +251,19 @@ import FlexiBLE
 //        try container.encode(maxY, forKey: .maxY)
 
     }
-
+    
+    func toggleStringSign(_ str: String) -> String {
+        guard let val = Double(str) else { return str }
+        return "\(val * -1)"
+    }
+    
+    func toggleUserMinYSign() {
+        userYMin = toggleStringSign(userYMin)
+    }
+    
+    func toggleUserMaxYSign() {
+        userYMax = toggleStringSign(userYMax)
+    }
 }
 
 enum GraphVisualStateInfo: String, Codable, CaseIterable, Identifiable {
