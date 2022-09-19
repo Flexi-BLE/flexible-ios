@@ -61,7 +61,6 @@ import FlexiBLE
                     deviceId: deviceId
                 )
                 showUploading = true
-                influxDBUploader!.start()
             }
         case .questDB:
             print()

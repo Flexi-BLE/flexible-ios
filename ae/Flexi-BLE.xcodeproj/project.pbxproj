@@ -62,6 +62,8 @@
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
+		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
+		012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -213,6 +215,7 @@
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
 		013B877C28BD708E00D3860B /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
@@ -544,6 +547,7 @@
 				01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */,
 				01C232A928C6B255006C6B33 /* UploadCompletedView.swift */,
 				01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */,
+				012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */,
 			);
 			path = Uploading;
 			sourceTree = "<group>";
@@ -724,7 +728,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					011F481F2807692E00B359EB = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -840,6 +844,7 @@
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
 				01E7F290281C106800ED6F15 /* AEThingDetailCellView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
+				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* AEThingsView.swift in Sources */,
@@ -907,6 +912,7 @@
 				01E59BCC28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
+				012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
 				0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
@@ -1013,6 +1019,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1047,6 +1054,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1412,6 +1420,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-macos/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1494,6 +1503,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-macos/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1566,6 +1576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1638,6 +1649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
 				ENABLE_NS_ASSERTIONS = NO;

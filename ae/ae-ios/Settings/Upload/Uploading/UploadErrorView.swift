@@ -8,8 +8,8 @@
 import SwiftUI
 import FlexiBLE
 
-struct UploadErrorView<T>: View where T: FXBRemoteDatabaseUploader {
-    @ObservedObject var uploader: T
+struct UploadErrorView: View {
+    @ObservedObject var uploader: RemoteUploadViewModel
     let errorMsg: String
     
     var body: some View {
@@ -18,20 +18,5 @@ struct UploadErrorView<T>: View where T: FXBRemoteDatabaseUploader {
             
             Spacer()
         }.padding()
-    }
-}
-
-struct UploadErrorView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadErrorView(
-            uploader: InfluxDBUploader(
-                url: URL(string: "https://nasa.gov")!,
-                org: "cool",
-                bucket: "cool",
-                token: "123",
-                deviceId: "cool"
-            ),
-            errorMsg: "oops"
-        )
     }
 }

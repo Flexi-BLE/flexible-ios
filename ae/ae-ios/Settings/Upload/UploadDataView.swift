@@ -68,7 +68,7 @@ struct UploadDataView: View {
             }.padding()
         }
         .sheet(isPresented: $vm.showUploading) {
-            DataUploadingView(uploader: vm.influxDBUploader!)
+            DataUploadingView(uploader: RemoteUploadViewModel(uploader: vm.influxDBUploader!))
         }
     }
 }

@@ -15,7 +15,6 @@ struct DataExplorerLineGraphView: View {
     @State var data: [Float] = []
     @State private var selectedField: String
     
-    
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>
     
     init(vm: AEDataStreamViewModel) {
