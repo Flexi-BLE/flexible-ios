@@ -60,6 +60,8 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
+		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -210,6 +212,7 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		013B877C28BD708E00D3860B /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
@@ -510,6 +513,7 @@
 				5C54194F2899809C005CBA25 /* String+Util.swift */,
 				5C5419512899836B005CBA25 /* Date+Utils.swift */,
 				014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */,
+				012B302728D8DD1400BA623A /* UIApplication.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -828,6 +832,7 @@
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
+				012B302828D8DD1400BA623A /* UIApplication.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* AEViewModel.swift in Sources */,
 				0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
@@ -890,6 +895,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012B302928D8DD1400BA623A /* UIApplication.swift in Sources */,
 				011F489C28076B3B00B359EB /* SettingsView.swift in Sources */,
 				0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
@@ -1088,7 +1094,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1127,7 +1133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1178,7 +1184,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1211,7 +1217,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

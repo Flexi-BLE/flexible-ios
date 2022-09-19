@@ -38,5 +38,12 @@ extension Date {
         dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss"
         return dateFormatter.string(from: self)
     }
+    
+    func getFileNameFriendlyDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.dateFormat = "MM_dd_YYYY__HH_mm_ss"
+        return dateFormatter.string(from: self)
+    }
 
 }

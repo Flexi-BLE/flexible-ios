@@ -38,15 +38,30 @@ class ShareUtil {
 //    }
     
     static func share(path: URL) {
-        GeneralLogger.info("sharing \(path.absoluteString) from iOS")
+        do {
+            let dst = FileManager.default.temporaryDirectory.appendingPathComponent("fxbdb-\(Date.now.getFileNameFriendlyDate()).db")
+            try FileManager.default.copyItem(at: path, to: dst)
+            
+            GeneralLogger.info("sharing \(path.absoluteString) from iOS")
             let av = UIActivityViewController(
-                activityItems: [path],
+                activityItems: [dst],
                 applicationActivities: nil
             )
             UIApplication
                 .shared
-                .windows.first?
+                .currentUIWindow()?
                 .rootViewController?
-                .present(av, animated: true, completion: nil)
+                .present(av, animated: true, completion: {
+                    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(30)) {
+                        do {
+                            try FileManager.default.removeItem(at: dst)
+                        } catch {
+                            print("unable to delete tmp database, err: \(error.localizedDescription)")
+                        }
+                    }
+                })
+        } catch {
+            print("unable to share db, err: \(error.localizedDescription)")
+        }
     }
 }

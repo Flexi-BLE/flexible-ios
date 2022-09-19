@@ -11,6 +11,9 @@ import Combine
 //import FlexiBLE
 
 struct SettingsView: View {
+    
+    @State private var isPresentingPurgeAllConfirm: Bool = false
+    @State private var isPresentingPurgeUploadConfirm: Bool = false
 
     var body: some View {
         NavigationView {
@@ -43,11 +46,21 @@ struct SettingsView: View {
                     )
                 
                     Button ("Purge Uploaded Records") {
-                        Task { await fxb.db.purgeAllDynamicRecords() }
+                        isPresentingPurgeUploadConfirm = true
+                    }.confirmationDialog("Are you sure?",
+                                         isPresented: $isPresentingPurgeUploadConfirm) {
+                        Button("Delete all UPLOADED records?", role: .destructive) {
+                            Task { await fxb.db.purgeUpdatedDynamicRecords() }
+                        }
                     }
                     
                     Button("Purge All Records") {
-                        Task { await fxb.db.purgeAllDynamicRecords() }
+                        isPresentingPurgeAllConfirm = true
+                    }.confirmationDialog("Are you sure?",
+                                         isPresented: $isPresentingPurgeAllConfirm) {
+                        Button("Delete ALL records?", role: .destructive) {
+                            Task { await fxb.db.purgeAllDynamicRecords() }
+                        }
                     }
                     
                     Button("Share Database") {
