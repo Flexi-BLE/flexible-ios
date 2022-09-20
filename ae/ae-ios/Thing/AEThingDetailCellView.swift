@@ -9,7 +9,7 @@ import SwiftUI
 import FlexiBLE
 
 struct AEThingDetailCellView: View {
-    @StateObject var vm: AEThingViewModel
+    @StateObject var vm: FXBDeviceViewModel
     @State var isShowingDataStream = false
     
     
@@ -46,7 +46,7 @@ struct AEThingDetailCellView: View {
 
 
             Divider()
-            KeyValueView(key: "Status", value: "\(vm.connectionStatus)")
+            KeyValueView(key: "Status", value: "\(vm.connectionStatusString)")
         }
         .padding()
     }
@@ -54,6 +54,6 @@ struct AEThingDetailCellView: View {
 
 struct AEThingDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingDetailCellView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
+        AEThingDetailCellView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
     }
 }

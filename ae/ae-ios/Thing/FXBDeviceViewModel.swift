@@ -20,10 +20,11 @@ extension FXBPeripheralState {
     }
 }
 
-@MainActor class AEThingViewModel: ObservableObject {
+@MainActor class FXBDeviceViewModel: ObservableObject {
     @Published var thing: FXBDevice
     
-    @Published var connectionStatus: String = FXBPeripheralState.disconnected.humanReadable
+    @Published var connectionStatus: FXBPeripheralState = .disconnected
+    @Published var connectionStatusString: String = FXBPeripheralState.disconnected.humanReadable
     @Published var lastWrite: Date? = nil
     
     private var enabled: Bool=true
@@ -37,7 +38,8 @@ extension FXBPeripheralState {
     private var peripheral: FXBPeripheral? {
         didSet {
             connectionStatusCancellable = peripheral?.$state.sink(receiveValue: {
-                self.connectionStatus = $0.humanReadable
+                self.connectionStatusString = $0.humanReadable
+                self.connectionStatus = $0
             })
         }
     }

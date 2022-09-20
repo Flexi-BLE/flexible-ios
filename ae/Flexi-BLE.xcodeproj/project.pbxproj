@@ -129,8 +129,8 @@
 		01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */; };
 		01E7F278281858CA00ED6F15 /* AEThingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */; };
 		01E7F279281858CA00ED6F15 /* AEThingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */; };
-		01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */; };
-		01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */; };
+		01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */; };
+		01E7F27C2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */; };
 		01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */; };
 		01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */; };
 		01E7F284281871C300ED6F15 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F283281871C300ED6F15 /* String.swift */; };
@@ -260,7 +260,7 @@
 		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
 		01E7F2732818562C00ED6F15 /* GlobalConfigurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfigurationsView.swift; sourceTree = "<group>"; };
 		01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingBannerView.swift; sourceTree = "<group>"; };
-		01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEThingViewModel.swift; sourceTree = "<group>"; };
+		01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBDeviceViewModel.swift; sourceTree = "<group>"; };
 		01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDetailCellView.swift; sourceTree = "<group>"; };
 		01E7F283281871C300ED6F15 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		01E7F2862818734A00ED6F15 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -581,7 +581,7 @@
 			children = (
 				0198ECB42898B39400F93E13 /* RegisteredDevice */,
 				01E7F277281858CA00ED6F15 /* AEThingBannerView.swift */,
-				01E7F27A2818594500ED6F15 /* AEThingViewModel.swift */,
+				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
 				01CA3B992818D3840004875D /* AEThingWriteIndicatorView.swift */,
 				01CA3B9C2818EF840004875D /* AEThingUploadIndicatorView.swift */,
 				01E7F289281C0FB500ED6F15 /* AEThingsView.swift */,
@@ -855,7 +855,7 @@
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
-				01E7F27B2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
+				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
@@ -930,7 +930,7 @@
 				01E7F27F28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				01CA3BA4281A1ACC0004875D /* Int.swift in Sources */,
-				01E7F27C2818594500ED6F15 /* AEThingViewModel.swift in Sources */,
+				01E7F27C2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,
 				011F48342807693000B359EB /* ae_iosTests.swift in Sources */,
 				0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
@@ -1141,7 +1141,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1225,7 +1225,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

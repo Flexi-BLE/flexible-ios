@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct GlobalConfigurationsView: View {
     
-    @StateObject var vm: AEThingViewModel
+    @StateObject var vm: FXBDeviceViewModel
     
     var body: some View {
         VStack {
@@ -27,6 +27,6 @@ struct GlobalConfigurationsView: View {
 
 struct ConfigurationsView_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
+        GlobalConfigurationsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
     }
 }

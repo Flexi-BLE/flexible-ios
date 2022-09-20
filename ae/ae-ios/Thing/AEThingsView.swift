@@ -27,8 +27,8 @@ struct AEThingsView: View {
                     Spacer()
                 case .selected(let config, _):
                     ScrollView {
-                        ForEach(config.devices, id: \.id) { thing in
-                            AEThingDetailCellView(vm: AEThingViewModel(with: thing))
+                        ForEach(config.devices, id: \.id) { device in
+                            AEThingDetailCellView(vm: FXBDeviceViewModel(with: device))
                                 .modifier(Card())
                         }
                         ForEach(config.bleRegisteredDevices, id: \.name) { device in

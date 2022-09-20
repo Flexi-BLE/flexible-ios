@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct DataStreamsView: View {
     
-    @StateObject var vm: AEThingViewModel
+    @StateObject var vm: FXBDeviceViewModel
     @State var pageIndex = 0
     
     var body: some View {
@@ -21,7 +21,13 @@ struct DataStreamsView: View {
                 ScrollView {
                     ForEach(vm.thing.dataStreams, id: \.name) { ds in
                         ScrollView {
-                            DataStreamDetailCellView(vm: AEDataStreamViewModel(ds, deviceName: vm.thing.name))
+                            DataStreamDetailCellView(
+                                vm: AEDataStreamViewModel(
+                                    ds,
+                                    deviceName: vm.thing.name,
+                                    deviceVM: vm
+                                )
+                            )
                                 .modifier(Card())
                         }
                     }
@@ -33,6 +39,6 @@ struct DataStreamsView: View {
 
 struct DataStreamsView_Previews: PreviewProvider {
     static var previews: some View {
-        DataStreamsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
+        DataStreamsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
     }
 }

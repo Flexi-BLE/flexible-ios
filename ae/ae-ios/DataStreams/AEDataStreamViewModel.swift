@@ -17,8 +17,22 @@ import GRDB
     @Published var meanFreqLastK: Float = 0
     @Published var unUploadCount: Int = 0
     @Published var uploadAgg: FXBDBManager.UploadAggregate = FXBDBManager.UploadAggregate(0,0,0)
+    @Published var deviceVM: FXBDeviceViewModel
     
     @Published var configVMs: [ConfigViewModel] = []
+    
+    @Published var isOn: Bool {
+        didSet {
+            guard let _ = sensorStateConfig else {
+                isOn = false
+                return
+            }
+            sensorStateConfig?.update(with: isOn ? "1" : "0")
+            updateConfigs()
+        }
+    }
+    
+    private var sensorStateConfig: ConfigViewModel?
     
     private var timer: Timer?
     private var timerCount: Int = 0
@@ -29,9 +43,11 @@ import GRDB
         return 0
     }
     
-    init(_ dataStream: FXBDataStream, deviceName: String) {
+    init(_ dataStream: FXBDataStream, deviceName: String, deviceVM: FXBDeviceViewModel) {
         self.dataStream = dataStream
         self.deviceName = deviceName
+        self.deviceVM = deviceVM
+        self.isOn = false
         
         timer = Timer.scheduledTimer(
             withTimeInterval: 0.5,
@@ -41,6 +57,12 @@ import GRDB
         
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))
+        }
+        
+        if let stateConfig = configVMs.first(where: { $0.config.name == "sensor_state" }),
+           let value = Double(stateConfig.selectedValue) {
+            self.sensorStateConfig = stateConfig
+            self.isOn = value > 0
         }
         
         Task {

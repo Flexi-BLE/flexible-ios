@@ -15,12 +15,22 @@ struct DataStreamDetailCellView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(vm.dataStream.name)")
-                .font(.title2)
-            
-            Text("\(vm.dataStream.description ?? "")")
-                .lineLimit(0)
-                .font(.body)
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("\(vm.dataStream.name)")
+                        .font(.title2)
+                    
+                    Text("\(vm.dataStream.description ?? "")")
+                        .lineLimit(0)
+                        .font(.body)
+                }
+                Spacer()
+                Toggle("Enabled", isOn: $vm.isOn)
+                    .toggleStyle(.switch)
+                    .labelsHidden()
+                    .disabled(vm.deviceVM.connectionStatus != .connected)
+            }
+                
             
             Divider()
             
@@ -50,21 +60,23 @@ struct DataStreamDetailCellView: View {
                 Spacer()
             }
             
-            Divider()
-            
-            ForEach(vm.configVMs, id: \.config.name) { configVM in
-                ConfigValueView(vm: configVM)
-            }
-            HStack {
-                FXBButton(action: {editConfigPopover.toggle()}) {
-                    Text("Edit Parameters")
+            if vm.deviceVM.connectionStatus == .connected {
+                Divider()
+                
+                ForEach(vm.configVMs, id: \.config.name) { configVM in
+                    ConfigValueView(vm: configVM)
                 }
-                .fullScreenCover(isPresented: $editConfigPopover) {
-                    NavigationView {
-                        ConfigEditView(vm: vm)
+                HStack {
+                    FXBButton(action: {editConfigPopover.toggle()}) {
+                        Text("Edit Parameters")
                     }
+                    .fullScreenCover(isPresented: $editConfigPopover) {
+                        NavigationView {
+                            ConfigEditView(vm: vm)
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
         }
         .padding()
@@ -74,7 +86,7 @@ struct DataStreamDetailCellView: View {
 struct DataStreamDetailCellView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = FXBSpec.mock.devices[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds, deviceName: "none")
+        let vm = AEDataStreamViewModel(ds, deviceName: "none", deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
         DataStreamDetailCellView(vm: vm)
             .previewLayout(.sizeThatFits)
     }

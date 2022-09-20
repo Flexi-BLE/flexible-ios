@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct AEThingBannerView: View {
     
-    @StateObject var vm: AEThingViewModel
+    @StateObject var vm: FXBDeviceViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +28,7 @@ struct AEThingBannerView: View {
                         Text("Status: ")
                             .font(.body)
                             .bold()
-                        Text("\(vm.connectionStatus)")
+                        Text("\(vm.connectionStatusString)")
                     }
                     
                 }
@@ -56,7 +56,7 @@ struct AEThingBannerView: View {
 
 struct AEThingBannerView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingBannerView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
+        AEThingBannerView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
             .previewLayout(.sizeThatFits)
     }
 }

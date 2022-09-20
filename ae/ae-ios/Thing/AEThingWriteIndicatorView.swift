@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct AEThingWriteIndicatorView: View {
     
-    @StateObject var vm: AEThingViewModel
+    @StateObject var vm: FXBDeviceViewModel
     @State var lastDate: Date? = nil
     @State var blink: Bool = false
     
@@ -35,7 +35,7 @@ struct AEThingWriteIndicatorView: View {
 
 struct AEThingWriteIndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingWriteIndicatorView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
+        AEThingWriteIndicatorView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
             .previewLayout(.sizeThatFits)
     }
 }
