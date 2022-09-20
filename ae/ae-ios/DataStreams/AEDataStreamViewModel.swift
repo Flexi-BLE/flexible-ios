@@ -33,7 +33,7 @@ import GRDB
         
         // TODO: Timer reloads complete view of app each time it is triggered
         timer = Timer.scheduledTimer(
-            withTimeInterval: 2,
+            withTimeInterval: 5,
             repeats: true,
             block: { _ in self.onTimer() }
         )

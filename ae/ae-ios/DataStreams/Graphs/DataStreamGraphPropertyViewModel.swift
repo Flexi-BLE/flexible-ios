@@ -43,7 +43,7 @@ import FlexiBLE
     
     private func getDistinctPropertyValuesCaptured() async {
         guard !variableModel.supportedProperty.isEmpty else {
-            checkPreviousStoredConfiguration()
+//            checkPreviousStoredConfiguration()
             return
         }
         for eachProperty in variableModel.supportedProperty {
@@ -54,7 +54,7 @@ import FlexiBLE
             DispatchQueue.main.async { [self] in
                 let distinctValues = values.map { DataValueOptionInformation(value: $0) }
                 variableModel.propertyDict[eachProperty] = distinctValues
-                checkPreviousStoredConfiguration()
+//                checkPreviousStoredConfiguration()
             }
         }
     }
@@ -71,7 +71,7 @@ import FlexiBLE
     }
         
     private func createDefaultConfigurationForGraph() {
-        visualModel.graphState = .parameterized
+        visualModel.graphState = .live
         if let property = variableModel.selectedProperty, let values = variableModel.propertyDict[property] {
             for eachValue in values {
                 eachValue.isChecked = true
@@ -145,8 +145,8 @@ import FlexiBLE
     }
     
     public func setYMinAndMax(yMin: Double, yMax: Double) {
-        queryYMin = yMin >= 0.0 ? yMin * 0.9 : (yMin + yMin * 0.1)
-        queryYMax = yMax >= 0.0 ? yMax * 1.1 : (yMax - yMax * 0.1)
+        queryYMin = yMin >= 0.0 ? yMin * 0.95 : (yMin + yMin * 0.1)
+        queryYMax = yMax >= 0.0 ? yMax * 1.05 : (yMax - yMax * 0.1)
     }
 }
 

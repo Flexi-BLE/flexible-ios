@@ -21,7 +21,7 @@ import FlexiBLE
     typealias GraphResult = (mark: String, data: [GraphRecord])
     
     let dataStream: FXBDataStream
-    var state: State = .graphing
+    var state: State = .loading
     
     init(with dataStream: FXBDataStream) {
         self.dataStream = dataStream
@@ -37,8 +37,8 @@ import FlexiBLE
         let selectedProperty = graphProperty.variableModel.selectedProperty
         let propertyValues = graphProperty.getSelectedValuesFromProperty(forKey: selectedProperty)
         var result: [GraphResult] = []
-        var graphMin: Double = 0
-        var graphMax: Double = 0
+        var graphMin: Double = Double.greatestFiniteMagnitude
+        var graphMax: Double = -Double.greatestFiniteMagnitude
         if graphProperty.checkDependencyOfReadingsOnProperty(for: readings, selectedProperty: selectedProperty) {
             let queryLimit = 2000
             if selectedProperty == nil {

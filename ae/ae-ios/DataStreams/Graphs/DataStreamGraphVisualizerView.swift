@@ -24,9 +24,12 @@ struct DataStreamGraphVisualizerView: View {
     ).autoconnect()
     
     var body: some View {
-        switch vm.state {
-        case .graphing:
-            VStack {
+        VStack {
+            switch vm.state {
+            case.loading:
+                ProgressView()
+            
+            case .graphing:
                 Chart {
                     ForEach(self.databaseResults, id: \.mark) { series in
                         ForEach(series.data, id: \.ts) {
@@ -50,53 +53,65 @@ struct DataStreamGraphVisualizerView: View {
                 .chartXAxis {
                     AxisMarks(preset: .automatic, position: .bottom) { value in
                         AxisGridLine()
-                            .foregroundStyle(.black)
-                        AxisValueLabel(horizontalSpacing: 5.0)
+                            .foregroundStyle(.clear)
+                        if UIDevice.current.orientation == .landscapeRight {
+                            AxisValueLabel(horizontalSpacing: 5.0)
+                        }
                     }
                 }
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
                 .padding()
-            }
-            .sheet(isPresented: $presentSheet, onDismiss: {
-                presentSheet = false
-            }, content: {
-                DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
-                    Task {
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-                    }
-                })
-                .presentationDragIndicator(.visible)
-            })
-            .toolbar(content: {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        presentSheet.toggle()
-                    }) {
-                       Image(systemName: "slider.vertical.3")
-                    }
+
+            case .editing:
+                EmptyView()
+            case .error(let errMsg):
+                VStack {
+                    Spacer()
+                    Text("⚠️ Error: \(errMsg)")
+                    Spacer()
                 }
-            })
-            .onReceive(timer) { _ in
-                guard !presentSheet else { return }
+            }
+        }
+        .toolbar(.hidden, for: .tabBar)
+        .sheet(isPresented: $presentSheet, onDismiss: {
+            presentSheet = false
+        }, content: {
+            DataStreamGraphPropertyView(propertyVM: graphPropertyVM, onConfigurationSelected: {
                 Task {
-                    if graphPropertyVM.shouldReloadGraphData {
-                        graphPropertyVM.shouldReloadGraphData = false
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-                    }
-                    
-                    if graphPropertyVM.visualModel.graphState == .live {
-                        self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
-                    }
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    vm.state = .graphing
+//                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+                }
+            })
+            .presentationDragIndicator(.visible)
+        })
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    vm.state = .editing
+                    presentSheet.toggle()
+                }) {
+                   Image(systemName: "slider.vertical.3")
                 }
             }
-        case .error(let message):
-            VStack {
-                Spacer()
-                Text("⚠️ Error: \(message)")
-                Spacer()
+        })
+        .onReceive(timer) { _ in
+            guard !presentSheet else { return }
+            Task {
+                if graphPropertyVM.shouldReloadGraphData {
+                    graphPropertyVM.shouldReloadGraphData = false
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    vm.state = .graphing
+//                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+                }
+                
+                if graphPropertyVM.visualModel.graphState == .live {
+                    self.databaseResults = await vm.fetchDatabaseValuesForGraph(graphProperty: graphPropertyVM)
+                    vm.state = .graphing
+//                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+                }
             }
-        default: EmptyView()
         }
     }
 }
