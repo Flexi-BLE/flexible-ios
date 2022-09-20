@@ -18,6 +18,7 @@ import FlexiBLE
     @Published var totalUploaded: Int
     @Published var batchSize: Int
     @Published var tableStatuses: [FXBTableUploadState]
+    @Published var statusMessage: String
     
     var timer = Timer.publish(
         every: 0.1,
@@ -34,6 +35,7 @@ import FlexiBLE
         totalUploaded = uploader.totalUploaded
         batchSize = uploader.batchSize
         tableStatuses = uploader.tableStatuses
+        statusMessage = uploader.statusMessage
         
         timerCancellable = timer.sink { _ in
             gLog.debug("uploader tick \(uploader.totalUploaded) (\(self.uploader.state.stringValue))")
@@ -43,9 +45,11 @@ import FlexiBLE
             self.totalUploaded = uploader.totalUploaded
             self.batchSize = uploader.batchSize
             self.tableStatuses = uploader.tableStatuses
+            self.statusMessage = uploader.statusMessage
             
-            if uploader.state == .done {
-                self.timerCancellable = nil
+            switch uploader.state {
+            case .done, .paused, .error(_): self.timerCancellable = nil
+            default: break
             }
         }
         
@@ -55,5 +59,13 @@ import FlexiBLE
     deinit {
         timer.upstream.connect().cancel()
         timerCancellable = nil
+    }
+    
+    func start() {
+        uploader.start()
+    }
+    
+    func pause() {
+        uploader.pause()
     }
 }

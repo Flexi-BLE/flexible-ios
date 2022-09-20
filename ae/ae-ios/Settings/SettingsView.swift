@@ -50,7 +50,7 @@ struct SettingsView: View {
                     }.confirmationDialog("Are you sure?",
                                          isPresented: $isPresentingPurgeUploadConfirm) {
                         Button("Delete all UPLOADED records?", role: .destructive) {
-                            Task { await fxb.db.purgeUpdatedDynamicRecords() }
+                            Task { try? await fxb.write.purgeAllUploadedRecords() }
                         }
                     }
                     
@@ -59,7 +59,7 @@ struct SettingsView: View {
                     }.confirmationDialog("Are you sure?",
                                          isPresented: $isPresentingPurgeAllConfirm) {
                         Button("Delete ALL records?", role: .destructive) {
-                            Task { await fxb.db.purgeAllDynamicRecords() }
+                            Task { try? await fxb.write.purgeAllRecords() }
                         }
                     }
                     

@@ -15,6 +15,10 @@ struct UploadPausedView: View {
         VStack {
             Spacer()
             Text("⏸ Upload Paused")
+            FXBButton(
+                action: { uploader.start() },
+                content: { Text("Resume") }
+            )
             Spacer()
         }.padding()
     }

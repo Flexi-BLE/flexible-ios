@@ -317,7 +317,7 @@
 		0105E36028C0F0F300AAB5E2 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				01C2329C28C6B029006C6B33 /* Uploading */,
+				01C2329C28C6B029006C6B33 /* uploading */,
 				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
 				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
@@ -537,7 +537,7 @@
 			path = RegisteredDevice;
 			sourceTree = "<group>";
 		};
-		01C2329C28C6B029006C6B33 /* Uploading */ = {
+		01C2329C28C6B029006C6B33 /* uploading */ = {
 			isa = PBXGroup;
 			children = (
 				01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */,
@@ -549,7 +549,7 @@
 				01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */,
 				012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */,
 			);
-			path = Uploading;
+			path = uploading;
 			sourceTree = "<group>";
 		};
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {

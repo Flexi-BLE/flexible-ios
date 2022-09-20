@@ -106,7 +106,7 @@ import SwiftUI
             let influxVM = UploadDataInfluxDBViewModel()
             if influxVM.isReady {
                 return InfluxDBUploader(
-                    url: URL(string: influxVM.url)!,
+                    url: URL(string: "\(influxVM.url):\(influxVM.port)/api/v2/write")!,
                     org: influxVM.org,
                     bucket: influxVM.bucket,
                     token: influxVM.token,
