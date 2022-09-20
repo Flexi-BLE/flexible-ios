@@ -22,30 +22,32 @@ extension FXBPeripheralState {
 
 @MainActor class FXBDeviceViewModel: ObservableObject {
     @Published var thing: FXBDevice
+    let specVersion: String
     
     @Published var connectionStatus: FXBPeripheralState = .disconnected
     @Published var connectionStatusString: String = FXBPeripheralState.disconnected.humanReadable
     @Published var lastWrite: Date? = nil
+    @Published var isVersionMatched: Bool?
     
-    private var enabled: Bool=true
+    private var enabled: Bool = true
     @Published var isEnabled: Binding<Bool>?
     
-    private var connectionStatusCancellable: AnyCancellable?
-    private var bleStatusCancellable: AnyCancellable?
+    private var cancellables: [AnyCancellable] = []
     
     private var timer: Timer? = nil
     
     private var peripheral: FXBPeripheral? {
         didSet {
-            connectionStatusCancellable = peripheral?.$state.sink(receiveValue: {
+            peripheral?.$state.sink(receiveValue: {
                 self.connectionStatusString = $0.humanReadable
                 self.connectionStatus = $0
-            })
+            }).store(in: &cancellables)
         }
     }
     
-    init(with thing: FXBDevice) {
+    init(with thing: FXBDevice, specVersion: String) {
         self.thing = thing
+        self.specVersion = specVersion
         
         isEnabled = Binding<Bool>(
             get: { self.enabled },
@@ -55,26 +57,30 @@ extension FXBPeripheralState {
             }
         )
         
-        bleStatusCancellable = fxb.conn.$centralState.sink(receiveValue: { cbstate in
+        fxb.conn.$centralState.sink(receiveValue: { cbstate in
             switch cbstate {
             case .poweredOn:
                 self.peripheral = fxb.conn.peripheral(for: thing.name)
             default: break
             }
-        })
+        }).store(in: &cancellables)
         
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 0.25,
-            repeats: true,
-            block: { _ in
-                Task { [weak self] in
-                    guard let self = self else { return }
-//                    self.lastWrite = await fxb.db.lastDataStreamDate(for: thing)
-                }
-            }
-        )
+//        timer = Timer.scheduledTimer(
+//            withTimeInterval: 0.25,
+//            repeats: true,
+//            block: { _ in
+//                Task { [weak self] in
+//                    guard let self = self else { return }
+////                    self.lastWrite = await fxb.db.lastDataStreamDate(for: thing)
+//                }
+//            }
+//        )
         
         self.peripheral = fxb.conn.peripheral(for: thing.name)
+        self.peripheral?.specVersion.publisher.sink(receiveValue: { [weak self] version in
+            self?.isVersionMatched = version == specVersion
+            if version != specVersion { self?.enabled = false }
+        }).store(in: &cancellables)
     }
     
     private func didUpdateEnabled(_ isEnabled: Bool) {

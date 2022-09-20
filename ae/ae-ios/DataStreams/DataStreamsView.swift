@@ -39,6 +39,6 @@ struct DataStreamsView: View {
 
 struct DataStreamsView_Previews: PreviewProvider {
     static var previews: some View {
-        DataStreamsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
+        DataStreamsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
     }
 }

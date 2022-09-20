@@ -27,6 +27,6 @@ struct GlobalConfigurationsView: View {
 
 struct ConfigurationsView_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalConfigurationsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
+        GlobalConfigurationsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
     }
 }

@@ -64,6 +64,8 @@
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
 		012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
+		013CBDEE28DA2251006F1E97 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 013CBDED28DA2251006F1E97 /* GRDB */; };
+		013CBDF128DA2270006F1E97 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 013CBDF028DA2270006F1E97 /* flexible-swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -85,8 +87,6 @@
 		014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DA289B7189008982C6 /* TimestampCellView.swift */; };
 		014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */; };
 		014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6E0289B73C3008982C6 /* EditTimestampView.swift */; };
-		018AFBFB28BD9BBE00C548FA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 018AFBFA28BD9BBE00C548FA /* flexible-swift */; };
-		01923AA828BD83F700F8055E /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01923AA728BD83F700F8055E /* GRDB */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
@@ -216,7 +216,7 @@
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
-		013B877C28BD708E00D3860B /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
+		013CBDEF28DA2268006F1E97 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01923AA828BD83F700F8055E /* GRDB in Frameworks */,
-				018AFBFB28BD9BBE00C548FA /* flexible-swift in Frameworks */,
+				013CBDEE28DA2251006F1E97 /* GRDB in Frameworks */,
+				013CBDF128DA2270006F1E97 /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +499,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				013B877C28BD708E00D3860B /* aeble-swift */,
+				013CBDEF28DA2268006F1E97 /* aeble-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -658,8 +658,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				01923AA728BD83F700F8055E /* GRDB */,
-				018AFBFA28BD9BBE00C548FA /* flexible-swift */,
+				013CBDED28DA2251006F1E97 /* GRDB */,
+				013CBDF028DA2270006F1E97 /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1740,14 +1740,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		018AFBFA28BD9BBE00C548FA /* flexible-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "flexible-swift";
-		};
-		01923AA728BD83F700F8055E /* GRDB */ = {
+		013CBDED28DA2251006F1E97 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		013CBDF028DA2270006F1E97 /* flexible-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexible-swift";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

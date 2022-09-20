@@ -35,7 +35,7 @@ struct AEThingWriteIndicatorView: View {
 
 struct AEThingWriteIndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingWriteIndicatorView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
+        AEThingWriteIndicatorView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
             .previewLayout(.sizeThatFits)
     }
 }

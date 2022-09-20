@@ -83,7 +83,7 @@ struct DataExplorerLineGraphView: View {
 struct DataExplorerLineGraphView_Previews: PreviewProvider {
     static var previews: some View {
         let ds = FXBSpec.mock.devices[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds, deviceName: "none", deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
+        let vm = AEDataStreamViewModel(ds, deviceName: "none", deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
         DataExplorerLineGraphView(vm: vm)
     }
 }

@@ -45,6 +45,12 @@ struct SettingsView: View {
                         }
                     )
                 
+                    Button("Share Database") {
+                        ShareUtil.share(path: fxb.db.dbPath)
+                    }
+                }
+                
+                Section(header: Text("⚠️ Danger Zone")) {
                     Button ("Purge Uploaded Records") {
                         isPresentingPurgeUploadConfirm = true
                     }.confirmationDialog("Are you sure?",
@@ -61,10 +67,6 @@ struct SettingsView: View {
                         Button("Delete ALL records?", role: .destructive) {
                             Task { try? await fxb.write.purgeAllRecords() }
                         }
-                    }
-                    
-                    Button("Share Database") {
-                        ShareUtil.share(path: fxb.db.dbPath)
                     }
                 }
                 

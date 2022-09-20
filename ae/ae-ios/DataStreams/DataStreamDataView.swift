@@ -54,7 +54,7 @@ struct DataStreamDataView_Previews: PreviewProvider {
         let vm = AEDataStreamViewModel(
             ds,
             deviceName: "none",
-            deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!)
+            deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0")
         )
         DataStreamDataView(vm: vm)
     }

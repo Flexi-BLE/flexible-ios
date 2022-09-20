@@ -56,7 +56,7 @@ struct AEThingBannerView: View {
 
 struct AEThingBannerView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingBannerView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!))
+        AEThingBannerView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
             .previewLayout(.sizeThatFits)
     }
 }
