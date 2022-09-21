@@ -29,7 +29,7 @@ struct AEThingDetailCellView: View {
                 HStack {
                     Image(systemName: "checkmark.seal.fill")
                         .font(.title2)
-                    Text("Schema Version Match").font(.body)
+                    Text("Specification Version Matched").font(.body)
                 }
             case false:
                 HStack {
