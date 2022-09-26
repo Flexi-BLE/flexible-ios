@@ -10,7 +10,7 @@ import SwiftUI
 struct DeviceConfigSelectionView: View {
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var vm: AEViewModel
+    @StateObject var vm: FlexiBLESpecViewModel
     
     @State private var useRemote: Bool = false
  
@@ -81,6 +81,6 @@ struct DeviceConfigSelectionView: View {
 
 struct DeviceConfigSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceConfigSelectionView(vm: AEViewModel())
+        DeviceConfigSelectionView(vm: FlexiBLESpecViewModel())
     }
 }

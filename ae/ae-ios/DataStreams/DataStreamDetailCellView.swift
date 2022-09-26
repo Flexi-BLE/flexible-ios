@@ -25,10 +25,11 @@ struct DataStreamDetailCellView: View {
                         .font(.body)
                 }
                 Spacer()
-                Toggle("Enabled", isOn: $vm.isOn)
-                    .toggleStyle(.switch)
-                    .labelsHidden()
-                    .disabled(vm.deviceVM.connectionStatus != .connected)
+                if vm.isActive {
+                    Toggle("Enabled", isOn: $vm.isOn)
+                        .toggleStyle(.switch)
+                        .labelsHidden()
+                }
             }
                 
             
@@ -60,7 +61,7 @@ struct DataStreamDetailCellView: View {
                 Spacer()
             }
             
-            if vm.deviceVM.connectionStatus == .connected {
+            if vm.isActive {
                 Divider()
                 
                 ForEach(vm.configVMs, id: \.config.name) { configVM in
@@ -70,6 +71,7 @@ struct DataStreamDetailCellView: View {
                     FXBButton(action: {editConfigPopover.toggle()}) {
                         Text("Edit Parameters")
                     }
+//                    .disabled(!(vm.deviceVM?.device.specMatched ?? false))
                     .fullScreenCover(isPresented: $editConfigPopover) {
                         NavigationView {
                             ConfigEditView(vm: vm)
@@ -80,14 +82,5 @@ struct DataStreamDetailCellView: View {
             }
         }
         .padding()
-    }
-}
-
-struct DataStreamDetailCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        let ds = FXBSpec.mock.devices[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds, deviceName: "none", deviceVM: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
-        DataStreamDetailCellView(vm: vm)
-            .previewLayout(.sizeThatFits)
     }
 }

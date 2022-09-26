@@ -14,6 +14,7 @@ import FlexiBLE
     @Published var description: String = ""
     @Published var startDate: Date = Date()
     @Published var endDate: Date = Date()
+    @Published var hasStartDate = false
     @Published var hasEndDate = false
     @Published var trackGPS = false
     
@@ -24,7 +25,7 @@ import FlexiBLE
         let res = await fxb.exp.createExperiment(
             name: name,
             description: description == "" ? nil : description,
-            start: startDate,
+            start: hasStartDate ? startDate : Date.now,
             end: hasEndDate ? endDate : nil,
             active: true,
             trackGPS: trackGPS,

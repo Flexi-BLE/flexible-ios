@@ -33,6 +33,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func getShortDateAndTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy HH:mm"
+        return dateFormatter.string(from: self)
+    }
+    
     func getDetailedDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss"
@@ -44,6 +50,13 @@ extension Date {
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.dateFormat = "MM_dd_YYYY__HH_mm_ss"
         return dateFormatter.string(from: self)
+    }
+    
+    func timeSinceHumanReadable(ref: Date=Date.now) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day, .hour, .minute]
+        formatter.unitsStyle = .brief
+        return formatter.string(from: self, to: ref) ?? "--"
     }
 
 }

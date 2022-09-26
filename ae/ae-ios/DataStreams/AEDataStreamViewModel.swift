@@ -12,19 +12,22 @@ import FlexiBLE
 import GRDB
 
 @MainActor class AEDataStreamViewModel: ObservableObject {
-    @Published var dataStream: FXBDataStream
+    
+    var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
-    @Published var meanFreqLastK: Float = 0
-    @Published var unUploadCount: Int = 0
-    @Published var uploadAgg: FXBDBManager.UploadAggregate = FXBDBManager.UploadAggregate(0,0,0)
-    @Published var deviceVM: FXBDeviceViewModel
+    
+    var deviceVM: FXBDeviceViewModel?
+    
+    @Published var isActive: Bool = false
+    
+    private var observers = Set<AnyCancellable>()
     
     @Published var configVMs: [ConfigViewModel] = []
     
     @Published var isOn: Bool {
         didSet {
             guard let _ = sensorStateConfig else {
-                isOn = false
+//                isOn = false
                 return
             }
             sensorStateConfig?.update(with: isOn ? "1" : "0")
@@ -43,10 +46,9 @@ import GRDB
         return 0
     }
     
-    init(_ dataStream: FXBDataStream, deviceName: String, deviceVM: FXBDeviceViewModel) {
+    init(_ dataStream: FXBDataStream, deviceName: String) {
         self.dataStream = dataStream
         self.deviceName = deviceName
-        self.deviceVM = deviceVM
         self.isOn = false
         
         timer = Timer.scheduledTimer(
@@ -55,6 +57,24 @@ import GRDB
             block: { _ in self.onTimer() }
         )
         
+        fxb.conn.fxbConnectedDevices
+            .publisher
+            .sink { _ in self.setupDevice() }
+            .store(in: &observers)
+    }
+    
+    private func setupDevice() {
+        if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
+            self.deviceVM = FXBDeviceViewModel(with: device)
+            self.deviceVM?.$isVersionMatched
+                .sink(receiveValue: { [weak self] matched in
+                    self?.isActive = matched
+                })
+                .store(in: &observers)
+        }
+        
+        configVMs = []
+        sensorStateConfig = nil
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))
         }
@@ -65,6 +85,8 @@ import GRDB
             self.isOn = value > 0
         }
         
+        self.subHose()
+        
         Task {
             await fetchLatestConfig()
         }
@@ -73,11 +95,11 @@ import GRDB
     private func onTimer() {
         Task {
             self.recordCount = await fxb.db.recordCountByIndex(for: dataStream)
-            self.unUploadCount = await fxb.db.unUploadedCount(for: dataStream)
-            if timerCount % 5 == 0 || timerCount == 1 {
-                self.meanFreqLastK = await fxb.db.meanFrequency(for: dataStream)
-                self.uploadAgg = await fxb.db.uploadAgg(for: dataStream)
-            }
+//            self.unUploadCount = await fxb.db.unUploadedCount(for: dataStream)
+//            if timerCount % 5 == 0 || timerCount == 1 {
+//                self.meanFreqLastK = await fxb.db.meanFrequency(for: dataStream)
+//                self.uploadAgg = await fxb.db.uploadAgg(for: dataStream)
+//            }
             timerCount += 1
         }
     }
@@ -110,8 +132,8 @@ import GRDB
         }
         
         fxb.conn.updateConfig(
-            thingName: deviceName,
-            dataSteam: dataStream,
+            deviceName: deviceName,
+            dataStream: dataStream,
             data: data
         )
         
@@ -133,5 +155,17 @@ import GRDB
             offset: offset,
             limit: limit
         )
+    }
+    
+    func subHose() {
+        deviceVM?
+            .device
+            .dataHandler(for: dataStream.name)?
+            .firehose
+            .delay(for: 1.0, scheduler: DispatchQueue.global(qos: .utility))
+            .sink(receiveValue: { record in
+                print("🔥 record: ts: \(record.ts)")
+            })
+            .store(in: &observers)
     }
 }
