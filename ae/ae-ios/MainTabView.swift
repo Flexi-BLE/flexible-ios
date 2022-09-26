@@ -12,7 +12,7 @@ struct MainTabView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
-            AEThingsView(vm: AEViewModel(with: URL(string: "https://pastebin.com/raw/WAbEtR3W")!))
+            DevicesView(vm: FlexiBLESpecViewModel(with: URL(string: "https://pastebin.com/raw/WAbEtR3W")!))
 //            AEThingsView(vm: AEViewModel(with: "exthub.json"))
                 .tabItem{
                     Image(systemName: "memorychip")
@@ -33,6 +33,12 @@ struct MainTabView: View {
 //                    Image(systemName: "gearshape")
 //                    Text("Configurations")
 //                }
+            
+            DeviceDataView()
+                .tabItem {
+                    Image(systemName: "externaldrive.fill.badge.timemachine")
+                    Text("Data")
+                }
             ExperimentsView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")
@@ -47,8 +53,8 @@ struct MainTabView: View {
             
             SettingsView()
                 .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
+                    Image(systemName: "ellipsis.circle.fill")
+                    Text("More")
                 }
         }
     }

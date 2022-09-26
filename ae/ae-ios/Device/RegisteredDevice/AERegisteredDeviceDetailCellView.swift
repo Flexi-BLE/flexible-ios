@@ -14,25 +14,19 @@ struct AERegisteredDeviceDetailCellView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("\(vm.metadata.name)")
+                Text("\(vm.device.spec.name)")
                     .font(.title2)
                 Spacer()
                 Toggle("Enabled", isOn: vm.isEnabled!)
                     .labelsHidden()
             }
-            Text("\(vm.metadata.description)")
+            Text("\(vm.device.spec.description)")
                 .fixedSize(horizontal: false, vertical: true)
                 .font(.body)
             
             Divider()
-            KeyValueView(key: "Status", value: "\(vm.connectionStatus)")
+//            KeyValueView(key: "Status", value: "\(vm.connectionStatus)")
         }
         .padding()
-    }
-}
-
-struct AERegisteredDeviceDetailCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        AERegisteredDeviceDetailCellView(vm: AERegisteredDeviceViewModel(with: FXBSpec.mock.bleRegisteredDevices.first!))
     }
 }

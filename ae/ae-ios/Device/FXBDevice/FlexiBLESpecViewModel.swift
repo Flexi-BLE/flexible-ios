@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import FlexiBLE
 
-@MainActor class AEViewModel: ObservableObject {
+@MainActor class FlexiBLESpecViewModel: ObservableObject {
     
     enum State {
         case selected(config: FXBSpec, name: String)

@@ -15,18 +15,11 @@ struct GlobalConfigurationsView: View {
     var body: some View {
         VStack {
             HelpHeaderView(title: "Configurations", helpText: "todo ...")
-            AEThingBannerView(vm: vm)
             ScrollView {
                 Spacer()
                 Text("Configurations")
                 Spacer()
             }
         }
-    }
-}
-
-struct ConfigurationsView_Previews: PreviewProvider {
-    static var previews: some View {
-        GlobalConfigurationsView(vm: FXBDeviceViewModel(with: FXBSpec.mock.devices.first!, specVersion: "0"))
     }
 }
