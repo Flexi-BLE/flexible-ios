@@ -17,8 +17,6 @@ import FlexiBLE
     @Published var connectionLoading: Bool = false
     @Published var isEnabled: Bool = false
     
-    @Published var isVersionMatched: Bool = false
-    
     private var observers = Set<AnyCancellable>()
     
     private var timer: Timer? = nil

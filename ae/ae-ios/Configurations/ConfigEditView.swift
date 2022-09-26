@@ -34,7 +34,10 @@ struct ConfigEditView: View {
                 FXBButton(action: {dismiss() }) {
                     Text("Dismiss")
                 }
-                FXBButton(action: { vm.updateConfigs() }) {
+                FXBButton(action: {
+                    vm.updateConfigs()
+                    dismiss()
+                }) {
                     Text("Save")
                 }
             }

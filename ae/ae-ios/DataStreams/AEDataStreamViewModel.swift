@@ -66,7 +66,7 @@ import GRDB
     private func setupDevice() {
         if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
             self.deviceVM = FXBDeviceViewModel(with: device)
-            self.deviceVM?.$isVersionMatched
+            self.deviceVM?.device.$isSpecVersionMatched
                 .sink(receiveValue: { [weak self] matched in
                     self?.isActive = matched
                 })
@@ -85,7 +85,7 @@ import GRDB
             self.isOn = value > 0
         }
         
-        self.subHose()
+//        self.subHose()
         
         Task {
             await fetchLatestConfig()
@@ -157,15 +157,15 @@ import GRDB
         )
     }
     
-    func subHose() {
-        deviceVM?
-            .device
-            .dataHandler(for: dataStream.name)?
-            .firehose
-            .delay(for: 1.0, scheduler: DispatchQueue.global(qos: .utility))
-            .sink(receiveValue: { record in
-                print("🔥 record: ts: \(record.ts)")
-            })
-            .store(in: &observers)
-    }
+//    func subHose() {
+//        deviceVM?
+//            .device
+//            .dataHandler(for: dataStream.name)?
+//            .firehose
+//            .delay(for: 1.0, scheduler: DispatchQueue.global(qos: .utility))
+//            .sink(receiveValue: { record in
+//                print("🔥 record: ts: \(record.ts)")
+//            })
+//            .store(in: &observers)
+//    }
 }
