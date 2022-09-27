@@ -15,6 +15,7 @@ import GRDB
     
     var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
+    @Published var frequency: Double = 0
     
     var deviceVM: FXBDeviceViewModel?
     
@@ -37,9 +38,6 @@ import GRDB
     
     private var sensorStateConfig: ConfigViewModel?
     
-    private var timer: Timer?
-    private var timerCount: Int = 0
-    
     private var deviceName: String
     
     var estimatedReload: Double {
@@ -51,12 +49,6 @@ import GRDB
         self.deviceName = deviceName
         self.isOn = false
         
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 0.5,
-            repeats: true,
-            block: { _ in self.onTimer() }
-        )
-        
         fxb.conn.fxbConnectedDevices
             .publisher
             .sink { _ in self.setupDevice() }
@@ -65,8 +57,12 @@ import GRDB
     
     private func setupDevice() {
         if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
+            
             self.deviceVM = FXBDeviceViewModel(with: device)
+            setInitialRecordCount()
+            
             self.deviceVM?.device.$isSpecVersionMatched
+                .prefix(2)
                 .sink(receiveValue: { [weak self] matched in
                     self?.isActive = matched
                 })
@@ -92,16 +88,40 @@ import GRDB
         }
     }
     
-    private func onTimer() {
-        Task {
-            self.recordCount = await fxb.db.recordCountByIndex(for: dataStream)
-//            self.unUploadCount = await fxb.db.unUploadedCount(for: dataStream)
-//            if timerCount % 5 == 0 || timerCount == 1 {
-//                self.meanFreqLastK = await fxb.db.meanFrequency(for: dataStream)
-//                self.uploadAgg = await fxb.db.uploadAgg(for: dataStream)
-//            }
-            timerCount += 1
+    private func setInitialRecordCount() {
+        guard let deviceVM = deviceVM else  { return }
+        Task { [weak self] in
+            do {
+                self?.recordCount = try await fxb.read.getTotalRecords(
+                    for: "\(dataStream.name)_data",
+                    from: nil,
+                    to: Date.now,
+                    deviceName: deviceVM.device.deviceName,
+                    uploaded: nil
+                )
+            } catch {
+                
+            }
         }
+        
+        deviceVM.device
+            .dataHandler(for: dataStream.name)?
+            .firehoseTS
+            .delay(for: 1.0, scheduler: DispatchQueue.main)
+            .collect()
+            .sink(receiveValue: { [weak self] dates in
+                self?.recordCount += dates.count
+                
+                var diffs = [TimeInterval]()
+                dates.enumerated().forEach { (i, date) in
+                    guard i > 0 else { return }
+                    diffs.append(dates[i].distance(to: dates[i-1]))
+                }
+                
+                var meanTimeInterval = Double(diffs.count) / diffs.reduce(0.0, { $0 + $1 })
+                self?.frequency = 1.0/meanTimeInterval
+            })
+            .store(in: &observers)
     }
     
     func fetchLatestConfig() async {

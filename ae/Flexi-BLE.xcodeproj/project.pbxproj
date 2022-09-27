@@ -193,7 +193,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01043A7F28E14CEA00E4AF90 /* aeble-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "aeble-swift"; path = "../../aeble-swift"; sourceTree = "<group>"; };
 		0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataView.swift; sourceTree = "<group>"; };
 		0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataViewModel.swift; sourceTree = "<group>"; };
 		0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBView.swift; sourceTree = "<group>"; };
@@ -289,6 +288,7 @@
 		01E7F292281C153500ED6F15 /* HelpHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHeaderView.swift; sourceTree = "<group>"; };
 		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		01ECBA2C28E32D7F005F4305 /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -519,7 +519,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				01043A7F28E14CEA00E4AF90 /* aeble-swift */,
+				01ECBA2C28E32D7F005F4305 /* flexible-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

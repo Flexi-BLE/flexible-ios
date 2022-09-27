@@ -60,7 +60,7 @@ import FlexiBLE
                 self.selectedDeviceId = 0
             } else if self.selectedDeviceId > -1, self.deviceConnectionRecords.count < self.selectedDeviceId+1 {
                 self.selectedDeviceId = self.deviceConnectionRecords.count > -1 ? 0 : -1
-            } else {
+            } else if selectedDeviceId > -1 {
                 getSpec(with: deviceConnectionRecords[selectedDeviceId])
             }
         }
