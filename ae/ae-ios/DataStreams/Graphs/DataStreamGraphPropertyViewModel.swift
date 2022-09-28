@@ -16,6 +16,8 @@ import FlexiBLE
     @Published var variableModel: GraphPropertyVariableModel = GraphPropertyVariableModel()
     @Published var visualModel: GraphPropertyVisualModel = GraphPropertyVisualModel()
     @Published var shouldReloadGraphData = false
+    
+    @Published var lastReceivedTimeRecord: Date?
 
     private var queryYMin: Double?
     private var queryYMax: Double?
@@ -23,19 +25,40 @@ import FlexiBLE
     init(dataStream: FXBDataStream) {
         self._dataStream = dataStream
         self._configName = dataStream.name
-        parsePropertyAndReadingsFromStream()
+        parseReadingsFromStream()
         Task {
-            await getDistinctPropertyValuesCaptured()
+            await parseCurrentPropertyFromStream()
+//            await getDistinctPropertyValuesCaptured()
         }
     }
     
-    private func parsePropertyAndReadingsFromStream() {
+    
+    public func parseCurrentPropertyFromStream() async {
+        for dv in _dataStream.dataValues {
+            if dv.variableType == .tag {
+                if !variableModel.supportedProperty.contains(dv.name) {
+                    variableModel.supportedProperty.append(dv.name)
+                    variableModel.selectedProperty = dv.name
+                }
+                
+                if let valueOptions = dv.valueOptions {
+                    variableModel.propertyDict[dv.name] = valueOptions.map{ DataValueOptionInformation(value: $0) }
+                } else {
+                    guard let sqlResult = await fxb.read.getDistinctValuesForColumn(for: dv.name, table_name: _configName) else {
+                        return
+                    }
+                    DispatchQueue.main.async { [self] in
+                        variableModel.propertyDict[dv.name] = sqlResult.map { DataValueOptionInformation(value: $0) }
+                    }
+                }
+            }
+        }
+    }
+
+    private func parseReadingsFromStream() {
         let dataValues = _dataStream.dataValues
         for dv in dataValues {
-            if dv.variableType == .tag {
-                variableModel.supportedProperty.append(dv.name)
-                variableModel.selectedProperty = dv.name
-            } else if dv.variableType == .value {
+            if dv.variableType == .value {
                 variableModel.supportedReadings.append(DataValueOptionInformation(value: dv.name))
             }
         }
@@ -107,9 +130,8 @@ import FlexiBLE
     
     public func getSelectedValuesFromProperty(forKey: String?) -> [String]? {
         if let key = forKey, variableModel.propertyDict[key] != nil {
-            let values = variableModel.propertyDict[key]
-            if let val = values {
-                let filtered = val.filter ({ $0.isChecked == true })
+            if let val = variableModel.propertyDict[key] {
+                let filtered = val.filter { $0.isChecked == true }
                 return filtered.map { $0.value }
             }
         }
@@ -117,7 +139,7 @@ import FlexiBLE
     }
     
     public func getSelectedReadings() -> [String] {
-        let checkedVal = variableModel.supportedReadings.filter({ $0.isChecked })
+        let checkedVal = variableModel.supportedReadings.filter{ $0.isChecked }
         return checkedVal.map { $0.value }
     }
     
@@ -135,13 +157,21 @@ import FlexiBLE
         return yMax
     }
     
-    public func getGraphRange() -> ClosedRange<Double> {
+    public func getYAxisRange() -> ClosedRange<Double> {
         let min = getYMin()
         let max = getYMax()
         guard max > min else {
             return 0.0...0.0
         }
         return min...max
+    }
+    
+    public func getXAxisRange() -> ClosedRange<Date> {
+//        if !visualModel.shouldFilterByTimestamp && visualModel.graphState == .live {
+//            visualModel.endTimestamp = Date.now
+//            visualModel.startTimestamp = visualModel.endTimestamp.getEarlierDateBySeconds(interval: Int(visualModel.liveInterval))
+//        }
+        return visualModel.startTimestamp...visualModel.endTimestamp
     }
     
     public func setYMinAndMax(yMin: Double, yMax: Double) {
@@ -151,7 +181,6 @@ import FlexiBLE
 }
 
 @MainActor class GraphPropertyVariableModel: Codable, ObservableObject {
-    
     public var supportedProperty: [String] = []
     public var supportedReadings: [DataValueOptionInformation] = []
     public var propertyDict = [String: [DataValueOptionInformation]]()
@@ -268,8 +297,7 @@ import FlexiBLE
 
 enum GraphVisualStateInfo: String, Codable, CaseIterable, Identifiable {
     case live = "live"
-    case parameterized = "parameterized"
-
+    case highlights = "highlights"
     var id: String { self.rawValue }
 }
 

@@ -10,8 +10,6 @@ import FlexiBLE
 
 struct DataStreamGraphPropertyView: View {
     @StateObject var propertyVM: DataExplorerGraphPropertyViewModel
-    @State private var presentYMinAlert = false
-    @State private var presentYMaxAlert = false
     var onConfigurationSelected: (() -> Void)?
     @Environment(\.dismiss) var dismiss
     
@@ -47,7 +45,7 @@ struct DataStreamGraphPropertyView: View {
                                 Text("\(propertyVM.visualModel.liveInterval)")
                             }
                         }
-                    case .parameterized:
+                    case .highlights:
                         EmptyView()
                     }
                     
@@ -153,6 +151,11 @@ struct DataStreamGraphPropertyView: View {
             }
             .padding()
         }
+//        .onAppear() {
+//            Task {
+//                await propertyVM.parsePropertyAndReadingsFromStream()
+//            }
+//        }
     }
 }
 

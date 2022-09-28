@@ -160,6 +160,7 @@
 		5C95DB6428C3176C00396FA0 /* AlegreyaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */; };
 		5C95DB6528C3176F00396FA0 /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */; };
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
+		5CA7F19B28DE063500224AB6 /* DataStreamChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
 		5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */; };
@@ -286,6 +287,7 @@
 		5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Bold.ttf"; sourceTree = "<group>"; };
 		5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
+		5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartsView.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyViewModel.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 				5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */,
 				5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */,
 				012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */,
+				5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */,
 			);
 			path = Graphs;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
+				5CA7F19B28DE063500224AB6 /* DataStreamChartsView.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
