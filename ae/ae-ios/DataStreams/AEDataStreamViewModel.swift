@@ -16,6 +16,7 @@ import GRDB
     var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
     @Published var frequency: Double = 0
+    @Published var reliability: Double? = 0
     
     var deviceVM: FXBDeviceViewModel?
     
@@ -48,11 +49,18 @@ import GRDB
         self.dataStream = dataStream
         self.deviceName = deviceName
         self.isOn = false
+    }
+    
+    func checkActive() {
+        guard let _ = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) else {
+            self.deviceVM = nil
+            self.isActive = false
+            return
+        }
         
-        fxb.conn.fxbConnectedDevices
-            .publisher
-            .sink { _ in self.setupDevice() }
-            .store(in: &observers)
+        if self.deviceVM == nil {
+            self.setupDevice()
+        }
     }
     
     private func setupDevice() {
@@ -67,7 +75,7 @@ import GRDB
                     self?.isActive = matched
                 })
                 .store(in: &observers)
-        }
+        } else { isActive = false }
         
         configVMs = []
         sensorStateConfig = nil
@@ -103,23 +111,16 @@ import GRDB
                 
             }
         }
-        
         deviceVM.device
             .dataHandler(for: dataStream.name)?
             .firehoseTS
-            .delay(for: 1.0, scheduler: DispatchQueue.main)
-            .collect()
+            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
             .sink(receiveValue: { [weak self] dates in
-                self?.recordCount += dates.count
+                guard let self = self else { return }
                 
-                var diffs = [TimeInterval]()
-                dates.enumerated().forEach { (i, date) in
-                    guard i > 0 else { return }
-                    diffs.append(dates[i].distance(to: dates[i-1]))
-                }
-                
-                var meanTimeInterval = Double(diffs.count) / diffs.reduce(0.0, { $0 + $1 })
-                self?.frequency = 1.0/meanTimeInterval
+                self.recordCount += dates.count
+                self.frequency = self.frequency(from: dates)
+                self.reliability = self.reliability(from: self.frequency)
             })
             .store(in: &observers)
     }
@@ -177,15 +178,23 @@ import GRDB
         )
     }
     
-//    func subHose() {
-//        deviceVM?
-//            .device
-//            .dataHandler(for: dataStream.name)?
-//            .firehose
-//            .delay(for: 1.0, scheduler: DispatchQueue.global(qos: .utility))
-//            .sink(receiveValue: { record in
-//                print("🔥 record: ts: \(record.ts)")
-//            })
-//            .store(in: &observers)
-//    }
+    private func frequency(from dates: [Date]) -> Double {
+        var diffs = [TimeInterval]()
+        dates.enumerated().forEach { (i, date) in
+            guard i > 0 else { return }
+            diffs.append(dates[i-1].distance(to: dates[i]))
+        }
+        
+        let meanTimeInterval = diffs.reduce(0.0, { $0 + $1 }) / Double(diffs.count)
+        return 1.0/meanTimeInterval
+    }
+    
+    private func reliability(from hz: Double) -> Double? {
+        guard let freqConfig = self.configVMs.first(where: { $0.config.name == "desired_frequency" }),
+            let desiredFreq = Double(freqConfig.selectedValue) else {
+            return nil
+        }
+        
+        return hz / desiredFreq
+    }
 }

@@ -17,7 +17,11 @@ import FlexiBLE
             deviceSpec = nil
             connectedDevice = nil
             if selectedDeviceId > -1 {
-                getSpec(with: deviceConnectionRecords[selectedDeviceId])
+                if deviceConnectionRecords.count > selectedDeviceId {
+                    getSpec(with: deviceConnectionRecords[selectedDeviceId])
+                } else {
+                    selectedDeviceId = -1
+                }
             }
         }
     }
@@ -25,7 +29,7 @@ import FlexiBLE
     @Published var deviceSpec: FXBDeviceSpec?
     @Published var connectedDevice: FXBDevice?
     
-    private var cancellables: [AnyCancellable] = []
+    private var observers = Set<AnyCancellable>()
     
     var deviceName: String {
         if selectedDeviceId == -1 {
@@ -40,7 +44,7 @@ import FlexiBLE
         
         fxb.conn.fxbConnectedDevices.publisher.sink { _ in
             self.fetchConnectionRecords()
-        }.store(in: &cancellables)
+        }.store(in: &observers)
     }
     
     func fetchConnectionRecords() {

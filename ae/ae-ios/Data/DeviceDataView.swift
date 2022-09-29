@@ -22,6 +22,9 @@ struct DeviceDataView: View {
                 DataStreamsView(deviceSpec: deviceSpec, deviceName: vm.deviceName)
             }
         }
+        .onAppear() {
+            vm.fetchConnectionRecords()
+        }
     }
 }
 
