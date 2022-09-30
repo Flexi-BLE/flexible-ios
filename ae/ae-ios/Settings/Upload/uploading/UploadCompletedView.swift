@@ -8,8 +8,8 @@
 import SwiftUI
 import FlexiBLE
 
-struct UploadCompletedView<T>: View where T: FXBRemoteDatabaseUploader {
-    @ObservedObject var uploader: T
+struct UploadCompletedView: View {
+    @ObservedObject var uploader: RemoteUploadViewModel
     
     var body: some View {
         VStack {
@@ -17,18 +17,5 @@ struct UploadCompletedView<T>: View where T: FXBRemoteDatabaseUploader {
             Text("Upload Completed 🎉")
             Spacer()
         }.padding()
-    }
-}
-
-struct UploadCompletedView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadCompletedView(
-            uploader: InfluxDBUploader(
-                url: URL(string: "https://josiahhester.com/lab/")!,
-                org: "cool",
-                bucket: "cool",
-                token: "123",
-                deviceId: "cool"
-            ))
     }
 }

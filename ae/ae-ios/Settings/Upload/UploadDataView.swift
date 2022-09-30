@@ -65,10 +65,10 @@ struct UploadDataView: View {
             }.padding()
         }
         .sheet(isPresented: $vm.showUploading, onDismiss: {
-                vm.influxDBUploader?.pause()
-                vm.influxDBUploader = nil
+            vm.influxDBUploader?.pause()
+            vm.influxDBUploader = nil
         }, content: {
-            DataUploadingView(uploader: vm.influxDBUploader!)
+            DataUploadingView(uploader: RemoteUploadViewModel(uploader: vm.influxDBUploader!))
         })
     }
 }

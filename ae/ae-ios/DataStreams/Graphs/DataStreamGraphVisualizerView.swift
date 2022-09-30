@@ -11,6 +11,8 @@ import Combine
 import FlexiBLE
 
 struct DataStreamGraphVisualizerView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var vm: DataStreamGraphVisualizerViewModel
     @StateObject var graphPropertyVM: DataExplorerGraphPropertyViewModel
     
@@ -48,12 +50,17 @@ struct DataStreamGraphVisualizerView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar(content: {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
                 Button(action: {
                     vm.state = .editing
                     presentSheet.toggle()
                 }) {
                     Image(systemName: "slider.vertical.3")
+                }
+            }
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "xmark")
                 }
             }
         })

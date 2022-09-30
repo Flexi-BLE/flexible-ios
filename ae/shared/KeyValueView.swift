@@ -14,10 +14,11 @@ struct KeyValueView: View {
     var body: some View {
         HStack {
             Text("\(key):")
-                .font(.custom("AlegreyaSans-Bold", size: 17))
+                .font(.body)
+                .bold()
             Spacer()
             Text(value ?? "--none--")
-                .font(.custom("Abel-Regular", size: 15))
+                .font(.body)
         }
     }
 }

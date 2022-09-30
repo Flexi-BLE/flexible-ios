@@ -40,11 +40,24 @@ struct NewExperimentView: View {
                 .padding()
                 
                 VStack(alignment: .leading) {
-                    Text("Start Date")
-                        .bold()
-                    DatePicker("", selection: $vm.startDate,displayedComponents: [.date,.hourAndMinute])
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Start Date")
+                                .bold()
+                            if !vm.hasStartDate {
+                                Text("Defaults to time on create")
+                                    .font(.body)
+                            }
+                        }
+                        Spacer()
+                        Toggle("Show welcome message", isOn: $vm.hasStartDate)
+                            .labelsHidden()
+                    }
+                    if vm.hasStartDate {
+                        DatePicker("", selection: $vm.startDate,displayedComponents: [.date,.hourAndMinute])
+                            .datePickerStyle(.compact)
+                            .labelsHidden()
+                    }
                 }
                 .padding()
                 

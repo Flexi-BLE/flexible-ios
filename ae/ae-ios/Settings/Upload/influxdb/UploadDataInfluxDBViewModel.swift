@@ -62,6 +62,10 @@ import Foundation
 //        }
 //    }
     
+    init() {
+        self.validate()
+    }
+    
     func validate() {
         isReady = !url.isEmpty &&
             !port.isEmpty &&

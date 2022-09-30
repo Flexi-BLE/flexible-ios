@@ -12,14 +12,32 @@ import FlexiBLE
 import GRDB
 
 @MainActor class AEDataStreamViewModel: ObservableObject {
-    @Published var dataStream: FXBDataStream
+    
+    var dataStream: FXBDataStream
     @Published var recordCount: Int = 0
-    @Published var meanFreqLastK: Float = 0
+    @Published var frequency: Double = 0
+    @Published var reliability: Double? = 0
+    
+    var deviceVM: FXBDeviceViewModel?
+    
+    @Published var isActive: Bool = false
+    
+    private var observers = Set<AnyCancellable>()
     
     @Published var configVMs: [ConfigViewModel] = []
     
-    private var timer: Timer?
-    private var timerCount: Int = 0
+    @Published var isOn: Bool {
+        didSet {
+            guard let _ = sensorStateConfig else {
+//                isOn = false
+                return
+            }
+            sensorStateConfig?.update(with: isOn ? "1" : "0")
+            updateConfigs()
+        }
+    }
+    
+    private var sensorStateConfig: ConfigViewModel?
     
     private var deviceName: String
     
@@ -30,28 +48,81 @@ import GRDB
     init(_ dataStream: FXBDataStream, deviceName: String) {
         self.dataStream = dataStream
         self.deviceName = deviceName
+        self.isOn = false
+    }
+    
+    func checkActive() {
+        guard let _ = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) else {
+            self.deviceVM = nil
+            self.isActive = false
+            return
+        }
         
-        // TODO: Timer reloads complete view of app each time it is triggered
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 5,
-            repeats: true,
-            block: { _ in self.onTimer() }
-        )
+        if self.deviceVM == nil {
+            self.setupDevice()
+        }
+    }
+    
+    private func setupDevice() {
+        if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
+            
+            self.deviceVM = FXBDeviceViewModel(with: device)
+            setInitialRecordCount()
+            
+            self.deviceVM?.device.$isSpecVersionMatched
+                .prefix(2)
+                .sink(receiveValue: { [weak self] matched in
+                    self?.isActive = matched
+                })
+                .store(in: &observers)
+        } else { isActive = false }
         
+        configVMs = []
+        sensorStateConfig = nil
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))
         }
+        
+        if let stateConfig = configVMs.first(where: { $0.config.name == "sensor_state" }),
+           let value = Double(stateConfig.selectedValue) {
+            self.sensorStateConfig = stateConfig
+            self.isOn = value > 0
+        }
+        
+//        self.subHose()
         
         Task {
             await fetchLatestConfig()
         }
     }
     
-    private func onTimer() {
-        Task {
-            self.recordCount = await fxb.db.recordCountByIndex(for: dataStream)
-            timerCount += 1
+    private func setInitialRecordCount() {
+        guard let deviceVM = deviceVM else  { return }
+        Task { [weak self] in
+            do {
+                self?.recordCount = try await fxb.read.getTotalRecords(
+                    for: "\(dataStream.name)_data",
+                    from: nil,
+                    to: Date.now,
+                    deviceName: deviceVM.device.deviceName,
+                    uploaded: nil
+                )
+            } catch {
+                
+            }
         }
+        deviceVM.device
+            .dataHandler(for: dataStream.name)?
+            .firehoseTS
+            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
+            .sink(receiveValue: { [weak self] dates in
+                guard let self = self else { return }
+                
+                self.recordCount += dates.count
+                self.frequency = self.frequency(from: dates)
+                self.reliability = self.reliability(from: self.frequency)
+            })
+            .store(in: &observers)
     }
     
     func fetchLatestConfig() async {
@@ -82,8 +153,8 @@ import GRDB
         }
         
         fxb.conn.updateConfig(
-            thingName: deviceName,
-            dataSteam: dataStream,
+            deviceName: deviceName,
+            dataStream: dataStream,
             data: data
         )
         
@@ -105,5 +176,25 @@ import GRDB
             offset: offset,
             limit: limit
         )
+    }
+    
+    private func frequency(from dates: [Date]) -> Double {
+        var diffs = [TimeInterval]()
+        dates.enumerated().forEach { (i, date) in
+            guard i > 0 else { return }
+            diffs.append(dates[i-1].distance(to: dates[i]))
+        }
+        
+        let meanTimeInterval = diffs.reduce(0.0, { $0 + $1 }) / Double(diffs.count)
+        return 1.0/meanTimeInterval
+    }
+    
+    private func reliability(from hz: Double) -> Double? {
+        guard let freqConfig = self.configVMs.first(where: { $0.config.name == "desired_frequency" }),
+            let desiredFreq = Double(freqConfig.selectedValue) else {
+            return nil
+        }
+        
+        return hz / desiredFreq
     }
 }

@@ -30,6 +30,9 @@ struct ConfigEditView: View {
             }
             
             HStack {
+                FXBButton(action: {dismiss() }) {
+                    Text("Dismiss")
+                }
                 FXBButton(action: {
                     vm.updateConfigs()
                     dismiss()
@@ -41,13 +44,5 @@ struct ConfigEditView: View {
         }
         .padding()
         .navigationBarTitle("Edit Configuration")
-    }
-}
-
-struct DataStreamConfigEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        let ds = FXBSpec.mock.devices[0].dataStreams[0]
-        let vm = AEDataStreamViewModel(ds, deviceName: "none")
-        ConfigEditView(vm: vm)
     }
 }

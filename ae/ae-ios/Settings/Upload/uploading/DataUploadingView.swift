@@ -7,9 +7,10 @@
 
 import SwiftUI
 import FlexiBLE
+import Combine
 
-struct DataUploadingView<T>: View where T: FXBRemoteDatabaseUploader {
-    @ObservedObject var uploader: T
+struct DataUploadingView: View {
+    @ObservedObject var uploader: RemoteUploadViewModel
     
     var body: some View {
         switch uploader.state {
@@ -20,19 +21,5 @@ struct DataUploadingView<T>: View where T: FXBRemoteDatabaseUploader {
         case .error(let msg): UploadErrorView(uploader: uploader, errorMsg: msg)
         case .done: UploadCompletedView(uploader: uploader)
         }
-    }
-}
-
-struct UploadingDataView_Previews: PreviewProvider {
-    static var previews: some View {
-        DataUploadingView(
-            uploader: InfluxDBUploader(
-                url: URL(string: "https://nasa.gov")!,
-                org: "cool",
-                bucket: "cool",
-                token: "123",
-                deviceId: "cool"
-            )
-        )
     }
 }

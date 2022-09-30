@@ -11,6 +11,8 @@ import FlexiBLE
 struct InactiveExperimentsView: View {
     @StateObject var vm: ExperimentViewModel
     
+    @State var isShowingUpload = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 29) {
             if (vm.experiment.trackGPS) {
@@ -22,10 +24,12 @@ struct InactiveExperimentsView: View {
 //                        Text(vm.experiment.name)
 //                            .font(.title)
                         Spacer()
-                        Image(systemName: "stop.circle")
-                            .font(.title)
                         Image(systemName: "square.and.arrow.up.circle")
-                            .font(.title)
+                            .resizable()
+                            .frame(width: 44.0, height: 44.0)
+                            .onTapGesture {
+                                isShowingUpload = true
+                            }
                     }
                     Text(vm.experiment.description ?? "")
                         .font(.subheadline)
@@ -54,6 +58,11 @@ struct InactiveExperimentsView: View {
             }
         }
         .padding()
+        .sheet(isPresented: $isShowingUpload) {
+            if let m = vm.uploadModel() {
+                DataUploadingView(uploader: RemoteUploadViewModel(uploader: m))
+            }
+        }
     }
 }
 

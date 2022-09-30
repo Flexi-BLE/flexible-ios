@@ -7,11 +7,13 @@
 
 import Foundation
 import FlexiBLE
+import Combine
 
 typealias GraphRecord = (ts: Date, val: Double)
 typealias GraphResult = (mark: String, data: [GraphRecord])
 
 typealias GraphResultNK = [String: [GraphRecord]]
+
 
 @MainActor class DataStreamGraphVisualizerViewModel: ObservableObject {
     

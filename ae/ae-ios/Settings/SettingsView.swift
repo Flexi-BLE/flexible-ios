@@ -11,6 +11,9 @@ import Combine
 //import FlexiBLE
 
 struct SettingsView: View {
+    
+    @State private var isPresentingPurgeAllConfirm: Bool = false
+    @State private var isPresentingPurgeUploadConfirm: Bool = false
 
     var body: some View {
         NavigationView {
@@ -42,13 +45,18 @@ struct SettingsView: View {
                         }
                     )
                 
+                    Button("Share Database") {
+                        ShareUtil.share(path: fxb.db.dbPath)
+                    }
+                }
+                
+                Section(header: Text("⚠️ Danger Zone")) {
                     Button ("Purge Uploaded Records") {
-                        Task {
-                            do {
-                                try await fxb.write.purgeAllUploadedRecords()
-                            } catch {
-                                gLog.error("error purging uploaded records: \(error.localizedDescription)")
-                            }
+                        isPresentingPurgeUploadConfirm = true
+                    }.confirmationDialog("Are you sure?",
+                                         isPresented: $isPresentingPurgeUploadConfirm) {
+                        Button("Delete all UPLOADED records?", role: .destructive) {
+                            Task { try? await fxb.write.purgeAllUploadedRecords() }
                         }
                     }
                     
@@ -62,7 +70,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Button("Purge All Graph Configuration") {
+                    Button("Purge All Local Configurations") {
                         Task {
                             if let id = Bundle.main.bundleIdentifier {
                                 UserDefaults.standard.removePersistentDomain(forName: id)

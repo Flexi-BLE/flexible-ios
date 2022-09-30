@@ -12,6 +12,8 @@ struct ActiveExperimentView: View {
     @StateObject var vm: ExperimentViewModel
     
     @State var nowDate = Date()
+    @State var isShowingUpload = false
+    
     
     var onDismiss: () -> ()
     
@@ -30,10 +32,10 @@ struct ActiveExperimentView: View {
             }
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 12) {
-                    HStack {
+                    HStack(spacing: 16.0) {
                         Image(systemName: "stop.circle")
                             .resizable()
-                            .frame(width: 30.0, height: 30.0)
+                            .frame(width: 44.0, height: 44.0)
                             .foregroundColor(.red)
                             .onTapGesture {
                                 Task {
@@ -42,15 +44,13 @@ struct ActiveExperimentView: View {
                                     self.onDismiss()
                                 }
                             }
-                                                
+                        Spacer()
                         Image(systemName: "square.and.arrow.up.circle")
                             .resizable()
-                            .frame(width: 30.0, height: 30.0)
+                            .frame(width: 44.0, height: 44.0)
                             .foregroundColor(.blue)
                             .onTapGesture {
-                                Task {
-                                    print("TODO Sharing")
-                                }
+                                isShowingUpload = true
                             }
                         Spacer()
                     }
@@ -80,6 +80,11 @@ struct ActiveExperimentView: View {
         .onAppear(perform: {
             _ = self.countupTimer
         })
+        .sheet(isPresented: $isShowingUpload) {
+            if let m = vm.uploadModel() {
+                DataUploadingView(uploader: RemoteUploadViewModel(uploader: m))
+            }
+        }
     }
     
     func countDownString(from date: Date) -> String {

@@ -8,8 +8,8 @@
 import SwiftUI
 import FlexiBLE
 
-struct UploadRunningView<T>: View where T: FXBRemoteDatabaseUploader {
-    @ObservedObject var uploader: T
+struct UploadRunningView: View {
+    @ObservedObject var uploader: RemoteUploadViewModel
     
     var body: some View {
         VStack {
@@ -42,18 +42,5 @@ struct UploadRunningView<T>: View where T: FXBRemoteDatabaseUploader {
                 )
 //            }
         }.padding()
-    }
-}
-
-struct UploadRunningView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadRunningView(
-            uploader: InfluxDBUploader(
-                url: URL(string: "https://nasa.gov")!,
-                org: "cool",
-                bucket: "cool",
-                token: "123",
-                deviceId: "cool"
-            ))
     }
 }

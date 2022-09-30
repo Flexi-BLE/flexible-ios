@@ -8,8 +8,8 @@
 import SwiftUI
 import FlexiBLE
 
-struct AEThingsView: View {
-    @StateObject var vm: AEViewModel
+struct DevicesView: View {
+    @StateObject var vm: FlexiBLESpecViewModel
     
     var body: some View {
         NavigationView {
@@ -25,16 +25,17 @@ struct AEThingsView: View {
                 case .unselected:
                     Text("no config selected")
                     Spacer()
-                case .selected(let config, _):
+                case .selected(let spec, _):
                     ScrollView {
-                        ForEach(config.devices, id: \.id) { thing in
-                            AEThingDetailCellView(vm: AEThingViewModel(with: thing))
+                        FXBLEConnectionView(spec: spec)
+                            .modifier(Card())
+                        ForEach(spec.devices, id: \.id) { deviceSpec in
+                            FXBDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)
                                 .modifier(Card())
                         }
-                        ForEach(config.bleRegisteredDevices, id: \.name) { device in
-                            AERegisteredDeviceDetailCellView(
-                                vm: AERegisteredDeviceViewModel(with: device)
-                            ).modifier(Card())
+                        ForEach(spec.bleRegisteredDevices, id: \.name) { deviceSpec in
+                            FXBRegisteredDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)
+                                .modifier(Card())
                         }
                     }
                 case .error(let message):
@@ -48,8 +49,8 @@ struct AEThingsView: View {
     }
 }
 
-struct AEThingsView_Previews: PreviewProvider {
+struct DevicesView_Previews: PreviewProvider {
     static var previews: some View {
-        AEThingsView(vm: AEViewModel())
+        DevicesView(vm: FlexiBLESpecViewModel())
     }
 }

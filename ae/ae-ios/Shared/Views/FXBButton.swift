@@ -22,7 +22,7 @@ struct FXBButton<Content: View>: View {
             action: { action() },
             label: {
                 content
-                    .font(.custom("Arvo-Bold", size: 13))
+                    .font(.system(size: 13 ))
             }
         )
         .padding(11)

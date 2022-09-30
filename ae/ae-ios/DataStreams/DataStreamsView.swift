@@ -10,28 +10,19 @@ import FlexiBLE
 
 struct DataStreamsView: View {
     
-    @StateObject var vm: AEThingViewModel
+    var deviceSpec: FXBDeviceSpec
+    var deviceName: String
     @State var pageIndex = 0
     
     var body: some View {
-        VStack {
-            AEThingBannerView(vm: vm)
-            VStack(alignment: .leading) {
-                ScrollView {
-                    ForEach(vm.thing.dataStreams, id: \.name) { ds in
-                        ScrollView {
-                            DataStreamDetailCellView(vm: AEDataStreamViewModel(ds, deviceName: vm.thing.name))
-                                .modifier(Card())
-                        }
-                    }
+        VStack(alignment: .leading) {
+            ScrollView {
+                ForEach(deviceSpec.dataStreams, id: \.name) { ds in
+                    DataStreamDetailCellView(
+                        vm: AEDataStreamViewModel(ds, deviceName: deviceName)
+                    ).modifier(Card())
                 }
             }
         }
-    }
-}
-
-struct DataStreamsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DataStreamsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
     }
 }
