@@ -36,18 +36,10 @@ struct DataStreamDetailCellView: View {
             Divider()
             
             KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
-            
-//            KeyValueView(
-//                key: "Freq. (\(1000 / vm.dataStream.intendedFrequencyMs)Hz)",
-//                value: "\(String(format: "%.2f", vm.meanFreqLastK))Hz"
-//            )
-//
-//            KeyValueView(key: "Awaiting Upload", value: "\(vm.unUploadCount.fuzzy)")
-//
-//            KeyValueView(
-//                key: "Uploads",
-//                value: "\(vm.uploadAgg.totalRecords.fuzzy) (✅\(vm.uploadAgg.success), ❌\(vm.uploadAgg.failures))"
-//            )
+            KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
+            if let rel = vm.reliability {
+                KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
+            }
             
             HStack {
                 FXBButton(action: { dataExplorePopover.toggle() }) {
@@ -82,5 +74,6 @@ struct DataStreamDetailCellView: View {
             }
         }
         .padding()
+        .onAppear() { vm.checkActive() }
     }
 }

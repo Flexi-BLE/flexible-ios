@@ -59,6 +59,11 @@ struct ExperimentsView: View {
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
+            .onAppear() {
+                Task {
+                    await vm.getExperiments()
+                }
+            }
         }
     }
 }
