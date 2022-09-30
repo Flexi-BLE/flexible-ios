@@ -71,6 +71,13 @@ struct DataStreamDetailCellView: View {
                             )
                         }
                     }
+//                    .disabled(!(vm.deviceVM?.device.specMatched ?? false))
+                    .fullScreenCover(isPresented: $editConfigPopover) {
+                        NavigationView {
+                            ConfigEditView(vm: vm)
+                        }
+                    }
+                    Spacer()
                 }
             }
         }

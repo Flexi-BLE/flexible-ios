@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01043A8128E14EC000E4AF90 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01043A8028E14EC000E4AF90 /* flexible-swift */; };
+		01043A8328E14EC000E4AF90 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01043A8228E14EC000E4AF90 /* GRDB */; };
 		0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
 		0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
 		0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
@@ -1912,7 +1914,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};
-		0109C27B28E611480023B9AA /* GRDB */ = {
+		01923AA728BD83F700F8055E /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;

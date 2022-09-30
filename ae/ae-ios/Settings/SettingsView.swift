@@ -61,12 +61,11 @@ struct SettingsView: View {
                     }
                     
                     Button("Purge All Records") {
-                        Task {
-                            do {
-                                try await fxb.write.purgeAllRecords()
-                            } catch {
-                                gLog.error("error purging database: \(error.localizedDescription)")
-                            }
+                        isPresentingPurgeAllConfirm = true
+                    }.confirmationDialog("Are you sure?",
+                                         isPresented: $isPresentingPurgeAllConfirm) {
+                        Button("Delete ALL records?", role: .destructive) {
+                            Task { try? await fxb.write.purgeAllRecords() }
                         }
                     }
                     
