@@ -9,8 +9,8 @@ import SwiftUI
 import FlexiBLE
 import Combine
 
-class DataStreamGraphParameters {
-    enum State {
+class DataStreamGraphParameters: Codable {
+    enum State: String, Codable {
         case live
         case timeboxed
         case unspecified
@@ -18,44 +18,121 @@ class DataStreamGraphParameters {
     
     var state: State = .unspecified
     
-    var dependentSelections: [String:[String]] = [:]
+    var filterSelections: [String:[Int]] = [:]
     
-    var independentSelections: [String] = []
+    var dependentSelections: [String] = []
     
     var liveInterval: TimeInterval = 25.0
     var start: Date = Date.now
     var end: Date = Date.now.addingTimeInterval(-25.0)
-    
-    var minY: Double = 0.0
-    var minX: Double = 0.0
 }
 
 class DataStreamDataService {
     var dataStream: FXBDataStream
+    var deviceName: String
     var parameters: DataStreamGraphParameters?
     
+    enum CustomError: Error, LocalizedError {
+        case deviceNotConnected
+        case dataStreamNotFound
+        case parametersNotSet
+        
+        var errorDescription: String? {
+            switch self {
+            case .parametersNotSet: return "Parameters not set."
+            case .deviceNotConnected: return "The device is not connected, cannot query live data."
+            case .dataStreamNotFound: return "No data stream found on device."
+            }
+        }
+    }
+    
     typealias Point = (y: Date, x: Double)
-    var data = PassthroughSubject<[String:[Point]], Never>()
+    // map by line (e.g. blue-green) and point
+    var data = PassthroughSubject<[String:[Point]], Error>()
     
-    private var observers = Set<AnyCancellable>()
+    private var liveObserver: AnyCancellable?
+    private var queryObserver: AnyCancellable?
     
-    init(with dataStream: FXBDataStream) {
+    init(dataStream: FXBDataStream, deviceName: String) {
         self.dataStream = dataStream
+        self.deviceName = deviceName
     }
     
     func set(params: DataStreamGraphParameters) {
         self.parameters = params
-        self.driver()
-    }
-    
-    private func driver() {
-        guard let params = self.parameters else { return }
+        stop()
         
-        // TODO: swap settings
+        switch params.state {
+        case .live: liveFeed()
+        case .timeboxed: queryData()
+        case .unspecified: break
+        }
     }
     
-    private func kickOffLiveFeed() {
-        // TODO: subscribe to firehose and filter
+    func stop() {
+        liveObserver?.cancel()
+        liveObserver = nil
+        
+        queryObserver?.cancel()
+        queryObserver = nil
+    }
+    
+    private func liveFeed() {
+        guard let params = self.parameters else {
+            data.send(completion: .failure(CustomError.parametersNotSet))
+            return
+        }
+        
+        guard let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) else {
+            data.send(completion: .failure(CustomError.deviceNotConnected))
+            return
+        }
+        
+        guard let dataStreamHandler = device.dataHandler(for: dataStream.name) else {
+            data.send(completion: .failure(CustomError.dataStreamNotFound))
+            return
+        }
+        
+        liveObserver = dataStreamHandler
+            .firehose
+            .compactMap({ [weak self] record -> DataStreamHandler.RawDataStreamRecord? in // filter by tag selections
+                guard let self = self, record.values.count == self.dataStream.dataValues.count else { return nil }
+                for (i, ds) in self.dataStream.dataValues.enumerated() {
+                    switch ds.variableType {
+                    case .tag:
+                        if let val = record.values[i] as? Int,
+                           let selections = params.filterSelections[ds.name],
+                            selections.contains(val) {
+                            
+                            return record
+                        }
+                    default: break
+                    }
+                }
+                
+                return nil
+            })
+            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.25))
+            .sink(receiveValue: { [weak self] records in // organize in to points by tags
+                guard let ds = self?.dataStream else { return }
+                
+                var data = [String: [Point]]()
+                
+//                records.forEach({ record in
+//                    for (i, val) in record.values?.enumerated() {
+//                        let dv = ds.dataValues[i]     
+//                        guard params.dependentSelections.contains(dv.name) else { continue }
+//
+//                        if dv.variableType = .value {
+//                            for dependent in dv.dependsOn {
+//
+//                            }
+//                        }
+//                    }
+//                })
+                
+                print("🔥 live records streamed: \(records.count)")
+            })
     }
     
     private func queryData() {
@@ -64,7 +141,14 @@ class DataStreamDataService {
 }
 
 @MainActor class DataStreamGraphViewModel: ObservableObject {
-    var device: FXBDevice
+    enum State {
+        case loading
+        case graphing
+        case error(msg: String)
+    }
+    
+    var state: State = .loading
+    var deviceName: String
     var spec: FXBDataStream
     var parameters: DataStreamGraphParameters
     
@@ -74,15 +158,20 @@ class DataStreamDataService {
     
     private var observers = Set<AnyCancellable>()
     
-    init(device: FXBDevice, dataStream: FXBDataStream) {
-        self.device = device
+    init(dataStream: FXBDataStream, deviceName: String) {
+        self.deviceName = deviceName
         self.spec = dataStream
-        self.dataService = DataStreamDataService(with: dataStream)
+        self.dataService = DataStreamDataService(dataStream: dataStream, deviceName: deviceName)
         
         // TODO: load from disk
         self.parameters = DataStreamGraphParameters()
         
         subscribe()
+    }
+    
+    func parametersUpdated() {
+        state = .loading
+        dataService.set(params: self.parameters)
     }
     
     private func subscribe() {
@@ -99,18 +188,25 @@ struct DataStreamGraphView: View {
     
     var body: some View {
         VStack {
-            switch vm.parameters.state {
-            case .unspecified:
-                Text("No Parameters Specified")
-            case .live, .timeboxed where !isParametersPresented:
-                Text("Should be some data")
-            default:
-                Text("Loading")
+            switch vm.state {
+            case .loading:
+                Spacer()
+                ProgressView().progressViewStyle(.circular)
+                Spacer()
+            case .graphing:
+                Text("I am graph")
+            case .error(let msg):
+                Spacer()
+                Text("⚠️ error: \(msg)")
+                Spacer()
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("\(vm.spec.name.capitalized) Plot")
         .toolbar(content: {
             ToolbarItemGroup(placement: .navigationBarLeading) {
                 Button(action: {
+                    vm.state = .loading
                     isParametersPresented.toggle()
                 }) {
                     Image(systemName: "slider.vertical.3")
@@ -122,14 +218,26 @@ struct DataStreamGraphView: View {
                 }
             }
         })
-        .sheet(
+        .fullScreenCover(
             isPresented: $isParametersPresented,
-            onDismiss: { isParametersPresented = false },
+            onDismiss: { vm.parametersUpdated() },
             content: {
-                DataStreamGraphParamsView(
-                    vm: DataStreamGraphParamsViewModel(with: vm.parameters, dataStream: vm.spec)
-                )
+                NavigationView {
+                    DataStreamGraphParamsView(
+                        vm: DataStreamGraphParamsViewModel(with: vm.parameters, dataStream: vm.spec)
+                    )
+                }
             }
-        ).presentationDragIndicator(.visible)
+        )
+//        .sheet(
+//            isPresented: $isParametersPresented,
+//            onDismiss: { isParametersPresented = false },
+//            content: {
+//                DataStreamGraphParamsView(
+//                    vm: DataStreamGraphParamsViewModel(with: vm.parameters, dataStream: vm.spec)
+//                )
+//                .presentationDragIndicator(.visible)
+//            }
+//        )
     }
 }

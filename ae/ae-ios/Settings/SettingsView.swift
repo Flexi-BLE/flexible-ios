@@ -76,10 +76,6 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    
-                    Button("Share Database") {
-                        ShareUtil.share(path: fxb.db.dbPath)
-                    }
                 }
                 
             }

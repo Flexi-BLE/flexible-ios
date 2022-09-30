@@ -65,8 +65,8 @@ struct DataStreamDetailCellView: View {
                         NavigationView {
                             DataStreamGraphView(
                                 vm: DataStreamGraphViewModel(
-                                    device: device,
-                                    dataStream: vm.dataStream
+                                    dataStream: vm.dataStream,
+                                    deviceName: device.deviceName
                                 )
                             )
                         }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01043A8128E14EC000E4AF90 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01043A8028E14EC000E4AF90 /* flexible-swift */; };
-		01043A8328E14EC000E4AF90 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01043A8228E14EC000E4AF90 /* GRDB */; };
 		0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
 		0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
 		0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
@@ -23,7 +21,7 @@
 		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		0109C27A28E611480023B9AA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0109C27928E611480023B9AA /* flexible-swift */; };
-		0109C27C28E611480023B9AA /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0109C27B28E611480023B9AA /* GRDB */; };
+		0109C27C28E611480023B9AA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -219,7 +217,6 @@
 		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
 		0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBViewModel.swift; sourceTree = "<group>"; };
-		0109C27828E6113D0023B9AA /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011F48222807692E00B359EB /* ae_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ae_iosApp.swift; sourceTree = "<group>"; };
 		011F48262807693000B359EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,6 +278,7 @@
 		017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegisteredDeviceConnectionView.swift; sourceTree = "<group>"; };
 		017810C528E227A600E1264D /* RegisteredDeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredDeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
+		017A359228E745990095957A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
@@ -344,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0109C27A28E611480023B9AA /* flexible-swift in Frameworks */,
-				0109C27C28E611480023B9AA /* GRDB in Frameworks */,
+				0109C27C28E611480023B9AA /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +556,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				0109C27828E6113D0023B9AA /* flexible-swift */,
+				017A359228E745990095957A /* flexible-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -791,7 +789,6 @@
 			name = "ae-ios";
 			packageProductDependencies = (
 				0109C27928E611480023B9AA /* flexible-swift */,
-				0109C27B28E611480023B9AA /* GRDB */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1913,11 +1910,6 @@
 		0109C27928E611480023B9AA /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
-		};
-		01923AA728BD83F700F8055E /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
