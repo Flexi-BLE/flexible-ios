@@ -97,20 +97,23 @@ class DataStreamDataService {
             .firehose
             .compactMap({ [weak self] record -> DataStreamHandler.RawDataStreamRecord? in // filter by tag selections
                 guard let self = self, record.values.count == self.dataStream.dataValues.count else { return nil }
+
+                var incl = true
                 for (i, ds) in self.dataStream.dataValues.enumerated() {
                     switch ds.variableType {
                     case .tag:
                         if let val = record.values[i] as? Int,
                            let selections = params.filterSelections[ds.name],
-                            selections.contains(val) {
-                            
-                            return record
+                           selections.count > 0,
+                           !selections.contains(val) {
+
+                            incl = false
                         }
                     default: break
                     }
                 }
-                
-                return nil
+
+                return incl ? record : nil
             })
             .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.25))
             .sink(receiveValue: { [weak self] records in // organize in to points by tags
@@ -120,7 +123,7 @@ class DataStreamDataService {
                 
 //                records.forEach({ record in
 //                    for (i, val) in record.values?.enumerated() {
-//                        let dv = ds.dataValues[i]     
+//                        let dv = ds.dataValues[i]
 //                        guard params.dependentSelections.contains(dv.name) else { continue }
 //
 //                        if dv.variableType = .value {
