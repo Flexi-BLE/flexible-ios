@@ -62,8 +62,6 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
-		012B302528D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */; };
-		012B302628D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */; };
 		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
@@ -94,6 +92,10 @@
 		01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */; };
 		01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
+		0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */; };
+		0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */; };
+		0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */; };
+		0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -183,14 +185,8 @@
 		5C95DB6428C3176C00396FA0 /* AlegreyaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */; };
 		5C95DB6528C3176F00396FA0 /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */; };
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
-		5CA7F19B28DE063500224AB6 /* DataStreamChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
-		5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */; };
-		5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */; };
-		5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */; };
-		5CD5141B28C2A77E00749637 /* FXBCheckboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */; };
-		5CD5141D28C2AA5600749637 /* DataStreamGraphVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,7 +240,6 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphVisualizerViewModel.swift; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
@@ -271,6 +266,10 @@
 		01551D1728DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBDeviceSpecConnectionView.swift; sourceTree = "<group>"; };
 		01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBRegisteredDeviceSpecConnectionView.swift; sourceTree = "<group>"; };
 		01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFXBDeviceConnectionView.swift; sourceTree = "<group>"; };
+		0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartView.swift; sourceTree = "<group>"; };
+		0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParameters.swift; sourceTree = "<group>"; };
+		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
+		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -326,14 +325,8 @@
 		5C95DB5E28C3175100396FA0 /* AlegreyaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Bold.ttf"; sourceTree = "<group>"; };
 		5C95DB5F28C3175300396FA0 /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
-		5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartsView.swift; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
-		5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyViewModel.swift; sourceTree = "<group>"; };
-		5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphPropertyView.swift; sourceTree = "<group>"; };
-		5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphParameterValueSelectionView.swift; sourceTree = "<group>"; };
-		5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBCheckboxEntry.swift; sourceTree = "<group>"; };
-		5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphVisualizerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +620,9 @@
 			children = (
 				01B79FB728E643B400A299F7 /* GraphParamters */,
 				01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */,
+				0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */,
+				0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */,
+				0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */,
 			);
 			path = DataExploration;
 			sourceTree = "<group>";
@@ -636,6 +632,7 @@
 			children = (
 				01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */,
 				01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */,
+				0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */,
 			);
 			path = GraphParamters;
 			sourceTree = "<group>";
@@ -660,7 +657,6 @@
 			children = (
 				01B79FB628E63A7200A299F7 /* DataExploration */,
 				01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */,
-				5CD5141328C2A34B00749637 /* Graphs */,
 				01E7F26E281855B100ED6F15 /* DataStreamsView.swift */,
 				01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */,
 				01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */,
@@ -709,7 +705,6 @@
 			children = (
 				5CBAAB4128871B3400367FDC /* FXBButton.swift */,
 				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
-				5CD5141A28C2A77E00749637 /* FXBCheckboxEntry.swift */,
 				01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */,
 			);
 			path = Views;
@@ -756,19 +751,6 @@
 				5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		5CD5141328C2A34B00749637 /* Graphs */ = {
-			isa = PBXGroup;
-			children = (
-				5CD5141428C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift */,
-				5CD5141628C2A63E00749637 /* DataStreamGraphPropertyView.swift */,
-				5CD5141828C2A70C00749637 /* GraphParameterValueSelectionView.swift */,
-				5CD5141C28C2AA5600749637 /* DataStreamGraphVisualizerView.swift */,
-				012B302428D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift */,
-				5CA7F19A28DE063500224AB6 /* DataStreamChartsView.swift */,
-			);
-			path = Graphs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -952,7 +934,6 @@
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
-				5CD5141928C2A70C00749637 /* GraphParameterValueSelectionView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
 				01551D1828DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift in Sources */,
@@ -962,7 +943,6 @@
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
-				5CD5141B28C2A77E00749637 /* FXBCheckboxEntry.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				017810C628E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
 				014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */,
@@ -970,6 +950,7 @@
 				5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */,
 				0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
+				0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */,
 				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
 				01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */,
 				01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */,
@@ -977,6 +958,7 @@
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
+				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
 				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
@@ -987,6 +969,7 @@
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
+				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
 				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
@@ -996,13 +979,11 @@
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
-				5CD5141D28C2AA5600749637 /* DataStreamGraphVisualizerView.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
-				012B302528D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
@@ -1014,7 +995,6 @@
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
-				5CD5141528C2A4CB00749637 /* DataStreamGraphPropertyViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
@@ -1022,7 +1002,6 @@
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
-				5CD5141728C2A63E00749637 /* DataStreamGraphPropertyView.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
 				01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */,
@@ -1032,8 +1011,8 @@
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */,
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
-				5CA7F19B28DE063500224AB6 /* DataStreamChartsView.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
+				0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
@@ -1061,7 +1040,6 @@
 				0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */,
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
-				012B302628D8AF2F00BA623A /* DataStreamGraphVisualizerViewModel.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
 				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,

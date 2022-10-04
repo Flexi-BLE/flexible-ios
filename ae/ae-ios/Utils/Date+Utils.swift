@@ -74,7 +74,7 @@ extension Date {
         return date
     }
     
-    static func fromSQLStringNK(_ str: String) -> Date? {
+    static func fromSQLString(_ str: String) -> Date? {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
