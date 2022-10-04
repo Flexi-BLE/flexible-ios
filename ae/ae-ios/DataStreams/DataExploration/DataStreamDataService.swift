@@ -77,7 +77,7 @@ class DataStreamDataService {
         
         liveObserver = dataStreamHandler
             .firehose
-            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.25))
+            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.1))
             .sink(receiveValue: { [weak self] records in // organize in to points by tags
                 guard let ds = self?.dataStream,
                     let params = self?.parameters else { return }
