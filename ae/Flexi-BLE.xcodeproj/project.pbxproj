@@ -428,9 +428,9 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
+				01E7F276281858B900ED6F15 /* Device */,
 				01717C2A28DCE0A900B7DF39 /* Data */,
 				5C19730D2881FA420048AAB2 /* Shared */,
-				01E7F276281858B900ED6F15 /* Device */,
 				01E7F2712818560700ED6F15 /* Configurations */,
 				01E7F26D2818559900ED6F15 /* DataStreams */,
 				011FE29428085BEB006CCA92 /* Info.plist */,
@@ -605,6 +605,7 @@
 				01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */,
 				01551D1728DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift */,
 				01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */,
+				01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */,
 			);
 			path = FXBDevice;
 			sourceTree = "<group>";
@@ -684,7 +685,6 @@
 			isa = PBXGroup;
 			children = (
 				01E7F289281C0FB500ED6F15 /* DevicesView.swift */,
-				01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */,
 				01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */,
 				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
 				017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */,

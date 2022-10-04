@@ -84,8 +84,8 @@ import FlexiBLE
 
     private func checkPreviousStoredConfiguration() {
         do {
-            variableModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_variable_model", castTo: GraphPropertyVariableModel.self)
-            visualModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_visual_model", castTo: GraphPropertyVisualModel.self)
+            variableModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_variable_model")
+            visualModel = try UserDefaults.standard.getCustomObject(forKey: "\(_configName)_visual_model")
             shouldReloadGraphData = true
         } catch {
             createDefaultConfigurationForGraph()

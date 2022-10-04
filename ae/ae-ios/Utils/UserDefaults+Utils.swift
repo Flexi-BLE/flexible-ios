@@ -8,7 +8,7 @@
 import Foundation
 
 extension UserDefaults {
-    func setCustomObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable {
+    func setCustomObject<T>(_ object: T, forKey: String) throws where T: Encodable {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(object)
@@ -18,11 +18,11 @@ extension UserDefaults {
         }
     }
     
-    func getCustomObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable {
+    func getCustomObject<T>(forKey: String) throws -> T where T: Decodable {
         guard let data = data(forKey: forKey) else { throw ObjectSavableError.noValue }
         let decoder = JSONDecoder()
         do {
-            let object = try decoder.decode(type, from: data)
+            let object = try decoder.decode(T.self, from: data)
             return object
         } catch {
             throw ObjectSavableError.unableToDecode
