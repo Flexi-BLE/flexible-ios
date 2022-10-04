@@ -12,7 +12,7 @@ struct MainTabView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
-            DevicesView(vm: FlexiBLESpecViewModel(with: URL(string: "https://pastebin.com/raw/WAbEtR3W")!))
+            DevicesView(vm: FlexiBLESpecViewModel(with: URL(string: "https://pastebin.com/raw/T3aXeD6f")!))
 //            AEThingsView(vm: AEViewModel(with: "exthub.json"))
                 .tabItem{
                     Image(systemName: "memorychip")
@@ -44,12 +44,6 @@ struct MainTabView: View {
                     Image(systemName: "waveform.path.ecg.rectangle")
                     Text("Experiments")
                 }
-            
-//            MapWithUserLocationView()
-//                .tabItem {
-//                    Image(systemName: "map")
-//                    Text("Location")
-//                }
             
             SettingsView()
                 .tabItem {

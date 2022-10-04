@@ -10,9 +10,8 @@ import FlexiBLE
 
 struct ConfigEditView: View {
     @StateObject var vm: AEDataStreamViewModel
-    
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         VStack {
             ScrollView {

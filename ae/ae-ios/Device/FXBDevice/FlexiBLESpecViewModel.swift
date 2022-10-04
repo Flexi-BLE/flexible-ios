@@ -24,10 +24,12 @@ import FlexiBLE
     
     init() {
         state = .unselected
+        initializeAutoConnects()
     }
     
     init(with url: URL) {
         self.state = .loading(name: url.absoluteString)
+        initializeAutoConnects()
         Task {
             await loadDeviceConfig(with: url)
         }
@@ -73,5 +75,29 @@ import FlexiBLE
         } else {
             self.state = .error(message: "unable to load local config")
         }
+    }
+    
+    func initializeAutoConnects() {
+        guard let autoConnects: [String] = try? UserDefaults
+            .standard
+            .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey) else {
+            
+            try? UserDefaults.standard.setCustomObject(
+                [String](),
+                forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey
+            )
+            
+            do {
+                let autoConnects: [String] = try UserDefaults.standard.getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey)
+                fxb.conn.registerAutoConnect(devices: autoConnects)
+                gLog.info("set auto connects array: \(autoConnects)")
+            } catch {
+                gLog.error("unable to initialize auto connects array, error: \(error.localizedDescription)")
+            }
+            return
+        }
+        
+        fxb.conn.registerAutoConnect(devices: autoConnects)
+        gLog.info("auto connects array previously initialized: \(autoConnects)")
     }
 }

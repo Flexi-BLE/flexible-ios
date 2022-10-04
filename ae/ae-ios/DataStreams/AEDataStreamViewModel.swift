@@ -29,7 +29,6 @@ import GRDB
     @Published var isOn: Bool {
         didSet {
             guard let _ = sensorStateConfig else {
-//                isOn = false
                 return
             }
             sensorStateConfig?.update(with: isOn ? "1" : "0")
@@ -88,8 +87,6 @@ import GRDB
             self.sensorStateConfig = stateConfig
             self.isOn = value > 0
         }
-        
-//        self.subHose()
         
         Task {
             await fetchLatestConfig()

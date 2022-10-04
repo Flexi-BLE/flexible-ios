@@ -9,8 +9,17 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<false/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Abel-Regular.ttf</string>
+		<string>AlegreyaSans-Bold.ttf</string>
+		<string>AlegreyaSans-Medium.ttf</string>
+		<string>AlegreyaSans-Regular.ttf</string>
+		<string>Arvo-Bold.ttf</string>
+		<string>Arvo-Regular.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

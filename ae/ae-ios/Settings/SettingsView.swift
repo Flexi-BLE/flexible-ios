@@ -68,6 +68,14 @@ struct SettingsView: View {
                             Task { try? await fxb.write.purgeAllRecords() }
                         }
                     }
+                    
+                    Button("Purge All Local Configurations") {
+                        Task {
+                            if let id = Bundle.main.bundleIdentifier {
+                                UserDefaults.standard.removePersistentDomain(forName: id)
+                            }
+                        }
+                    }
                 }
                 
             }
