@@ -22,8 +22,23 @@ import FlexiBLE
     @Published var url: URL?
     @Published var localFileName: String?
     
+    static let urlUserDefaultsKey: String = "fxb_json_spec"
+    static let defaultURL: URL = URL(string: "https://pastebin.com/raw/WAbEtR3W")!
+    
     init() {
-        state = .unselected
+        if let defaultUrlString: String = try? UserDefaults.standard.getCustomObject(forKey: Self.urlUserDefaultsKey),
+           let defaultUrl = URL(string: defaultUrlString) {
+            
+            self.state = .loading(name: defaultUrl.absoluteString)
+            Task {
+                await loadDeviceConfig(with: defaultUrl)
+            }
+        } else {
+            self.state = .loading(name: Self.defaultURL.absoluteString)
+            Task {
+                await loadDeviceConfig(with: Self.defaultURL)
+            }
+        }
         initializeAutoConnects()
     }
     
@@ -45,6 +60,7 @@ import FlexiBLE
     func loadDeviceConfig(with url: URL) async {
         self.url = url
         self.state = .loading(name: url.absoluteString)
+        try? UserDefaults.standard.setCustomObject(url.absoluteString, forKey: Self.urlUserDefaultsKey)
         
         if let config = try? await FXBSpec.load(from: url) {
             do {
