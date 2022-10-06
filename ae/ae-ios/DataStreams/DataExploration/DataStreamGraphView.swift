@@ -39,7 +39,7 @@ struct DataStreamGraphView: View {
         .toolbar(content: {
             ToolbarItemGroup(placement: .navigationBarLeading) {
                 Button(action: {
-                    vm.state = .loading
+                    vm.editingParameters()
                     isParametersPresented.toggle()
                 }) {
                     Image(systemName: "slider.vertical.3")

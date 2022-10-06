@@ -13,35 +13,72 @@ struct DataStreamChartView: View {
     @StateObject var vm: DataStreamGraphViewModel
     
     var body: some View {
-        Chart {
-            ForEach(Array(vm.data), id: \.key) { key, value in
-                ForEach(value, id: \.x) {
-                    LineMark(
-                        x: .value("Time", $0.x),
-                        y: .value("value", $0.y)
-                    )
-                    .foregroundStyle(by: .value("key", key))
+        let pinchGesture = MagnificationGesture()
+            .onChanged { amount in
+                vm.updateRange(amount: amount)
+            }
+            .onEnded { amount in
+                vm.updateRange(amount: amount, end: true)
+            }
+        
+//        let dragGesture = DragGesture()
+//            .onChanged { value in
+//                print("ZOOM: drag: \(value.translation) (\(value.location)")
+//            }
+//
+//        let zoomGesture = pinchGesture.simultaneously(with: dragGesture)
+        
+        ZStack {
+            Chart {
+                ForEach(Array(vm.data), id: \.key) { key, value in
+                    ForEach(value, id: \.x) {
+                        LineMark(
+                            x: .value("Time", $0.x),
+                            y: .value("value", $0.y)
+                        )
+                        .foregroundStyle(by: .value("key", key))
+                    }
                 }
             }
-        }
-        .chartYAxis {
-            AxisMarks(preset: .extended, position: .leading) { value in
-                AxisGridLine()
-                    .foregroundStyle(.gray)
-                AxisValueLabel()
-                    .foregroundStyle(.black)
-            }
-        }
-        .chartXAxis {
-            AxisMarks(preset: .automatic, position: .bottom) { value in
-                AxisGridLine()
-                    .foregroundStyle(.clear)
-                if UIDevice.current.orientation == .landscapeRight {
-                    AxisValueLabel(horizontalSpacing: 5.0)
+            .chartYAxis {
+                AxisMarks(preset: .extended, position: .leading) { value in
+                    AxisGridLine()
+                        .foregroundStyle(.gray)
+                    AxisValueLabel()
+                        .foregroundStyle(.black)
                 }
             }
+            .chartXAxis {
+                AxisMarks(preset: .automatic, position: .bottom) { value in
+                    AxisGridLine()
+                        .foregroundStyle(.clear)
+                    if UIDevice.current.orientation == .landscapeRight {
+                        AxisValueLabel(horizontalSpacing: 5.0)
+                    }
+                }
+            }
+            .chartXScale(domain: vm.xRange)
+            .chartYScale(domain: vm.yRange)
+            .gesture(pinchGesture)
+            .clipped(antialiased: true)
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(
+                        action: { vm.resetYRange() },
+                        label: {
+                            Image(systemName: "rectangle.compress.vertical")
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.white)
+                                .background(Color.blue)
+                                .clipShape(Circle())
+                        }
+                    ).buttonStyle(PlainButtonStyle())
+                }.padding()
+            }.padding()
         }
-        .chartXScale(domain: vm.xRange)
     }
 }
 

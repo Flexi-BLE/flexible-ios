@@ -29,7 +29,7 @@ class DataStreamDataService {
     }
     
     typealias Point = (x: Date, y: Double)
-    // map by line (e.g. blue-green) and point
+    
     var data = PassthroughSubject<[String:[Point]], Error>()
     
     private var liveObserver: AnyCancellable?
@@ -45,8 +45,13 @@ class DataStreamDataService {
         stop()
         
         switch params.state {
-        case .live: liveFeed()
-        case .timeboxed: queryData()
+        case .live:
+            queryData(
+                start: Date.now.addingTimeInterval(-params.liveInterval),
+                end: Date.now
+            )
+            liveFeed()
+        case .timeboxed: queryData(start: params.start, end: params.end)
         case .unspecified: break
         }
     }
@@ -135,15 +140,15 @@ class DataStreamDataService {
             })
     }
     
-    private func queryData() {
+    private func queryData(start: Date, end: Date) {
         guard let params = parameters else { return }
         
         Task {
             do {
                 let records = try await fxb.read.getRecords(
                     for: "\(dataStream.name)_data",
-                    from: params.start,
-                    to: params.end,
+                    from: start,
+                    to: end,
                     deviceName: deviceName,
                     uploaded: nil
                 )

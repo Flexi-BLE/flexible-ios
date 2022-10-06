@@ -27,9 +27,14 @@ import Combine
     var dataService: DataStreamDataService
     
     @Published var data: [String: [DataStreamDataService.Point]] = [:]
-    @Published var xRange: ClosedRange<Date> = Date.now.addingTimeInterval(-1)...Date.now
     
-    private var observers = Set<AnyCancellable>()
+    @Published var xRange: ClosedRange<Date> = Date.now.addingTimeInterval(-1)...Date.now
+
+    @Published var yRange: ClosedRange<Double> = 0.0...1000.0
+    private var intermediateYRange: ClosedRange<Double>?
+    private var intermediateYDiff: Double?
+    
+    private var dataObserver: AnyCancellable?
     
     init(dataStream: FXBDataStream, deviceName: String) {
         self.deviceName = deviceName
@@ -40,21 +45,57 @@ import Combine
         self.parameters = self.defaultParams()
         parametersUpdated()
         
-        subscribe()
+        subscribeData()
+    }
+    
+    func editingParameters() {
+        dataObserver?.cancel()
+        state = .loading
     }
     
     func parametersUpdated() {
-        data = [:]
         state = .loading
         try? UserDefaults.standard.setCustomObject(
             self.parameters,
             forKey: "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
         )
+        subscribeData()
         dataService.set(params: self.parameters)
     }
     
-    private func subscribe() {
-        dataService
+    func resetYRange() {
+        let points = data.map({ $1 }).reduce([], +)
+        let yMin = points.reduce(Double.infinity, { $0 < $1.y ? $0 : $1.y })
+        let yMax = points.reduce(-Double.infinity, { $0 > $1.y ? $0 : $1.y })
+        
+        if yMin < Double.infinity, yMax > -Double.infinity {
+            let diffOffset = (yMax - yMin) * 0.15
+            self.yRange = (yMin - diffOffset)...(yMax + diffOffset)
+        }
+    }
+        
+    func yRangeFilter(_ points: [DataStreamDataService.Point]) -> [DataStreamDataService.Point] {
+        return points.filter({ point in
+            return point.y > yRange.lowerBound && point.y < yRange.upperBound
+        })
+    }
+    
+    func updateRange(amount: Double, end: Bool = false) {
+        guard let irange = intermediateYRange,
+        let mid = intermediateYDiff else {
+            intermediateYRange = yRange
+            intermediateYDiff = (yRange.lowerBound + yRange.upperBound) / 2.0
+            return
+        }
+        let newLower = min((irange.lowerBound + (mid * (amount-1))), mid)
+        let newUpper = max((irange.upperBound - (mid * (amount-1))), mid)
+        print("ZOOM: mid: \(mid): \(newLower) -> \(newUpper)")
+        yRange = newLower...newUpper
+        if end { intermediateYRange = nil }
+    }
+    
+    private func subscribeData() {
+        self.dataObserver = dataService
             .data
             .sink(
                 receiveCompletion: { comp in
@@ -70,16 +111,16 @@ import Combine
                         self.state = .noRecords
                         return
                     }
-                    
+
                     self.state = .graphing
-                    
+
                     data.forEach { (key, values) in
                         if self.data[key] == nil {
                             self.data[key] = values
                         } else {
                             self.data[key]?.append(contentsOf: values)
                         }
-                        
+
                         self.data[key] = self.data[key]?.filter({ point in
                             switch self.parameters.state {
                             case .live:
@@ -89,9 +130,9 @@ import Combine
                                 return point.x >= self.parameters.start && point.x < self.parameters.end
                             case .unspecified: return false
                             }
-                        })
+                        }).sorted(by: { $0.x > $1.x })
                     }
-                
+
                     DispatchQueue.main.async {
                         switch self.parameters.state {
                         case .live:
@@ -101,10 +142,9 @@ import Combine
                         case .unspecified: break
                         }
                     }
-                    
+
                 }
             )
-            .store(in: &observers)
 
     }
     
