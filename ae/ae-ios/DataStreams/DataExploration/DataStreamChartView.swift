@@ -31,7 +31,7 @@ struct DataStreamChartView: View {
         ZStack {
             Chart {
                 ForEach(Array(vm.data), id: \.key) { key, value in
-                    ForEach(value, id: \.x) {
+                    ForEach(vm.yRangeFilter(value), id: \.x) {
                         LineMark(
                             x: .value("Time", $0.x),
                             y: .value("value", $0.y)
@@ -60,7 +60,7 @@ struct DataStreamChartView: View {
             .chartXScale(domain: vm.xRange)
             .chartYScale(domain: vm.yRange)
             .gesture(pinchGesture)
-            .clipped(antialiased: true)
+            .clipped()
             
             VStack {
                 Spacer()

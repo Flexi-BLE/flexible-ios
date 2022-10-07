@@ -43,6 +43,7 @@ import FlexiBLE
         fetchConnectionRecords()
         
         fxb.conn.fxbConnectedDevices.publisher.sink { _ in
+            gLog.debug("Connected Device Did Change.")
             self.fetchConnectionRecords()
         }.store(in: &observers)
     }
