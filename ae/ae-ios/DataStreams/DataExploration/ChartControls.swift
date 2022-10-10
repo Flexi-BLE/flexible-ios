@@ -19,7 +19,7 @@ struct ChartControls: View {
                 Spacer()
                 if vm.parameters.state == .live {
                     Text("Live")
-                        .padding()
+                        .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                         .font(.title3)
                         .foregroundColor(.white)
                         .background(RoundedRectangle(cornerRadius: 4.0).foregroundColor(.green))

@@ -44,7 +44,7 @@ struct DataStreamGraphParamsView: View {
                         DatePicker(
                             "",
                             selection: $vm.start,
-                            displayedComponents: [.date,.hourAndMinute]
+                            displayedComponents: [.date, .hourAndMinute]
                         )
                         .datePickerStyle(.compact)
                         .labelsHidden()
@@ -55,7 +55,7 @@ struct DataStreamGraphParamsView: View {
                         DatePicker(
                             "",
                             selection: $vm.end,
-                            displayedComponents: [.date,.hourAndMinute]
+                            displayedComponents: [.date, .hourAndMinute]
                         )
                         .datePickerStyle(.compact)
                         .labelsHidden()
