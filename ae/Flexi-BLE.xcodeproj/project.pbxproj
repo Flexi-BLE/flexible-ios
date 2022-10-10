@@ -141,6 +141,7 @@
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */; };
 		01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
 		01E59BC628C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */; };
 		01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */; };
@@ -298,6 +299,7 @@
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControls.swift; sourceTree = "<group>"; };
 		01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButtonStyle.swift; sourceTree = "<group>"; };
 		01E59BCA28C1B05D00C21FE9 /* DataUploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUploadingView.swift; sourceTree = "<group>"; };
 		01E7F26E281855B100ED6F15 /* DataStreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamsView.swift; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 				0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */,
 				0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */,
 				0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */,
+				01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */,
 			);
 			path = DataExploration;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
+				01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */,
 				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
 				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,

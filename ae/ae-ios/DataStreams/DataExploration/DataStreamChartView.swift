@@ -52,9 +52,9 @@ struct DataStreamChartView: View {
                 AxisMarks(preset: .automatic, position: .bottom) { value in
                     AxisGridLine()
                         .foregroundStyle(.clear)
-                    if UIDevice.current.orientation == .landscapeRight {
-                        AxisValueLabel(horizontalSpacing: 5.0)
-                    }
+//                    if UIDevice.current.orientation == .landscapeRight {
+                        AxisValueLabel()
+//                    }
                 }
             }
             .chartXScale(domain: vm.xRange)
@@ -62,22 +62,7 @@ struct DataStreamChartView: View {
             .gesture(pinchGesture)
             .clipped()
             
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(
-                        action: { vm.resetYRange() },
-                        label: {
-                            Image(systemName: "rectangle.compress.vertical")
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(Color.white)
-                                .background(Color.blue)
-                                .clipShape(Circle())
-                        }
-                    ).buttonStyle(PlainButtonStyle())
-                }.padding()
-            }.padding()
+            ChartControls(vm: vm)
         }
     }
 }

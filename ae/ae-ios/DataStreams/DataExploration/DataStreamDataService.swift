@@ -51,7 +51,7 @@ class DataStreamDataService {
                 end: Date.now
             )
             liveFeed()
-        case .timeboxed: queryData(start: params.start, end: params.end)
+        case .timeboxed, .livePaused: queryData(start: params.start, end: params.end)
         case .unspecified: break
         }
     }
