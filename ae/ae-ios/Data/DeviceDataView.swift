@@ -12,14 +12,26 @@ struct DeviceDataView: View {
     
     var body: some View {
         VStack {
-            DeviceSelectionView(vm: vm).padding()
+            HStack {
+                DeviceSelectionView(vm: vm).padding()
+                Spacer()
+                if let _ = vm.connectedDevice {
+                    FXBButton(action: { vm.reloadAllDefaults() }) {
+                        Text("Load Defaults")
+                    }.padding()
+                }
+            }
             if let cd = vm.connectedDevice, !cd.isSpecVersionMatched {
                 Text("⚠️ device version mismatch")
             }
             Divider()
-            Spacer()
             if let deviceSpec = vm.deviceSpec {
+                Spacer()
                 DataStreamsView(deviceSpec: deviceSpec, deviceName: vm.deviceName)
+            } else {
+                Spacer()
+                ProgressView().progressViewStyle(.circular)
+                Spacer()
             }
         }
         .onAppear() {

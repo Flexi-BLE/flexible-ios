@@ -15,6 +15,9 @@ struct ConfigEditView: View {
     var body: some View {
         VStack {
             ScrollView {
+                FXBButton(action: { vm.loadDefaultConfigs() }) {
+                    Text("Load Defaults")
+                }
                 ForEach(vm.configVMs, id: \.config.name) { configVM in
                     
                     if configVM.config.options != nil {

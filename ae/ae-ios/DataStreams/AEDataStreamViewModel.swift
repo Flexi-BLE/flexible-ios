@@ -138,6 +138,18 @@ import GRDB
         }
     }
     
+    func loadDefaultConfigs() {
+        fxb.conn.updateConfig(
+            deviceName: deviceName,
+            dataStream: dataStream
+        )
+        
+        Task(priority: .userInitiated) { [weak self] in
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            await self?.fetchLatestConfig()
+        }
+    }
+    
     func updateConfigs() {
         var data: Data = Data()
         

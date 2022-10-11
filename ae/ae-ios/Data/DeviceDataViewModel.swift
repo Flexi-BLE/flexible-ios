@@ -77,8 +77,31 @@ import FlexiBLE
                 self.deviceSpec = spec.devices.first(where: { $0.name == connection.deviceType })
                 if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
                     self.connectedDevice = device
+                    self.connectedDevice?.$connectionState
+                        .sink(receiveValue: { state in
+                            switch state {
+                            case .disconnected:
+                                self.connectedDevice = nil
+                                self.deviceSpec = nil
+                                self.fetchConnectionRecords()
+                            default: break
+                            }
+                        })
+                        .store(in: &observers)
                 }
             }
+        }
+    }
+    
+    func reloadAllDefaults() {
+        guard let spec = self.deviceSpec, let device = self.connectedDevice else { return }
+        spec.dataStreams.forEach { ds in
+            fxb.conn.updateConfig(deviceName: device.deviceName, dataStream: ds)
+            self.deviceSpec = nil
+            self.connectedDevice = nil
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: { [weak self] in
+                self?.fetchConnectionRecords()
+            })
         }
     }
 }
