@@ -35,6 +35,7 @@ struct DeviceConnectionCellView: View {
                     KeyValueView(key: "Reference Date", value: "\(infoData.referenceDate.getShortDateAndTime())")
                     KeyValueView(key: "Spec", value: "\(infoData.specId) (\(infoData.versionId))")
                 }
+                Divider()
                 HStack {
                     Text("Auto Connect: ").font(.body).bold()
                     Spacer()

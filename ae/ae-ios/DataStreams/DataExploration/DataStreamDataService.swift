@@ -98,10 +98,14 @@ class DataStreamDataService {
                             params.dependentSelections.contains(dv.name) else { return }
                         
                         var doubleVal: Double = 0.0
-                        switch dv.type {
-                        case .float: doubleVal = Double(val as! Float)
-                        case .int, .unsignedInt: doubleVal = Double(val as! Int)
-                        case .string: doubleVal = Double(val as! String) ?? 0.0
+                        if let dv = val as? Double {
+                            doubleVal = dv
+                        } else {
+                            switch dv.type {
+                            case .float: doubleVal = Double(val as! Float)
+                            case .int, .unsignedInt: doubleVal = Double(val as! Int)
+                            case .string: doubleVal = Double(val as! String) ?? 0.0
+                            }
                         }
                         
                         if let dependents = dv.dependsOn, dependents.count > 0 {
