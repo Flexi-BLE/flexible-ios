@@ -38,7 +38,7 @@ struct ConfigBitEncodingMultiselectEditView: View {
                 }
                 
             }
-            .popover(isPresented: $isSelecting) {
+            .fullScreenCover(isPresented: $isSelecting) {
                 MultiSelectionView(
                     title: vm.config.name,
                     selections: vm.multiSelectSelections,

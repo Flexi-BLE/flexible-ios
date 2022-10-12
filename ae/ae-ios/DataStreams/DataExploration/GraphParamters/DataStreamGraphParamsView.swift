@@ -74,7 +74,8 @@ struct DataStreamGraphParamsView: View {
                                     dependendSelectionPopover = true
                                 } label: {
                                     Text("Select")
-                                }.popover(isPresented: $dependendSelectionPopover) {
+                                }
+                                .fullScreenCover(isPresented: $dependendSelectionPopover) {
                                     MultiSelectionView(
                                         title: option.name,
                                         selections: vm.readableFilterSelections(for: option.name),
