@@ -19,6 +19,7 @@ struct ConfigOptionEditView: View {
                     VStack(alignment: .leading) {
                         Text(vm.config.name)
                             .bold()
+                            .font(.title3)
                         Text(vm.config.description)
                             .multilineTextAlignment(.leading)
                     }
