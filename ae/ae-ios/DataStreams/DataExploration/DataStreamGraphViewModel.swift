@@ -80,6 +80,20 @@ import Combine
         })
     }
     
+    func pause() {
+        guard parameters.state == .live else { return }
+        parameters.state = .livePaused
+        parameters.start = Date.now.addingTimeInterval(-parameters.liveInterval)
+        parameters.end = Date.now
+        dataObserver?.cancel()
+    }
+    
+    func resume() {
+        guard parameters.state == .livePaused else { return }
+        parameters.state = .live
+        parametersUpdated()
+    }
+    
     func updateRange(amount: Double, end: Bool = false) {
         guard let irange = intermediateYRange,
         let mid = intermediateYDiff else {
@@ -112,8 +126,6 @@ import Combine
                         return
                     }
 
-                    self.state = .graphing
-
                     data.forEach { (key, values) in
                         if self.data[key] == nil {
                             self.data[key] = values
@@ -126,7 +138,7 @@ import Combine
                             case .live:
                                 let oldestTs = Date.now.addingTimeInterval(-self.parameters.liveInterval)
                                 return point.x > oldestTs
-                            case .timeboxed:
+                            case .timeboxed, .livePaused:
                                 return point.x >= self.parameters.start && point.x < self.parameters.end
                             case .unspecified: return false
                             }
@@ -137,10 +149,18 @@ import Combine
                         switch self.parameters.state {
                         case .live:
                             self.xRange = Date.now.addingTimeInterval(-self.parameters.liveInterval)...Date.now
-                        case .timeboxed:
+                        case .timeboxed, .livePaused:
                             self.xRange = self.parameters.start...self.parameters.end
                         case .unspecified: break
                         }
+                    }
+                    
+                    switch self.state {
+                    case .loading:
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+                            self.state = .graphing
+                        })
+                    default: break
                     }
 
                 }

@@ -10,6 +10,7 @@ import Foundation
 class DataStreamGraphParameters: Codable {
     enum State: String, Codable {
         case live
+        case livePaused
         case timeboxed
         case unspecified
     }
