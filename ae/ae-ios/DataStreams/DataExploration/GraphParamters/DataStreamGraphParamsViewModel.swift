@@ -10,14 +10,9 @@ import FlexiBLE
 import Combine
 
 @MainActor class DataStreamGraphParamsViewModel: ObservableObject {
-    @Published var model: DataStreamGraphParameters
+    @Published var dsParams: DataStreamGraphParameters
+    
     var spec: FXBDataStream
-    
-    @Published var isLive: Bool = false
-    
-    @Published var liveInterval: Double = 0.0
-    @Published var start: Date = Date.now
-    @Published var end: Date = Date.now.addingTimeInterval(-30)
     
     @Published var dependentOptions: [FXBDataValueDefinition] = []
     @Published var dependentSelections: [String] = []
@@ -27,14 +22,9 @@ import Combine
     
     private var observers = Set<AnyCancellable>()
     
-    init(with model: DataStreamGraphParameters, dataStream: FXBDataStream) {
-        self.model = model
+    init(dsParams: DataStreamGraphParameters, dataStream: FXBDataStream) {
+        self.dsParams = dsParams
         self.spec = dataStream
-        
-        self.isLive = self.model.state == .live ? true : false
-        self.liveInterval = self.model.liveInterval
-        self.start = self.model.start
-        self.end = self.model.end
         
         parseSpec()
         subscribe()
@@ -76,12 +66,8 @@ import Combine
     }
     
     func save() {
-        model.state = self.isLive ? .live : .timeboxed
-        model.dependentSelections = self.dependentSelections
-        model.filterSelections = self.filterSelections
-        model.liveInterval = self.liveInterval
-        model.start = self.start
-        model.end = self.end
+        dsParams.dependentSelections = self.dependentSelections
+        dsParams.filterSelections = self.filterSelections
     }
     
     private func parseSpec() {
@@ -89,11 +75,11 @@ import Combine
             switch dv.variableType {
             case .tag:
                 filterOptions.append(dv)
-                if model.filterSelections[dv.name] == nil {
+                if dsParams.filterSelections[dv.name] == nil {
                     filterSelections[dv.name] = []
                 } else {
                     filterSelections[dv.name] = []
-                    for opt in model.filterSelections[dv.name]! {
+                    for opt in dsParams.filterSelections[dv.name]! {
                         if dv.valueOptions?.count ?? opt > opt {
                             filterSelections[dv.name]?.append(opt)
                         }
@@ -105,7 +91,7 @@ import Combine
             }
         }
         
-        for opt in model.dependentSelections {
+        for opt in dsParams.dependentSelections {
             if dependentOptions.map({ $0.name }).contains(opt) {
                 dependentSelections.append(opt)
             }

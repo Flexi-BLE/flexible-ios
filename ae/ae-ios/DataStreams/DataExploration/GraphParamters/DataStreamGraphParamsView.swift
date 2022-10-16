@@ -17,52 +17,6 @@ struct DataStreamGraphParamsView: View {
     
     var body: some View {
         List {
-            HStack {
-                Text("Live:").bold()
-                Spacer()
-                Toggle(isOn: $vm.isLive) {
-                    Text("Live")
-                }
-                .labelsHidden()
-            }
-            
-            Section("Time Series") {
-                switch vm.isLive {
-                case true:
-                    VStack {
-                        HStack {
-                            Text("Graph View:").bold()
-                            Spacer()
-                            Text("\(vm.liveInterval.uiReadable(precision: 0)) seconds")
-                        }
-                        Slider(value: $vm.liveInterval, in: 5...120, step: 5)
-                    }
-                case false:
-                    HStack {
-                        Text("Start Date:").bold()
-                        Spacer()
-                        DatePicker(
-                            "",
-                            selection: $vm.start,
-                            displayedComponents: [.date, .hourAndMinute]
-                        )
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
-                    }
-                    HStack {
-                        Text("End Date:").bold()
-                        Spacer()
-                        DatePicker(
-                            "",
-                            selection: $vm.end,
-                            displayedComponents: [.date, .hourAndMinute]
-                        )
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
-                    }
-                }
-            }
-            
             if vm.filterOptions.count > 0 {
                 Section("Filter Variables") {
                     ForEach(vm.filterOptions, id: \.name) { option in
@@ -147,7 +101,7 @@ struct DataStreamGraphParamsView_Previews: PreviewProvider {
     static var previews: some View {
         DataStreamGraphParamsView(
             vm: DataStreamGraphParamsViewModel(
-                with: DataStreamGraphParameters(),
+                dsParams: DataStreamGraphParameters(),
                 dataStream: FXBSpec.mock.devices[0].dataStreams[0]
             )
         )

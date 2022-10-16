@@ -57,7 +57,7 @@ struct DataStreamGraphView: View {
             content: {
                 NavigationView {
                     DataStreamGraphParamsView(
-                        vm: DataStreamGraphParamsViewModel(with: vm.parameters, dataStream: vm.spec)
+                        vm: DataStreamGraphParamsViewModel(dsParams: vm.dataStreamParameters, dataStream: vm.spec)
                     )
                 }
             }

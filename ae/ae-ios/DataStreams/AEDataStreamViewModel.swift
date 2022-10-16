@@ -114,9 +114,9 @@ import GRDB
             .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
             .sink(receiveValue: { [weak self] dates in
                 guard let self = self else { return }
-                
+                let dedupedDates = Array(Set(dates)).sorted(by: { $1 > $0 })
                 self.recordCount += dates.count
-                self.frequency = self.frequency(from: dates)
+                self.frequency = self.frequency(from: dedupedDates)
                 self.reliability = self.reliability(from: self.frequency)
             })
             .store(in: &observers)

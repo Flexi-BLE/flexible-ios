@@ -18,22 +18,6 @@ struct MainTabView: View {
                     Image(systemName: "memorychip")
                     Text("Devices")
                 }
-//            DataStreamsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "arrow.left.arrow.right")
-//                    Text("Data Streams")
-//                }
-//            GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "gearshape")
-//                    Text("Configurations")
-//                }
-//            GlobalConfigurationsView(vm: AEThingViewModel(with: FXBSpec.mock.devices.first!))
-//                .tabItem {
-//                    Image(systemName: "gearshape")
-//                    Text("Configurations")
-//                }
-            
             DeviceDataView()
                 .tabItem {
                     Image(systemName: "externaldrive.fill.badge.timemachine")

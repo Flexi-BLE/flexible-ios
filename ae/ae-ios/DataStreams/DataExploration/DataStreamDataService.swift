@@ -12,7 +12,8 @@ import Combine
 class DataStreamDataService {
     var dataStream: FXBDataStream
     var deviceName: String
-    var parameters: DataStreamGraphParameters?
+    var dataStreamParams: DataStreamGraphParameters?
+    var chartParams: ChartParameters?
     
     enum CustomError: Error, LocalizedError {
         case deviceNotConnected
@@ -40,18 +41,19 @@ class DataStreamDataService {
         self.deviceName = deviceName
     }
     
-    func set(params: DataStreamGraphParameters) {
-        self.parameters = params
+    func set(dsParams: DataStreamGraphParameters, chartParams: ChartParameters) {
+        self.dataStreamParams = dsParams
+        self.chartParams = chartParams
         stop()
         
-        switch params.state {
+        switch chartParams.state {
         case .live:
             queryData(
-                start: Date.now.addingTimeInterval(-params.liveInterval),
+                start: Date.now.addingTimeInterval(-chartParams.liveInterval),
                 end: Date.now
             )
             liveFeed()
-        case .timeboxed, .livePaused: queryData(start: params.start, end: params.end)
+        case .timeboxed, .livePaused: queryData(start: chartParams.start, end: chartParams.end)
         case .unspecified: break
         }
     }
@@ -65,7 +67,8 @@ class DataStreamDataService {
     }
     
     private func liveFeed() {
-        guard let params = self.parameters else {
+        guard let dsParams = self.dataStreamParams,
+              let chartParams = self.chartParams else {
             data.send(completion: .failure(CustomError.parametersNotSet))
             return
         }
@@ -85,7 +88,8 @@ class DataStreamDataService {
             .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.1))
             .sink(receiveValue: { [weak self] records in // organize in to points by tags
                 guard let ds = self?.dataStream,
-                    let params = self?.parameters else { return }
+                    let dsParams = self?.dataStreamParams,
+                    let chartParams = self?.chartParams else { return }
                 
                 var data = [String: [Point]]()
             
@@ -95,7 +99,7 @@ class DataStreamDataService {
                         
                         guard
                             dv.variableType == .value,
-                            params.dependentSelections.contains(dv.name) else { return }
+                            dsParams.dependentSelections.contains(dv.name) else { return }
                         
                         var doubleVal: Double = 0.0
                         if let dv = val as? Double {
@@ -110,7 +114,7 @@ class DataStreamDataService {
                         
                         if let dependents = dv.dependsOn, dependents.count > 0 {
                             dependents.forEach { dependent in
-                                (params.filterSelections[dependent] ?? []).forEach { dependentSelection in
+                                (dsParams.filterSelections[dependent] ?? []).forEach { dependentSelection in
                                     
                                     // check if point is part of the selection
                                     guard let tagDv = ds.dataValue(for: dependent),
@@ -145,22 +149,23 @@ class DataStreamDataService {
     }
     
     private func queryData(start: Date, end: Date) {
-        guard let params = parameters else { return }
+        guard let dsParams = dataStreamParams,
+              let chartParams = chartParams else { return }
         
         Task {
             do {
                 let records = try await fxb.read.getRecords(
-                    for: "\(dataStream.name)_data",
+                    for: "\(self.dataStream.name)_data",
                     from: start,
                     to: end,
-                    deviceName: deviceName,
+                    deviceName: self.deviceName,
                     uploaded: nil
                 )
                 
                 var data: [String: [Point]] = [:]
                 
                 records.forEach { row in
-                    params.dependentSelections.forEach { selection in
+                    dsParams.dependentSelections.forEach { selection in
                         
                         guard let dv = dataStream.dataValue(for: selection),
                               dv.variableType == .value,
@@ -170,7 +175,7 @@ class DataStreamDataService {
                         
                         if let dependents = dv.dependsOn, dependents.count > 0 {
                             dependents.forEach { dependent in
-                                (params.filterSelections[dependent] ?? []).forEach { dependentSelection in
+                                (dsParams.filterSelections[dependent] ?? []).forEach { dependentSelection in
                                     
                                     guard let tagDv = dataStream.dataValue(for: dependent),
                                           let selectionName = tagDv.valueOptions?[dependentSelection],

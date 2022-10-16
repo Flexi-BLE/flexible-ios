@@ -20,17 +20,20 @@ import Combine
     var state: State = .loading
     var deviceName: String
     var spec: FXBDataStream
-    var parameters: DataStreamGraphParameters = DataStreamGraphParameters()
     
-    static var dataStreamParamsKeyPrefix: String = "fxb_ds_graph_params"
+    @Published var dataStreamParameters: DataStreamGraphParameters = DataStreamGraphParameters()
+    @Published var chartParameters: ChartParameters = ChartParameters()
+    
+    static var dataStreamParamsKeyPrefix: String = "fxb_data_stream_chart_params"
+    static var chartParamsKeyPrefix: String = "fxb_chart_params"
     
     var dataService: DataStreamDataService
     
     @Published var data: [String: [DataStreamDataService.Point]] = [:]
     
-    @Published var xRange: ClosedRange<Date> = Date.now.addingTimeInterval(-1)...Date.now
-
-    @Published var yRange: ClosedRange<Double> = 0.0...1000.0
+//    @Published var xRange: ClosedRange<Date> = Date.now.addingTimeInterval(-1)...Date.now
+//
+//    @Published var yRange: ClosedRange<Double> = 0.0...1000.0
     private var intermediateYRange: ClosedRange<Double>?
     private var intermediateYDiff: Double?
     
@@ -42,7 +45,8 @@ import Combine
         self.dataService = DataStreamDataService(dataStream: dataStream, deviceName: deviceName)
         
         // TODO: load from disk
-        self.parameters = self.defaultParams()
+        self.dataStreamParameters = self.defaultDSParams()
+        self.chartParameters = self.defaultChartParams()
         parametersUpdated()
         
         subscribeData()
@@ -56,11 +60,18 @@ import Combine
     func parametersUpdated() {
         state = .loading
         try? UserDefaults.standard.setCustomObject(
-            self.parameters,
+            self.dataStreamParameters,
             forKey: "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
         )
+        try? UserDefaults.standard.setCustomObject(
+            self.chartParameters,
+            forKey: "\(Self.chartParamsKeyPrefix)_\(spec.name)"
+        )
         subscribeData()
-        dataService.set(params: self.parameters)
+        dataService.set(
+            dsParams: self.dataStreamParameters,
+            chartParams: self.chartParameters
+        )
     }
     
     func resetYRange() {
@@ -70,41 +81,43 @@ import Combine
         
         if yMin < Double.infinity, yMax > -Double.infinity {
             let diffOffset = (yMax - yMin) * 0.15
-            self.yRange = (yMin - diffOffset)...(yMax + diffOffset)
+            self.chartParameters.yMin = (yMin - diffOffset)
+            self.chartParameters.yMax = (yMax + diffOffset)
         }
     }
         
     func yRangeFilter(_ points: [DataStreamDataService.Point]) -> [DataStreamDataService.Point] {
         return points.filter({ point in
-            return point.y > yRange.lowerBound && point.y < yRange.upperBound
+            return point.y > chartParameters.yMin && point.y < chartParameters.yMax
         })
     }
     
     func pause() {
-        guard parameters.state == .live else { return }
-        parameters.state = .livePaused
-        parameters.start = Date.now.addingTimeInterval(-parameters.liveInterval)
-        parameters.end = Date.now
+        guard chartParameters.state == .live else { return }
+        chartParameters.state = .livePaused
+        chartParameters.start = Date.now.addingTimeInterval(-chartParameters.liveInterval)
+        chartParameters.end = Date.now
         dataObserver?.cancel()
     }
     
     func resume() {
-        guard parameters.state == .livePaused else { return }
-        parameters.state = .live
+        guard chartParameters.state == .livePaused else { return }
+        chartParameters.state = .live
         parametersUpdated()
     }
     
     func updateRange(amount: Double, end: Bool = false) {
         guard let irange = intermediateYRange,
         let mid = intermediateYDiff else {
-            intermediateYRange = yRange
-            intermediateYDiff = (yRange.lowerBound + yRange.upperBound) / 2.0
+            intermediateYRange = chartParameters.yRange
+            intermediateYDiff = (chartParameters.yRange.lowerBound + chartParameters.yRange.upperBound) / 2.0
             return
         }
         let newLower = min((irange.lowerBound + (mid * (amount-1))), mid)
         let newUpper = max((irange.upperBound - (mid * (amount-1))), mid)
         print("ZOOM: mid: \(mid): \(newLower) -> \(newUpper)")
-        yRange = newLower...newUpper
+        chartParameters.yMin = newLower
+        chartParameters.yMax = newUpper
         if end { intermediateYRange = nil }
     }
     
@@ -134,30 +147,34 @@ import Combine
                         }
 
                         self.data[key] = self.data[key]?.filter({ point in
-                            switch self.parameters.state {
+                            switch self.chartParameters.state {
                             case .live:
-                                let oldestTs = Date.now.addingTimeInterval(-self.parameters.liveInterval)
+                                let oldestTs = Date.now.addingTimeInterval(-self.chartParameters.liveInterval)
                                 return point.x > oldestTs
                             case .timeboxed, .livePaused:
-                                return point.x >= self.parameters.start && point.x < self.parameters.end
+                                return point.x >= self.chartParameters.start && point.x < self.chartParameters.end
                             case .unspecified: return false
                             }
                         }).sorted(by: { $0.x > $1.x })
                     }
+                    
+                    let Y = data.map({ $1 }).reduce([], +).map({ $0.y })
+                    self.chartParameters.dataYMin = Y.min() ?? 0.0
+                    self.chartParameters.dataYMax = Y.max() ?? 100.0
 
-                    DispatchQueue.main.async {
-                        switch self.parameters.state {
-                        case .live:
-                            self.xRange = Date.now.addingTimeInterval(-self.parameters.liveInterval)...Date.now
-                        case .timeboxed, .livePaused:
-                            self.xRange = self.parameters.start...self.parameters.end
-                        case .unspecified: break
-                        }
-                    }
+//                    DispatchQueue.main.async {
+//                        switch self.chartParameters.state {
+//                        case .live:
+//                            self.chartParameters.xRange = Date.now.addingTimeInterval(-self.chartParameters.liveInterval)...Date.now
+//                        case .timeboxed, .livePaused:
+//                            self.xRange = self.chartParameters.start...self.chartParameters.end
+//                        case .unspecified: break
+//                        }
+//                    }
                     
                     switch self.state {
                     case .loading:
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
                             self.state = .graphing
                         })
                     default: break
@@ -168,17 +185,16 @@ import Combine
 
     }
     
-    private func defaultParams() -> DataStreamGraphParameters {
-        let key = "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
+    private func defaultChartParams() -> ChartParameters {
+        let key = "\(Self.chartParamsKeyPrefix)_\(spec.name)"
         
-        if let params: DataStreamGraphParameters = try? UserDefaults
+        if let params: ChartParameters = try? UserDefaults
             .standard
-            .getCustomObject(forKey: key) { // load existing parameters for data stream
+            .getCustomObject(forKey: key) {
             
             return params
-            
-        } else { // setup defaults for data stream
-            let params = DataStreamGraphParameters()
+        } else {
+            let params = ChartParameters()
             
             if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) {
                 if device.connectionState == .connected {
@@ -190,6 +206,22 @@ import Combine
                 params.start = Date.now.addingTimeInterval(-30)
                 params.end = Date.now
             }
+            
+            return params
+        }
+    }
+    
+    private func defaultDSParams() -> DataStreamGraphParameters {
+        let key = "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
+        
+        if let params: DataStreamGraphParameters = try? UserDefaults
+            .standard
+            .getCustomObject(forKey: key) { // load existing parameters for data stream
+            
+            return params
+            
+        } else { // setup defaults for data stream
+            let params = DataStreamGraphParameters()
             
             self.spec.dataValues.forEach { dv in
                 switch dv.variableType {
