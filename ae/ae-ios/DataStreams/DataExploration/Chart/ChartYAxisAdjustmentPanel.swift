@@ -10,42 +10,67 @@ import SwiftUI
 struct ChartYAxisAdjustmentPanel: View {
     var chartParams: ChartParameters
     
-    @State var yAxisMin: Double = 0.0
-    @State var yAxisMax: Double = 100.0
+    @State var yAxisMin: Double
+    @State var yAxisMax: Double
+    @State var shouldAutoScale: Bool
     
     init(chartParams: ChartParameters) {
         self.chartParams = chartParams
         self.yAxisMin = chartParams.yMin
         self.yAxisMax = chartParams.yMax
+        self.shouldAutoScale = chartParams.shouldAutoScale
     }
     
     var body: some View {
         VStack {
-            Text("X Axis Range")
+            Text("Y Axis Range")
                 .font(.title2)
                 .foregroundColor(.black)
                 .padding()
             HStack {
-                Text(String(format: "%.2f", yAxisMin)).font(.body)
+                Text("Auto Scale:").bold()
                 Spacer()
-                Text(String(format: "%.2f", yAxisMax)).font(.body).bold()
-                Spacer()
-                Text(String(format: "%.2f", chartParams.adjustableYMax)).font(.body)
-            }
-            Slider(value: $yAxisMax, in: yAxisMin...chartParams.adjustableYMax) { value in
-                self.chartParams.yMax = self.yAxisMax
+                Toggle("", isOn: $shouldAutoScale)
+                    .labelsHidden()
+                    .onChange(of: shouldAutoScale) { newValue in
+                        chartParams.shouldAutoScale = newValue
+                    }
             }
             HStack {
-                Text(String(format: "%.2f", chartParams.adjustableYMin)).font(.body)
+                Text("Min:").bold()
                 Spacer()
-                Text(String(format: "%.2f", yAxisMin)).font(.body).bold()
-                Spacer()
-                Text(String(format: "%.2f", yAxisMax)).font(.body)
-            }
-            Slider(value: $yAxisMin, in: chartParams.adjustableYMin...yAxisMax) { value in
-                self.chartParams.yMin = self.yAxisMin
+                TextField("", value: $yAxisMin, formatter: NumberFormatter())
+                    .labelsHidden()
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.numberPad)
+                    .disabled(shouldAutoScale)
+                    .frame(minWidth: 50, maxWidth: 150)
+                    .onChange(of: yAxisMin) { newValue in
+                        if newValue < chartParams.yMax {
+                            chartParams.yMin = newValue
+                        } else {
+                            yAxisMin = chartParams.yMin
+                        }
+                    }
             }
             
+            HStack {
+                Text("Max:").bold()
+                Spacer()
+                TextField("", value: $yAxisMax, formatter: NumberFormatter())
+                    .labelsHidden()
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.numberPad)
+                    .disabled(shouldAutoScale)
+                    .frame(minWidth: 50, maxWidth: 150)
+                    .onChange(of: yAxisMax) { newValue in
+                        if newValue > chartParams.yMin {
+                            chartParams.yMax = newValue
+                        } else {
+                            yAxisMax = chartParams.yMax
+                        }
+                    }
+            }
         }
         .padding()
         .background(

@@ -58,7 +58,6 @@ import Combine
     }
     
     func parametersUpdated() {
-        state = .loading
         try? UserDefaults.standard.setCustomObject(
             self.dataStreamParameters,
             forKey: "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
@@ -88,7 +87,7 @@ import Combine
         
     func yRangeFilter(_ points: [DataStreamDataService.Point]) -> [DataStreamDataService.Point] {
         return points.filter({ point in
-            return point.y > chartParameters.yMin && point.y < chartParameters.yMax
+            return point.y > (chartParameters.yMin) && point.y < (chartParameters.yMax)
         })
     }
     
@@ -158,9 +157,11 @@ import Combine
                         }).sorted(by: { $0.x > $1.x })
                     }
                     
-                    let Y = data.map({ $1 }).reduce([], +).map({ $0.y })
-                    self.chartParameters.dataYMin = Y.min() ?? 0.0
-                    self.chartParameters.dataYMax = Y.max() ?? 100.0
+                    if self.chartParameters.shouldAutoScale {
+                        DispatchQueue.main.async {
+                            self.resetYRange()
+                        }
+                    }
 
 //                    DispatchQueue.main.async {
 //                        switch self.chartParameters.state {

@@ -40,6 +40,7 @@ struct ChartControls: View {
                     size: 50,
                     action: {
                         panelState = .hidden
+                        vm.parametersUpdated()
                     },
                     longPressAction: nil
                 )
@@ -58,7 +59,7 @@ struct ChartControls: View {
                             imageName: "timeline.selection",
                             size: 50,
                             action: {
-//                                vm.resetYRange()
+
                             },
                             longPressAction: {
                                 panelState = .xAxis

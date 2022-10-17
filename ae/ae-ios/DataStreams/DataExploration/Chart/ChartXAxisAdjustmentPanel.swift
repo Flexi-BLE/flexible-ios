@@ -10,19 +10,20 @@ import SwiftUI
 struct ChartXAxisAdjustmentPanel: View {
     var chartParams: ChartParameters
     
-    @State var start: Date = Date.now.addingTimeInterval(-25.0)
+    @State var start: Date = Date.now.addingTimeInterval(25)
     @State var end: Date = Date.now
-    @State var liveInterval: TimeInterval = 25.0
+    @State var liveInterval: TimeInterval = 0
     
     init(chartParams: ChartParameters) {
         self.chartParams = chartParams
-        self.start = chartParams.start
-        self.end = chartParams.end
-        self.liveInterval = chartParams.liveInterval
     }
     
     var body: some View {
         VStack {
+            Text("Y Axis Range")
+                .font(.title2)
+                .foregroundColor(.black)
+                .padding()
             switch chartParams.state {
             case .live:
                 VStack {
@@ -44,7 +45,9 @@ struct ChartXAxisAdjustmentPanel: View {
                         selection: $start,
                         displayedComponents: [.date, .hourAndMinute]
                     )
-                    .onChange(of: start, perform: { chartParams.start = $0 })
+                    .onChange(of: start, perform: {
+                        chartParams.start = $0
+                    })
                     .datePickerStyle(.compact)
                     .labelsHidden()
                 }
@@ -56,7 +59,9 @@ struct ChartXAxisAdjustmentPanel: View {
                         selection: $end,
                         displayedComponents: [.date, .hourAndMinute]
                     )
-                    .onChange(of: end, perform: { chartParams.end = $0 })
+                    .onChange(of: end, perform: {
+                        chartParams.end = $0
+                    })
                     .datePickerStyle(.compact)
                     .labelsHidden()
                 }
@@ -69,6 +74,11 @@ struct ChartXAxisAdjustmentPanel: View {
                 .foregroundColor(.white)
                 .shadow(color: .gray, radius: 3, x: -2, y: 2)
         )
+        .onAppear() {
+            self.start = chartParams.start
+            self.end = chartParams.end
+            self.liveInterval = chartParams.liveInterval
+        }
     }
 }
 
