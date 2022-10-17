@@ -96,6 +96,10 @@
 		0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */; };
 		0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */; };
 		0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */; };
+		015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -276,6 +280,7 @@
 		0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParameters.swift; sourceTree = "<group>"; };
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
+		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -504,6 +509,7 @@
 				01E7F292281C153500ED6F15 /* HelpHeaderView.swift */,
 				01E7F297281C277500ED6F15 /* Card.swift */,
 				01E7F29C281C3A9C00ED6F15 /* HelpView.swift */,
+				015D4E3928FDEAF8001CE272 /* AlertInfo.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -1023,6 +1029,7 @@
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
+				015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
@@ -1123,6 +1130,7 @@
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29E281C3A9C00ED6F15 /* HelpView.swift in Sources */,
+				015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
 				017810C428E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
@@ -1139,6 +1147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				011F48512807695500B359EB /* ae_macosApp.swift in Sources */,
 				01E7F29A281C277500ED6F15 /* Card.swift in Sources */,
 				011F487D280769C000B359EB /* ContentView.swift in Sources */,
@@ -1152,6 +1161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				011F487E280769C000B359EB /* ContentView.swift in Sources */,
 				01E7F29B281C277500ED6F15 /* Card.swift in Sources */,
 				011F48632807695600B359EB /* ae_macosTests.swift in Sources */,
