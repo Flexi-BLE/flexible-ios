@@ -252,6 +252,7 @@
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
+		013BD67B28FF48EB00A32734 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
@@ -568,6 +569,7 @@
 			isa = PBXGroup;
 			children = (
 				017A359228E745990095957A /* flexible-swift */,
+				013BD67B28FF48EB00A32734 /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
