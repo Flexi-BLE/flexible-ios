@@ -29,7 +29,6 @@ import GRDB
     @Published var isOn: Bool {
         didSet {
             guard let _ = sensorStateConfig else {
-//                isOn = false
                 return
             }
             sensorStateConfig?.update(with: isOn ? "1" : "0")
@@ -89,8 +88,6 @@ import GRDB
             self.isOn = value > 0
         }
         
-//        self.subHose()
-        
         Task {
             await fetchLatestConfig()
         }
@@ -117,9 +114,9 @@ import GRDB
             .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
             .sink(receiveValue: { [weak self] dates in
                 guard let self = self else { return }
-                
+                let dedupedDates = Array(Set(dates)).sorted(by: { $1 > $0 })
                 self.recordCount += dates.count
-                self.frequency = self.frequency(from: dates)
+                self.frequency = self.frequency(from: dedupedDates)
                 self.reliability = self.reliability(from: self.frequency)
             })
             .store(in: &observers)
@@ -138,6 +135,18 @@ import GRDB
                     vm.update(with: value)
                 }
             }
+        }
+    }
+    
+    func loadDefaultConfigs() {
+        fxb.conn.updateConfig(
+            deviceName: deviceName,
+            dataStream: dataStream
+        )
+        
+        Task(priority: .userInitiated) { [weak self] in
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            await self?.fetchLatestConfig()
         }
     }
     

@@ -58,5 +58,34 @@ extension Date {
         formatter.unitsStyle = .brief
         return formatter.string(from: self, to: ref) ?? "--"
     }
+    
+    func SQLiteDateFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+        return formatter.string(from: self)
+    }
+    
+    func getEarlierDateBySeconds(interval: Int) -> Date {
+        let calendar = Calendar.current
+        guard let date = calendar.date(byAdding: .second, value: -interval, to: self) else {
+            return Date()
+        }
+        return date
+    }
+    
+    static func fromSQLString(_ str: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+        
+        return formatter.date(from: str)
+    }
+    
+    func timeDiff(start: Date) -> String {
+       let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.nanosecond]
+        return formatter.string(from: start, to: self) ?? "-"
+    }
 
 }

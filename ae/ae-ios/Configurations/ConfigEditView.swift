@@ -10,20 +10,23 @@ import FlexiBLE
 
 struct ConfigEditView: View {
     @StateObject var vm: AEDataStreamViewModel
-    
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         VStack {
             ScrollView {
+                FXBButton(action: { vm.loadDefaultConfigs() }) {
+                    Text("Load Defaults")
+                }
                 ForEach(vm.configVMs, id: \.config.name) { configVM in
                     
-                    if configVM.config.options != nil {
-                        ConfigOptionEditView(vm: configVM)
-                    }
-                    
-                    if configVM.config.range != nil {
+                    switch configVM.config.selectionType {
+                    case .range:
                         ConfigRangeEditView(vm: configVM)
+                    case .single:
+                        ConfigOptionEditView(vm: configVM)
+                    case .bitEncodedMultiSelect:
+                        ConfigBitEncodingMultiselectEditView(vm: configVM)
                     }
                     
                     Divider()

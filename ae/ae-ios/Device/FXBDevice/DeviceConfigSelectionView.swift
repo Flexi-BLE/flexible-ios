@@ -11,39 +11,23 @@ struct DeviceConfigSelectionView: View {
     @Environment(\.dismiss) var dismiss
     
     @StateObject var vm: FlexiBLESpecViewModel
-    
-    @State private var useRemote: Bool = false
  
     @State private var urlString: String = ""
     @State private var fileNameString: String = ""
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Spacer()
-            Toggle(isOn: $useRemote, label: {
-                Text("Use Remote Device Config")
-            })
-            switch useRemote {
-            case true:
-                TextField(
-                    "Device Config JSON URL",
-                    text: $urlString
-                )
-                .onSubmit { load() }
-                .textInputAutocapitalization(.never)
-                .disableAutocorrection(true)
-                .border(.primary)
-            case false:
-                TextField(
-                    "Local File Name",
-                    text: $fileNameString
-                )
-                .onSubmit { load() }
-                .textInputAutocapitalization(.never)
-                .disableAutocorrection(true)
-                .border(.primary)
-            }
-            Spacer()
+            Text("Device Specification URL")
+                .font(.title2).bold()
+            TextField(
+                "Device Config JSON URL",
+                text: $urlString
+            )
+            .onSubmit { load() }
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+            .border(.primary)
             HStack {
                 FXBButton(action: { load() }) {
                     Text("Load")
@@ -52,29 +36,22 @@ struct DeviceConfigSelectionView: View {
                     Text("Cancel")
                 }
             }
+            Spacer()
         }.onAppear {
-            useRemote = vm.localFileName == nil ? true : false
             urlString = vm.url?.absoluteString ?? ""
             fileNameString = vm.localFileName ?? ""
         }
     }
     
     private func load() {
-        if useRemote {
-            if let url = URL(string: urlString) {
-                Task {
-                    await vm.loadDeviceConfig(with: url)
-                    self.dismiss()
-                }
-            } else {
-                dismiss()
-                vm.state = .error(message: "invalid URL")
-            }
-        } else {
+        if let url = URL(string: urlString) {
             Task {
-                await vm.loadDeviceConfig(with: fileNameString)
+                await vm.loadDeviceConfig(with: url)
                 self.dismiss()
             }
+        } else {
+            dismiss()
+            vm.state = .error(message: "invalid URL")
         }
     }
 }

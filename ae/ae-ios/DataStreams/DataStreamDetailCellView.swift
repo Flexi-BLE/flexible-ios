@@ -10,8 +10,9 @@ import FlexiBLE
 
 struct DataStreamDetailCellView: View {
     @StateObject var vm: AEDataStreamViewModel
-    @State private var dataExplorePopover = false
-    @State private var editConfigPopover = false
+    
+    @State var editConfigPopover: Bool = false
+    @State var dataExplorerPopover: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -41,27 +42,34 @@ struct DataStreamDetailCellView: View {
                 KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
             }
             
-            HStack {
-                FXBButton(action: { dataExplorePopover.toggle() }) {
-                    Text("View Data")
-                }
-                .fullScreenCover(isPresented: $dataExplorePopover) {
-                    NavigationView {
-                        DataStreamDataView(vm: vm)
-                    }
-                }
-                Spacer()
-            }
-            
-            if vm.isActive {
+            if vm.isActive, let device = vm.deviceVM?.device {
                 Divider()
                 
                 ForEach(vm.configVMs, id: \.config.name) { configVM in
                     ConfigValueView(vm: configVM)
                 }
                 HStack {
-                    FXBButton(action: {editConfigPopover.toggle()}) {
+                    FXBButton(action: { editConfigPopover.toggle() }) {
                         Text("Edit Parameters")
+                    }
+                    .fullScreenCover(isPresented: $editConfigPopover) {
+                        NavigationView {
+                            ConfigEditView(vm: vm)
+                        }
+                    }
+                    Spacer()
+                    FXBButton(action: { dataExplorerPopover.toggle() }) {
+                        Text("View Graph")
+                    }
+                    .fullScreenCover(isPresented: $dataExplorerPopover) {
+                        NavigationView {
+                            DataStreamGraphView(
+                                vm: DataStreamGraphViewModel(
+                                    dataStream: vm.dataStream,
+                                    deviceName: device.deviceName
+                                )
+                            )
+                        }
                     }
 //                    .disabled(!(vm.deviceVM?.device.specMatched ?? false))
                     .fullScreenCover(isPresented: $editConfigPopover) {

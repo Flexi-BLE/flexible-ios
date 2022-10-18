@@ -18,6 +18,7 @@ struct ConfigRangeEditView: View {
                 
                 Text(vm.config.name)
                     .bold()
+                    .font(.title3)
                 Text(vm.config.description)
                 
                 Spacer().frame(width: 16.0)
