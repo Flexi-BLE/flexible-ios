@@ -28,41 +28,37 @@ struct DataStreamChartView: View {
 //
 //        let zoomGesture = pinchGesture.simultaneously(with: dragGesture)
         
-        ZStack {
-            Chart {
-                ForEach(Array(vm.data), id: \.key) { key, value in
-                    ForEach(vm.yRangeFilter(value), id: \.x) {
-                        LineMark(
-                            x: .value("Time", $0.x),
-                            y: .value("value", $0.y)
-                        )
-                        .foregroundStyle(by: .value("key", key))
-                    }
+        Chart {
+            ForEach(Array(vm.data), id: \.key) { key, value in
+                ForEach(vm.yRangeFilter(value), id: \.x) {
+                    LineMark(
+                        x: .value("Time", $0.x),
+                        y: .value("value", $0.y)
+                    )
+                    .foregroundStyle(by: .value("key", key))
                 }
             }
-            .chartYAxis {
-                AxisMarks(preset: .extended, position: .leading) { value in
-                    AxisGridLine()
-                        .foregroundStyle(.gray)
-                    AxisValueLabel()
-                        .foregroundStyle(.black)
-                }
-            }
-            .chartXAxis {
-                AxisMarks(preset: .automatic, position: .bottom) { value in
-                    AxisGridLine()
-                        .foregroundStyle(.clear)
-//                    if UIDevice.current.orientation == .landscapeRight {
-                        AxisValueLabel()
-//                    }
-                }
-            }
-            .chartXScale(domain: vm.chartParameters.xRange)
-            .chartYScale(domain: vm.chartParameters.yRange)
-            .clipped()
-            
-            ChartControls(vm: vm)
         }
+        .chartYAxis {
+            AxisMarks(preset: .extended, position: .leading) { value in
+                AxisGridLine()
+                    .foregroundStyle(.gray)
+                AxisValueLabel()
+                    .foregroundStyle(.black)
+            }
+        }
+        .chartXAxis {
+            AxisMarks(preset: .automatic, position: .bottom) { value in
+                AxisGridLine()
+                    .foregroundStyle(.clear)
+//                    if UIDevice.current.orientation == .landscapeRight {
+                    AxisValueLabel()
+//                    }
+            }
+        }
+        .chartXScale(domain: vm.chartParameters.xRange)
+        .chartYScale(domain: vm.chartParameters.yRange)
+        .clipped()
     }
 }
 

@@ -20,7 +20,6 @@
 		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
-		0109C27A28E611480023B9AA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0109C27928E611480023B9AA /* flexible-swift */; };
 		0109C27C28E611480023B9AA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
@@ -107,6 +106,7 @@
 		01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */; };
 		01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
 		01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
+		017689F62901A6F1000D17C9 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 017689F52901A6F1000D17C9 /* flexible-swift */; };
 		017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
@@ -291,11 +291,11 @@
 		0179D5C328F86E64006CC558 /* ChartControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControlButton.swift; sourceTree = "<group>"; };
 		0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
-		017A359228E745990095957A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01AF7C612901A5DB0041BE7F /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
 		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphView.swift; sourceTree = "<group>"; };
@@ -351,8 +351,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0109C27A28E611480023B9AA /* flexible-swift in Frameworks */,
 				0109C27C28E611480023B9AA /* (null) in Frameworks */,
+				017689F62901A6F1000D17C9 /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +567,7 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				017A359228E745990095957A /* flexible-swift */,
+				01AF7C612901A5DB0041BE7F /* flexible-swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -810,7 +810,7 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				0109C27928E611480023B9AA /* flexible-swift */,
+				017689F52901A6F1000D17C9 /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1935,7 +1935,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0109C27928E611480023B9AA /* flexible-swift */ = {
+		017689F52901A6F1000D17C9 /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};
