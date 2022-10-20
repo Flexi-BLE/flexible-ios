@@ -64,7 +64,10 @@ struct DataStreamGraphView: View {
                 }
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: { dismiss() }) {
+                Button(action: {
+                    vm.stop()
+                    dismiss()
+                }) {
                     Image(systemName: "xmark")
                 }
             }

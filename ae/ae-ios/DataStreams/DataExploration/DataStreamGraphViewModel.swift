@@ -105,6 +105,12 @@ import Combine
         parametersUpdated()
     }
     
+    func stop() {
+        dataObserver?.cancel()
+        dataObserver = nil
+        dataService.stop()
+    }
+    
     func updateRange(amount: Double, end: Bool = false) {
         guard let irange = intermediateYRange,
         let mid = intermediateYDiff else {
