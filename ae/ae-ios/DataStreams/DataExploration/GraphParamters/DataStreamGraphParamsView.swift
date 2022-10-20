@@ -32,16 +32,16 @@ struct DataStreamGraphParamsView: View {
                                 .fullScreenCover(isPresented: $dependendSelectionPopover) {
                                     MultiSelectionView(
                                         title: option.name,
-                                        selections: vm.readableFilterSelections(for: option.name),
+                                        selections: vm.readabletagSelections(for: option.name),
                                         options: vm.readableOptions(for: option.name),
                                         didSelect: { vm.selectFilterOption(value: option, option: $0) },
                                         didDeselect: { vm.deselectFilterOption(value: option, option: $0) }
                                     )
                                 }
                             }
-                            if (vm.filterSelections[option.name] ?? []).count > 0 {
+                            if (vm.tagSelections[option.name] ?? []).count > 0 {
                                 Divider()
-                                Text("\(vm.readableFilterSelections(for: option.name).joined(separator: ", "))")
+                                Text("\(vm.readabletagSelections(for: option.name).joined(separator: ", "))")
                                     .foregroundColor(.gray)
                             }
                         }
@@ -101,7 +101,7 @@ struct DataStreamGraphParamsView_Previews: PreviewProvider {
     static var previews: some View {
         DataStreamGraphParamsView(
             vm: DataStreamGraphParamsViewModel(
-                dsParams: DataStreamGraphParameters(),
+                dsParams: DataStreamChartParameters(),
                 dataStream: FXBSpec.mock.devices[0].dataStreams[0]
             )
         )

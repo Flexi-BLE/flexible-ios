@@ -20,8 +20,6 @@
 		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
-		0109C27A28E611480023B9AA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0109C27928E611480023B9AA /* flexible-swift */; };
-		0109C27C28E611480023B9AA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -93,13 +91,16 @@
 		01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */; };
-		0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */; };
+		0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */; };
 		0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */; };
 		0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */; };
 		015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		01606363290079B700D0269A /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01606362290079B700D0269A /* flexiBLE-signal */; };
+		01606365290079B700D0269A /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01606364290079B700D0269A /* flexible-swift */; };
+		01606367290079B700D0269A /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01606366290079B700D0269A /* GRDB */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -197,6 +198,8 @@
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
+		623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
+		62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,7 +255,6 @@
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
-		013BD67B28FF48EB00A32734 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
@@ -278,10 +280,12 @@
 		01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBRegisteredDeviceSpecConnectionView.swift; sourceTree = "<group>"; };
 		01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFXBDeviceConnectionView.swift; sourceTree = "<group>"; };
 		0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartView.swift; sourceTree = "<group>"; };
-		0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParameters.swift; sourceTree = "<group>"; };
+		0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartParameters.swift; sourceTree = "<group>"; };
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		016063602900798C00D0269A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		016063612900799E00D0269A /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -292,7 +296,6 @@
 		0179D5C328F86E64006CC558 /* ChartControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControlButton.swift; sourceTree = "<group>"; };
 		0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
-		017A359228E745990095957A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
+		62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeriesBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,8 +356,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0109C27A28E611480023B9AA /* flexible-swift in Frameworks */,
-				0109C27C28E611480023B9AA /* (null) in Frameworks */,
+				01606367290079B700D0269A /* GRDB in Frameworks */,
+				01606363290079B700D0269A /* flexiBLE-signal in Frameworks */,
+				01606365290079B700D0269A /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,8 +573,8 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				017A359228E745990095957A /* flexible-swift */,
-				013BD67B28FF48EB00A32734 /* flexible-swift-signal */,
+				016063602900798C00D0269A /* flexible-swift */,
+				016063612900799E00D0269A /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */,
 				01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */,
 				01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */,
+				62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -652,7 +658,7 @@
 			children = (
 				01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */,
 				01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */,
-				0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */,
+				0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */,
 			);
 			path = GraphParamters;
 			sourceTree = "<group>";
@@ -812,7 +818,9 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				0109C27928E611480023B9AA /* flexible-swift */,
+				01606362290079B700D0269A /* flexiBLE-signal */,
+				01606364290079B700D0269A /* flexible-swift */,
+				01606366290079B700D0269A /* GRDB */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1061,7 +1069,7 @@
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
-				0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */,
+				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
@@ -1077,6 +1085,7 @@
 				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
 				0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
+				623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,6 +1151,7 @@
 				01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */,
+				62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1937,9 +1947,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0109C27928E611480023B9AA /* flexible-swift */ = {
+		01606362290079B700D0269A /* flexiBLE-signal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexiBLE-signal";
+		};
+		01606364290079B700D0269A /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
+		};
+		01606366290079B700D0269A /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
