@@ -98,9 +98,6 @@
 		015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
-		01606363290079B700D0269A /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01606362290079B700D0269A /* flexiBLE-signal */; };
-		01606365290079B700D0269A /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01606364290079B700D0269A /* flexible-swift */; };
-		01606367290079B700D0269A /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 01606366290079B700D0269A /* GRDB */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -121,6 +118,9 @@
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
+		019971DC29114A1F0020276D /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 019971DB29114A1F0020276D /* GRDB */; };
+		019971E029114A870020276D /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 019971DF29114A870020276D /* flexiBLE-signal */; };
+		019971E229114A870020276D /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 019971E129114A870020276D /* flexible-swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
@@ -284,8 +284,6 @@
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
-		016063602900798C00D0269A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
-		016063612900799E00D0269A /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -298,6 +296,8 @@
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
+		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		019971DE29114A7C0020276D /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
@@ -356,9 +356,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01606367290079B700D0269A /* GRDB in Frameworks */,
-				01606363290079B700D0269A /* flexiBLE-signal in Frameworks */,
-				01606365290079B700D0269A /* flexible-swift in Frameworks */,
+				019971DC29114A1F0020276D /* GRDB in Frameworks */,
+				019971E029114A870020276D /* flexiBLE-signal in Frameworks */,
+				019971E229114A870020276D /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,8 +573,8 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				016063602900798C00D0269A /* flexible-swift */,
-				016063612900799E00D0269A /* flexible-swift-signal */,
+				019971DD29114A6C0020276D /* flexible-swift */,
+				019971DE29114A7C0020276D /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -818,9 +818,9 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				01606362290079B700D0269A /* flexiBLE-signal */,
-				01606364290079B700D0269A /* flexible-swift */,
-				01606366290079B700D0269A /* GRDB */,
+				019971DB29114A1F0020276D /* GRDB */,
+				019971DF29114A870020276D /* flexiBLE-signal */,
+				019971E129114A870020276D /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -917,7 +917,7 @@
 			);
 			mainGroup = 011F47E62807685C00B359EB;
 			packageReferences = (
-				01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				019971DA29114A1F0020276D /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 011F47F22807687900B359EB /* Products */;
 			projectDirPath = "";
@@ -1936,29 +1936,29 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+		019971DA29114A1F0020276D /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDB.swift.git";
 			requirement = {
-				branch = master;
+				branch = GRDB5;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		01606362290079B700D0269A /* flexiBLE-signal */ = {
+		019971DB29114A1F0020276D /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 019971DA29114A1F0020276D /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		019971DF29114A870020276D /* flexiBLE-signal */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexiBLE-signal";
 		};
-		01606364290079B700D0269A /* flexible-swift */ = {
+		019971E129114A870020276D /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
-		};
-		01606366290079B700D0269A /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

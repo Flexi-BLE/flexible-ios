@@ -33,11 +33,12 @@ struct DataStreamChartView: View {
                 ForEach(Array(vm.data), id: \.key) { key, value in
                     ForEach(vm.yRangeFilter(value), id: \.x) {
                         LineMark(
-                            x: .value("Time", $0.x),
-                            y: .value("value", $0.y)
+                                x: .value("Time", $0.x),
+                                y: .value("value", $0.y)
                         )
                         .foregroundStyle(by: .value("key", key))
                     }
+                    .interpolationMethod(.catmullRom)
                 }
             }
             .chartYAxis {

@@ -58,6 +58,10 @@ class DataStreamDataService {
         case .unspecified: break
         }
     }
+
+    func setPersistence(_ persistence: Int) {
+        self.ts.setPersistence(persistence)
+    }
     
     func stop() {
         tsObserver?.cancel()
