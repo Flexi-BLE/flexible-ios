@@ -13,17 +13,34 @@ struct ChartXAxisAdjustmentPanel: View {
     @State var start: Date = Date.now.addingTimeInterval(25)
     @State var end: Date = Date.now
     @State var liveInterval: TimeInterval = 0
+    @State var isLive: Bool = false
     
     init(chartParams: ChartParameters) {
         self.chartParams = chartParams
+        self.isLive = self.chartParams.state == .live || self.chartParams.state == .livePaused
     }
     
     var body: some View {
         VStack {
-            Text("Y Axis Range")
+            Text("X Axis Range")
                 .font(.title2)
                 .foregroundColor(.black)
                 .padding()
+            HStack {
+                Text("Live:").bold()
+                Spacer()
+                Toggle("", isOn: $isLive)
+                    .labelsHidden()
+                    .onChange(of: isLive) { newValue in
+                        if newValue {
+                            chartParams.state = .live
+                        } else {
+                            chartParams.start = Date.now.addingTimeInterval(-chartParams.liveInterval)
+                            chartParams.end = Date.now
+                            chartParams.state = .timeboxed
+                        }
+                    }
+            }
             switch chartParams.state {
             case .live:
                 VStack {
@@ -78,6 +95,7 @@ struct ChartXAxisAdjustmentPanel: View {
             self.start = chartParams.start
             self.end = chartParams.end
             self.liveInterval = chartParams.liveInterval
+            self.isLive = chartParams.state == .live || chartParams.state == .livePaused
         }
     }
 }
