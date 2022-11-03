@@ -105,6 +105,7 @@
 		01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */; };
 		01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
 		01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
+		017689F62901A6F1000D17C9 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 017689F52901A6F1000D17C9 /* flexible-swift */; };
 		017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
@@ -300,6 +301,7 @@
 		019971DE29114A7C0020276D /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01AF7C612901A5DB0041BE7F /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
 		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphView.swift; sourceTree = "<group>"; };
@@ -820,7 +822,7 @@
 			packageProductDependencies = (
 				019971DB29114A1F0020276D /* GRDB */,
 				019971DF29114A870020276D /* flexiBLE-signal */,
-				019971E129114A870020276D /* flexible-swift */,
+				019971E129114A870020276D /* flexible-swift */
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1303,7 +1305,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1396,7 +1398,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;

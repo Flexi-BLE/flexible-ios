@@ -19,19 +19,37 @@ struct DataStreamGraphView: View {
         VStack {
             switch vm.state {
             case .loading:
-                Spacer()
-                ProgressView().progressViewStyle(.circular)
-                Spacer()
+                ZStack {
+                    VStack {
+                        Spacer()
+                        ProgressView().progressViewStyle(.circular)
+                        Spacer()
+                    }
+                    ChartControls(vm: vm)
+                }
             case .graphing:
-                DataStreamChartView(vm: vm)
+                ZStack {
+                    DataStreamChartView(vm: vm)
+                    ChartControls(vm: vm)
+                }
             case .noRecords:
-                Spacer()
-                Text("No Records Found")
-                Spacer()
+                ZStack {
+                    VStack {
+                        Spacer()
+                        Text("No Records Found")
+                        Spacer()
+                    }
+                    ChartControls(vm: vm)
+                }
             case .error(let msg):
-                Spacer()
-                Text("⚠️ error: \(msg)")
-                Spacer()
+                ZStack {
+                    VStack {
+                        Spacer()
+                        Text("⚠️ error: \(msg)")
+                        Spacer()
+                    }
+                    ChartControls(vm: vm)
+                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)

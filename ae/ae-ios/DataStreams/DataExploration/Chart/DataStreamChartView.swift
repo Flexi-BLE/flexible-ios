@@ -64,6 +64,9 @@ struct DataStreamChartView: View {
             
             ChartControls(vm: vm)
         }
+        .chartXScale(domain: vm.chartParameters.xRange)
+        .chartYScale(domain: vm.chartParameters.yRange)
+        .clipped()
     }
 }
 
