@@ -193,6 +193,9 @@ import Combine
         DispatchQueue.main.async {
             self.state = .graphing
             self.data = _data
+            if self.chartParameters.shouldAutoScale {
+                self.resetYRange()
+            }
         }
     }
 
