@@ -32,4 +32,17 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+
+    static var tab10: [Color] = [
+        Color(hex: "1f77b4"), // tab:blue
+        Color(hex: "ff7f0e"), // tab:orange
+        Color(hex: "2ca02c"), // tab:green
+        Color(hex: "d62728"), // tab:red
+        Color(hex: "9467bd"), // tab:purple
+        Color(hex: "8c564b"), // tab:brown
+        Color(hex: "e377c2"), // tab:pink
+        Color(hex: "7f7f7f"), // tab:gray
+        Color(hex: "bcbd22"), // tab:olive
+        Color(hex: "17becf"), // tab:cyan
+    ]
 }

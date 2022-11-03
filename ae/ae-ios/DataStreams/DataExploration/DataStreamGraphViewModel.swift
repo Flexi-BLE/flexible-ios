@@ -208,7 +208,15 @@ import Combine
                 }
 
                 let includes = spec.dataValues
-                        .enumerated().compactMap { $1.dependsOn?.contains(dv.name) ?? false ? $0 : nil }
+                    .enumerated()
+                    .compactMap { i, dep in
+                        // check dependence to current tag data value, then if the value is selected.
+                        if dep.dependsOn?.contains(dv.name) ?? false &&
+                                   self.dataStreamParameters.dependentSelections.contains(dep.name) {
+                            return i
+                        }
+                        return nil
+                    }
 
                 var conds = [TimeSeriesSortCondition<Float>]()
                 for selection in selections {

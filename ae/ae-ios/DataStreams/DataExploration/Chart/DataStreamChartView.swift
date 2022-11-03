@@ -38,26 +38,26 @@ struct DataStreamChartView: View {
                         )
                         .foregroundStyle(by: .value("key", key))
                     }
-                    .interpolationMethod(.catmullRom)
+                    .interpolationMethod(.linear)
                 }
             }
             .chartYAxis {
                 AxisMarks(preset: .extended, position: .leading) { value in
                     AxisGridLine()
-                        .foregroundStyle(.gray)
+                            .foregroundStyle(.gray)
                     AxisValueLabel()
-                        .foregroundStyle(.black)
+                            .foregroundStyle(.black)
                 }
             }
             .chartXAxis {
                 AxisMarks(preset: .automatic, position: .bottom) { value in
-                    AxisGridLine()
-                        .foregroundStyle(.clear)
-//                    if UIDevice.current.orientation == .landscapeRight {
+                    AxisGridLine().foregroundStyle(.clear)
+                    if UIDevice.current.orientation == .landscapeRight {
                         AxisValueLabel()
-//                    }
+                    }
                 }
             }
+            .chartForegroundStyleScale(domain: Array(vm.data.keys).sorted(), range: Color.tab10)
             .chartXScale(domain: vm.chartParameters.xRange)
             .chartYScale(domain: vm.chartParameters.yRange)
             .clipped()

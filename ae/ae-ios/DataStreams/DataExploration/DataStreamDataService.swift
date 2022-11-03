@@ -83,33 +83,33 @@ class DataStreamDataService {
         }
 
         tsObserver = dataStreamHandler
-                .firehose
-                .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.1))
-                .sink { [weak self] records in
-                    guard let self = self else { return }
+            .firehose
+            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 0.01))
+            .sink { [weak self] records in
+                guard let self = self else { return }
 
-                    records.forEach { (date: Date, values: [AEDataValue]) in
-                        let vector = values
-                            .enumerated()
-                            .compactMap{ i, val -> Float? in
-                                // FIXME: better type handling (at the database level).
-                                // -- OR: infer it from the database
-                                if let val = val as? Double {
-                                    return Float(val)
-                                } else if let val = val as? Int {
-                                    return Float(val)
-                                }
-                                return nil
+                records.forEach { (date: Date, values: [AEDataValue]) in
+                    let vector = values
+                        .enumerated()
+                        .compactMap{ i, val -> Float? in
+                            // FIXME: better type handling (at the database level).
+                            // -- OR: infer it from the database
+                            if let val = val as? Double {
+                                return Float(val)
+                            } else if let val = val as? Int {
+                                return Float(val)
                             }
-                        
-                        self.ts.add(
-                            date: date,
-                            values: vector
-                        )
-                    }
-                    
-                    self.tsPublisher.send(self.ts)
+                            return nil
+                        }
+
+                    self.ts.add(
+                        date: date,
+                        values: vector
+                    )
                 }
+
+                self.tsPublisher.send(self.ts)
+            }
     }
 
     private func queryDataTS(start: Date, end: Date) {
