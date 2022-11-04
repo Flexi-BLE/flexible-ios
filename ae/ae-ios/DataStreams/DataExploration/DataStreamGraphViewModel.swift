@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 import FlexiBLE
+import flexiBLE_signal
 import Combine
 
 @MainActor class DataStreamGraphViewModel: ObservableObject {
@@ -21,30 +23,28 @@ import Combine
     var deviceName: String
     var spec: FXBDataStream
     
-    @Published var dataStreamParameters: DataStreamGraphParameters = DataStreamGraphParameters()
+    @Published var dataStreamParameters: DataStreamChartParameters = DataStreamChartParameters()
     @Published var chartParameters: ChartParameters = ChartParameters()
     
     static var dataStreamParamsKeyPrefix: String = "fxb_data_stream_chart_params"
     static var chartParamsKeyPrefix: String = "fxb_chart_params"
     
+    typealias Point = (x: Date, y: Float)
     var dataService: DataStreamDataService
     
-    @Published var data: [String: [DataStreamDataService.Point]] = [:]
+    @Published var data: [String: [Point]]
+
+    private var intermediateYRange: ClosedRange<Float>?
+    private var intermediateYDiff: Float?
     
-//    @Published var xRange: ClosedRange<Date> = Date.now.addingTimeInterval(-1)...Date.now
-//
-//    @Published var yRange: ClosedRange<Double> = 0.0...1000.0
-    private var intermediateYRange: ClosedRange<Double>?
-    private var intermediateYDiff: Double?
-    
-    private var dataObserver: AnyCancellable?
+    private var tsObserver: AnyCancellable?
     
     init(dataStream: FXBDataStream, deviceName: String) {
         self.deviceName = deviceName
         self.spec = dataStream
         self.dataService = DataStreamDataService(dataStream: dataStream, deviceName: deviceName)
-        
-        // TODO: load from disk
+        self.data = [:]
+
         self.dataStreamParameters = self.defaultDSParams()
         self.chartParameters = self.defaultChartParams()
         parametersUpdated()
@@ -53,11 +53,11 @@ import Combine
     }
     
     func editingParameters() {
-        dataObserver?.cancel()
+        tsObserver?.cancel()
         state = .loading
     }
     
-    func parametersUpdated() {
+    func saveParameters() {
         try? UserDefaults.standard.setCustomObject(
             self.dataStreamParameters,
             forKey: "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
@@ -66,19 +66,21 @@ import Combine
             self.chartParameters,
             forKey: "\(Self.chartParamsKeyPrefix)_\(spec.name)"
         )
+    }
+    
+    func parametersUpdated() {
+        saveParameters()
         subscribeData()
-        dataService.set(
-            dsParams: self.dataStreamParameters,
-            chartParams: self.chartParameters
-        )
+        dataService.set(chartParams: self.chartParameters)
+        dataService.setPersistence(10000)
     }
     
     func resetYRange() {
         let points = data.map({ $1 }).reduce([], +)
-        let yMin = points.reduce(Double.infinity, { $0 < $1.y ? $0 : $1.y })
-        let yMax = points.reduce(-Double.infinity, { $0 > $1.y ? $0 : $1.y })
+        let yMin = points.reduce(Float.infinity, { $0 < $1.y ? $0 : $1.y })
+        let yMax = points.reduce(-Float.infinity, { $0 > $1.y ? $0 : $1.y })
         
-        if yMin < Double.infinity, yMax > -Double.infinity {
+        if yMin < Float.infinity, yMax > -Float.infinity {
             let diffOffset = (yMax - yMin) * 0.15
             self.chartParameters.yMin = (yMin - diffOffset)
             self.chartParameters.yMax = (yMax + diffOffset)
@@ -96,7 +98,7 @@ import Combine
         chartParameters.state = .livePaused
         chartParameters.start = Date.now.addingTimeInterval(-chartParameters.liveInterval)
         chartParameters.end = Date.now
-        dataObserver?.cancel()
+        tsObserver?.cancel()
     }
     
     func resume() {
@@ -106,12 +108,12 @@ import Combine
     }
     
     func stop() {
-        dataObserver?.cancel()
-        dataObserver = nil
+        tsObserver?.cancel()
+        tsObserver = nil
         dataService.stop()
     }
     
-    func updateRange(amount: Double, end: Bool = false) {
+    func updateRange(amount: Float, end: Bool = false) {
         guard let irange = intermediateYRange,
         let mid = intermediateYDiff else {
             intermediateYRange = chartParameters.yRange
@@ -127,69 +129,125 @@ import Combine
     }
     
     private func subscribeData() {
-        self.dataObserver = dataService
-            .data
-            .sink(
-                receiveCompletion: { comp in
-                    switch comp {
-                    case .failure(let error):
-                        self.state = .error(msg: error.localizedDescription)
-                    case .finished: break
-                    }
-                },
-                receiveValue: { [weak self] data in
-                    guard let self = self else { return }
-                    guard data.reduce(0, { $0 + $1.value.count}) > 0 else {
-                        self.state = .noRecords
-                        return
-                    }
-
-                    data.forEach { (key, values) in
-                        if self.data[key] == nil {
-                            self.data[key] = values
-                        } else {
-                            self.data[key]?.append(contentsOf: values)
+        self.tsObserver = dataService
+                .tsPublisher
+                .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
+                .compactMap(self.trimTimeSeriesToChartParams)
+                .sink(
+                    receiveCompletion: { comp in
+                        switch comp {
+                        case .failure(let error):
+                            self.state = .error(msg: error.localizedDescription)
+                        case .finished: break
                         }
+                    },
+                    receiveValue: self.parseTimeSeries
+                )
 
-                        self.data[key] = self.data[key]?.filter({ point in
-                            switch self.chartParameters.state {
-                            case .live:
-                                let oldestTs = Date.now.addingTimeInterval(-self.chartParameters.liveInterval)
-                                return point.x > oldestTs
-                            case .timeboxed, .livePaused:
-                                return point.x >= self.chartParameters.start && point.x < self.chartParameters.end
-                            case .unspecified: return false
-                            }
-                        }).sorted(by: { $0.x > $1.x })
-                    }
-                    
-                    if self.chartParameters.shouldAutoScale {
-                        DispatchQueue.main.async {
-                            self.resetYRange()
-                        }
-                    }
+    }
 
-//                    DispatchQueue.main.async {
-//                        switch self.chartParameters.state {
-//                        case .live:
-//                            self.chartParameters.xRange = Date.now.addingTimeInterval(-self.chartParameters.liveInterval)...Date.now
-//                        case .timeboxed, .livePaused:
-//                            self.xRange = self.chartParameters.start...self.chartParameters.end
-//                        case .unspecified: break
-//                        }
-//                    }
-                    
-                    switch self.state {
-                    case .loading:
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
-                            self.state = .graphing
-                        })
-                    default: break
-                    }
-
-                }
+    private func trimTimeSeriesToChartParams(ts: TimeSeries<Float>) -> TimeSeries<Float>? {
+        switch self.chartParameters.state {
+        case .live:
+            return ts.cut(
+                    before: Date.now.addingTimeInterval(-self.chartParameters.liveInterval),
+                    after: Date.now
             )
+        case .timeboxed, .livePaused:
+            return ts.cut(
+                    before: self.chartParameters.start,
+                    after: self.chartParameters.end
+            )
+        default: return nil
+        }
+    }
+    
+    private func parseTimeSeries(ts timeseries: TimeSeries<Float>) {
+        guard !timeseries.isEmpty else { return }
 
+        let conditions: [TimeSeriesSortCondition<Float>] = self.buildChartParamFilterConditions()
+        
+        let tss = timeseries.splitSort(criteria: conditions)
+        var _data: [String: [Point]] = [:]
+        for ts in tss {
+            for i in 0..<ts.colCount {
+                guard let colName = ts.colNames[i] else {
+                    continue
+                }
+                let points = zip(ts.indexDates(), ts.col(at: i)).map {
+                    Point(x: $0, y: $1)
+                }
+                _data[colName] = points
+            }
+//            var tsCopy = ts
+//            tsCopy.apply(filter: .zscore, to: 2)
+//            let points: [Point] = zip(tsCopy.index, tsCopy.col(at: 3)).map { Point(x: Date(timeIntervalSince1970: $0), y: $1) }
+//            if ts.colNames.count > 0, let colName = tsCopy.colNames[0] {
+//                DispatchQueue.main.async {
+//                    self.data[colName] = points
+//                }
+//            }
+        }
+
+        // single update to the graph
+        DispatchQueue.main.async {
+            self.state = .graphing
+            self.data = _data
+            if self.chartParameters.shouldAutoScale {
+                self.resetYRange()
+            }
+        }
+    }
+
+    private func buildChartParamFilterConditions() -> [TimeSeriesSortCondition<Float>] {
+        return self.spec.dataValues.enumerated().map({ idx, dv -> [TimeSeriesSortCondition<Float>] in
+            switch dv.variableType {
+            case .tag:
+                guard let selections = self.dataStreamParameters
+                        .tagSelections[dv.name] else { break }
+
+                if selections.isEmpty {
+                    return [TimeSeriesSortCondition.none(idx)]
+                }
+
+                let includes = spec.dataValues
+                    .enumerated()
+                    .compactMap { i, dep in
+                        // check dependence to current tag data value, then if the value is selected.
+                        if dep.dependsOn?.contains(dv.name) ?? false &&
+                                   self.dataStreamParameters.dependentSelections.contains(dep.name) {
+                            return i
+                        }
+                        return nil
+                    }
+
+                var conds = [TimeSeriesSortCondition<Float>]()
+                for selection in selections {
+                    conds.append(
+                            TimeSeriesSortCondition(
+                                    colIdx: idx,
+                                    filter: { [selection] val in
+                                        return selection == Int(val)
+                                    },
+                                    include: includes,
+                                    names: includes.map { "\(spec.dataValues[$0].name)-\(selection)" }
+                            )
+                    )
+                }
+                return conds
+            case .value:
+                guard dv.dependsOn == nil || dv.dependsOn?.isEmpty ?? true else { break }
+                if self.dataStreamParameters
+                           .dependentSelections.contains(self.spec.dataValues[idx].name) {
+                    return [TimeSeriesSortCondition.all(idx, name: dv.name, include: [idx])]
+                } else {
+                    return [TimeSeriesSortCondition.none(idx)]
+                }
+            default: break
+            }
+            return [TimeSeriesSortCondition.none(idx)]
+        })
+                .flatMap({ $0 })
     }
     
     private func defaultChartParams() -> ChartParameters {
@@ -218,22 +276,22 @@ import Combine
         }
     }
     
-    private func defaultDSParams() -> DataStreamGraphParameters {
+    private func defaultDSParams() -> DataStreamChartParameters {
         let key = "\(Self.dataStreamParamsKeyPrefix)_\(spec.name)"
         
-        if let params: DataStreamGraphParameters = try? UserDefaults
+        if let params: DataStreamChartParameters = try? UserDefaults
             .standard
             .getCustomObject(forKey: key) { // load existing parameters for data stream
             
             return params
             
         } else { // setup defaults for data stream
-            let params = DataStreamGraphParameters()
+            let params = DataStreamChartParameters()
             
             self.spec.dataValues.forEach { dv in
                 switch dv.variableType {
                 case .value: params.dependentSelections.append(dv.name)
-                case .tag: params.filterSelections[dv.name] = [0]
+                case .tag: params.tagSelections[dv.name] = [0]
                 case .none: break
                 }
             }

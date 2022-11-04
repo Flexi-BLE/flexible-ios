@@ -20,7 +20,6 @@
 		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
-		0109C27C28E611480023B9AA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -86,13 +85,14 @@
 		014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DA289B7189008982C6 /* TimestampCellView.swift */; };
 		014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6DC289B71E1008982C6 /* TimestampViewModel.swift */; };
 		014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014DB6E0289B73C3008982C6 /* EditTimestampView.swift */; };
+		0152A27A2915BB5500E5F2F4 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0152A2792915BB5500E5F2F4 /* GRDB */; };
 		01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		01551D1828DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1728DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift */; };
 		01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */; };
 		01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */; };
-		0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */; };
+		0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */; };
 		0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */; };
 		0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */; };
 		015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
@@ -106,7 +106,6 @@
 		01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */; };
 		01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
 		01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
-		017689F62901A6F1000D17C9 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 017689F52901A6F1000D17C9 /* flexible-swift */; };
 		017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
@@ -120,6 +119,8 @@
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
+		019971E029114A870020276D /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 019971DF29114A870020276D /* flexiBLE-signal */; };
+		019971E229114A870020276D /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 019971E129114A870020276D /* flexible-swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
@@ -197,6 +198,8 @@
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
+		623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
+		62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,7 +280,7 @@
 		01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBRegisteredDeviceSpecConnectionView.swift; sourceTree = "<group>"; };
 		01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFXBDeviceConnectionView.swift; sourceTree = "<group>"; };
 		0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartView.swift; sourceTree = "<group>"; };
-		0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParameters.swift; sourceTree = "<group>"; };
+		0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartParameters.swift; sourceTree = "<group>"; };
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
@@ -293,9 +296,10 @@
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
+		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		019971DE29114A7C0020276D /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
-		01AF7C612901A5DB0041BE7F /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
 		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphView.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
+		62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeriesBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,8 +356,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0109C27C28E611480023B9AA /* (null) in Frameworks */,
-				017689F62901A6F1000D17C9 /* flexible-swift in Frameworks */,
+				0152A27A2915BB5500E5F2F4 /* GRDB in Frameworks */,
+				019971E029114A870020276D /* flexiBLE-signal in Frameworks */,
+				019971E229114A870020276D /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +573,8 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				01AF7C612901A5DB0041BE7F /* flexible-swift */,
+				019971DD29114A6C0020276D /* flexible-swift */,
+				019971DE29114A7C0020276D /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -604,6 +611,7 @@
 				01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */,
 				01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */,
 				01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */,
+				62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -650,7 +658,7 @@
 			children = (
 				01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */,
 				01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */,
-				0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */,
+				0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */,
 			);
 			path = GraphParamters;
 			sourceTree = "<group>";
@@ -810,7 +818,9 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				017689F52901A6F1000D17C9 /* flexible-swift */,
+				019971DF29114A870020276D /* flexiBLE-signal */,
+				019971E129114A870020276D /* flexible-swift */,
+				0152A2792915BB5500E5F2F4 /* GRDB */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -907,7 +917,7 @@
 			);
 			mainGroup = 011F47E62807685C00B359EB;
 			packageReferences = (
-				01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				0152A2782915BB5500E5F2F4 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 011F47F22807687900B359EB /* Products */;
 			projectDirPath = "";
@@ -1059,7 +1069,7 @@
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
-				0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */,
+				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
@@ -1075,6 +1085,7 @@
 				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
 				0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
+				623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1140,6 +1151,7 @@
 				01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */,
+				62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,7 +1303,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1330,7 +1342,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1384,7 +1396,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1417,7 +1429,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";
@@ -1924,7 +1936,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+		0152A2782915BB5500E5F2F4 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDB.swift.git";
 			requirement = {
@@ -1935,7 +1947,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		017689F52901A6F1000D17C9 /* flexible-swift */ = {
+		0152A2792915BB5500E5F2F4 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0152A2782915BB5500E5F2F4 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		019971DF29114A870020276D /* flexiBLE-signal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexiBLE-signal";
+		};
+		019971E129114A870020276D /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};

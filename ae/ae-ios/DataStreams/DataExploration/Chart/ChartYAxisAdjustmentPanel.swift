@@ -10,8 +10,8 @@ import SwiftUI
 struct ChartYAxisAdjustmentPanel: View {
     var chartParams: ChartParameters
     
-    @State var yAxisMin: Double
-    @State var yAxisMax: Double
+    @State var yAxisMin: Float
+    @State var yAxisMax: Float
     @State var shouldAutoScale: Bool
     
     init(chartParams: ChartParameters) {
