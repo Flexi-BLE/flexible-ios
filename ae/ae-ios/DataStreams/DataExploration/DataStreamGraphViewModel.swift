@@ -82,8 +82,14 @@ import Combine
         
         if yMin < Float.infinity, yMax > -Float.infinity {
             let diffOffset = (yMax - yMin) * 0.15
-            self.chartParameters.yMin = (yMin - diffOffset)
-            self.chartParameters.yMax = (yMax + diffOffset)
+            var yMin = (yMin - diffOffset)
+            var yMax = (yMax + diffOffset)
+            if yMin == yMax {
+                yMin -= 1
+                yMax += 1
+            }
+            chartParameters.yMin = yMin
+            chartParameters.yMax = yMax
         }
     }
         

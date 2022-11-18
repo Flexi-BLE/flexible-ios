@@ -23,7 +23,7 @@ import FlexiBLE
     @Published var localFileName: String?
     
     static let urlUserDefaultsKey: String = "fxb_json_spec"
-    static let defaultURL: URL = URL(string: "https://pastebin.com/raw/B3mHBJah")!
+    static let defaultURL: URL = URL(string: "https://pastebin.com/raw/VCZXejTc")!
     
     init() {
         if let defaultUrlString: String = try? UserDefaults.standard.getCustomObject(forKey: Self.urlUserDefaultsKey),
