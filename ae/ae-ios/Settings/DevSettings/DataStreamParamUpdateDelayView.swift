@@ -41,7 +41,7 @@ struct DataStreamParamUpdateDelayView: View {
         VStack(alignment: .leading) {
             Text("Data Stream Parameters Update Delay: ")
                 .font(.title3.bold())
-            Text("The wait time before reading data stream parameters after an update. This should be longer for longer BLE latencies. Defaults to 500 ms.")
+            Text("The wait time before reading data stream parameters after an update. This value should be longer for longer BLE latencies. Defaults to 500 ms.")
                 .lineLimit(100)
                 .font(.body)
             Divider()

@@ -31,11 +31,11 @@ struct ConfigRangeEditView: View {
                         text: $textInputValue,
                         onEditingChanged: { isEditing in
                             if !isEditing {
-                                if let v = Double(textInputValue),
-                                   v <= Double(range.end),
-                                   v >= Double(range.start) {
+                                if let v = Int(textInputValue),
+                                   v <= Int(range.end),
+                                   v >= Int(range.start) {
                                     
-                                    vm.selectedRangeValue = v
+                                    vm.selectedRangeValue = Double(v)
                                 } else {
                                     textInputValue = vm.selectedValue
                                 }
@@ -43,6 +43,7 @@ struct ConfigRangeEditView: View {
                         }
                     )
                     .textFieldStyle(.roundedBorder)
+                    .keyboardType(.default)
                     if let unit = vm.config.unit { Text("\(unit)") }
                     Spacer()
                 }
@@ -55,7 +56,7 @@ struct ConfigRangeEditView: View {
                     maximumValueLabel: Text("\(range.end)"),
                     label: { Text("Config Slider") }
                 ).onChange(of: vm.selectedRangeValue) { newValue in
-                    self.textInputValue = String(newValue)
+                    self.textInputValue = String(Int(newValue))
                 }
             }
         }
