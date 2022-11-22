@@ -108,6 +108,14 @@ struct SettingsView: View {
                     }
                 }
                 
+                Section(header: Text("Development")) {
+                    NavigationLink(destination: {
+                        DevSettingsView()
+                    }, label: {
+                        Text("Settings")
+                    })
+                }
+                
                 
             }
             .alert(item: $alertInfo, content: { $0.alert })
