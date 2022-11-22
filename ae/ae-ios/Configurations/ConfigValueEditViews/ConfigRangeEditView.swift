@@ -10,6 +10,7 @@ import FlexiBLE
 
 struct ConfigRangeEditView: View {
     @StateObject var vm: ConfigViewModel
+    @State var textInputValue: String
     
     var body: some View {
         
@@ -21,11 +22,28 @@ struct ConfigRangeEditView: View {
                     .font(.title3)
                 Text(vm.config.description)
                 
-                Spacer().frame(width: 16.0)
+                Spacer().frame(height: 16.0)
                 
                 HStack {
                     Spacer()
-                    Text("\(String(format: "%.0f", vm.selectedRangeValue)) \(vm.config.unit ?? "")")
+                    TextField(
+                        "\(vm.config.name)",
+                        text: $textInputValue,
+                        onEditingChanged: { isEditing in
+                            if !isEditing {
+                                if let v = Double(textInputValue),
+                                   v <= Double(range.end),
+                                   v >= Double(range.start) {
+                                    
+                                    vm.selectedRangeValue = v
+                                } else {
+                                    textInputValue = vm.selectedValue
+                                }
+                            }
+                        }
+                    )
+                    .textFieldStyle(.roundedBorder)
+                    if let unit = vm.config.unit { Text("\(unit)") }
                     Spacer()
                 }
                 
@@ -36,16 +54,10 @@ struct ConfigRangeEditView: View {
                     minimumValueLabel: Text("\(range.start)"),
                     maximumValueLabel: Text("\(range.end)"),
                     label: { Text("Config Slider") }
-                )
+                ).onChange(of: vm.selectedRangeValue) { newValue in
+                    self.textInputValue = String(newValue)
+                }
             }
         }
-    }
-}
-
-struct ConfigRangeEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfigRangeEditView(
-            vm: ConfigViewModel(config: FXBSpec.mock.devices[0].dataStreams[0].configValues[0])
-        )
     }
 }

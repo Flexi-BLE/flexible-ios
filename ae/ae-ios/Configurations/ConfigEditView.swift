@@ -22,7 +22,7 @@ struct ConfigEditView: View {
                     
                     switch configVM.config.selectionType {
                     case .range:
-                        ConfigRangeEditView(vm: configVM)
+                        ConfigRangeEditView(vm: configVM, textInputValue: configVM.selectedValue)
                     case .single:
                         ConfigOptionEditView(vm: configVM)
                     case .bitEncodedMultiSelect:
