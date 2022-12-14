@@ -130,7 +130,6 @@
 		01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */; };
 		01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */; };
 		01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */; };
-		01BFFC57292C1D1B00EB3B02 /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01BFFC56292C1D1B00EB3B02 /* flexiBLE-signal */; };
 		01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
@@ -151,6 +150,7 @@
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01DB07F92948EE0B006A63BF /* flexiBLE_signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01DB07F82948EE0B006A63BF /* flexiBLE_signal */; };
 		01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */; };
 		01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */; };
 		01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9C28F84C5D00FE5E9E /* ChartParameters.swift */; };
@@ -360,8 +360,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01BFFC57292C1D1B00EB3B02 /* flexiBLE-signal in Frameworks */,
 				0152A27A2915BB5500E5F2F4 /* GRDB in Frameworks */,
+				01DB07F92948EE0B006A63BF /* flexiBLE_signal in Frameworks */,
 				019971E229114A870020276D /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -834,7 +834,7 @@
 			packageProductDependencies = (
 				019971E129114A870020276D /* flexible-swift */,
 				0152A2792915BB5500E5F2F4 /* GRDB */,
-				01BFFC56292C1D1B00EB3B02 /* flexiBLE-signal */,
+				01DB07F82948EE0B006A63BF /* flexiBLE_signal */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1972,9 +1972,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};
-		01BFFC56292C1D1B00EB3B02 /* flexiBLE-signal */ = {
+		01DB07F82948EE0B006A63BF /* flexiBLE_signal */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = "flexiBLE-signal";
+			productName = flexiBLE_signal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
