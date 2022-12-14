@@ -10,8 +10,7 @@ import flexiBLE_signal
 
 struct FilterTypePicker: View {
     @Binding var filterType: SignalFilterType
-    
-    
+
     var body: some View {
         Picker("Filter Type", selection: $filterType) {
             Text("None").tag(SignalFilterType.none.rawValue)

@@ -6,76 +6,16 @@
 //
 
 import SwiftUI
-import Charts
+import Combine
 import flexiBLE_signal
 import Accelerate
 
-//enum FilterSelection: String {
-//    case none = "None"
-//    case minMaxScaling = "Min Max Scaling"
-//    case zscore = "Z-Score Normalization"
-//    case demean = "Demean"
-//    case movingAvgerage = "Moving Average"
-//    case lowPass = "Low Pass"
-//    case highPass = "High Pass"
-//    case bandPass = "Band Pass"
-//    case bandReject = "Band Reject"
-//
-//    var description: String {
-//        // TODO:
-//        return "Z-score normalization refers to the process of normalizing every value in a dataset such that the mean of all of the values is 0 and the standard deviation is 1."
-//    }
-//
-//    func createTsFilter() -> TimeSeries<Float>.FilterType? {
-//        switch self {
-//        case .none:
-//            return nil
-//        case .minMaxScaling:
-//            return .minMaxScaling
-//        case .zscore:
-//            return .zscore
-//        case .demean:
-//            return .demean
-//        case .movingAvgerage:
-//            return .movingAverage(window: 100)
-//        case .lowPass:
-//            return .lowPass(cutoff: 1.0, transition: 1.0)
-//        case .highPass:
-//            return .highPass(cutoff: 1.0, transition: 1.0)
-//        case .bandPass:
-//            return .bandPass(cutoffHigh: 1.0, transitionHigh: 1.0, cutoffLow: 1.0, transitionLow: 1.0)
-//        case .bandReject:
-//            return .bandReject(cutoffHigh: 1.0, transitionHigh: 1.0, cutoffLow: 1.0, transitionLow: 1.0)
-//        }
-//    }
-//}
-
-class FilterSelectionDetails {
-    var id: UUID
-    var selection: any SignalFilter
-    var isEnabled: Bool
-    
-    var src: Int?=nil
-    var dest: Int?=nil
-    
-    init(selection: any SignalFilter, isEnabled: Bool = true, src: Int? = nil, dest: Int? = nil) {
-        self.id = UUID()
-        self.selection = selection
-        self.isEnabled = isEnabled
-        self.src = src
-        self.dest = dest
-    }
-    
-    var shortDescription: String {
-        switch selection.type {
-        default: return "i am filter details"
-        }
-    }
-}
-
 @MainActor class SignalExplorerModel: ObservableObject {
-    @Published var filters: [FilterSelectionDetails] = []
-    typealias ChartDataPoint = (x: Double, y: Float)
+    @Published var filters: [FilterDetails] = []
+    
+    typealias ChartDoubleIndexDataPoint = (x: Double, y: Float)
+    typealias ChartTSDataPoint = (x: Date, y: Float)
+    typealias ChartDataPoint = (x: Float, y: Float)
     
     var placeholderSignal: CombinationSinWaveGenerator //SinWaveGenerator
     
@@ -87,10 +27,43 @@ class FilterSelectionDetails {
             persistence: 2_000
         )
         self.placeholderSignal.next(2_000)
-//        withAnimation {
-//            self.rawSignal = points(for: 0)
-//            print()
-//        }
+    }
+    
+    var originalSignalDate: [ChartTSDataPoint] {
+        return zip(placeholderSignal.ts.indexDates(), placeholderSignal.ts.col(at: 0)).map({ ($0, $1) })
+    }
+    
+    var originalSignalDouble: [ChartDoubleIndexDataPoint] {
+        return zip(placeholderSignal.ts.index, placeholderSignal.ts.col(at: 0)).map({ ($0, $1) })
+    }
+    
+    var finalSignalDate: [ChartTSDataPoint] {
+        let col = filters.compactMap({ $0.isEnabled && $0.dest != nil ? $0.dest! : nil  }).last ?? 0
+        return zip(placeholderSignal.ts.indexDates(), placeholderSignal.ts.col(at: col)).map({ ($0, $1) })
+    }
+    
+    var finalSignalDouble: [ChartDoubleIndexDataPoint] {
+        let col = filters.compactMap({ $0.isEnabled && $0.dest != nil ? $0.dest! : nil  }).max() ?? 0
+        return zip(placeholderSignal.ts.index, placeholderSignal.ts.col(at: col)).map({ ($0, $1) })
+    }
+    
+    func signalDouble(for i: Int) -> [ChartDoubleIndexDataPoint] {
+        return zip(placeholderSignal.ts.index, placeholderSignal.ts.col(at: i)).map({ ($0, $1) })
+    }
+    
+    func signalDate(for i: Int) -> [ChartTSDataPoint] {
+        return zip(placeholderSignal.ts.indexDates(), placeholderSignal.ts.col(at: i)).map({ ($0, $1) })
+    }
+    
+    func points(for sig: [Float]) -> [ChartDataPoint] {
+        let ramp: [Float] = vDSP.ramp(withInitialValue: 0.0, increment: 1.0, count: sig.count)
+        return zip(ramp, sig).map({ (x: $0, y: $1) })
+    }
+    
+    func frequencyDomain(of sig: [ChartDoubleIndexDataPoint]) -> [ChartDataPoint] {
+        let freqY = FFT.spectralAnalysis(of: sig.map({ $0.y }))
+        let freqX: [Float] = vDSP.ramp(withInitialValue: 0.0, increment: 1.0, count: freqY.count)
+        return zip(freqX, freqY).map({ (x: $0, y: $1) })
     }
     
     func update() {
@@ -99,55 +72,45 @@ class FilterSelectionDetails {
         // FIXME: should probably do a diff
         placeholderSignal.ts.clear(rightOf: 0)
         
-//        guard filters.count > 0 else {
-//            self.rawSignal = points(for: 0)
-//            self.filteredSignal = nil
-//            return
-//        }
-        
-        for (i, f) in self.filters.enumerated() {
-            placeholderSignal.ts.apply(filter: f.selection, to: i)
-            f.src = i
-            f.dest = placeholderSignal.ts.count
-            
+        let _filters = filters
+        filters = []
+    
+        for (i, f) in _filters.enumerated() {
+            placeholderSignal.ts.apply(filter: f.selection, to: i, at: f.dest ?? nil)
+            filters.append(f)
         }
-
-//        withAnimation {
-//            self.rawSignal = points(for: 0)
-//            self.filteredSignal = points(for: filters.count)
-//        }
     }
     
     func filterAdded(_ t: SignalFilterType) {
         let filter: any SignalFilter
-        let freq = Float(placeholderSignal.ts.frequency())
+        let freq = Float(placeholderSignal.ts.frequencyHz())
         
         switch t {
         case .none: return
-        case .movingAverage:
-            filter = MovingAverageFilter(window: 10)
         case .minMaxScaling:
             filter = MinMaxScalingFilter()
         case .demean:
             filter = DemeanFilter()
         case .zscore:
             filter = ZScoreFilter()
+        case .movingAverage:
+            filter = MovingAverageFilter(window: 2)
         case .lowPass:
             filter = LowPassFilter(
                 frequency: freq,
-                cutoffFrequency: freq*0.1,
+                cutoffFrequency: freq*0.01,
                 transitionFrequency: 1.0
             )
         case .highPass:
-            filter = LowPassFilter(
+            filter = HighPassFilter(
                 frequency: freq,
-                cutoffFrequency: freq*0.9,
+                cutoffFrequency: freq*0.01,
                 transitionFrequency: 1.0
             )
         case .bandPass:
             filter = BandPassFilter(
                 frequency: freq,
-                cutoffFrequencyHigh: freq*0.9,
+                cutoffFrequencyHigh: freq*0.4,
                 transitionFrequencyHigh: 1.0,
                 cutoffFrequencyLow: freq*0.1,
                 transitionFrequencyLow: 1.0
@@ -155,7 +118,7 @@ class FilterSelectionDetails {
         case .bandReject:
             filter = BandRejectFilter(
                 frequency: freq,
-                cutoffFrequencyHigh: freq*0.9,
+                cutoffFrequencyHigh: freq*0.4,
                 transitionFrequencyHigh: 1.0,
                 cutoffFrequencyLow: freq*0.1,
                 transitionFrequencyLow: 1.0
@@ -165,7 +128,7 @@ class FilterSelectionDetails {
         let lastIdx = filters.count > 0 ? filters.last!.dest ?? 0 : 0
         
         filters.append(
-            FilterSelectionDetails(
+            FilterDetails(
                 selection: filter,
                 isEnabled: true,
                 src: lastIdx,

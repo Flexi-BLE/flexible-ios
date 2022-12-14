@@ -108,8 +108,14 @@ struct SettingsView: View {
                     }
                 }
                 
-                
                 Section(header: Text("Development")) {
+                    
+                    NavigationLink(destination: {
+                        DevSettingsView()
+                    }, label: {
+                        Text("Settings")
+                    })
+                    
                     NavigationLink(
                         destination: SignalExplorerView(),
                         label: {

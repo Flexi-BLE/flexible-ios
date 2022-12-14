@@ -10,27 +10,33 @@ import Charts
 import flexiBLE_signal
 import Accelerate
 
-struct ExplorerDetailsFrequencyChart: View {
+struct ExplorerDetailsFloatChart: View {
     
     private struct Data: Identifiable {
         let name: String
-        let signal: [(x: Float, y: Float)]
+        let signal: [SignalExplorerModel.ChartDataPoint]
         var id: String { name }
     }
     
     private var data: [Data] = []
+    private var xLabel: String
+    private var yLabel: String
     
-    init(rawSignal: [(x: Double, y: Float)], filteredSignal: [(x: Double, y: Float)]?) {
-        
-        if let fs = filteredSignal {
-            let freqY = FFT.spectralAnalysis(of: fs.map({ $0.y }))
-            let freqX = vDSP.ramp(withInitialValue: Float(0.0), increment: 1.0, count: freqY.count)
-            data.append(Data(name: "filtered", signal: zip(freqX, freqY).map { (x: $0, y: $1) }))
+    init(
+        signal: [SignalExplorerModel.ChartDataPoint],
+        compareSignal: [SignalExplorerModel.ChartDataPoint]?,
+        signalName: String,
+        compareSignalName: String?,
+        xLabel: String,
+        yLabel: String
+    ) {
+        data.append(Data(name: signalName, signal: signal))
+        if let cs = compareSignal, let name = compareSignalName {
+            data.append(Data(name: name, signal: cs))
         }
         
-        let freqY = FFT.spectralAnalysis(of: rawSignal.map({ $0.y }))
-        let freqX = vDSP.ramp(withInitialValue: Float(0.0), increment: 1.0, count: freqY.count)
-        data.append(Data(name: "raw", signal: zip(freqX, freqY).map { (x: $0, y: $1) }))
+        self.xLabel = xLabel
+        self.yLabel = yLabel
     }
     
     var body: some View {
@@ -38,8 +44,8 @@ struct ExplorerDetailsFrequencyChart: View {
             ForEach(data) { series in
                 ForEach(series.signal, id: \.x) { element in
                     LineMark(
-                        x: .value("Amplitude", element.x),
-                        y: .value("arb", element.y)
+                        x: .value(xLabel, element.x),
+                        y: .value(yLabel, element.y)
                     )
                 }
                 .foregroundStyle(by: .value("Signal", series.name))

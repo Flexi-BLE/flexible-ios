@@ -145,7 +145,7 @@ import GRDB
         )
         
         Task(priority: .userInitiated) { [weak self] in
-            try? await Task.sleep(nanoseconds: 500_000_000)
+//            try? await Task.sleep(nanoseconds: UInt64(DataStreamParamUpdateDelay.get() * 1_000_000))
             await self?.fetchLatestConfig()
         }
     }
@@ -168,7 +168,7 @@ import GRDB
         )
         
         Task(priority: .userInitiated) { [weak self] in
-            try? await Task.sleep(nanoseconds: 500_000_000)
+//            try? await Task.sleep(nanoseconds: UInt64(DataStreamParamUpdateDelay.get() * 1_000_000))
             await self?.fetchLatestConfig()
         }
         

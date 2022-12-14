@@ -13,17 +13,29 @@ struct ExplorerDetailsTimeChart: View {
     
     private struct Data: Identifiable {
         let name: String
-        let signal: [(x: Date, y: Float)]
+        let signal: [SignalExplorerModel.ChartTSDataPoint]
         var id: String { name }
     }
     
     private var data: [Data] = []
+    private var xLabel: String
+    private var yLabel: String
     
-    init(rawSignal: [(x: Double, y: Float)], filteredSignal: [(x: Double, y: Float)]?) {
-        if let fs = filteredSignal {
-            data.append(Data(name: "Filtered", signal: fs.map({ (x: Date(timeIntervalSince1970: $0), y: $1) })))
+    init(
+        signal: [SignalExplorerModel.ChartTSDataPoint],
+        compareSignal: [SignalExplorerModel.ChartTSDataPoint]?,
+        signalName: String,
+        compareSignalName: String?,
+        xLabel: String,
+        yLabel: String
+    ) {
+        data.append(Data(name: signalName, signal: signal))
+        if let cs = compareSignal, let name = compareSignalName {
+            data.append(Data(name: name, signal: cs))
         }
-        data.append(Data(name: "Raw", signal: rawSignal.map({ (x: Date(timeIntervalSince1970: $0), y: $1) })))
+        
+        self.xLabel = xLabel
+        self.yLabel = yLabel
     }
     
     
@@ -32,8 +44,8 @@ struct ExplorerDetailsTimeChart: View {
             ForEach(data) { series in
                 ForEach(series.signal, id: \.x) { element in
                     LineMark(
-                        x: .value("time", element.x),
-                        y: .value("arb", element.y)
+                        x: .value(xLabel, element.x),
+                        y: .value(yLabel, element.y)
                     )
                 }
                 .foregroundStyle(by: .value("Signal", series.name))
@@ -47,6 +59,6 @@ struct ExplorerDetailsTimeChart: View {
 
 struct ExplorerDetailsChart_Previews: PreviewProvider {
     static var previews: some View {
-        ExplorerDetailsTimeChart(rawSignal: [], filteredSignal: nil)
+        ExplorerDetailsTimeChart(signal: [], compareSignal: [], signalName: "none", compareSignalName: "test", xLabel: "time", yLabel: "arb")
     }
 }

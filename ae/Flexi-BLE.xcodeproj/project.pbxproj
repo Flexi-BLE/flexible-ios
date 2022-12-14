@@ -64,10 +64,8 @@
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
 		012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
-		013B56B0293FABB300BBBF3A /* TestingEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56AF293FABB300BBBF3A /* TestingEditView.swift */; };
 		013B56B2293FCF7300BBBF3A /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B1293FCF7300BBBF3A /* KeyboardResponder.swift */; };
 		013B56B4293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B3293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift */; };
-		013B56B62940D93700BBBF3A /* FilterEditChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B52940D93700BBBF3A /* FilterEditChartView.swift */; };
 		013B56B82940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
@@ -135,19 +133,12 @@
 		01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */; };
 		01BFFC2F2927CCEE00EB3B02 /* flexiBLE_signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01BFFC2E2927CCEE00EB3B02 /* flexiBLE_signal */; };
 		01BFFC342927CDF700EB3B02 /* SignalExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */; };
-		01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */; };
-		01BFFC3C2927F03300EB3B02 /* FilterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */; };
-		01BFFC3E2927F56A00EB3B02 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3D2927F56A00EB3B02 /* FilterView.swift */; };
+		01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFloatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC392927E13000EB3B02 /* ExplorerDetailsFloatChart.swift */; };
 		01BFFC40292801FE00EB3B02 /* FilterTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */; };
-		01BFFC4329280FD200EB3B02 /* MovingAverageOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */; };
-		01BFFC462928159600EB3B02 /* MovingAverageIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */; };
-		01BFFC48292819D600EB3B02 /* LowPassOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */; };
 		01BFFC4A2928396A00EB3B02 /* SignalExplorerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */; };
 		01BFFC4C29283A4300EB3B02 /* TimeFreqChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */; };
 		01BFFC4E29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */; };
-		01BFFC5029284FD300EB3B02 /* LowPassIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */; };
 		01BFFC5329295D1300EB3B02 /* SignalExplorerFilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */; };
-		01BFFC5529296B3900EB3B02 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC5429296B3900EB3B02 /* FilterOptions.swift */; };
 		01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
@@ -168,6 +159,15 @@
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
+		01D2A06E294A0D2E0048A43E /* DevSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A06C294A0D2E0048A43E /* DevSettingsView.swift */; };
+		01D2A06F294A0D2E0048A43E /* DataStreamParamUpdateDelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A06D294A0D2E0048A43E /* DataStreamParamUpdateDelayView.swift */; };
+		01D2A071294A0D340048A43E /* TestingEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A070294A0D340048A43E /* TestingEditView.swift */; };
+		01D2A073294A28B80048A43E /* FilterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A072294A28B80048A43E /* FilterDetails.swift */; };
+		01D2A076294A2E120048A43E /* AddAFilterLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A075294A2E120048A43E /* AddAFilterLink.swift */; };
+		01D2A078294A2E390048A43E /* FilterCompactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A077294A2E390048A43E /* FilterCompactDetails.swift */; };
+		01D2A07A294A2E5E0048A43E /* FilterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A079294A2E5E0048A43E /* FilterEditView.swift */; };
+		01D2A07C294A2E8A0048A43E /* ZScroreDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A07B294A2E8A0048A43E /* ZScroreDetailsView.swift */; };
+		01D2A07F294A3EF90048A43E /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A07E294A3EF90048A43E /* DeviceRotationViewModifier.swift */; };
 		01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */; };
 		01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */; };
 		01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9C28F84C5D00FE5E9E /* ChartParameters.swift */; };
@@ -203,6 +203,13 @@
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
+		01F9EA18294A524F00210BC2 /* MinMaxScalingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA17294A524F00210BC2 /* MinMaxScalingDetailsView.swift */; };
+		01F9EA1A294A52EF00210BC2 /* FilterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA19294A52EF00210BC2 /* FilterDetailsView.swift */; };
+		01F9EA1C294A562A00210BC2 /* DemeanDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA1B294A562A00210BC2 /* DemeanDetailsView.swift */; };
+		01F9EA1E294A569E00210BC2 /* MovingAverageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA1D294A569E00210BC2 /* MovingAverageDetailsView.swift */; };
+		01F9EA20294A690500210BC2 /* LowPassDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA1F294A690500210BC2 /* LowPassDetailsView.swift */; };
+		01F9EA22294A74E800210BC2 /* HighPassDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA21294A74E800210BC2 /* HighPassDetailsView.swift */; };
+		01F9EA24294A782000210BC2 /* BandPassDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9EA23294A782000210BC2 /* BandPassDetailsView.swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
 		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
@@ -245,6 +252,8 @@
 		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
 		0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBViewModel.swift; sourceTree = "<group>"; };
+		0109A022292C423C00CE02A9 /* DevSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
+		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011F48222807692E00B359EB /* ae_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ae_iosApp.swift; sourceTree = "<group>"; };
 		011F48262807693000B359EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,10 +283,8 @@
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
-		013B56AF293FABB300BBBF3A /* TestingEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingEditView.swift; sourceTree = "<group>"; };
 		013B56B1293FCF7300BBBF3A /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		013B56B3293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToSoftwareKeyboard.swift; sourceTree = "<group>"; };
-		013B56B52940D93700BBBF3A /* FilterEditChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEditChartView.swift; sourceTree = "<group>"; };
 		013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsKernelChart.swift; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
@@ -330,19 +337,12 @@
 		01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsViewModel.swift; sourceTree = "<group>"; };
 		01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerView.swift; sourceTree = "<group>"; };
-		01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsFrequencyChart.swift; sourceTree = "<group>"; };
-		01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetails.swift; sourceTree = "<group>"; };
-		01BFFC3D2927F56A00EB3B02 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		01BFFC392927E13000EB3B02 /* ExplorerDetailsFloatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsFloatChart.swift; sourceTree = "<group>"; };
 		01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypePicker.swift; sourceTree = "<group>"; };
-		01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageOptionsView.swift; sourceTree = "<group>"; };
-		01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageIRView.swift; sourceTree = "<group>"; };
-		01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassOptionsView.swift; sourceTree = "<group>"; };
 		01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerModel.swift; sourceTree = "<group>"; };
 		01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFreqChartView.swift; sourceTree = "<group>"; };
 		01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsTimeChart.swift; sourceTree = "<group>"; };
-		01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassIRView.swift; sourceTree = "<group>"; };
 		01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerFilterList.swift; sourceTree = "<group>"; };
-		01BFFC5429296B3900EB3B02 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
 		01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRunningView.swift; sourceTree = "<group>"; };
 		01C232A028C6B155006C6B33 /* UploadInitializingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInitializingView.swift; sourceTree = "<group>"; };
 		01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPausedView.swift; sourceTree = "<group>"; };
@@ -353,6 +353,15 @@
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01D2A06C294A0D2E0048A43E /* DevSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
+		01D2A06D294A0D2E0048A43E /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
+		01D2A070294A0D340048A43E /* TestingEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingEditView.swift; sourceTree = "<group>"; };
+		01D2A072294A28B80048A43E /* FilterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetails.swift; sourceTree = "<group>"; };
+		01D2A075294A2E120048A43E /* AddAFilterLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAFilterLink.swift; sourceTree = "<group>"; };
+		01D2A077294A2E390048A43E /* FilterCompactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCompactDetails.swift; sourceTree = "<group>"; };
+		01D2A079294A2E5E0048A43E /* FilterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEditView.swift; sourceTree = "<group>"; };
+		01D2A07B294A2E8A0048A43E /* ZScroreDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZScroreDetailsView.swift; sourceTree = "<group>"; };
+		01D2A07E294A3EF90048A43E /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
 		01E19B502927CC9F00BDC94A /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControls.swift; sourceTree = "<group>"; };
 		01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigBitEncodingMultiselectEditView.swift; sourceTree = "<group>"; };
@@ -372,6 +381,13 @@
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Util.swift"; sourceTree = "<group>"; };
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01F9EA17294A524F00210BC2 /* MinMaxScalingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinMaxScalingDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA19294A52EF00210BC2 /* FilterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA1B294A562A00210BC2 /* DemeanDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemeanDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA1D294A569E00210BC2 /* MovingAverageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA1F294A690500210BC2 /* LowPassDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA21294A74E800210BC2 /* HighPassDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighPassDetailsView.swift; sourceTree = "<group>"; };
+		01F9EA23294A782000210BC2 /* BandPassDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPassDetailsView.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithUserLocationView.swift; sourceTree = "<group>"; };
@@ -465,6 +481,7 @@
 				011F48612807695600B359EB /* ae-macosTests */,
 				011F47F22807687900B359EB /* Products */,
 				011F48C628076D0200B359EB /* Frameworks */,
+				01E756C9294A057600694F61 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -648,7 +665,9 @@
 		013B56AE293FAB9A00BBBF3A /* Development */ = {
 			isa = PBXGroup;
 			children = (
-				013B56AF293FABB300BBBF3A /* TestingEditView.swift */,
+				01D2A06D294A0D2E0048A43E /* DataStreamParamUpdateDelayView.swift */,
+				01D2A070294A0D340048A43E /* TestingEditView.swift */,
+				01D2A06C294A0D2E0048A43E /* DevSettingsView.swift */,
 			);
 			path = Development;
 			sourceTree = "<group>";
@@ -715,44 +734,33 @@
 			isa = PBXGroup;
 			children = (
 				01BFFC512929553D00EB3B02 /* MainChart */,
-				01BFFC442928157900EB3B02 /* FilterIRView */,
-				01BFFC41292806BB00EB3B02 /* FilterOptions */,
+				01BFFC41292806BB00EB3B02 /* Filters */,
 				01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */,
 				01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */,
-				01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */,
-				01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */,
-				01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */,
-				01BFFC3D2927F56A00EB3B02 /* FilterView.swift */,
 			);
 			path = SignalExplorer;
 			sourceTree = "<group>";
 		};
-		01BFFC41292806BB00EB3B02 /* FilterOptions */ = {
+		01BFFC41292806BB00EB3B02 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */,
-				01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */,
-				01BFFC5429296B3900EB3B02 /* FilterOptions.swift */,
+				01D2A074294A2DE70048A43E /* FilterDetails */,
+				01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */,
+				01D2A072294A28B80048A43E /* FilterDetails.swift */,
+				01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */,
+				01D2A075294A2E120048A43E /* AddAFilterLink.swift */,
+				01D2A077294A2E390048A43E /* FilterCompactDetails.swift */,
+				01D2A079294A2E5E0048A43E /* FilterEditView.swift */,
 			);
-			path = FilterOptions;
-			sourceTree = "<group>";
-		};
-		01BFFC442928157900EB3B02 /* FilterIRView */ = {
-			isa = PBXGroup;
-			children = (
-				01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */,
-				01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */,
-			);
-			path = FilterIRView;
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		01BFFC512929553D00EB3B02 /* MainChart */ = {
 			isa = PBXGroup;
 			children = (
 				01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */,
-				013B56B52940D93700BBBF3A /* FilterEditChartView.swift */,
 				01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */,
-				01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */,
+				01BFFC392927E13000EB3B02 /* ExplorerDetailsFloatChart.swift */,
 				013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */,
 			);
 			path = MainChart;
@@ -771,6 +779,29 @@
 				012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */,
 			);
 			path = uploading;
+			sourceTree = "<group>";
+		};
+		01D2A074294A2DE70048A43E /* FilterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				01F9EA19294A52EF00210BC2 /* FilterDetailsView.swift */,
+				01D2A07B294A2E8A0048A43E /* ZScroreDetailsView.swift */,
+				01F9EA17294A524F00210BC2 /* MinMaxScalingDetailsView.swift */,
+				01F9EA1B294A562A00210BC2 /* DemeanDetailsView.swift */,
+				01F9EA1D294A569E00210BC2 /* MovingAverageDetailsView.swift */,
+				01F9EA1F294A690500210BC2 /* LowPassDetailsView.swift */,
+				01F9EA21294A74E800210BC2 /* HighPassDetailsView.swift */,
+				01F9EA23294A782000210BC2 /* BandPassDetailsView.swift */,
+			);
+			path = FilterDetails;
+			sourceTree = "<group>";
+		};
+		01D2A07D294A3EDF0048A43E /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				01D2A07E294A3EF90048A43E /* DeviceRotationViewModifier.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		01E2AF9B28F633A500FE5E9E /* ConfigValueEditViews */ = {
@@ -794,6 +825,15 @@
 				0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		01E756C9294A057600694F61 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0109A022292C423C00CE02A9 /* DevSettingsView.swift */,
+				0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {
@@ -836,6 +876,7 @@
 		5C19730D2881FA420048AAB2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				01D2A07D294A3EDF0048A43E /* ViewModifier */,
 				5C95DB5228C310B500396FA0 /* Fonts */,
 				5C19730F2881FA540048AAB2 /* ViewModels */,
 				5C19730E2881FA4C0048AAB2 /* Views */,
@@ -1079,21 +1120,19 @@
 				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
+				01F9EA1E294A569E00210BC2 /* MovingAverageDetailsView.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				01BFFC4C29283A4300EB3B02 /* TimeFreqChartView.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
-				01BFFC5029284FD300EB3B02 /* LowPassIRView.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
-				01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift in Sources */,
+				01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFloatChart.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
 				01551D1828DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift in Sources */,
 				01BFFC342927CDF700EB3B02 /* SignalExplorerView.swift in Sources */,
 				01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */,
 				01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */,
-				01BFFC48292819D600EB3B02 /* LowPassOptionsView.swift in Sources */,
 				01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */,
-				013B56B0293FABB300BBBF3A /* TestingEditView.swift in Sources */,
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01BFFC4A2928396A00EB3B02 /* SignalExplorerModel.swift in Sources */,
@@ -1101,14 +1140,16 @@
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				017810C628E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
 				014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */,
+				01D2A07C294A2E8A0048A43E /* ZScroreDetailsView.swift in Sources */,
 				014DB6BE289B613B008982C6 /* ExperimentViewModel.swift in Sources */,
 				5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */,
+				01D2A076294A2E120048A43E /* AddAFilterLink.swift in Sources */,
 				0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */,
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
 				0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */,
 				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
 				01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */,
-				01BFFC4329280FD200EB3B02 /* MovingAverageOptionsView.swift in Sources */,
+				01D2A06E294A0D2E0048A43E /* DevSettingsView.swift in Sources */,
 				01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */,
 				01BFFC40292801FE00EB3B02 /* FilterTypePicker.swift in Sources */,
 				01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */,
@@ -1118,20 +1159,22 @@
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
 				013B56B2293FCF7300BBBF3A /* KeyboardResponder.swift in Sources */,
-				01BFFC5529296B3900EB3B02 /* FilterOptions.swift in Sources */,
 				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				012B302828D8DD1400BA623A /* UIApplication.swift in Sources */,
 				01E7F28D281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */,
+				01D2A071294A0D340048A43E /* TestingEditView.swift in Sources */,
 				0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
+				01F9EA22294A74E800210BC2 /* HighPassDetailsView.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
 				01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */,
 				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
+				01D2A073294A28B80048A43E /* FilterDetails.swift in Sources */,
 				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
 				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */,
@@ -1141,6 +1184,7 @@
 				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
+				01D2A07F294A3EF90048A43E /* DeviceRotationViewModifier.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
@@ -1155,15 +1199,17 @@
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
 				01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
-				01BFFC462928159600EB3B02 /* MovingAverageIRView.swift in Sources */,
 				014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */,
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
+				01F9EA20294A690500210BC2 /* LowPassDetailsView.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
+				01D2A078294A2E390048A43E /* FilterCompactDetails.swift in Sources */,
+				01D2A06F294A0D2E0048A43E /* DataStreamParamUpdateDelayView.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
@@ -1171,7 +1217,6 @@
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
 				01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */,
-				01BFFC3C2927F03300EB3B02 /* FilterDetails.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */,
@@ -1183,20 +1228,23 @@
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
+				01F9EA24294A782000210BC2 /* BandPassDetailsView.swift in Sources */,
 				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
-				01BFFC3E2927F56A00EB3B02 /* FilterView.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
-				013B56B62940D93700BBBF3A /* FilterEditChartView.swift in Sources */,
+				01F9EA1C294A562A00210BC2 /* DemeanDetailsView.swift in Sources */,
+				01F9EA1A294A52EF00210BC2 /* FilterDetailsView.swift in Sources */,
 				01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
+				01D2A07A294A2E5E0048A43E /* FilterEditView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
 				01C232A728C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
+				01F9EA18294A524F00210BC2 /* MinMaxScalingDetailsView.swift in Sources */,
 				01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */,
 				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
@@ -1458,7 +1506,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.3.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1545,7 +1593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.3.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

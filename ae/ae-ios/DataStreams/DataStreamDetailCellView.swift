@@ -36,7 +36,7 @@ struct DataStreamDetailCellView: View {
             
             Divider()
             
-            KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
+            KeyValueView(key: "Number of Records", value: "\(vm.recordCount.formatted())")
             KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
             if let rel = vm.reliability {
                 KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")

@@ -87,7 +87,11 @@
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="flexiBLE_signal" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Flexi-BLE" TARGET_NAME="flexiBLE_signal" CONFIG_NAME="flexiBLE_signal">
+=======
+    <configuration name="flexiBLE-signal" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Flexi-BLE" TARGET_NAME="flexiBLE-signal" CONFIG_NAME="flexiBLE-signal">
+>>>>>>> dev
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
@@ -98,7 +102,11 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="flexiBLE_signalTests" type="SwiftPackageManagerTestRunConfiguration" factoryName="Swift Package Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Flexi-BLE" TARGET_NAME="flexiBLE_signalTests" CONFIG_NAME="flexiBLE_signalTests" RUN_TARGET_PROJECT_NAME="Flexi-BLE" RUN_TARGET_NAME="flexiBLE_signalTests" TEST_MODE="SUITE_TEST">
+=======
+    <configuration name="flexiBLE-signalTests" type="SwiftPackageManagerTestRunConfiguration" factoryName="Swift Package Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Flexi-BLE" TARGET_NAME="flexiBLE-signalTests" CONFIG_NAME="flexiBLE-signalTests" RUN_TARGET_PROJECT_NAME="Flexi-BLE" RUN_TARGET_NAME="flexiBLE-signalTests" TEST_MODE="SUITE_TEST">
+>>>>>>> dev
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -106,9 +114,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.ae-ios" />
+<<<<<<< HEAD
       <item itemvalue="Swift Package Run.flexiBLE_signal" />
       <item itemvalue="Swift Package Run.FlexiBLE" />
       <item itemvalue="Swift Package Test.flexiBLE_signalTests" />
+=======
+      <item itemvalue="Swift Package Run.flexiBLE-signal" />
+      <item itemvalue="Swift Package Run.FlexiBLE" />
+      <item itemvalue="Swift Package Test.flexiBLE-signalTests" />
+>>>>>>> dev
       <item itemvalue="Swift Package Test.FlexiBLETests" />
     </list>
   </component>
@@ -123,7 +137,11 @@
       <workItem from="1666103934880" duration="10000" />
       <workItem from="1666103958126" duration="254000" />
       <workItem from="1666125573839" duration="1354000" />
+<<<<<<< HEAD
       <workItem from="1670447295506" duration="77000" />
+=======
+      <workItem from="1669127195532" duration="606000" />
+>>>>>>> dev
     </task>
     <servers />
   </component>
