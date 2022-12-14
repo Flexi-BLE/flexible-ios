@@ -109,6 +109,23 @@ struct SettingsView: View {
                 }
                 
                 
+                Section(header: Text("Development")) {
+                    NavigationLink(
+                        destination: SignalExplorerView(),
+                        label: {
+                            Text("Signal Explorer")
+                        }
+                    )
+                    
+                    NavigationLink(
+                        destination: TestingEditView(),
+                        label: {
+                            Text("Test Edit")
+                        }
+                    )
+
+                }
+                
             }
             .alert(item: $alertInfo, content: { $0.alert })
             .navigationBarTitle("Settings")

@@ -64,6 +64,11 @@
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
 		012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
+		013B56B0293FABB300BBBF3A /* TestingEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56AF293FABB300BBBF3A /* TestingEditView.swift */; };
+		013B56B2293FCF7300BBBF3A /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B1293FCF7300BBBF3A /* KeyboardResponder.swift */; };
+		013B56B4293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B3293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift */; };
+		013B56B62940D93700BBBF3A /* FilterEditChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B52940D93700BBBF3A /* FilterEditChartView.swift */; };
+		013B56B82940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */; };
 		013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C85EDB728860ECF003DF9D1 /* ConfigEditView.swift */; };
 		013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767028888324000D88E2 /* ConfigOptionEditView.swift */; };
 		013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F767228888536000D88E2 /* ConfigRangeEditView.swift */; };
@@ -128,6 +133,21 @@
 		01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */; };
 		01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */; };
 		01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */; };
+		01BFFC2F2927CCEE00EB3B02 /* flexiBLE_signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01BFFC2E2927CCEE00EB3B02 /* flexiBLE_signal */; };
+		01BFFC342927CDF700EB3B02 /* SignalExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */; };
+		01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */; };
+		01BFFC3C2927F03300EB3B02 /* FilterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */; };
+		01BFFC3E2927F56A00EB3B02 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3D2927F56A00EB3B02 /* FilterView.swift */; };
+		01BFFC40292801FE00EB3B02 /* FilterTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */; };
+		01BFFC4329280FD200EB3B02 /* MovingAverageOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */; };
+		01BFFC462928159600EB3B02 /* MovingAverageIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */; };
+		01BFFC48292819D600EB3B02 /* LowPassOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */; };
+		01BFFC4A2928396A00EB3B02 /* SignalExplorerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */; };
+		01BFFC4C29283A4300EB3B02 /* TimeFreqChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */; };
+		01BFFC4E29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */; };
+		01BFFC5029284FD300EB3B02 /* LowPassIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */; };
+		01BFFC5329295D1300EB3B02 /* SignalExplorerFilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */; };
+		01BFFC5529296B3900EB3B02 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFFC5429296B3900EB3B02 /* FilterOptions.swift */; };
 		01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
@@ -254,10 +274,14 @@
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
+		013B56AF293FABB300BBBF3A /* TestingEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingEditView.swift; sourceTree = "<group>"; };
+		013B56B1293FCF7300BBBF3A /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		013B56B3293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToSoftwareKeyboard.swift; sourceTree = "<group>"; };
+		013B56B52940D93700BBBF3A /* FilterEditChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEditChartView.swift; sourceTree = "<group>"; };
+		013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsKernelChart.swift; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
 		013F767228888536000D88E2 /* ConfigRangeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRangeEditView.swift; sourceTree = "<group>"; };
 		013F767428888577000D88E2 /* ConfigValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigValueView.swift; sourceTree = "<group>"; };
-		01442A7E2926CE07006AF7B9 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		014DB6B7289B5235008982C6 /* ExperimentMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentMapView.swift; sourceTree = "<group>"; };
 		014DB6B9289B52D2008982C6 /* MapKit+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Utils.swift"; sourceTree = "<group>"; };
 		014DB6BB289B55AA008982C6 /* ExperimentMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentMapViewModel.swift; sourceTree = "<group>"; };
@@ -305,6 +329,20 @@
 		01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsView.swift; sourceTree = "<group>"; };
 		01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsViewModel.swift; sourceTree = "<group>"; };
 		01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
+		01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerView.swift; sourceTree = "<group>"; };
+		01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsFrequencyChart.swift; sourceTree = "<group>"; };
+		01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetails.swift; sourceTree = "<group>"; };
+		01BFFC3D2927F56A00EB3B02 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypePicker.swift; sourceTree = "<group>"; };
+		01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageOptionsView.swift; sourceTree = "<group>"; };
+		01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageIRView.swift; sourceTree = "<group>"; };
+		01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassOptionsView.swift; sourceTree = "<group>"; };
+		01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerModel.swift; sourceTree = "<group>"; };
+		01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFreqChartView.swift; sourceTree = "<group>"; };
+		01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsTimeChart.swift; sourceTree = "<group>"; };
+		01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassIRView.swift; sourceTree = "<group>"; };
+		01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalExplorerFilterList.swift; sourceTree = "<group>"; };
+		01BFFC5429296B3900EB3B02 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
 		01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRunningView.swift; sourceTree = "<group>"; };
 		01C232A028C6B155006C6B33 /* UploadInitializingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInitializingView.swift; sourceTree = "<group>"; };
 		01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPausedView.swift; sourceTree = "<group>"; };
@@ -315,6 +353,7 @@
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		01E19B502927CC9F00BDC94A /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControls.swift; sourceTree = "<group>"; };
 		01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigBitEncodingMultiselectEditView.swift; sourceTree = "<group>"; };
 		01E2AF9C28F84C5D00FE5E9E /* ChartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartParameters.swift; sourceTree = "<group>"; };
@@ -356,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0152A27A2915BB5500E5F2F4 /* GRDB in Frameworks */,
+				01BFFC2F2927CCEE00EB3B02 /* flexiBLE_signal in Frameworks */,
 				019971E229114A870020276D /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +482,7 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
+				01BFFC322927CDCE00EB3B02 /* SignalExplorer */,
 				01E7F276281858B900ED6F15 /* Device */,
 				01717C2A28DCE0A900B7DF39 /* Data */,
 				5C19730D2881FA420048AAB2 /* Shared */,
@@ -531,6 +572,7 @@
 		011F488928076B3B00B359EB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				013B56AE293FAB9A00BBBF3A /* Development */,
 				0105E36028C0F0F300AAB5E2 /* Upload */,
 				011F488A28076B3B00B359EB /* SettingsView.swift */,
 				011F488E28076B3B00B359EB /* DataExplorer */,
@@ -572,7 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				019971DD29114A6C0020276D /* flexible-swift */,
-				01442A7E2926CE07006AF7B9 /* flexible-swift-signal */,
+				01E19B502927CC9F00BDC94A /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -601,6 +643,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		013B56AE293FAB9A00BBBF3A /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				013B56AF293FABB300BBBF3A /* TestingEditView.swift */,
+			);
+			path = Development;
 			sourceTree = "<group>";
 		};
 		01717C2A28DCE0A900B7DF39 /* Data */ = {
@@ -659,6 +709,53 @@
 				0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */,
 			);
 			path = GraphParamters;
+			sourceTree = "<group>";
+		};
+		01BFFC322927CDCE00EB3B02 /* SignalExplorer */ = {
+			isa = PBXGroup;
+			children = (
+				01BFFC512929553D00EB3B02 /* MainChart */,
+				01BFFC442928157900EB3B02 /* FilterIRView */,
+				01BFFC41292806BB00EB3B02 /* FilterOptions */,
+				01BFFC492928396A00EB3B02 /* SignalExplorerModel.swift */,
+				01BFFC332927CDF700EB3B02 /* SignalExplorerView.swift */,
+				01BFFC5229295D1300EB3B02 /* SignalExplorerFilterList.swift */,
+				01BFFC3F292801FE00EB3B02 /* FilterTypePicker.swift */,
+				01BFFC3B2927F03300EB3B02 /* FilterDetails.swift */,
+				01BFFC3D2927F56A00EB3B02 /* FilterView.swift */,
+			);
+			path = SignalExplorer;
+			sourceTree = "<group>";
+		};
+		01BFFC41292806BB00EB3B02 /* FilterOptions */ = {
+			isa = PBXGroup;
+			children = (
+				01BFFC4229280FD200EB3B02 /* MovingAverageOptionsView.swift */,
+				01BFFC47292819D600EB3B02 /* LowPassOptionsView.swift */,
+				01BFFC5429296B3900EB3B02 /* FilterOptions.swift */,
+			);
+			path = FilterOptions;
+			sourceTree = "<group>";
+		};
+		01BFFC442928157900EB3B02 /* FilterIRView */ = {
+			isa = PBXGroup;
+			children = (
+				01BFFC452928159600EB3B02 /* MovingAverageIRView.swift */,
+				01BFFC4F29284FD300EB3B02 /* LowPassIRView.swift */,
+			);
+			path = FilterIRView;
+			sourceTree = "<group>";
+		};
+		01BFFC512929553D00EB3B02 /* MainChart */ = {
+			isa = PBXGroup;
+			children = (
+				01BFFC4B29283A4300EB3B02 /* TimeFreqChartView.swift */,
+				013B56B52940D93700BBBF3A /* FilterEditChartView.swift */,
+				01BFFC4D29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift */,
+				01BFFC392927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift */,
+				013B56B72940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift */,
+			);
+			path = MainChart;
 			sourceTree = "<group>";
 		};
 		01C2329C28C6B029006C6B33 /* uploading */ = {
@@ -742,6 +839,8 @@
 				5C95DB5228C310B500396FA0 /* Fonts */,
 				5C19730F2881FA540048AAB2 /* ViewModels */,
 				5C19730E2881FA4C0048AAB2 /* Views */,
+				013B56B1293FCF7300BBBF3A /* KeyboardResponder.swift */,
+				013B56B3293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -818,6 +917,7 @@
 			packageProductDependencies = (
 				019971E129114A870020276D /* flexible-swift */,
 				0152A2792915BB5500E5F2F4 /* GRDB */,
+				01BFFC2E2927CCEE00EB3B02 /* flexiBLE_signal */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -980,16 +1080,23 @@
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
+				01BFFC4C29283A4300EB3B02 /* TimeFreqChartView.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01BFFC5029284FD300EB3B02 /* LowPassIRView.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
+				01BFFC3A2927E13000EB3B02 /* ExplorerDetailsFrequencyChart.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
 				01551D1828DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift in Sources */,
+				01BFFC342927CDF700EB3B02 /* SignalExplorerView.swift in Sources */,
 				01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */,
 				01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */,
+				01BFFC48292819D600EB3B02 /* LowPassOptionsView.swift in Sources */,
 				01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */,
+				013B56B0293FABB300BBBF3A /* TestingEditView.swift in Sources */,
 				013F767328888536000D88E2 /* ConfigRangeEditView.swift in Sources */,
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
+				01BFFC4A2928396A00EB3B02 /* SignalExplorerModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				017810C628E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
@@ -1001,13 +1108,17 @@
 				0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */,
 				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
 				01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */,
+				01BFFC4329280FD200EB3B02 /* MovingAverageOptionsView.swift in Sources */,
 				01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */,
+				01BFFC40292801FE00EB3B02 /* FilterTypePicker.swift in Sources */,
 				01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */,
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */,
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
+				013B56B2293FCF7300BBBF3A /* KeyboardResponder.swift in Sources */,
+				01BFFC5529296B3900EB3B02 /* FilterOptions.swift in Sources */,
 				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
@@ -1036,12 +1147,15 @@
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
+				013B56B4293FD01100BBBF3A /* AdaptsToSoftwareKeyboard.swift in Sources */,
+				013B56B82940D9D800BBBF3A /* ExplorerDetailsKernelChart.swift in Sources */,
 				015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
 				01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
+				01BFFC462928159600EB3B02 /* MovingAverageIRView.swift in Sources */,
 				014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */,
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
@@ -1057,9 +1171,12 @@
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
 				01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */,
+				01BFFC3C2927F03300EB3B02 /* FilterDetails.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */,
+				01BFFC5329295D1300EB3B02 /* SignalExplorerFilterList.swift in Sources */,
+				01BFFC4E29284C7500EB3B02 /* ExplorerDetailsTimeChart.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */,
 				0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */,
@@ -1068,11 +1185,13 @@
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
 				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
+				01BFFC3E2927F56A00EB3B02 /* FilterView.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
 				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
+				013B56B62940D93700BBBF3A /* FilterEditChartView.swift in Sources */,
 				01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
 				01C232A728C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
@@ -1952,6 +2071,10 @@
 		019971E129114A870020276D /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
+		};
+		01BFFC2E2927CCEE00EB3B02 /* flexiBLE_signal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = flexiBLE_signal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
