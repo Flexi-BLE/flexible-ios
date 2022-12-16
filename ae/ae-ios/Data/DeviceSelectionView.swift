@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeviceSelectionView: View {
-    @StateObject var vm: DeviceDataViewModel
+    @ObservedObject var vm: DeviceDataViewModel
     
     var body: some View {
         HStack {
