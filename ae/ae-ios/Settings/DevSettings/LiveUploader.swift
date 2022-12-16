@@ -102,11 +102,11 @@ class LiveUploader {
     func setupUploader() {
         guard let urlString = url,
               let port = port,
-              let url = URL(string: "\(urlString):\(port)"),
+              let url = URL(string: "\(urlString):\(port)/api/v2/write"),
               let org = org,
               let bucket = bucket,
               let token = token,
-              let deviceId else { return }
+              let deviceId = deviceId else { return }
                 
         self.uploader = InfluxDBUploader(
             url: url,
