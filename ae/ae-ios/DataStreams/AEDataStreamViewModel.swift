@@ -26,15 +26,7 @@ import GRDB
     
     @Published var configVMs: [ConfigViewModel] = []
     
-    @Published var isOn: Bool {
-        didSet {
-            guard let _ = sensorStateConfig else {
-                return
-            }
-            sensorStateConfig?.update(with: isOn ? "1" : "0")
-            updateConfigs()
-        }
-    }
+    @Published var isOn: Bool
     
     private var sensorStateConfig: ConfigViewModel?
     
@@ -60,6 +52,15 @@ import GRDB
         if self.deviceVM == nil {
             self.setupDevice()
         }
+    }
+    
+    func toggleEnable() {
+        guard let _ = sensorStateConfig else {
+            return
+        }
+        self.isOn.toggle()
+        sensorStateConfig?.update(with: isOn ? "1" : "0")
+        updateConfigs()
     }
     
     private func setupDevice() {
@@ -131,6 +132,10 @@ import GRDB
             if let vm = configVMs.first(where: { $0.config.name == configDef.name }) {
                 if let colDef = persistedConfig.metadata.first(where: { $0.name == configDef.name }),
                     let value = persistedConfig.columns[colDef.cid].value as? String {
+                    
+                    if colDef.name == "sensor_state" {
+                        isOn = (Int(value) ?? 0) > 0 ? true : false
+                    }
                     
                     vm.update(with: value)
                 }
