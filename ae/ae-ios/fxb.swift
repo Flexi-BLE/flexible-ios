@@ -10,6 +10,11 @@ import UIKit
 import FlexiBLE
 
 var fxb: FlexiBLE = {
-        let fxb = FlexiBLE.shared
-        return fxb
+    let fxb = FlexiBLE.shared
+    if LiveUpload.get() {
+        LiveUpload.globalUploader.start()
+    } else {
+        LiveUpload.globalUploader.stop()
+    }
+    return fxb
 }()

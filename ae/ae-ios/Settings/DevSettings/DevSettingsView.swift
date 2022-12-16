@@ -10,7 +10,12 @@ import SwiftUI
 struct DevSettingsView: View {
     var body: some View {
         List {
-            DataStreamParamUpdateDelayView()
+            Section {
+                DataStreamParamUpdateDelayView()
+            }
+            Section {
+                LiveUploadDevView()
+            }
         }
         .navigationTitle("Dev Settings")
     }

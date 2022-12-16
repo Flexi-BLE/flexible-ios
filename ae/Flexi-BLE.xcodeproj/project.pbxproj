@@ -62,6 +62,8 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		01286301294CFDB6000DD78E /* LiveUploadDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01286300294CFDB6000DD78E /* LiveUploadDevView.swift */; };
+		01286303294D020B000DD78E /* LiveUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01286302294D020B000DD78E /* LiveUploader.swift */; };
 		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
@@ -257,6 +259,8 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01286300294CFDB6000DD78E /* LiveUploadDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploadDevView.swift; sourceTree = "<group>"; };
+		01286302294D020B000DD78E /* LiveUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploader.swift; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
@@ -425,6 +429,8 @@
 			children = (
 				0109A022292C423C00CE02A9 /* DevSettingsView.swift */,
 				0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */,
+				01286300294CFDB6000DD78E /* LiveUploadDevView.swift */,
+				01286302294D020B000DD78E /* LiveUploader.swift */,
 			);
 			path = DevSettings;
 			sourceTree = "<group>";
@@ -1071,6 +1077,7 @@
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
+				01286303294D020B000DD78E /* LiveUploader.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
@@ -1088,6 +1095,7 @@
 				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
+				01286301294CFDB6000DD78E /* LiveUploadDevView.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
@@ -1319,7 +1327,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1412,7 +1420,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;

@@ -16,7 +16,6 @@ import Foundation
         case bucket = "fxb_influxdb_bucket"
         case token = "fxb_influxdb_token"
         case batchSize = "fxb_influxdb_recordBatchSize"
-        
     }
     
     @Published var isReady: Bool = false
