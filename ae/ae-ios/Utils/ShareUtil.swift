@@ -37,6 +37,17 @@ class ShareUtil {
 //        return nil
 //    }
     
+    static func dbCopy(path: URL) -> URL? {
+        do {
+            let dst = FileManager.default.temporaryDirectory.appendingPathComponent("fxbdb-\(Date.now.getFileNameFriendlyDate()).db")
+            try FileManager.default.copyItem(at: path, to: dst)
+            return dst
+        } catch {
+            print("unable to share db, err: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     static func share(path: URL) {
         do {
             let dst = FileManager.default.temporaryDirectory.appendingPathComponent("fxbdb-\(Date.now.getFileNameFriendlyDate()).db")
@@ -47,11 +58,11 @@ class ShareUtil {
                 activityItems: [dst],
                 applicationActivities: nil
             )
-            UIApplication
-                .shared
-                .currentUIWindow()?
-                .rootViewController?
-                .present(av, animated: true, completion: {
+            
+            if let vc = UIApplication.shared
+                .connectedScenes.map({ $0 as? UIWindowScene }).compactMap({ $0 }).first?.windows.first?.rootViewController {
+                
+                vc.present(av, animated: true, completion: {
                     DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(30)) {
                         do {
                             try FileManager.default.removeItem(at: dst)
@@ -60,6 +71,24 @@ class ShareUtil {
                         }
                     }
                 })
+            } else {
+                print("unable to share db, cannot find view")
+            }
+            
+//            UIApplication
+//                .shared
+//                .windows
+//                .first?
+//                .rootViewController?
+//                .present(av, animated: true, completion: {
+//                    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + .seconds(30)) {
+//                        do {
+//                            try FileManager.default.removeItem(at: dst)
+//                        } catch {
+//                            print("unable to delete tmp database, err: \(error.localizedDescription)")
+//                        }
+//                    }
+//                })
         } catch {
             print("unable to share db, err: \(error.localizedDescription)")
         }

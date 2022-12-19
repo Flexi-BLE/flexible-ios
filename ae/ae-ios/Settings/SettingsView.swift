@@ -16,6 +16,8 @@ struct SettingsView: View {
 //    @State private var isPresentingPurgeUploadConfirm: Bool = false
 //    @State private var isPresentingConnectionWarning: Bool = false
     
+    @State private var isPresentingShare: Bool = false
+    
     @State private var alertInfo: AlertInfo?
     var connectedDeviceWarningAlert: AlertInfo {
         return AlertInfo(
@@ -55,10 +57,17 @@ struct SettingsView: View {
                             Text("Remote Database")
                         }
                     )
-                
+                    
                     Button("Share Database") {
-                        ShareUtil.share(path: fxb.db.dbPath)
+                        isPresentingShare = true
                     }
+                    .sheet(isPresented: $isPresentingShare, onDismiss: {
+                        print("Dismiss")
+                    }, content: {
+                        ActivityViewController(
+                            activityItems: [ShareUtil.dbCopy(path: fxb.db.dbPath) ?? fxb.db.dbPath]
+                        )
+                    })
                 }
                 
                 Section(header: Text("⚠️ Danger Zone")) {
