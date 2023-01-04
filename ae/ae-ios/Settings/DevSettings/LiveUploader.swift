@@ -17,6 +17,10 @@ class LiveUploader {
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private var timerCancellable: AnyCancellable?
     
+    private(set) var batchSize: Int = 1000
+    private(set) var interval: Double = 30
+    private(set) var purgeOnUpload: Bool = false
+    
     private let logger = Logger(subsystem: "com.blainerothrock.flexible", category: "live-uploader")
     
     private var userDefaults = UserDefaults.standard
@@ -72,11 +76,35 @@ class LiveUploader {
     
     var deviceId: String? {
         return userDefaults
-            .string(forKey: UploadDataViewModel.UserDefaultsKey.deviceId.rawValue) ?? UIDevice.current.id
+            .string(forKey: UploadDataInfluxDBViewModel.UserDefaultsKey.deviceId.rawValue) ?? UIDevice.current.id
     }
     
     init() {
         setupUploader()
+    }
+    
+    func set(batchSize: Int) {
+        self.batchSize = batchSize
+        reset()
+    }
+    
+    func set(interval: Int) {
+        self.interval = Double(interval)
+        reset()
+    }
+    
+    func set(purgeOnUpload: Bool) {
+        self.purgeOnUpload = purgeOnUpload
+        reset()
+    }
+    
+    func reset() {
+        if timerCancellable != nil {
+            stop()
+            start()
+        } else {
+            stop()
+        }
     }
     
     func start() {
@@ -84,7 +112,7 @@ class LiveUploader {
         timerCancellable = nil
         
         timer = Timer.publish(
-            every: 10.0,
+            every: interval,
             on: .current,
             in: .default
         ).autoconnect()
@@ -121,7 +149,9 @@ class LiveUploader {
             org: org,
             bucket: bucket,
             token: token,
-            deviceId: deviceId
+            batchSize: batchSize,
+            deviceId: deviceId,
+            purgeOnUpload: purgeOnUpload
         )
         
         logger.info("uploader initialized")

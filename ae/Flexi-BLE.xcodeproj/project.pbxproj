@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
-		0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
-		0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
-		0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
 		0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
 		0105E36828C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
 		0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
@@ -124,6 +120,7 @@
 		01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01911E372964C83D00F208C3 /* flexiBLE-signal */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
+		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
@@ -224,8 +221,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataView.swift; sourceTree = "<group>"; };
-		0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataViewModel.swift; sourceTree = "<group>"; };
 		0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBView.swift; sourceTree = "<group>"; };
 		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
@@ -307,6 +302,7 @@
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		01A2451029660085009212F4 /* SimpleBindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBindingTextField.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
@@ -400,8 +396,6 @@
 				01C2329C28C6B029006C6B33 /* uploading */,
 				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
-				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
-				0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -411,6 +405,7 @@
 			children = (
 				0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */,
 				0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */,
+				01A2451029660085009212F4 /* SimpleBindingTextField.swift */,
 			);
 			path = influxdb;
 			sourceTree = "<group>";
@@ -1004,6 +999,7 @@
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
@@ -1031,7 +1027,6 @@
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
-				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
@@ -1074,7 +1069,6 @@
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
-				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
@@ -1125,7 +1119,6 @@
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
-				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				017810C728E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
@@ -1156,7 +1149,6 @@
 				01E7F27C2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,
 				011F48342807693000B359EB /* ae_iosTests.swift in Sources */,
-				0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */,
