@@ -80,20 +80,28 @@ class LiveUploader {
     }
     
     func start() {
+        timerCancellable?.cancel()
+        timerCancellable = nil
+        
         timer = Timer.publish(
-            every: 30.0,
+            every: 10.0,
             on: .current,
             in: .default
         ).autoconnect()
         
         timerCancellable = timer?
             .receive(on: DispatchQueue.global(qos: .background))
-            .sink(receiveValue: { [weak self] _ in self?.upload() })
+            .sink(receiveValue: { [weak self] _ in
+                self?.upload()
+            })
         
         logger.info("uploader started")
     }
     
     func stop() {
+        timerCancellable?.cancel()
+        timerCancellable = nil
+        
         timer = nil
         uploader = nil
         logger.info("uploader stopped")
@@ -125,7 +133,7 @@ class LiveUploader {
             return
         }
         
-        logger.info("uploading: \(uploader.state.stringValue) - \(uploader.statusMessage )")
+        logger.info("starting scheduled upload")
         uploader.start()
     }
 }
