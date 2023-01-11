@@ -13,8 +13,6 @@
 		0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
 		0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
-		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
-		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
 		0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109A022292C423C00CE02A9 /* DevSettingsView.swift */; };
 		0109A025292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */; };
@@ -58,7 +56,6 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
-		01286301294CFDB6000DD78E /* LiveUploadDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01286300294CFDB6000DD78E /* LiveUploadDevView.swift */; };
 		01286303294D020B000DD78E /* LiveUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01286302294D020B000DD78E /* LiveUploader.swift */; };
 		012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012863042950DE8B000DD78E /* ActivityViewController.swift */; };
 		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
@@ -121,6 +118,7 @@
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
+		01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
@@ -224,7 +222,6 @@
 		0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBView.swift; sourceTree = "<group>"; };
 		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
-		0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBViewModel.swift; sourceTree = "<group>"; };
 		0109A022292C423C00CE02A9 /* DevSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
 		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +251,6 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		01286300294CFDB6000DD78E /* LiveUploadDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploadDevView.swift; sourceTree = "<group>"; };
 		01286302294D020B000DD78E /* LiveUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploader.swift; sourceTree = "<group>"; };
 		012863042950DE8B000DD78E /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -303,6 +299,7 @@
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01A2451029660085009212F4 /* SimpleBindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBindingTextField.swift; sourceTree = "<group>"; };
+		01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxDBConnectionModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
@@ -403,9 +400,9 @@
 		0105E36428C0F1DE00AAB5E2 /* influxdb */ = {
 			isa = PBXGroup;
 			children = (
+				01286302294D020B000DD78E /* LiveUploader.swift */,
 				0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */,
-				0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */,
-				01A2451029660085009212F4 /* SimpleBindingTextField.swift */,
+				01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */,
 			);
 			path = influxdb;
 			sourceTree = "<group>";
@@ -424,8 +421,6 @@
 			children = (
 				0109A022292C423C00CE02A9 /* DevSettingsView.swift */,
 				0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */,
-				01286300294CFDB6000DD78E /* LiveUploadDevView.swift */,
-				01286302294D020B000DD78E /* LiveUploader.swift */,
 			);
 			path = DevSettings;
 			sourceTree = "<group>";
@@ -766,6 +761,7 @@
 		5C19730E2881FA4C0048AAB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01A2451029660085009212F4 /* SimpleBindingTextField.swift */,
 				5CBAAB4128871B3400367FDC /* FXBButton.swift */,
 				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
 				01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */,
@@ -1065,6 +1061,7 @@
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */,
+				01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */,
 				012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
@@ -1090,7 +1087,6 @@
 				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
-				01286301294CFDB6000DD78E /* LiveUploadDevView.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
@@ -1101,7 +1097,6 @@
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */,
-				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
 				0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */,
@@ -1129,7 +1124,6 @@
 				01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
-				0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
 				01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
@@ -1320,7 +1314,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1359,7 +1353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.2;
+				MARKETING_VERSION = 0.3.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1413,7 +1407,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1446,7 +1440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.2;
+				MARKETING_VERSION = 0.3.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";

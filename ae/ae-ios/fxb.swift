@@ -11,10 +11,6 @@ import FlexiBLE
 
 var fxb: FlexiBLE = {
     let fxb = FlexiBLE.shared
-    if LiveUpload.get() {
-        LiveUpload.globalUploader.start()
-    } else {
-        LiveUpload.globalUploader.stop()
-    }
+    InfluxDBConnection.shared.start()
     return fxb
 }()

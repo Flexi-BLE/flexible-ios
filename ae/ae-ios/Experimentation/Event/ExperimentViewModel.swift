@@ -87,22 +87,4 @@ import SwiftUI
             return false
         }
     }
-    
-    func uploadModel() -> FXBRemoteDatabaseUploader? {
-        let influxVM = UploadDataInfluxDBViewModel()
-        if influxVM.isReady {
-            return InfluxDBUploader(
-                url: URL(string: "\(influxVM.url):\(influxVM.port)/api/v2/write")!,
-                org: influxVM.org,
-                bucket: influxVM.bucket,
-                token: influxVM.token,
-                startDate: experiment.start.addingTimeInterval(-30),
-                endDate: experiment.end?.addingTimeInterval(30) ?? Date.now,
-                batchSize: Int(influxVM.batchSize) ?? 1000,
-                deviceId: influxVM.deviceId
-            )
-        }
-        
-        return nil
-    }
 }

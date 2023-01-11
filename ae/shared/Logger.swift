@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 
-let GeneralLogger = Logger(subsystem: "com.hesterlab.ntrain.exthub", category: "general")
+let GeneralLogger = Logger(subsystem: "com.blainerothrock.flexible", category: "general")
 
-let InferenceLogger = Logger(subsystem: "com.hesterlab.ntrain.exthub", category: "inference")
-let UserInterfaceLogger = Logger(subsystem: "com.hesterlab.ntrain.exthub", category: "ui")
+let InferenceLogger = Logger(subsystem: "com.blainerothrock.flexible", category: "inference")
+let UserInterfaceLogger = Logger(subsystem: "com.blainerothrock.flexible", category: "ui")

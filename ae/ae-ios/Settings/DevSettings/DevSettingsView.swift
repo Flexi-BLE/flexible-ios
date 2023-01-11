@@ -13,9 +13,6 @@ struct DevSettingsView: View {
             Section {
                 DataStreamParamUpdateDelayView()
             }
-//            Section {
-//                LiveUploadDevView()
-//            }
         }
         .navigationTitle("Dev Settings")
     }

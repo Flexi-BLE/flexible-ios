@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct UploadDataInfluxDBView: View {
-    @StateObject var vm: UploadDataInfluxDBViewModel
+    var model = InfluxDBConnection.shared
+    
+    @State var showUploading: Bool = false
     
     var body: some View {
         List {
@@ -17,50 +19,58 @@ struct UploadDataInfluxDBView: View {
                     Group {
                         SimpleBindingTextField(
                             title: "Device Identifier",
-                            binding: $vm.deviceId,
+                            text: model.deviceId,
                             keyboardType: .default,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: { model.deviceId = $0 }
                         )
                         
                         SimpleBindingTextField(
-                            title: "Url",
-                            binding: $vm.url,
+                            title: "Base Url",
+                            text: model.urlString,
                             keyboardType: .URL,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: { model.urlString = $0 }
                         )
                         
                         SimpleBindingTextField(
                             title: "Port",
-                            binding: $vm.port,
+                            text: "\(model.port)",
                             keyboardType: .numberPad,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: {
+                                if let port = Int($0) { model.port = port }
+                            }
                         )
                         
                         SimpleBindingTextField(
                             title: "Organization",
-                            binding: $vm.org,
+                            text: model.org,
                             keyboardType: .default,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: { model.org = $0 }
                         )
                        
                         SimpleBindingTextField(
                             title: "Bucket",
-                            binding: $vm.bucket,
+                            text: model.bucket,
                             keyboardType: .default,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: { model.bucket = $0 }
                         )
                         
                         SimpleBindingTextField(
                             title: "Token",
-                            binding: $vm.token,
+                            text: model.token,
                             keyboardType: .default,
                             autoCompletion: false,
-                            capitaliation: .never
+                            capitaliation: .never,
+                            onChange: { model.token = $0 }
                         )
                     }
                 }
@@ -73,23 +83,34 @@ struct UploadDataInfluxDBView: View {
                             .font(.callout)
                             .bold()
                         Spacer()
-                        Toggle(isOn: $vm.continousUploadEnabled, label: { Text("Enable Continuous Upload") })
+                        Toggle(
+                            isOn: Binding<Bool>(
+                                get: { model.continousUploadEnabled },
+                                set: { model.continousUploadEnabled = $0 }
+                            ),
+                            label: { Text("Enable Continuous Upload") })
                             .labelsHidden()
                     }
                     
                     
-                    if vm.continousUploadEnabled {
+                    if model.continousUploadEnabled {
                         HStack {
                             Text("Upload Interval")
                                 .font(.callout)
                                 .bold()
                             Spacer()
-                            Picker("", selection: $vm.continousUploadInterval) {
-                                Text("30 seconds").tag("30")
-                                Text("1 minute").tag("60")
-                                Text("5 minutes").tag("300")
-                                Text("10 minutes").tag("600")
-                                Text("30 minutes").tag("1800")
+                            Picker(
+                                "",
+                                selection: Binding<Int>(
+                                    get: { model.continousUploadInterval },
+                                    set: { model.continousUploadInterval = $0 }
+                                )
+                            ) {
+                                Text("30 seconds").tag(30)
+                                Text("1 minute").tag(60)
+                                Text("5 minutes").tag(300)
+                                Text("10 minutes").tag(600)
+                                Text("30 minutes").tag(1800)
                             }
                         }
                         
@@ -98,7 +119,13 @@ struct UploadDataInfluxDBView: View {
                                 .font(.callout)
                                 .bold()
                             Spacer()
-                            Toggle(isOn: $vm.purgeOnUpload, label: { Text("Purge on Upload") })
+                            Toggle(
+                                isOn: Binding<Bool>(
+                                    get: { model.purgeOnUpload },
+                                    set: { model.purgeOnUpload = $0 }
+                                ),
+                                label: { Text("Purge on Upload") }
+                            )
                                 .labelsHidden()
                         }
                     }
@@ -109,37 +136,42 @@ struct UploadDataInfluxDBView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     SimpleBindingTextField(
                         title: "Batch Size",
-                        binding: $vm.batchSize,
+                        text: "\(model.batchSize)",
                         keyboardType: .numberPad,
                         autoCompletion: false,
-                        capitaliation: .never
+                        capitaliation: .never,
+                        onChange: {
+                            if let batchSize = Int($0) {
+                                model.batchSize = batchSize
+                            }
+                        }
                     )
                 }
             }
             
-            if vm.isReady {
+            if model.validated {
                 FXBButton(
-                    action: { vm.save() },
+                    action: { showUploading = true },
                     content: { Text("Upload Now") }
                 )
             }
             
         }
-        .task {
-            vm.validate()
-        }
-        .sheet(isPresented: $vm.showUploading, onDismiss: {
-            vm.influxDBUploader?.pause()
-            vm.influxDBUploader = nil
+        .sheet(isPresented: $showUploading, onDismiss: {
+            
         }, content: {
-            DataUploadingView(uploader: RemoteUploadViewModel(uploader: vm.influxDBUploader!))
+            if let uploader = model.uploader(start: nil, end: Date.now) {
+                DataUploadingView(uploader: RemoteUploadViewModel(uploader: uploader))
+            } else {
+                Text("uh oh")
+            }
         })
     }
 }
 
 struct UploadDataInfluxDBView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadDataInfluxDBView(vm: UploadDataInfluxDBViewModel())
+        UploadDataInfluxDBView()
     }
 }
 

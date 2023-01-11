@@ -49,7 +49,7 @@ struct SettingsView: View {
                     
                     NavigationLink(
                         destination: {
-                            UploadDataInfluxDBView(vm: UploadDataInfluxDBViewModel())
+                            UploadDataInfluxDBView()
                                 .navigationBarTitleDisplayMode(.inline)
                                 .navigationBarTitle("Remote InfluxDB Database")
                         },
