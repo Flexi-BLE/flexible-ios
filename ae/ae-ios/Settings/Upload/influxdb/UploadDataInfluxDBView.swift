@@ -8,72 +8,205 @@
 import SwiftUI
 
 struct UploadDataInfluxDBView: View {
-    @StateObject var vm: UploadDataInfluxDBViewModel
+    var model = InfluxDBConnection.shared
+    
+    @State var showUploading: Bool = false
+    @State var influxDetailsValidated: Bool = false
+    @State var continousUploadEnabled: Bool = false
+    
+    init() {
+        _showUploading = .init(initialValue: false)
+        _influxDetailsValidated = .init(initialValue: model.validated)
+        _continousUploadEnabled = .init(initialValue: model.continousUploadEnabled)
+    }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 10) {
-                VStack(alignment: .leading) {
-                    Text("Url")
-                        .font(.callout)
-                        .bold()
-                    TextField("Url", text: $vm.url, prompt: Text("https://mydb.xyz"))
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
+        List {
+            Section("InfluxDB Details") {
+                VStack(alignment: .leading, spacing: 10) {
+                    Group {
+                        SimpleBindingTextField(
+                            title: "Device Identifier",
+                            text: model.deviceId,
+                            keyboardType: .default,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                model.deviceId = $0
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                        
+                        SimpleBindingTextField(
+                            title: "Base Url",
+                            text: model.urlString,
+                            keyboardType: .URL,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                model.urlString = $0
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                        
+                        SimpleBindingTextField(
+                            title: "Port",
+                            text: "\(model.port)",
+                            keyboardType: .numberPad,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                if let port = Int($0) { model.port = port }
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                        
+                        SimpleBindingTextField(
+                            title: "Organization",
+                            text: model.org,
+                            keyboardType: .default,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                model.org = $0
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                       
+                        SimpleBindingTextField(
+                            title: "Bucket",
+                            text: model.bucket,
+                            keyboardType: .default,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                model.bucket = $0
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                        
+                        SimpleBindingTextField(
+                            title: "Token",
+                            text: model.token,
+                            keyboardType: .default,
+                            autoCompletion: false,
+                            capitaliation: .never,
+                            onChange: {
+                                model.token = $0
+                                influxDetailsValidated = model.validated
+                            }
+                        )
+                    }
                 }
+            }
             
-                VStack(alignment: .leading) {
-                    Text("Port")
-                        .font(.callout)
-                        .bold()
-                    TextField("Port", text: $vm.port, prompt: Text("8086"))
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                }
-            
-                VStack(alignment: .leading) {
-                    Text("Organization")
-                        .font(.callout)
-                        .bold()
-                    TextField("Organization", text: $vm.org, prompt: Text("flexiBLE"))
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                }
+            if influxDetailsValidated {
                 
-                VStack(alignment: .leading) {
-                    Text("Bucket")
-                        .font(.callout)
-                        .bold()
-                    TextField("Bucket", text: $vm.bucket, prompt: Text("mySensorData"))
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
+                Section("Continous Upload") {
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text("Enabled")
+                                .font(.callout)
+                                .bold()
+                            Spacer()
+                            Toggle(
+                                isOn: Binding<Bool>(
+                                    get: { model.continousUploadEnabled },
+                                    set: {
+                                        model.continousUploadEnabled = $0
+                                        continousUploadEnabled = $0
+                                        influxDetailsValidated = model.validated
+                                    }
+                                ),
+                                label: { Text("Enable Continuous Upload") })
+                            .labelsHidden()
+                        }
+                        
+                        
+                        if continousUploadEnabled {
+                            HStack {
+                                Text("Upload Interval")
+                                    .font(.callout)
+                                    .bold()
+                                Spacer()
+                                Picker(
+                                    "",
+                                    selection: Binding<Int>(
+                                        get: { model.continousUploadInterval },
+                                        set: {
+                                            model.continousUploadInterval = $0
+                                            influxDetailsValidated = model.validated
+                                        }
+                                    )
+                                ) {
+                                    Text("30 seconds").tag(30)
+                                    Text("1 minute").tag(60)
+                                    Text("5 minutes").tag(300)
+                                    Text("10 minutes").tag(600)
+                                    Text("30 minutes").tag(1800)
+                                }
+                            }
+                            
+                            HStack {
+                                Text("Purge Records on Upload")
+                                    .font(.callout)
+                                    .bold()
+                                Spacer()
+                                Toggle(
+                                    isOn: Binding<Bool>(
+                                        get: { model.purgeOnUpload },
+                                        set: { model.purgeOnUpload = $0 }
+                                    ),
+                                    label: { Text("Purge on Upload") }
+                                )
+                                .labelsHidden()
+                            }
+                        }
+                    }
                 }
-                
-                VStack(alignment: .leading) {
-                    Text("Token")
-                        .font(.callout)
-                        .bold()
-                    TextField("Token", text: $vm.token, prompt: Text("abcdef1234567890"))
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                }
-            }.padding().task {
-                vm.validate()
             }
                 
-//          TextField("Record Batch Size", text: $vm.batchSize, prompt: Text("1000"))
+
+            Section("Upload Details") {
+                VStack(alignment: .leading, spacing: 10) {
+                    SimpleBindingTextField(
+                        title: "Batch Size",
+                        text: "\(model.batchSize)",
+                        keyboardType: .numberPad,
+                        autoCompletion: false,
+                        capitaliation: .never,
+                        onChange: {
+                            if let batchSize = Int($0) {
+                                model.batchSize = batchSize
+                            }
+                        }
+                    )
+                }
+            }
+            
+            if model.validated {
+                FXBButton(
+                    action: { showUploading = true },
+                    content: { Text("Upload Now") }
+                )
+            }
+            
         }
+        .sheet(isPresented: $showUploading, onDismiss: {
+            
+        }, content: {
+            if let uploader = model.uploader(start: nil, end: Date.now) {
+                DataUploadingView(uploader: RemoteUploadViewModel(uploader: uploader))
+            } else {
+                Text("uh oh")
+            }
+        })
     }
 }
 
 struct UploadDataInfluxDBView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadDataInfluxDBView(vm: UploadDataInfluxDBViewModel())
+        UploadDataInfluxDBView()
     }
 }
 
