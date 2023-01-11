@@ -160,7 +160,10 @@ final class InfluxDBConnection {
             return
         }
         
-        guard validated else { return }
+        guard validated else {
+            continousUploadEnabled = false
+            return
+        }
         
         liveUploader = LiveUploader(model: self)
     }

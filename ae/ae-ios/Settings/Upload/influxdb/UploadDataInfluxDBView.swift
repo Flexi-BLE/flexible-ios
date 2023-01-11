@@ -11,6 +11,14 @@ struct UploadDataInfluxDBView: View {
     var model = InfluxDBConnection.shared
     
     @State var showUploading: Bool = false
+    @State var influxDetailsValidated: Bool = false
+    @State var continousUploadEnabled: Bool = false
+    
+    init() {
+        _showUploading = .init(initialValue: false)
+        _influxDetailsValidated = .init(initialValue: model.validated)
+        _continousUploadEnabled = .init(initialValue: model.continousUploadEnabled)
+    }
     
     var body: some View {
         List {
@@ -23,7 +31,10 @@ struct UploadDataInfluxDBView: View {
                             keyboardType: .default,
                             autoCompletion: false,
                             capitaliation: .never,
-                            onChange: { model.deviceId = $0 }
+                            onChange: {
+                                model.deviceId = $0
+                                influxDetailsValidated = model.validated
+                            }
                         )
                         
                         SimpleBindingTextField(
@@ -32,7 +43,10 @@ struct UploadDataInfluxDBView: View {
                             keyboardType: .URL,
                             autoCompletion: false,
                             capitaliation: .never,
-                            onChange: { model.urlString = $0 }
+                            onChange: {
+                                model.urlString = $0
+                                influxDetailsValidated = model.validated
+                            }
                         )
                         
                         SimpleBindingTextField(
@@ -43,6 +57,7 @@ struct UploadDataInfluxDBView: View {
                             capitaliation: .never,
                             onChange: {
                                 if let port = Int($0) { model.port = port }
+                                influxDetailsValidated = model.validated
                             }
                         )
                         
@@ -52,7 +67,10 @@ struct UploadDataInfluxDBView: View {
                             keyboardType: .default,
                             autoCompletion: false,
                             capitaliation: .never,
-                            onChange: { model.org = $0 }
+                            onChange: {
+                                model.org = $0
+                                influxDetailsValidated = model.validated
+                            }
                         )
                        
                         SimpleBindingTextField(
@@ -61,7 +79,10 @@ struct UploadDataInfluxDBView: View {
                             keyboardType: .default,
                             autoCompletion: false,
                             capitaliation: .never,
-                            onChange: { model.bucket = $0 }
+                            onChange: {
+                                model.bucket = $0
+                                influxDetailsValidated = model.validated
+                            }
                         )
                         
                         SimpleBindingTextField(
@@ -70,67 +91,81 @@ struct UploadDataInfluxDBView: View {
                             keyboardType: .default,
                             autoCompletion: false,
                             capitaliation: .never,
-                            onChange: { model.token = $0 }
+                            onChange: {
+                                model.token = $0
+                                influxDetailsValidated = model.validated
+                            }
                         )
                     }
                 }
             }
             
-            Section("Continous Upload") {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Text("Enabled")
-                            .font(.callout)
-                            .bold()
-                        Spacer()
-                        Toggle(
-                            isOn: Binding<Bool>(
-                                get: { model.continousUploadEnabled },
-                                set: { model.continousUploadEnabled = $0 }
-                            ),
-                            label: { Text("Enable Continuous Upload") })
-                            .labelsHidden()
-                    }
-                    
-                    
-                    if model.continousUploadEnabled {
+            if influxDetailsValidated {
+                
+                Section("Continous Upload") {
+                    VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Text("Upload Interval")
-                                .font(.callout)
-                                .bold()
-                            Spacer()
-                            Picker(
-                                "",
-                                selection: Binding<Int>(
-                                    get: { model.continousUploadInterval },
-                                    set: { model.continousUploadInterval = $0 }
-                                )
-                            ) {
-                                Text("30 seconds").tag(30)
-                                Text("1 minute").tag(60)
-                                Text("5 minutes").tag(300)
-                                Text("10 minutes").tag(600)
-                                Text("30 minutes").tag(1800)
-                            }
-                        }
-                        
-                        HStack {
-                            Text("Purge Records on Upload")
+                            Text("Enabled")
                                 .font(.callout)
                                 .bold()
                             Spacer()
                             Toggle(
                                 isOn: Binding<Bool>(
-                                    get: { model.purgeOnUpload },
-                                    set: { model.purgeOnUpload = $0 }
+                                    get: { model.continousUploadEnabled },
+                                    set: {
+                                        model.continousUploadEnabled = $0
+                                        continousUploadEnabled = $0
+                                        influxDetailsValidated = model.validated
+                                    }
                                 ),
-                                label: { Text("Purge on Upload") }
-                            )
+                                label: { Text("Enable Continuous Upload") })
+                            .labelsHidden()
+                        }
+                        
+                        
+                        if continousUploadEnabled {
+                            HStack {
+                                Text("Upload Interval")
+                                    .font(.callout)
+                                    .bold()
+                                Spacer()
+                                Picker(
+                                    "",
+                                    selection: Binding<Int>(
+                                        get: { model.continousUploadInterval },
+                                        set: {
+                                            model.continousUploadInterval = $0
+                                            influxDetailsValidated = model.validated
+                                        }
+                                    )
+                                ) {
+                                    Text("30 seconds").tag(30)
+                                    Text("1 minute").tag(60)
+                                    Text("5 minutes").tag(300)
+                                    Text("10 minutes").tag(600)
+                                    Text("30 minutes").tag(1800)
+                                }
+                            }
+                            
+                            HStack {
+                                Text("Purge Records on Upload")
+                                    .font(.callout)
+                                    .bold()
+                                Spacer()
+                                Toggle(
+                                    isOn: Binding<Bool>(
+                                        get: { model.purgeOnUpload },
+                                        set: { model.purgeOnUpload = $0 }
+                                    ),
+                                    label: { Text("Purge on Upload") }
+                                )
                                 .labelsHidden()
+                            }
                         }
                     }
                 }
             }
+                
 
             Section("Upload Details") {
                 VStack(alignment: .leading, spacing: 10) {
