@@ -16,8 +16,6 @@ import FlexiBLE
     @Published var progress: Float
     @Published var estNumRecs: Int
     @Published var totalUploaded: Int
-    @Published var batchSize: Int
-    @Published var tableStatuses: [FXBTableUploadState]
     @Published var statusMessage: String
     
     var timer = Timer.publish(
@@ -33,8 +31,6 @@ import FlexiBLE
         progress = uploader.progress
         estNumRecs = uploader.estNumRecs
         totalUploaded = uploader.totalUploaded
-        batchSize = uploader.batchSize
-        tableStatuses = uploader.tableStatuses
         statusMessage = uploader.statusMessage
         
         timerCancellable = timer.sink { _ in
@@ -43,8 +39,6 @@ import FlexiBLE
             self.progress = uploader.progress
             self.estNumRecs = uploader.estNumRecs
             self.totalUploaded = uploader.totalUploaded
-            self.batchSize = uploader.batchSize
-            self.tableStatuses = uploader.tableStatuses
             self.statusMessage = uploader.statusMessage
             
             switch uploader.state {
@@ -53,7 +47,9 @@ import FlexiBLE
             }
         }
         
-        self.uploader.start()
+        Task {
+            await self.uploader.upload()
+        }
     }
     
     deinit {
@@ -62,7 +58,9 @@ import FlexiBLE
     }
     
     func start() {
-        uploader.start()
+        Task {
+            await self.uploader.upload()
+        }
     }
     
     func pause() {

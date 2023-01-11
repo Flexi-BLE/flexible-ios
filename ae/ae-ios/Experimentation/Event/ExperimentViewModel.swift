@@ -23,18 +23,6 @@ import SwiftUI
         }
     }
     
-    private var uploadTarget: UploadDataViewModel.Target = UploadDataViewModel.Target(
-        rawValue: UserDefaults
-            .standard
-            .string(
-                forKey: UploadDataViewModel
-                    .UserDefaultsKey.dbTarget.rawValue
-            ) ?? UploadDataViewModel.Target.influxDB.rawValue)!
-    
-    private var deviceId: String = UserDefaults.standard.string(
-        forKey: UploadDataViewModel.UserDefaultsKey.deviceId.rawValue
-    ) ?? UIDevice.current.id
-    
     var elapsedTimeString: String {
         guard let end = experiment.end else { return "N/A" }
         
@@ -98,26 +86,5 @@ import SwiftUI
             print(error.localizedDescription)
             return false
         }
-    }
-    
-    func uploadModel() -> FXBRemoteDatabaseUploader? {
-        switch uploadTarget {
-        case .influxDB:
-            let influxVM = UploadDataInfluxDBViewModel()
-            if influxVM.isReady {
-                return InfluxDBUploader(
-                    url: URL(string: "\(influxVM.url):\(influxVM.port)/api/v2/write")!,
-                    org: influxVM.org,
-                    bucket: influxVM.bucket,
-                    token: influxVM.token,
-                    startDate: experiment.start.addingTimeInterval(-30),
-                    endDate: experiment.end?.addingTimeInterval(30) ?? Date.now,
-                    deviceId: deviceId
-                )
-            }
-        case .questDB:
-            return nil
-        }
-        return nil
     }
 }

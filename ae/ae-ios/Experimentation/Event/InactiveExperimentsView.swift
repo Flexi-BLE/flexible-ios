@@ -59,7 +59,10 @@ struct InactiveExperimentsView: View {
         }
         .padding()
         .sheet(isPresented: $isShowingUpload) {
-            if let m = vm.uploadModel() {
+            if let m = InfluxDBConnection.shared.uploader(
+                start: vm.experiment.start.addingTimeInterval(-30),
+                end: vm.experiment.end?.addingTimeInterval(30) ?? Date.now
+            ) {
                 DataUploadingView(uploader: RemoteUploadViewModel(uploader: m))
             }
         }
