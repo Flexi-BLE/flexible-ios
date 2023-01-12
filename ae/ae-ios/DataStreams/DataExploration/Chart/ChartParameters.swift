@@ -20,12 +20,12 @@ class ChartParameters: Codable {
     var start: Date = Date.now
     var end: Date = Date.now.addingTimeInterval(-25.0)
     
-    var yMin: Double = 0.0
-    var yMax: Double = 100.0
+    var yMin: Float = 0.0
+    var yMax: Float = 100.0
     
     var shouldAutoScale: Bool = false
     
-    var yRange: ClosedRange<Double> {
+    var yRange: ClosedRange<Float> {
         return yMin...yMax
     }
     

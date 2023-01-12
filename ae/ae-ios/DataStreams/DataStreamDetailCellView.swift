@@ -6,13 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 import FlexiBLE
 
 struct DataStreamDetailCellView: View {
-    @StateObject var vm: AEDataStreamViewModel
+    @ObservedObject var vm: AEDataStreamViewModel
     
     @State var editConfigPopover: Bool = false
     @State var dataExplorerPopover: Bool = false
+    
+    @State private var isEnabled: Bool = false
+    var enabledObs: AnyCancellable?
+    
+    init(vm: AEDataStreamViewModel) {
+        self.vm = vm
+        
+        self.enabledObs = vm.$isOn
+            .receive(on: DispatchQueue.main)
+            .sink { [self] isOn in
+                isEnabled = isOn
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,16 +41,21 @@ struct DataStreamDetailCellView: View {
                 }
                 Spacer()
                 if vm.isActive {
-                    Toggle("Enabled", isOn: $vm.isOn)
+                    Toggle("Enabled", isOn: $isEnabled)
                         .toggleStyle(.switch)
                         .labelsHidden()
+                        .onChange(of: isEnabled) { newValue in
+                            if newValue != vm.isOn {
+                                vm.toggleEnable()
+                            }
+                        }
                 }
             }
                 
             
             Divider()
             
-            KeyValueView(key: "Number of Records", value: "\(vm.recordCount.fuzzy)")
+            KeyValueView(key: "Number of Records", value: "\(vm.recordCount.formatted())")
             KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
             if let rel = vm.reliability {
                 KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")

@@ -16,6 +16,8 @@ struct SettingsView: View {
 //    @State private var isPresentingPurgeUploadConfirm: Bool = false
 //    @State private var isPresentingConnectionWarning: Bool = false
     
+    @State private var isPresentingShare: Bool = false
+    
     @State private var alertInfo: AlertInfo?
     var connectedDeviceWarningAlert: AlertInfo {
         return AlertInfo(
@@ -47,18 +49,25 @@ struct SettingsView: View {
                     
                     NavigationLink(
                         destination: {
-                            UploadDataView()
+                            UploadDataInfluxDBView()
                                 .navigationBarTitleDisplayMode(.inline)
-                                .navigationBarTitle("Remote Database")
+                                .navigationBarTitle("Remote InfluxDB Database")
                         },
                         label: {
-                            Text("Remote Database")
+                            Text("Remote InfluxDB Database")
                         }
                     )
-                
+                    
                     Button("Share Database") {
-                        ShareUtil.share(path: fxb.db.dbPath)
+                        isPresentingShare = true
                     }
+                    .sheet(isPresented: $isPresentingShare, onDismiss: {
+                        print("Dismiss")
+                    }, content: {
+                        ActivityViewController(
+                            activityItems: [ShareUtil.dbCopy(path: fxb.db.dbPath) ?? fxb.db.dbPath]
+                        )
+                    })
                 }
                 
                 Section(header: Text("⚠️ Danger Zone")) {
@@ -106,6 +115,14 @@ struct SettingsView: View {
                             secondaryButton: .cancel(Text("Cancel"))
                         )
                     }
+                }
+                
+                Section(header: Text("Development")) {
+                    NavigationLink(destination: {
+                        DevSettingsView()
+                    }, label: {
+                        Text("Settings")
+                    })
                 }
                 
                 

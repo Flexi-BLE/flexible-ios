@@ -26,14 +26,13 @@ struct DeviceConnectionCellView: View {
             }
             switch vm.device.connectionState {
             case .connected:
+                EmptyView()
                 KeyValueView(key: "Status", value: "Connected")
-                if let connectedAt = vm.device.connectionRecord?.connectedAt {
-                    KeyValueView(key: "Connection Time", value: "\(connectedAt.timeSinceHumanReadable())")
-                }
-                if let infoData = vm.device.infoData {
+                if let connectionRecord = vm.device.connectionRecord {
+                    KeyValueView(key: "Connection Time", value: "\(connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--none--")")
                     Divider()
-                    KeyValueView(key: "Reference Date", value: "\(infoData.referenceDate.getShortDateAndTime())")
-                    KeyValueView(key: "Spec", value: "\(infoData.specId) (\(infoData.versionId))")
+                    KeyValueView(key: "Reference Date", value: "\(connectionRecord.latestReferenceDate?.getShortDateAndTime() ?? "--none--")")
+                    KeyValueView(key: "Spec", value: "\(connectionRecord.specificationIdString ?? "--none--") (\(connectionRecord.specificationVersion ?? "--none--"))")
                 }
                 Divider()
                 HStack {

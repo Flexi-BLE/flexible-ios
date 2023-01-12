@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataStreamGraphParameters: Codable {
-    var filterSelections: [String:[Int]] = [:]
+class DataStreamChartParameters: Codable {
+    var tagSelections: [String: [Int]] = [:]
     var dependentSelections: [String] = []
 }

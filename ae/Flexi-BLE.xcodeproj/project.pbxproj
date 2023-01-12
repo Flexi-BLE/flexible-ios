@@ -7,21 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
-		0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */; };
-		0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
-		0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */; };
 		0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
 		0105E36828C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
 		0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
 		0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
 		0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
-		0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
-		0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
-		0109C27A28E611480023B9AA /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 0109C27928E611480023B9AA /* flexible-swift */; };
-		0109C27C28E611480023B9AA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109A022292C423C00CE02A9 /* DevSettingsView.swift */; };
+		0109A025292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -62,6 +56,8 @@
 		011F48CF28076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D028076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
 		011F48D128076D5600B359EB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48CD28076D5600B359EB /* Logger.swift */; };
+		01286303294D020B000DD78E /* LiveUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01286302294D020B000DD78E /* LiveUploader.swift */; };
+		012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012863042950DE8B000DD78E /* ActivityViewController.swift */; };
 		012B302828D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302928D8DD1400BA623A /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302728D8DD1400BA623A /* UIApplication.swift */; };
 		012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */; };
@@ -93,7 +89,7 @@
 		01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */; };
 		0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */; };
-		0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */; };
+		0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */; };
 		0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */; };
 		0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */; };
 		015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
@@ -118,8 +114,11 @@
 		0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C328F86E64006CC558 /* ChartControlButton.swift */; };
 		0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */; };
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
+		01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01911E372964C83D00F208C3 /* flexiBLE-signal */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
+		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
+		01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
@@ -183,6 +182,7 @@
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
+		01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01FB99CA2965C5B20020A786 /* flexible-swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
 		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
@@ -197,6 +197,8 @@
 		5C95DB6628C3177200396FA0 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */; };
 		5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAAB4128871B3400367FDC /* FXBButton.swift */; };
 		5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */; };
+		623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
+		62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,12 +219,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataView.swift; sourceTree = "<group>"; };
-		0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataViewModel.swift; sourceTree = "<group>"; };
 		0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBView.swift; sourceTree = "<group>"; };
 		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
-		0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBViewModel.swift; sourceTree = "<group>"; };
+		0109A022292C423C00CE02A9 /* DevSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
+		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011F48222807692E00B359EB /* ae_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ae_iosApp.swift; sourceTree = "<group>"; };
 		011F48262807693000B359EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +251,8 @@
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01286302294D020B000DD78E /* LiveUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploader.swift; sourceTree = "<group>"; };
+		012863042950DE8B000DD78E /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		012B302A28D8FFF400BA623A /* RemoteUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUploadViewModel.swift; sourceTree = "<group>"; };
 		013F767028888324000D88E2 /* ConfigOptionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigOptionEditView.swift; sourceTree = "<group>"; };
@@ -277,7 +280,7 @@
 		01551D1928DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBRegisteredDeviceSpecConnectionView.swift; sourceTree = "<group>"; };
 		01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFXBDeviceConnectionView.swift; sourceTree = "<group>"; };
 		0157ECA028EC8DFD003DC4A8 /* DataStreamChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartView.swift; sourceTree = "<group>"; };
-		0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParameters.swift; sourceTree = "<group>"; };
+		0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamChartParameters.swift; sourceTree = "<group>"; };
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
@@ -291,9 +294,12 @@
 		0179D5C328F86E64006CC558 /* ChartControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControlButton.swift; sourceTree = "<group>"; };
 		0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
-		017A359228E745990095957A /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		01911E362964C7DA00F208C3 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
+		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
+		01A2451029660085009212F4 /* SimpleBindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBindingTextField.swift; sourceTree = "<group>"; };
+		01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxDBConnectionModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
@@ -344,6 +350,7 @@
 		5C95DB6028C3175500396FA0 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
+		62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeriesBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,8 +358,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0109C27A28E611480023B9AA /* flexible-swift in Frameworks */,
-				0109C27C28E611480023B9AA /* (null) in Frameworks */,
+				01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */,
+				01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,8 +393,6 @@
 				01C2329C28C6B029006C6B33 /* uploading */,
 				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
-				0105E35D28C0F0EC00AAB5E2 /* UploadDataView.swift */,
-				0105E36128C0F15C00AAB5E2 /* UploadDataViewModel.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -395,8 +400,9 @@
 		0105E36428C0F1DE00AAB5E2 /* influxdb */ = {
 			isa = PBXGroup;
 			children = (
+				01286302294D020B000DD78E /* LiveUploader.swift */,
 				0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */,
-				0105E36F28C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift */,
+				01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */,
 			);
 			path = influxdb;
 			sourceTree = "<group>";
@@ -408,6 +414,15 @@
 				0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */,
 			);
 			path = questdb;
+			sourceTree = "<group>";
+		};
+		0109A026292C427F00CE02A9 /* DevSettings */ = {
+			isa = PBXGroup;
+			children = (
+				0109A022292C423C00CE02A9 /* DevSettingsView.swift */,
+				0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */,
+			);
+			path = DevSettings;
 			sourceTree = "<group>";
 		};
 		011F47E62807685C00B359EB = {
@@ -527,6 +542,7 @@
 		011F488928076B3B00B359EB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0109A026292C427F00CE02A9 /* DevSettings */,
 				0105E36028C0F0F300AAB5E2 /* Upload */,
 				011F488A28076B3B00B359EB /* SettingsView.swift */,
 				011F488E28076B3B00B359EB /* DataExplorer */,
@@ -567,7 +583,8 @@
 		011F48B528076C3F00B359EB /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				017A359228E745990095957A /* flexible-swift */,
+				019971DD29114A6C0020276D /* flexible-swift */,
+				01911E362964C7DA00F208C3 /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -604,6 +621,7 @@
 				01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */,
 				01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */,
 				01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */,
+				62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -650,7 +668,7 @@
 			children = (
 				01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */,
 				01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */,
-				0157ECA228ECC135003DC4A8 /* DataStreamGraphParameters.swift */,
+				0157ECA228ECC135003DC4A8 /* DataStreamChartParameters.swift */,
 			);
 			path = GraphParamters;
 			sourceTree = "<group>";
@@ -743,9 +761,11 @@
 		5C19730E2881FA4C0048AAB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01A2451029660085009212F4 /* SimpleBindingTextField.swift */,
 				5CBAAB4128871B3400367FDC /* FXBButton.swift */,
 				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
 				01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */,
+				012863042950DE8B000DD78E /* ActivityViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -810,7 +830,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				0109C27928E611480023B9AA /* flexible-swift */,
+				01911E372964C83D00F208C3 /* flexiBLE-signal */,
+				01FB99CA2965C5B20020A786 /* flexible-swift */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -907,7 +928,7 @@
 			);
 			mainGroup = 011F47E62807685C00B359EB;
 			packageReferences = (
-				01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				0152A2782915BB5500E5F2F4 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 011F47F22807687900B359EB /* Products */;
 			projectDirPath = "";
@@ -974,6 +995,7 @@
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
 				5C85EDB828860ECF003DF9D1 /* ConfigEditView.swift in Sources */,
@@ -1001,7 +1023,6 @@
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
-				0105E35E28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
@@ -1039,13 +1060,16 @@
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
+				0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */,
+				01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */,
+				012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
-				0105E36228C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
+				01286303294D020B000DD78E /* LiveUploader.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
@@ -1055,11 +1079,12 @@
 				01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
 				017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */,
+				0109A025292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift in Sources */,
 				0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */,
 				01C232AA28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */,
 				01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
-				0157ECA328ECC135003DC4A8 /* DataStreamGraphParameters.swift in Sources */,
+				0157ECA328ECC135003DC4A8 /* DataStreamChartParameters.swift in Sources */,
 				01717C2F28DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				014DB6C9289B65E6008982C6 /* ExperimentsViewModel.swift in Sources */,
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
@@ -1072,9 +1097,9 @@
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
 				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */,
-				0105E37028C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
 				0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
+				623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,7 +1114,6 @@
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
-				0105E36328C0F15C00AAB5E2 /* UploadDataViewModel.swift in Sources */,
 				017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				017810C728E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
@@ -1100,7 +1124,6 @@
 				01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */,
 				01E7F2752818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
 				012B302C28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
-				0105E37128C0F32C00AAB5E2 /* UploadDataInfluxDBViewModel.swift in Sources */,
 				011F48CF28076D5600B359EB /* Logger.swift in Sources */,
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
 				01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
@@ -1120,7 +1143,6 @@
 				01E7F27C2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F487C280769C000B359EB /* ContentView.swift in Sources */,
 				011F48342807693000B359EB /* ae_iosTests.swift in Sources */,
-				0105E35F28C0F0EC00AAB5E2 /* UploadDataView.swift in Sources */,
 				011F48C328076CCD00B359EB /* KeyValueView.swift in Sources */,
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */,
@@ -1140,6 +1162,7 @@
 				01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */,
+				62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,7 +1314,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1330,7 +1353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1384,7 +1407,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1417,7 +1440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blainerothrock.flexi-ble";
@@ -1924,7 +1947,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		01923AA628BD83F700F8055E /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+		0152A2782915BB5500E5F2F4 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDB.swift.git";
 			requirement = {
@@ -1935,7 +1958,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0109C27928E611480023B9AA /* flexible-swift */ = {
+		01911E372964C83D00F208C3 /* flexiBLE-signal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "flexiBLE-signal";
+		};
+		01FB99CA2965C5B20020A786 /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};
