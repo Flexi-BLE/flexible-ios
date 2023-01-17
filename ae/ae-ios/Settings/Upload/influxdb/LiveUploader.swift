@@ -17,7 +17,6 @@ class LiveUploader {
     
     private let logger = Logger(subsystem: "com.blainerothrock.flexible", category: "live-uploader")
     
-    
     private var credentials: InfluxDBCredentials
     private var uploadTask: Task<Bool, Error>?
     
