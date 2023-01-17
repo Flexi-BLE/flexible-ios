@@ -12,6 +12,6 @@ import FlexiBLE
 var fxb: FlexiBLE = {
     let fxb = FlexiBLE.shared
     InfluxDBConnection.shared.start()
-    fxb.setArchive(bytes: 1_000_000, keepInterval: 10)
+    fxb.setArchive(bytes: 250_000_000, keepInterval: 60 * 60)
     return fxb
 }()
