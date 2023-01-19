@@ -18,7 +18,8 @@ class DataExplorerViewModel: ObservableObject {
     }
     
     func refreshTables() {
-        self.tables = fxb.db.getTableNames()
+        // TODO: refactor table view
+//        self.tables = fxb.db.getTableNames()
 //        DBManager.shared.getTableMetadata(for: "dynamic_table")
     }
 }

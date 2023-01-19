@@ -115,7 +115,7 @@ class DataStreamDataService {
     private func queryDataTS(start: Date, end: Date) {
         Task {
             do {
-                let records = try await fxb.read.getRecords(
+                let records = try await fxb.dbAccess?.dataStream.records(
                         for: "\(self.dataStream.name)_data",
                         from: start,
                         to: end,
@@ -123,7 +123,7 @@ class DataStreamDataService {
                         uploaded: nil
                 )
 
-                records.forEach { row in
+                records?.forEach { row in
                     guard let date: Date = row.getValue(for: "ts") else { return }
                     let values = dataStream.dataValues.compactMap({ dv -> Float? in
                         switch dv.type {

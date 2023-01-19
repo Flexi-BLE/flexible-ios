@@ -24,11 +24,17 @@ import FlexiBLE
         guard let id = self.timestamp.experimentId else {
             return
         }
-        let res = await fxb.exp.updateTimemarker(
-            forID: id,
-            name: newName,
-            description: newDescription
-        )
-        print(res)
+        
+        do {
+            if let timestamp = try await FlexiBLE.shared.dbAccess?.experiment.updateTimestamp(
+                id: id,
+                name: newName,
+                description: newDescription
+            ) {
+                self.timestamp = timestamp
+            }
+        } catch {
+            GeneralLogger.error("unable to update time stamp record: \(error.localizedDescription)")
+        }
     }
 }

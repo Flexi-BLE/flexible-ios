@@ -29,22 +29,18 @@ import FlexiBLE
     
     func getExperiments() async {
         self.state = .loading
-        let res = await fxb.exp.activeEvent()
         
-        switch res {
-        case .success(let experiments):
-            guard let experiments = experiments,
-                  experiments.count > 0 else {
-                
-                self.state = .noExperiment
-                return
+        do {
+            if let exps = try await FlexiBLE.shared.dbAccess?.experiment.getActives() {
+                if exps.isEmpty {
+                    state = .noExperiment
+                    return
+                }
+                experiments = exps
+                state = .fetched
             }
-            
-            self.experiments = experiments
-            self.state = .fetched
-            
-        case .failure(let e):
-            self.state = .error(error: e)
+        } catch {
+            state = .error(error: error)
         }
     }
     
@@ -52,7 +48,7 @@ import FlexiBLE
         guard let id = experiments[index].id else { return }
         self.state = .loading
         
-        let _ = await fxb.exp.deleteExperiment(id: id)
+        try? await FlexiBLE.shared.dbAccess?.experiment.deleteExperiment(id: id)
         await self.getExperiments()
     }
 }

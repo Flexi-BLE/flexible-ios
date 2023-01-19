@@ -18,11 +18,13 @@ struct MainTabView: View {
                     Image(systemName: "memorychip")
                     Text("Devices")
                 }
-            DeviceDataView()
-                .tabItem {
-                    Image(systemName: "externaldrive.fill.badge.timemachine")
-                    Text("Data")
-                }
+            
+
+//            DeviceDataView()
+//                .tabItem {
+//                    Image(systemName: "externaldrive.fill.badge.timemachine")
+//                    Text("Data")
+//                }
             ExperimentsView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")

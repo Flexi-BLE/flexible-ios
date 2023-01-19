@@ -98,13 +98,13 @@ import GRDB
         guard let deviceVM = deviceVM else  { return }
         Task { [weak self] in
             do {
-                self?.recordCount = try await fxb.read.getTotalRecords(
+                self?.recordCount = try await FlexiBLE.shared.dbAccess?.dataStream.count(
                     for: "\(dataStream.name)_data",
                     from: nil,
                     to: Date.now,
                     deviceName: deviceVM.device.deviceName,
                     uploaded: nil
-                )
+                ) ?? 0
             } catch {
                 
             }
@@ -124,7 +124,7 @@ import GRDB
     }
     
     func fetchLatestConfig() async {
-        guard let persistedConfig = await fxb.db.config(for: dataStream) else {
+        guard let persistedConfig = await FlexiBLE.shared.dbAccess?.dataStreamConfig.config(for: dataStream) else {
             return
         }
         
@@ -184,12 +184,13 @@ import GRDB
         offset: Int = 0,
         measurement: String?=nil
     ) async -> [T] {
-        return await fxb.db.dataValues(
-            for: dataStream.name,
-            measurement: measurement ?? dataStream.dataValues[0].name,
-            offset: offset,
-            limit: limit
-        )
+//        return await fxb.db.dataValues(
+//            for: dataStream.name,
+//            measurement: measurement ?? dataStream.dataValues[0].name,
+//            offset: offset,
+//            limit: limit
+//        )
+        return []
     }
     
     private func frequency(from dates: [Date]) -> Double {

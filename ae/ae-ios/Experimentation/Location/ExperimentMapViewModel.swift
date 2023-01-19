@@ -23,12 +23,12 @@ import FlexiBLE
     
     private func fetchLocations() {
         Task {
-            let allLocations = try await fxb.read.GetLocations(
-                startDate: experiment.start,
-                endDate: experiment.end,
-                limit: nil,
-                offset: nil
-            )
+            
+            let allLocations = try await FlexiBLE.shared.dbAccess?.location.get(
+                from: experiment.start,
+                to: experiment.end,
+                limit: 1000
+            ) ?? []
             
             self.locations = [allLocations[0]]
             

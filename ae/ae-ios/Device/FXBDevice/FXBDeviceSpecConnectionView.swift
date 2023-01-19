@@ -47,7 +47,7 @@ struct FXBDeviceSpecConnectionView: View {
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationTitle("\(spec.name) Devices")
                 }, label: {
-                    Text("Manage").buttonStyle(.bordered)
+                    Text("View Devices").buttonStyle(.bordered)
                 })
             }
         }.padding()

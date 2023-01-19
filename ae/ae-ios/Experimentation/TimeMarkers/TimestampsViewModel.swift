@@ -28,24 +28,28 @@ import UIKit
             return
         }
         
-        let res = await fxb.exp.getTimestampForExperiment(withID: id)
-        switch res {
-        case .success(let ts): self.timestamps = ts ?? []
-        case .failure(let err): self.errorMsg = err.localizedDescription
+        do {
+            if let timestamps = try await FlexiBLE.shared.dbAccess?.experiment.getTimestamps(for: id) {
+                self.timestamps = timestamps
+            }
+        } catch {
+            errorMsg = error.localizedDescription
         }
     }
     
     
     func createTimemarker() async {
         let name = "Timestamp - \(Date().getDetailedDate())"
-        let res = await fxb.exp.createTimeMarker(
-            name: name,
-            experimentId: experimentId,
-            specId: fxb.specId)
         
-        switch res {
-        case .success(let ts): self.timestamps.append(ts)
-        case .failure(let err): self.errorMsg = err.localizedDescription
+        do {
+            if let ts = try await FlexiBLE.shared.dbAccess?.experiment.createTimestamp(
+                name: name,
+                experimentId: experimentId
+            ) {
+                timestamps.append(ts)
+            }
+        } catch {
+            errorMsg = error.localizedDescription
         }
     }
     

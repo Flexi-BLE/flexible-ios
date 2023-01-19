@@ -58,47 +58,47 @@ struct SettingsView: View {
                         }
                     )
                     
-                    Button("Share Database") {
-                        isPresentingShare = true
-                    }
-                    .sheet(isPresented: $isPresentingShare, onDismiss: {
-                        print("Dismiss")
-                    }, content: {
-                        ActivityViewController(
-                            activityItems: [ShareUtil.dbCopy(path: fxb.db.dbPath) ?? fxb.db.dbPath]
-                        )
-                    })
+//                    Button("Share Database") {
+//                        isPresentingShare = true
+//                    }
+//                    .sheet(isPresented: $isPresentingShare, onDismiss: {
+//                        print("Dismiss")
+//                    }, content: {
+//                        ActivityViewController(
+//                            activityItems: [ShareUtil.dbCopy(path: fxb.db.dbPath) ?? fxb.db.dbPath]
+//                        )
+//                    })
                 }
                 
                 Section(header: Text("⚠️ Danger Zone")) {
-                    Button ("Purge Uploaded Records") {
-                        alertInfo = AlertInfo(
-                            title: "Are you sure?",
-                            message: "This will remove all sensor data that has been uploaded to a remote database. This action is irreversible.",
-                            primaryButton: .destructive(Text("Delete")) { Task { try? await fxb.write.purgeAllUploadedRecords() } },
-                            secondaryButton: .cancel(Text("Cancel"))
-                        )
-                    }
+//                    Button ("Purge Uploaded Records") {
+//                        alertInfo = AlertInfo(
+//                            title: "Are you sure?",
+//                            message: "This will remove all sensor data that has been uploaded to a remote database. This action is irreversible.",
+//                            primaryButton: .destructive(Text("Delete")) { Task { try? await fxb.write.purgeAllUploadedRecords() } },
+//                            secondaryButton: .cancel(Text("Cancel"))
+//                        )
+//                    }
                     
-                    Button("Purge All Records") {
-                        if fxb.conn.fxbConnectedDevices.count > 0 || fxb.conn.connectedRegisteredDevices.count > 0 {
-                            alertInfo = connectedDeviceWarningAlert
-                        } else {
-                            alertInfo = AlertInfo(
-                                title: "Are you sure?",
-                                message: "This will remove all data in the local database. This action is irreversible.",
-                                primaryButton: .destructive(Text("Delete")) {
-                                    fxb.write.purgeAllRecords()
-                                    Task {
-                                        if let spec = fxb.spec {
-                                            try? await fxb.setSpec(spec)
-                                        }
-                                    }
-                                },
-                                secondaryButton: .cancel(Text("Cancel"))
-                            )
-                        }
-                    }
+//                    Button("Purge All Records") {
+//                        if fxb.conn.fxbConnectedDevices.count > 0 || fxb.conn.connectedRegisteredDevices.count > 0 {
+//                            alertInfo = connectedDeviceWarningAlert
+//                        } else {
+//                            alertInfo = AlertInfo(
+//                                title: "Are you sure?",
+//                                message: "This will remove all data in the local database. This action is irreversible.",
+//                                primaryButton: .destructive(Text("Delete")) {
+//                                    fxb.write.purgeAllRecords()
+//                                    Task {
+//                                        if let spec = fxb.spec {
+//                                            try? await fxb.setSpec(spec)
+//                                        }
+//                                    }
+//                                },
+//                                secondaryButton: .cancel(Text("Cancel"))
+//                            )
+//                        }
+//                    }
                     
                     
                     Button("Purge All Local Configurations") {

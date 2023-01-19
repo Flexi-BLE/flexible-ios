@@ -22,13 +22,12 @@ import FlexiBLE
     }
     
     func refreshTableMetadata() async {
-        metadata = fxb.db.tableInfo(for: self.tableName)
+        metadata = try? FlexiBLE.shared.dbAccess?.dataStream.tableInfo(for: tableName)
         await self.refreshData()
     }
     
     func refreshData() async {
-        guard let metadata = self.metadata else { return }
-        if let data = await fxb.db.data(for: self.tableName, metadata: metadata) {
+        if let data = try? await FlexiBLE.shared.dbAccess?.dataStream.records(for: self.tableName, limit: 100) {
             DispatchQueue.main.async {
                 self.data = data
             }
