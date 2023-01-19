@@ -439,11 +439,7 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				01225B3E2979850B00105FC9 /* ae-ios.entitlements */,
-=======
-				A6323AA52971BB320088E648 /* ae-ios.entitlements */,
->>>>>>> 40eaee429c34bfa9b401ded4d848b8cb646b0d8e
 				01E7F276281858B900ED6F15 /* Device */,
 				01717C2A28DCE0A900B7DF39 /* Data */,
 				5C19730D2881FA420048AAB2 /* Shared */,
