@@ -14,34 +14,35 @@ struct DataStreamDetailCellView: View {
     
     @State var editConfigPopover: Bool = false
     @State var dataExplorerPopover: Bool = false
-    
     @State private var isEnabled: Bool = false
-    var enabledObs: AnyCancellable?
     
-    init(vm: AEDataStreamViewModel) {
-        self.vm = vm
-        
-        self.enabledObs = vm.$isOn
-            .receive(on: DispatchQueue.main)
-            .sink { [self] isOn in
-                isEnabled = isOn
-        }
-    }
+    var enabledObs: AnyCancellable?
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("\(vm.dataStream.name)")
-                        .font(.title2)
-                    
-                    Text("\(vm.dataStream.description ?? "")")
-                        .lineLimit(0)
-                        .font(.body)
-                }
-                Spacer()
-                if vm.isActive {
-                    Toggle("Enabled", isOn: $isEnabled)
+            
+            switch vm.state {
+            case .loading:
+                ProgressView()
+                    .progressViewStyle(.circular)
+                Text("Loading Data Stream ...")
+                    .font(.title2)
+            case .error(let msg):
+                Text("Error: \(msg)")
+                    .font(.title2)
+            case .connected:
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("\(vm.dataStream.name)")
+                            .font(.title2)
+                        
+                        Text("\(vm.dataStream.description ?? "")")
+                            .lineLimit(0)
+                            .font(.body)
+                    }
+                    Spacer()
+
+                    Toggle("Enabled", isOn: $vm.isOn)
                         .toggleStyle(.switch)
                         .labelsHidden()
                         .onChange(of: isEnabled) { newValue in
@@ -50,57 +51,55 @@ struct DataStreamDetailCellView: View {
                             }
                         }
                 }
-            }
+                    
                 
-            
-            Divider()
-            
-            KeyValueView(key: "Number of Records", value: "\(vm.recordCount.formatted())")
-            KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
-            if let rel = vm.reliability {
-                KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
-            }
-            
-            if vm.isActive, let device = vm.deviceVM?.device {
                 Divider()
                 
-                ForEach(vm.configVMs, id: \.config.name) { configVM in
-                    ConfigValueView(vm: configVM)
+                KeyValueView(key: "Number of Records", value: "\(vm.recordCount.formatted())")
+                KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
+                if let rel = vm.reliability {
+                    KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
                 }
-                HStack {
-                    FXBButton(action: { editConfigPopover.toggle() }) {
-                        Text("Edit Parameters")
+                
+                if let device = vm.deviceVM?.device {
+                    Divider()
+                    
+                    ForEach(vm.configVMs, id: \.config.name) { configVM in
+                        ConfigValueView(vm: configVM)
                     }
-                    .fullScreenCover(isPresented: $editConfigPopover) {
-                        NavigationView {
-                            ConfigEditView(vm: vm)
+                    HStack {
+                        FXBButton(action: { editConfigPopover.toggle() }) {
+                            Text("Edit Parameters")
                         }
-                    }
-                    Spacer()
-                    FXBButton(action: { dataExplorerPopover.toggle() }) {
-                        Text("View Graph")
-                    }
-                    .fullScreenCover(isPresented: $dataExplorerPopover) {
-                        NavigationView {
-                            DataStreamGraphView(
-                                vm: DataStreamGraphViewModel(
-                                    dataStream: vm.dataStream,
-                                    deviceName: device.deviceName
+                        .fullScreenCover(isPresented: $editConfigPopover) {
+                            NavigationView {
+                                ConfigEditView(vm: vm)
+                            }
+                        }
+                        Spacer()
+                        FXBButton(action: { dataExplorerPopover.toggle() }) {
+                            Text("View Graph")
+                        }
+                        .fullScreenCover(isPresented: $dataExplorerPopover) {
+                            NavigationView {
+                                DataStreamGraphView(
+                                    vm: DataStreamGraphViewModel(
+                                        dataStream: vm.dataStream,
+                                        deviceName: device.deviceName
+                                    )
                                 )
-                            )
+                            }
                         }
-                    }
-//                    .disabled(!(vm.deviceVM?.device.specMatched ?? false))
-                    .fullScreenCover(isPresented: $editConfigPopover) {
-                        NavigationView {
-                            ConfigEditView(vm: vm)
+                        .fullScreenCover(isPresented: $editConfigPopover) {
+                            NavigationView {
+                                ConfigEditView(vm: vm)
+                            }
                         }
+                        Spacer()
                     }
-                    Spacer()
                 }
             }
         }
         .padding()
-        .onAppear() { vm.checkActive() }
     }
 }

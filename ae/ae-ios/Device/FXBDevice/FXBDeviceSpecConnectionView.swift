@@ -27,29 +27,33 @@ struct FXBDeviceSpecConnectionView: View {
             Spacer(minLength: 8.0)
             Text(spec.description)
                 .font(.body)
+            
             Divider()
+            
+            switch conn.fxbFoundDevices {
+            case let ds where ds.count == 1: Text("\(ds.count) device found").font(.body)
+            case let ds where ds.count > 1: Text("\(ds.count) devices found").font(.body)
+            default: Text("No devices found").font(.body)
+            }
+            switch conn.fxbConnectedDevices {
+            case let ds where ds.count == 1: Text("\(ds.count) device connected").font(.body)
+            case let ds where ds.count > 1: Text("\(ds.count) devices connected").font(.body)
+            default: Text("No devices connected").font(.body)
+            }
+            
+            Spacer()
+            
             HStack {
-                VStack(alignment: .leading) {
-                    switch conn.fxbFoundDevices {
-                    case let ds where ds.count == 1: Text("\(ds.count) device found").font(.body)
-                    case let ds where ds.count > 1: Text("\(ds.count) devices found").font(.body)
-                    default: Text("No devices found").font(.body)
-                    }
-                    switch conn.fxbConnectedDevices {
-                    case let ds where ds.count == 1: Text("\(ds.count) device connected").font(.body)
-                    case let ds where ds.count > 1: Text("\(ds.count) devices connected").font(.body)
-                    default: Text("No devices connected").font(.body)
-                    }
-                }
                 Spacer()
                 NavigationLink(destination: {
                     SelectFXBDeviceConnectionView(deviceSpec: spec)
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationTitle("\(spec.name) Devices")
                 }, label: {
-                    Text("Manage").buttonStyle(.bordered)
+                    Text("View Devices").buttonStyle(.bordered)
                 })
             }
+            
         }.padding()
     }
 }

@@ -13,15 +13,9 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             DevicesView(vm: FlexiBLESpecViewModel())
-//            AEThingsView(vm: AEViewModel(with: "exthub.json"))
                 .tabItem{
                     Image(systemName: "memorychip")
                     Text("Devices")
-                }
-            DeviceDataView()
-                .tabItem {
-                    Image(systemName: "externaldrive.fill.badge.timemachine")
-                    Text("Data")
                 }
             ExperimentsView()
                 .tabItem {

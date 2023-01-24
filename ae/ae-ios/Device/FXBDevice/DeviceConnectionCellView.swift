@@ -41,6 +41,20 @@ struct DeviceConnectionCellView: View {
                     Toggle("Auto Connect", isOn: $vm.shouldAutoConnect)
                         .labelsHidden()
                 }
+                
+                Divider()
+                
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: {
+                        DataStreamsView(deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationTitle("\(vm.device.deviceName)")
+                    }, label: {
+                        Text("Manage Data Streams").buttonStyle(.bordered)
+                    })
+                }
+                
             case .connecting:
                 KeyValueView(key: "Status", value: "Connecting")
             case .initializing:
