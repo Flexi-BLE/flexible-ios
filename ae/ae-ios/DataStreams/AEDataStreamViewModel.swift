@@ -14,22 +14,25 @@ import GRDB
 @MainActor class AEDataStreamViewModel: ObservableObject {
     
     var dataStream: FXBDataStream
+    
+    enum State {
+        case loading
+        case connected
+        case error(msg: String)
+    }
+    @Published var state: State = .loading
+    
     @Published var recordCount: Int = 0
     @Published var frequency: Double = 0
     @Published var reliability: Double? = 0
+    @Published var configVMs: [ConfigViewModel] = []
+    @Published var isOn: Bool
     
     var deviceVM: FXBDeviceViewModel?
     
-    @Published var isActive: Bool = false
     
     private var observers = Set<AnyCancellable>()
-    
-    @Published var configVMs: [ConfigViewModel] = []
-    
-    @Published var isOn: Bool
-    
     private var sensorStateConfig: ConfigViewModel?
-    
     private var deviceName: String
     
     var estimatedReload: Double {
@@ -37,21 +40,12 @@ import GRDB
     }
     
     init(_ dataStream: FXBDataStream, deviceName: String) {
+        self.state = .loading
         self.dataStream = dataStream
         self.deviceName = deviceName
         self.isOn = false
-    }
-    
-    func checkActive() {
-        guard let _ = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) else {
-            self.deviceVM = nil
-            self.isActive = false
-            return
-        }
         
-        if self.deviceVM == nil {
-            self.setupDevice()
-        }
+        self.setupDevice()
     }
     
     func toggleEnable() {
@@ -69,16 +63,13 @@ import GRDB
             self.deviceVM = FXBDeviceViewModel(with: device)
             setInitialRecordCount()
             
-            self.deviceVM?.device.$isSpecVersionMatched
-                .prefix(2)
-                .sink(receiveValue: { [weak self] matched in
-                    self?.isActive = matched
-                })
-                .store(in: &observers)
-        } else { isActive = false }
+        } else {
+            self.state = .error(msg: "Device not connected")
+        }
         
         configVMs = []
         sensorStateConfig = nil
+        
         for config in dataStream.configValues {
             configVMs.append(ConfigViewModel(config: config))
         }
@@ -91,6 +82,9 @@ import GRDB
         
         Task {
             await fetchLatestConfig()
+            DispatchQueue.main.async {
+                self.state = .connected
+            }
         }
     }
     
@@ -124,7 +118,8 @@ import GRDB
     }
     
     func fetchLatestConfig() async {
-        guard let persistedConfig = await fxb.db.config(for: dataStream) else {
+        guard
+            let persistedConfig = await fxb.db.config(for: dataStream, deviceName: deviceName) else {
             return
         }
         
@@ -138,6 +133,7 @@ import GRDB
                     }
                     
                     vm.update(with: value)
+                    
                 }
             }
         }
