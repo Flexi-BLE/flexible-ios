@@ -45,11 +45,6 @@ struct DataStreamDetailCellView: View {
                     Toggle("Enabled", isOn: $vm.isOn)
                         .toggleStyle(.switch)
                         .labelsHidden()
-                        .onChange(of: isEnabled) { newValue in
-                            if newValue != vm.isOn {
-                                vm.toggleEnable()
-                            }
-                        }
                 }
                     
                 

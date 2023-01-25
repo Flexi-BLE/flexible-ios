@@ -45,16 +45,14 @@ import GRDB
         self.deviceName = deviceName
         self.isOn = false
         
+        self.$isOn.sink { newValue in
+            if (newValue ? "1" : "0") != self.sensorStateConfig?.selectedValue {
+                self.sensorStateConfig?.update(with: newValue ? "1" : "0")
+                self.updateConfigs()
+            }
+        }.store(in: &observers)
+        
         self.setupDevice()
-    }
-    
-    func toggleEnable() {
-        guard let _ = sensorStateConfig else {
-            return
-        }
-        self.isOn.toggle()
-        sensorStateConfig?.update(with: isOn ? "1" : "0")
-        updateConfigs()
     }
     
     private func setupDevice() {
