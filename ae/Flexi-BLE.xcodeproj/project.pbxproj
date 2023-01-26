@@ -121,6 +121,7 @@
 		01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */; };
 		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
+		01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5D4CE29820EF9009492D3 /* Collections+Util.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
 		01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */; };
 		01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */; };
@@ -303,6 +304,7 @@
 		01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxDBConnectionModel.swift; sourceTree = "<group>"; };
 		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
 		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01B5D4CE29820EF9009492D3 /* Collections+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+Util.swift"; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
 		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphView.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */,
 				012B302728D8DD1400BA623A /* UIApplication.swift */,
 				01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */,
+				01B5D4CE29820EF9009492D3 /* Collections+Util.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1061,6 +1064,7 @@
 				014DB6DB289B7189008982C6 /* TimestampCellView.swift in Sources */,
 				013F767128888324000D88E2 /* ConfigOptionEditView.swift in Sources */,
 				01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */,
+				01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */,
 				01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */,
