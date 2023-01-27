@@ -77,7 +77,7 @@ class LiveUploader {
             
             let uploader = InfluxDBUploader(
                 credentials: credentials,
-                startDate: nil,
+                startDate: Date.now.addingTimeInterval(-Double(credentials.uploadInterval ?? 30 * 4)),
                 endDate: Date.now
             )
             
