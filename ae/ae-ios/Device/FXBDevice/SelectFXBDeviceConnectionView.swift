@@ -16,8 +16,16 @@ struct SelectFXBDeviceConnectionView: View {
     @StateObject private var conn = fxb.conn
     
     var body: some View {
-        List(fxb.conn.fxbConnectedDevices + fxb.conn.fxbFoundDevices) {
-            DeviceConnectionCellView(vm: FXBDeviceViewModel(with: $0))
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach((fxb.conn.fxbConnectedDevices + fxb.conn.fxbFoundDevices)
+                    .sorted(by: { $0.deviceName < $1.deviceName })) {
+                        
+                        DeviceConnectionCellView(vm: FXBDeviceViewModel(with: $0))
+                            .modifier(Card())
+                    }
+                Spacer()
+            }
         }
     }
 }

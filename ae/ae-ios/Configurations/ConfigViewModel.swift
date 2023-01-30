@@ -39,7 +39,7 @@ import FlexiBLE
     
     var multiSelectSelections: [String] {
         guard let options = config.options else { return [] }
-        return multiSelectIndicies.map({ options[$0].name })
+        return multiSelectIndicies.map({ options[optional: $0]?.name ?? "--unknown--" })
     }
     
     func selectOption(named: String) {

@@ -42,14 +42,18 @@ struct DeviceConnectionCellView: View {
                         .labelsHidden()
                 }
                 
-                NavigationLink(destination: {
-                    DataStreamsView(deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .navigationTitle("Data")
-                }, label: {
-                    Text("Manage Device").buttonStyle(.bordered)
-                })
+                Divider()
                 
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: {
+                        DataStreamsView(deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationTitle("\(vm.device.deviceName)")
+                    }, label: {
+                        Text("Manage Data Streams").buttonStyle(.bordered)
+                    })
+                }
                 
             case .connecting:
                 KeyValueView(key: "Status", value: "Connecting")
