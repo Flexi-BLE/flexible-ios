@@ -7,7 +7,7 @@
 
 import Foundation
 import FlexiBLE
-import flexiBLE_signal
+import FlexiBLESignal
 import Combine
 
 class DataStreamDataService {

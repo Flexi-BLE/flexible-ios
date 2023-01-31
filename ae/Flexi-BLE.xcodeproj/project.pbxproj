@@ -114,7 +114,6 @@
 		0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C328F86E64006CC558 /* ChartControlButton.swift */; };
 		0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */; };
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
-		01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01911E372964C83D00F208C3 /* flexiBLE-signal */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
@@ -182,8 +181,9 @@
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */; };
+		01F1E54F2988B97100270081 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54E2988B97100270081 /* flexible-swift */; };
+		01F1E5512988B97100270081 /* FlexiBLESignal in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E5502988B97100270081 /* FlexiBLESignal */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
-		01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01FB99CA2965C5B20020A786 /* flexible-swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
 		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
@@ -361,8 +361,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */,
-				01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */,
+				01F1E54F2988B97100270081 /* flexible-swift in Frameworks */,
+				01F1E5512988B97100270081 /* FlexiBLESignal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,8 +835,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				01911E372964C83D00F208C3 /* flexiBLE-signal */,
-				01FB99CA2965C5B20020A786 /* flexible-swift */,
+				01F1E54E2988B97100270081 /* flexible-swift */,
+				01F1E5502988B97100270081 /* FlexiBLESignal */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -1968,13 +1968,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		01911E372964C83D00F208C3 /* flexiBLE-signal */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "flexiBLE-signal";
-		};
-		01FB99CA2965C5B20020A786 /* flexible-swift */ = {
+		01F1E54E2988B97100270081 /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
+		};
+		01F1E5502988B97100270081 /* FlexiBLESignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlexiBLESignal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
