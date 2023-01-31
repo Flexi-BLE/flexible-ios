@@ -17,7 +17,7 @@ struct ProfileSelectionHeader: View {
             VStack(alignment: .leading) {
                 Text("PROFILE").font(.system(size: 10))
                 switch vm.state {
-                case .noProfileSelected, .error(_): Text("No Profile Selected").font(.body)
+                case .noProfileSelected: Text("No Profile Selected").font(.body)
                 case .active(let profile):
                     Text("\(profile.name)").font(.body).bold()
                     Text("\(profile.id)").font(.system(size: 10))

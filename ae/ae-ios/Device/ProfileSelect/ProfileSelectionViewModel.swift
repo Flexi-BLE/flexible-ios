@@ -15,9 +15,10 @@ import FlexiBLE
         case noProfileSelected
         case loading(description: String)
         case active(profile: FlexiBLEProfile)
-        case error(message: String)
     }
     @Published var state: State = .noProfileSelected
+    
+    @Published var errorMessage: String? = nil
     
     var profiles = fxb.profiles()
     private var observables: [AnyCancellable] = []
@@ -33,26 +34,30 @@ import FlexiBLE
         fxb.setLastProfile()
     }
     
-    func create(name: String, urlString: String) {
+    func create(name: String, urlString: String, setActive: Bool) {
         guard let url = URL(string: urlString) else {
-            self.state = .error(message: "You entered an invalid URL")
+            self.errorMessage = "You entered an invalid URL"
             return
         }
         
         self.state = .loading(description: url.lastPathComponent)
         Task {
             if let spec = await loadSpecification(with: url) {
-                fxb.createProfile(with: spec)
+                fxb.createProfile(with: spec, name: name, setActive: setActive)
                 fxb.startScan(with: spec)
                 self.profiles = fxb.profiles()
             } else {
-                state = .error(message: "unable to load remote configuration \(url.lastPathComponent)")
+                errorMessage = "Unable to load remote configuration \(url.lastPathComponent)"
             }  
         }
     }
     
     func setProfile(with id: UUID) {
         fxb.switchProfile(to: id)
+    }
+    
+    func clearError() {
+        errorMessage = nil
     }
     
     private func loadSpecification(with url: URL) async -> FXBSpec? {

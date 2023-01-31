@@ -38,9 +38,6 @@ struct DevicesView: View {
                                 .modifier(Card())
                         }
                     }
-                case .error(let message):
-                    Text("😵 \(message)")
-                    Spacer()
                 }
             }
             .navigationBarTitle("")

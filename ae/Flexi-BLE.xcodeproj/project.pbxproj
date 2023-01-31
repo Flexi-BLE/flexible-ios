@@ -727,18 +727,26 @@
 		01E7F276281858B900ED6F15 /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				01F1E55429898BB800270081 /* ProfileSelect */,
 				01E7F289281C0FB500ED6F15 /* DevicesView.swift */,
 				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
 				017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */,
 				017810BF28E224A700E1264D /* FXBDevice */,
 				0198ECB42898B39400F93E13 /* RegisteredDevice */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		01F1E55429898BB800270081 /* ProfileSelect */ = {
+			isa = PBXGroup;
+			children = (
 				01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */,
 				01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */,
 				01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */,
 				01F1E54C2988B04900270081 /* ProfileDetailCell.swift */,
 				01F1E5522989768B00270081 /* CreateProfileFromURLView.swift */,
 			);
-			path = Device;
+			path = ProfileSelect;
 			sourceTree = "<group>";
 		};
 		5C19730D2881FA420048AAB2 /* Shared */ = {

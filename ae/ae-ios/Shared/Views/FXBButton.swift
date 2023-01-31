@@ -8,6 +8,32 @@
 import Foundation
 import SwiftUI
 
+struct PrimaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .padding(11)
+                .background(Color(UIColor.systemIndigo))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .frame(height: 45.0)
+        }
+}
+
+struct SecondaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(11)
+            .background(.white)
+            .foregroundColor(Color(UIColor.systemIndigo))
+            .cornerRadius(8)
+            .frame(height: 45.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.black, lineWidth: 1)
+            )
+    }
+}
+
 struct FXBButton<Content: View>: View {
     let content: Content
     let action: ()->()
