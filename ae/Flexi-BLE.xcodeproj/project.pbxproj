@@ -99,7 +99,6 @@
 		01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */; };
 		01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
 		01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
-		017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
 		017810C428E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
@@ -110,13 +109,10 @@
 		0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C328F86E64006CC558 /* ChartControlButton.swift */; };
 		0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */; };
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
-		01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */ = {isa = PBXBuildFile; productRef = 01911E372964C83D00F208C3 /* flexiBLE-signal */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
 		01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */; };
-		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
-		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5D4CE29820EF9009492D3 /* Collections+Util.swift */; };
 		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
 		01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */; };
@@ -165,8 +161,6 @@
 		01E7F2882818734A00ED6F15 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2862818734A00ED6F15 /* Color.swift */; };
 		01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* DevicesView.swift */; };
 		01E7F28B281C0FB500ED6F15 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* DevicesView.swift */; };
-		01E7F28D281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */; };
-		01E7F28E281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */; };
 		01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F298281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
@@ -178,8 +172,13 @@
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */; };
+		01F1E54329888F0B00270081 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54229888F0B00270081 /* flexible-swift */; };
+		01F1E54529888F0B00270081 /* FlexiBLESignal in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54429888F0B00270081 /* FlexiBLESignal */; };
+		01F1E5472988A59700270081 /* ProfileSelectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */; };
+		01F1E5492988A5C700270081 /* ProfileSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */; };
+		01F1E54B2988ACB200270081 /* ProfileSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */; };
+		01F1E54D2988B04900270081 /* ProfileDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E54C2988B04900270081 /* ProfileDetailCell.swift */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
-		01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01FB99CA2965C5B20020A786 /* flexible-swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
 		5C53B575289AFDDC002F0212 /* MapWithUserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B574289AFDDC002F0212 /* MapWithUserLocationView.swift */; };
@@ -290,15 +289,12 @@
 		0179D5C328F86E64006CC558 /* ChartControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControlButton.swift; sourceTree = "<group>"; };
 		0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
-		01911E362964C7DA00F208C3 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
-		01949152297AD0D300646908 /* ae-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ae-ios.entitlements"; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01A2451029660085009212F4 /* SimpleBindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBindingTextField.swift; sourceTree = "<group>"; };
 		01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxDBConnectionModel.swift; sourceTree = "<group>"; };
-		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
-		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01A2674D298820260033BE13 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01B5D4CE29820EF9009492D3 /* Collections+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+Util.swift"; sourceTree = "<group>"; };
 		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
 		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
@@ -328,11 +324,14 @@
 		01E7F283281871C300ED6F15 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		01E7F2862818734A00ED6F15 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		01E7F289281C0FB500ED6F15 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
-		01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiBLESpecViewModel.swift; sourceTree = "<group>"; };
 		01E7F292281C153500ED6F15 /* HelpHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHeaderView.swift; sourceTree = "<group>"; };
 		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Util.swift"; sourceTree = "<group>"; };
+		01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionHeader.swift; sourceTree = "<group>"; };
+		01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionViewModel.swift; sourceTree = "<group>"; };
+		01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionView.swift; sourceTree = "<group>"; };
+		01F1E54C2988B04900270081 /* ProfileDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailCell.swift; sourceTree = "<group>"; };
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -349,7 +348,6 @@
 		5CBAAB4128871B3400367FDC /* FXBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBButton.swift; sourceTree = "<group>"; };
 		5CC0EC0528C81A4C007C2654 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		62E5A634EF76AB55B13EF25F /* TimeSeriesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSeriesBuilder.swift; sourceTree = "<group>"; };
-		A6323AA52971BB320088E648 /* ae-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ae-ios.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,8 +355,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01911E382964C83D00F208C3 /* flexiBLE-signal in Frameworks */,
-				01FB99CB2965C5B20020A786 /* flexible-swift in Frameworks */,
+				01F1E54329888F0B00270081 /* flexible-swift in Frameworks */,
+				01F1E54529888F0B00270081 /* FlexiBLESignal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				019971DD29114A6C0020276D /* flexible-swift */,
-				01911E362964C7DA00F208C3 /* flexible-swift-signal */,
+				01A2674D298820260033BE13 /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -620,8 +618,6 @@
 		017810BF28E224A700E1264D /* FXBDevice */ = {
 			isa = PBXGroup;
 			children = (
-				01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */,
-				01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */,
 				01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */,
 				01551D1728DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift */,
 				01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */,
@@ -730,11 +726,14 @@
 			isa = PBXGroup;
 			children = (
 				01E7F289281C0FB500ED6F15 /* DevicesView.swift */,
-				01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */,
 				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
 				017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */,
 				017810BF28E224A700E1264D /* FXBDevice */,
 				0198ECB42898B39400F93E13 /* RegisteredDevice */,
+				01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */,
+				01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */,
+				01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */,
+				01F1E54C2988B04900270081 /* ProfileDetailCell.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -821,8 +820,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				01911E372964C83D00F208C3 /* flexiBLE-signal */,
-				01FB99CA2965C5B20020A786 /* flexible-swift */,
+				01F1E54229888F0B00270081 /* flexible-swift */,
+				01F1E54429888F0B00270081 /* FlexiBLESignal */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -981,11 +980,11 @@
 			files = (
 				011F489B28076B3B00B359EB /* SettingsView.swift in Sources */,
 				014DB6D9289B6FA1008982C6 /* TimestampsViewModel.swift in Sources */,
-				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01F1E54D2988B04900270081 /* ProfileDetailCell.swift in Sources */,
 				01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
@@ -1018,7 +1017,6 @@
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				012B302828D8DD1400BA623A /* UIApplication.swift in Sources */,
-				01E7F28D281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
@@ -1031,7 +1029,6 @@
 				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */,
 				01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */,
-				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
@@ -1052,6 +1049,7 @@
 				01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */,
+				01F1E54B2988ACB200270081 /* ProfileSelectionView.swift in Sources */,
 				01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */,
 				012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
@@ -1062,10 +1060,12 @@
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				01286303294D020B000DD78E /* LiveUploader.swift in Sources */,
 				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				01F1E5492988A5C700270081 /* ProfileSelectionViewModel.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
 				01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
+				01F1E5472988A59700270081 /* ProfileSelectionHeader.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
@@ -1103,7 +1103,6 @@
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
 				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
-				017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				017810C728E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
 				01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */,
@@ -1117,7 +1116,6 @@
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
 				01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				017810CA28E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
-				01E7F28E281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */,
 				01C232AB28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
@@ -1328,6 +1326,7 @@
 				INFOPLIST_FILE = "ae-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1352,7 +1351,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1417,6 +1416,7 @@
 				INFOPLIST_FILE = "ae-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1440,7 +1440,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1950,13 +1950,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		01911E372964C83D00F208C3 /* flexiBLE-signal */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "flexiBLE-signal";
-		};
-		01FB99CA2965C5B20020A786 /* flexible-swift */ = {
+		01F1E54229888F0B00270081 /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
+		};
+		01F1E54429888F0B00270081 /* FlexiBLESignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FlexiBLESignal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

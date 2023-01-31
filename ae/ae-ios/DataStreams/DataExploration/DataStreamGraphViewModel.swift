@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import FlexiBLE
-import flexiBLE_signal
+import FlexiBLESignal
 import Combine
 
 @MainActor class DataStreamGraphViewModel: ObservableObject {
