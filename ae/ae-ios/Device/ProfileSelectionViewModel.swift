@@ -33,7 +33,7 @@ import FlexiBLE
         fxb.setLastProfile()
     }
     
-    func load(from urlString: String) {
+    func create(name: String, urlString: String) {
         guard let url = URL(string: urlString) else {
             self.state = .error(message: "You entered an invalid URL")
             return
@@ -41,7 +41,13 @@ import FlexiBLE
         
         self.state = .loading(description: url.lastPathComponent)
         Task {
-            await loadSpecification(with: url)
+            if let spec = await loadSpecification(with: url) {
+                fxb.createProfile(with: spec)
+                fxb.startScan(with: spec)
+                self.profiles = fxb.profiles()
+            } else {
+                state = .error(message: "unable to load remote configuration \(url.lastPathComponent)")
+            }  
         }
     }
     
@@ -49,13 +55,11 @@ import FlexiBLE
         fxb.switchProfile(to: id)
     }
     
-    private func loadSpecification(with url: URL) async {
-        if let config = try? await FXBSpec.load(from: url) {
-            fxb.createProfile(with: config)
-            fxb.startScan(with: config)
-            self.profiles = fxb.profiles()
+    private func loadSpecification(with url: URL) async -> FXBSpec? {
+        if let spec = try? await FXBSpec.load(from: url) {
+            return spec
         } else {
-            state = .error(message: "unable to load remote configuration \(url.lastPathComponent)")
+            return nil
         }
     }
     

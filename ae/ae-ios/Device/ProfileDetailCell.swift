@@ -17,6 +17,11 @@ struct ProfileDetailCell: View {
             Text("\(profile.name)").font(.title3).bold()
             Text("\(profile.id)").font(.system(size: 10))
             HStack {
+                Text("Specification Id").font(.system(size: 10))
+                Text(profile.specification.id).font(.system(size: 10))
+                Spacer()
+            }
+            HStack {
                 Text("Created at").font(.system(size: 10))
                 Text("\(profile.createdAt.getShortDateAndTime())").font(.system(size: 10))
                 Spacer()

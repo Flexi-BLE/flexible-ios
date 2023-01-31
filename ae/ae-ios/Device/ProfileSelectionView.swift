@@ -13,6 +13,7 @@ struct ProfileSelectionView: View {
     @StateObject var vm: ProfileSelectionViewModel
     
     @State private var urlString: String = ""
+    @State private var newProfileName: String = ""
     @State private var existingSelection: UUID? = nil
     
     var body: some View {
@@ -20,46 +21,40 @@ struct ProfileSelectionView: View {
             VStack(alignment: .leading) {
                 Spacer().frame(height: 16)
                 Text("Select a Profile").font(.largeTitle)
-                Spacer().frame(height: 16)
+                Spacer().frame(height: 32)
                 
                 if case .error(let msg) = vm.state {
-                    Text("Error: ").font(.title2)
+                    Text("Error: ").font(.title2).bold()
                     Text(msg)
                     Divider()
                 }
                 
-                Text("Create a new profile")
-                    .font(.title2)
-                Text("Enter a FlexiBLE Specification URL")
-                    .font(.body)
-                TextField(
-                    "Device Config JSON URL",
-                    text: $urlString
-                )
-                .onSubmit {
-                    vm.load(from: urlString)
-                    dismiss()
-                }
-                .keyboardType(.URL)
-                .textInputAutocapitalization(.never)
-                .disableAutocorrection(true)
-                .border(.primary)
+                CreateProfileFromURLView(vm: vm)
         
+                Spacer().frame(height: 16.0)
                 Divider()
+                Spacer().frame(height: 16.0)
                 
                 Text("Select an Existing Profile")
                     .font(.title2)
+                    .bold()
             }.padding()
             
-            List(vm.profiles, id: \.id, selection: $existingSelection) { profile in
-                ProfileDetailCell(profile: profile)
-            }
-            .scrollContentBackground(.hidden)
-            .onChange(of: existingSelection) { newValue in
-                if let id = newValue {
-                    vm.setProfile(with: id)
-                    dismiss()
+            if !vm.profiles.isEmpty {
+                List(vm.profiles, id: \.id, selection: $existingSelection) { profile in
+                    ProfileDetailCell(profile: profile)
                 }
+                .scrollContentBackground(.hidden)
+                .onChange(of: existingSelection) { newValue in
+                    if let id = newValue {
+                        vm.setProfile(with: id)
+                        dismiss()
+                    }
+                }
+            } else {
+                Spacer()
+                Text("No Existing Profiles").font(.title3).bold()
+                Spacer()
             }
         }
     }
