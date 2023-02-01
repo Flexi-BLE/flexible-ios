@@ -116,6 +116,9 @@ import GRDB
     }
     
     func fetchLatestConfig() async {
+        guard !dataStream.configValues.isEmpty else {
+            return
+        }
         guard let persistedConfig = await FlexiBLE.shared.dbAccess?.dataStreamConfig.config(for: dataStream, deviceName: deviceName) else {
             return
         }

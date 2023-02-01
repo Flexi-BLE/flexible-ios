@@ -83,12 +83,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let deviceName = UserDefaults.standard.string(forKey: InfluxDBConnection.UserDefaultsKey.deviceId.rawValue) ?? "phone"
         var location = FXBLocation(
+            ts: latest.timestamp,
             latitude: Double(latest.coordinate.latitude),
             longitude: Double(latest.coordinate.longitude),
             altitude: latest.altitude,
             horizontalAccuracy: latest.horizontalAccuracy,
             verticalAccuracy: latest.verticalAccuracy,
-            ts: latest.timestamp,
             deviceName: deviceName
         )
         
