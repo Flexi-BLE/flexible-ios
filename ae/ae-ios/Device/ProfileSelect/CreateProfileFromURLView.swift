@@ -15,6 +15,8 @@ struct CreateProfileFromURLView: View {
     @State private var newProfileName: String = ""
     @State private var urlString: String = ""
     
+    @State private var showQRFinder: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -39,9 +41,19 @@ struct CreateProfileFromURLView: View {
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
                     .keyboardType(.URL)
-                    .disableAutocorrection(true)
-                
+                .disableAutocorrection(true)
+            
                 HStack {
+                    Button {
+                        showQRFinder = true
+                    } label: {
+                        Image(systemName: "qrcode.viewfinder").font(.title2)
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                    .alert("Scan QR Code: Coming Soon.", isPresented: $showQRFinder) {
+                        Button("OK", role: .cancel) { }
+                    }
+                    
                     Spacer()
                     
                     Button {

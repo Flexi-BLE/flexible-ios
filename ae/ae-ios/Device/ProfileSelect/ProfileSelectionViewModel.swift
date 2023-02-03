@@ -16,8 +16,8 @@ import FlexiBLE
         case loading(description: String)
         case active(profile: FlexiBLEProfile)
     }
-    @Published var state: State = .noProfileSelected
     
+    @Published var state: State = .noProfileSelected
     @Published var errorMessage: String? = nil
     
     var profiles = fxb.profiles()
@@ -27,10 +27,12 @@ import FlexiBLE
         fxb.$profile.sink { profile in
             if let profile = profile {
                 self.state = .active(profile: profile)
+                self.checkAutoConnect()
             } else {
                 self.state = .noProfileSelected
             }
         }.store(in: &observables)
+        
         fxb.setLastProfile()
     }
     
@@ -66,6 +68,14 @@ import FlexiBLE
         } else {
             return nil
         }
+    }
+    
+    private func checkAutoConnect() {
+        guard let autoConnects: [String] = try? UserDefaults
+            .standard
+            .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey) else  { return }
+                
+        fxb.conn.registerAutoConnect(devices: autoConnects)
     }
     
 }

@@ -89,6 +89,16 @@ struct ProfileSelectionView: View {
                 Spacer()
                 
                 
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Dismiss")
+                    }
+                }.buttonStyle(SecondaryButtonStyle())
+                
+                
             }.padding()
         }
     }

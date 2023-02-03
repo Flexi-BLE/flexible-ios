@@ -11,6 +11,7 @@ import FlexiBLE
 struct FXBDeviceSpecConnectionView: View {
     var spec: FXBDeviceSpec
     @StateObject var conn: FXBConnectionManager = fxb.conn
+
     @State var isShowingConnectionManager: Bool = false
     @State var avaiableDevicesText: String = ""
     @State var connectedDevicesText: String = ""

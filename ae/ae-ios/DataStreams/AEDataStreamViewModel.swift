@@ -20,6 +20,7 @@ import GRDB
         case connected
         case error(msg: String)
     }
+    
     @Published var state: State = .loading
     
     @Published var recordCount: Int = 0
@@ -29,6 +30,13 @@ import GRDB
     @Published var isOn: Bool
     
     var deviceVM: FXBDeviceViewModel?
+    
+    var hasConfigurations: Bool {
+        return !dataStream.configValues.isEmpty
+    }
+    var hasVariableFrequency: Bool {
+        return self.configVMs.first(where: { $0.config.name == "desired_frequency" }) != nil
+    }
     
     
     private var observers = Set<AnyCancellable>()
@@ -44,13 +52,6 @@ import GRDB
         self.dataStream = dataStream
         self.deviceName = deviceName
         self.isOn = false
-        
-        self.$isOn.sink { newValue in
-            if (newValue ? "1" : "0") != self.sensorStateConfig?.selectedValue {
-                self.sensorStateConfig?.update(with: newValue ? "1" : "0")
-                self.updateConfigs()
-            }
-        }.store(in: &observers)
         
         self.setupDevice()
     }
@@ -72,10 +73,8 @@ import GRDB
             configVMs.append(ConfigViewModel(config: config))
         }
         
-        if let stateConfig = configVMs.first(where: { $0.config.name == "sensor_state" }),
-           let value = Double(stateConfig.selectedValue) {
+        if let stateConfig = configVMs.first(where: { $0.config.name == "sensor_state" }) {
             self.sensorStateConfig = stateConfig
-            self.isOn = value > 0
         }
         
         Task {
@@ -83,6 +82,15 @@ import GRDB
             DispatchQueue.main.async {
                 self.state = .connected
             }
+            
+            self.$isOn.sink { newValue in
+                if let selectedVal = self.sensorStateConfig?.selectedValue {
+                    if (newValue ? "1" : "0") != selectedVal {
+                        self.sensorStateConfig?.update(with: newValue ? "1" : "0")
+                        self.updateConfigs()
+                    }
+                }
+            }.store(in: &observers)
         }
     }
     
@@ -90,15 +98,15 @@ import GRDB
         guard let deviceVM = deviceVM else  { return }
         Task { [weak self] in
             do {
-                self?.recordCount = try await FlexiBLE.shared.dbAccess?.dataStream.count(
-                    for: "\(dataStream.name)_data",
-                    from: nil,
-                    to: Date.now,
-                    deviceName: deviceVM.device.deviceName,
+                self?.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
+                    for: .dynamicData(name: dataStream.name),
+                    start: nil,
+                    end: Date.now,
+                    deviceName: deviceName,
                     uploaded: nil
                 ) ?? 0
             } catch {
-                
+                gLog.error("unable to detemine record count for \(self?.dataStream.name ?? "-- unknown --")")
             }
         }
         deviceVM.device
@@ -108,9 +116,13 @@ import GRDB
             .sink(receiveValue: { [weak self] dates in
                 guard let self = self else { return }
                 let dedupedDates = Array(Set(dates)).sorted(by: { $1 > $0 })
-                self.recordCount += dates.count
-                self.frequency = self.frequency(from: dedupedDates)
-                self.reliability = self.reliability(from: self.frequency)
+                
+                withAnimation(.spring()) {
+                    self.recordCount += dates.count
+                    self.frequency = self.frequency(from: dedupedDates)
+                    self.reliability = self.reliability(from: self.frequency)
+                }
+                
             })
             .store(in: &observers)
     }
@@ -173,20 +185,6 @@ import GRDB
             await self?.fetchLatestConfig()
         }
         
-    }
-    
-    func fetchData<T: AEDataValue & DatabaseValueConvertible>(
-        limit: Int = 1000,
-        offset: Int = 0,
-        measurement: String?=nil
-    ) async -> [T] {
-//        return await fxb.db.dataValues(
-//            for: dataStream.name,
-//            measurement: measurement ?? dataStream.dataValues[0].name,
-//            offset: offset,
-//            limit: limit
-//        )
-        return []
     }
     
     private func frequency(from dates: [Date]) -> Double {

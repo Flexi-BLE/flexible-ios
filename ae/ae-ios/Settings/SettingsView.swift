@@ -75,6 +75,17 @@ struct SettingsView: View {
                             Text("Remote InfluxDB Database")
                         }
                     )
+                    
+                    NavigationLink(
+                        destination: {
+                            UploadRecordsView(vm: UploadRecordsViewModel(dataStream: nil))
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarTitle("Upload Records")
+                        },
+                        label: {
+                            Text("View Upload Records")
+                        }
+                    )
                 }
                 
                 Section(header: Text("⚠️ Danger Zone")) {

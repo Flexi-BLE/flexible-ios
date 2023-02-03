@@ -7,14 +7,31 @@
 
 import SwiftUI
 
-struct FullScreenModal: View {
+struct FullScreenModal<Content: View>: View {
+    @Environment(\.dismiss) var dismiss
+    
+    let content: Content
+    
+    init(content: @escaping () -> Content) {
+        self.content = content()
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            content
+            Spacer()
+            Button {
+                dismiss()
+            } label: {
+                Text("Dismiss")
+            }
+            .buttonStyle(PrimaryButtonStyle())
+
+        }
     }
 }
-
 struct FullScreenModal_Previews: PreviewProvider {
     static var previews: some View {
-        FullScreenModal()
+        FullScreenModal() { Text("Hello") }
     }
 }

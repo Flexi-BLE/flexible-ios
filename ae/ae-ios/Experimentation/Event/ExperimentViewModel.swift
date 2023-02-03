@@ -50,12 +50,14 @@ import SwiftUI
         do {
             var count = 0
             let tables = try fxb.dbAccess?.dynamicTable.tableNames() ?? []
-            for table in tables {
+            for name in tables {
                 count += try await FlexiBLE.shared.dbAccess?
-                    .dataStream.count(
-                        for: "\(table)_data",
-                        from: experiment.start,
-                        to: end
+                    .timeseries.count(
+                        for: .dynamicData(name: name),
+                        start: experiment.start,
+                        end: end,
+                        deviceName: nil,
+                        uploaded: nil
                     ) ?? 0
             }
             self.totalRecords = count
