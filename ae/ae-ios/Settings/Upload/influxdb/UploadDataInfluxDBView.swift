@@ -115,7 +115,7 @@ struct UploadDataInfluxDBView: View {
                                     set: {
                                         model.continousUploadEnabled = $0
                                         continousUploadEnabled = $0
-                                        influxDetailsValidated = model.validated
+                                         influxDetailsValidated = model.validated
                                     }
                                 ),
                                 label: { Text("Enable Continuous Upload") })

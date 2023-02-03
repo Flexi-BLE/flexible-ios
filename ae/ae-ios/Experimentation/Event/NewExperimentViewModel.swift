@@ -22,24 +22,21 @@ import FlexiBLE
     
     func createExperiment() async {
         
-        let res = await fxb.exp.createExperiment(
-            name: name,
-            description: description == "" ? nil : description,
-            start: hasStartDate ? startDate : Date.now,
-            end: hasEndDate ? endDate : nil,
-            active: true,
-            trackGPS: trackGPS,
-            specId: fxb.specId
-        )
-        
-        switch res {
-        case .success(let exp):
-            if exp.trackGPS {
-                LocationManager.sharedInstance.trackGPS(status: exp.trackGPS)
+        do {
+            if let exp = try await FlexiBLE.shared.dbAccess?.experiment.start(
+                name: name,
+                description: description,
+                start: hasStartDate ? startDate : Date.now,
+                end: hasEndDate ? endDate : nil,
+                active: true,
+                trackGPS: trackGPS
+            ) {
+                if exp.trackGPS {
+                    LocationManager.sharedInstance.trackGPS(status: exp.trackGPS)
+                }
             }
-            
-        case .failure(let err):
-            self.errorMsg = err.localizedDescription
+        } catch {
+            errorMsg = error.localizedDescription
         }
     }
 }

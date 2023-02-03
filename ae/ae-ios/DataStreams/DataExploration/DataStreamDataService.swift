@@ -115,26 +115,24 @@ class DataStreamDataService {
     private func queryDataTS(start: Date, end: Date) {
         Task {
             do {
-                let records = try await fxb.read.getRecords(
-                        for: "\(self.dataStream.name)_data",
+                let records = try await fxb.dbAccess?.dataStream.records(
+                        for: self.dataStream.name,
                         from: start,
                         to: end,
                         deviceName: self.deviceName,
                         uploaded: nil
                 )
 
-                records.forEach { row in
-                    guard let date: Date = row.getValue(for: "ts") else { return }
+                records?.forEach { row in
+                    guard let timestamp: Int64 = row.getValue(for: "ts") else {
+                        return
+                    }
+                    let date = Date(timeIntervalSince1970: Double(timestamp) / 1_000_000.0)
+                    
                     let values = dataStream.dataValues.compactMap({ dv -> Float? in
-                        switch dv.type {
-                        case .float:
-                            let raw: Float? = row.getValue(for: dv.name)
-                            return raw
-                        case .int, .unsignedInt:
-                            if let raw: Int = row.getValue(for: dv.name) {
-                                return Float(raw)
-                            }
-                        default: break
+                        // FIXME: everything is a double
+                        if let raw: Double = row.getValue(for: dv.name) {
+                            return Float(raw)
                         }
                         return nil
                     })

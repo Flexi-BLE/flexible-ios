@@ -12,11 +12,12 @@ struct MainTabView: View {
     @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
-            DevicesView(vm: FlexiBLESpecViewModel())
+            DevicesView(vm: ProfileSelectionViewModel())
                 .tabItem{
                     Image(systemName: "memorychip")
                     Text("Devices")
                 }
+            
             ExperimentsView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg.rectangle")

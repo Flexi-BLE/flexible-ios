@@ -14,6 +14,7 @@ struct DataStreamDetailCellView: View {
     
     @State var editConfigPopover: Bool = false
     @State var dataExplorerPopover: Bool = false
+    @State var uploadRecordsPopover: Bool = false
     @State private var isEnabled: Bool = false
     
     var enabledObs: AnyCancellable?
@@ -42,18 +43,23 @@ struct DataStreamDetailCellView: View {
                     }
                     Spacer()
 
-                    Toggle("Enabled", isOn: $vm.isOn)
-                        .toggleStyle(.switch)
-                        .labelsHidden()
+                    if vm.hasConfigurations {
+                        Toggle("Enabled", isOn: $vm.isOn)
+                            .toggleStyle(.switch)
+                            .labelsHidden()
+                    }
                 }
                     
                 
                 Divider()
                 
                 KeyValueView(key: "Number of Records", value: "\(vm.recordCount.formatted())")
-                KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
-                if let rel = vm.reliability {
-                    KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
+                
+                if vm.hasVariableFrequency {
+                    KeyValueView(key: "Data Frequency", value: "\(vm.frequency.uiReadable())Hz")
+                    if let rel = vm.reliability {
+                        KeyValueView(key: "Data Reliability", value: "\((rel * 100.0).uiReadable())%")
+                    }
                 }
                 
                 if let device = vm.deviceVM?.device {
@@ -63,15 +69,29 @@ struct DataStreamDetailCellView: View {
                         ConfigValueView(vm: configVM)
                     }
                     HStack {
-                        FXBButton(action: { editConfigPopover.toggle() }) {
-                            Text("Edit Parameters")
+                        FXBButton(action: { uploadRecordsPopover.toggle() }) {
+                            Text("View Upload Records")
                         }
-                        .fullScreenCover(isPresented: $editConfigPopover) {
+                        .fullScreenCover(isPresented: $uploadRecordsPopover) {
                             NavigationView {
-                                ConfigEditView(vm: vm)
+                                FullScreenModal {
+                                    UploadRecordsView(
+                                        vm: UploadRecordsViewModel(dataStream: vm.dataStream.name)
+                                    )
+                                }
                             }
                         }
                         Spacer()
+                        if vm.hasConfigurations {
+                            FXBButton(action: { editConfigPopover.toggle() }) {
+                                Text("Edit Parameters")
+                            }
+                            .fullScreenCover(isPresented: $editConfigPopover) {
+                                NavigationView {
+                                    ConfigEditView(vm: vm)
+                                }
+                            }
+                        }
                         FXBButton(action: { dataExplorerPopover.toggle() }) {
                             Text("View Graph")
                         }
@@ -90,7 +110,6 @@ struct DataStreamDetailCellView: View {
                                 ConfigEditView(vm: vm)
                             }
                         }
-                        Spacer()
                     }
                 }
             }

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
-		0105E36828C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */; };
-		0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
-		0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */; };
 		0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
@@ -32,16 +28,6 @@
 		011F488428076AF000B359EB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488228076AF000B359EB /* MainTabView.swift */; };
 		011F489B28076B3B00B359EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488A28076B3B00B359EB /* SettingsView.swift */; };
 		011F489C28076B3B00B359EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488A28076B3B00B359EB /* SettingsView.swift */; };
-		011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488F28076B3B00B359EB /* DataExplorerTableView.swift */; };
-		011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F488F28076B3B00B359EB /* DataExplorerTableView.swift */; };
-		011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489028076B3B00B359EB /* DataExplorerView.swift */; };
-		011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489028076B3B00B359EB /* DataExplorerView.swift */; };
-		011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489128076B3B00B359EB /* DataExplorerColumnView.swift */; };
-		011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489128076B3B00B359EB /* DataExplorerColumnView.swift */; };
-		011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */; };
-		011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */; };
-		011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
-		011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F489328076B3B00B359EB /* DataExplorerViewModel.swift */; };
 		011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B828076C6D00B359EB /* UIDevice.swift */; };
 		011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B828076C6D00B359EB /* UIDevice.swift */; };
 		011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48B928076C6D00B359EB /* ShareUtil.swift */; };
@@ -103,7 +89,6 @@
 		01717C3028DCE0CD00B7DF39 /* DeviceDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */; };
 		01717C3228DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
 		01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C3128DCE14D00B7DF39 /* DeviceSelectionView.swift */; };
-		017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
 		017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */; };
 		017810C328E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
 		017810C428E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017810C228E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift */; };
@@ -114,15 +99,15 @@
 		0179D5C428F86E64006CC558 /* ChartControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C328F86E64006CC558 /* ChartControlButton.swift */; };
 		0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */; };
 		0179D5C828F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */; };
+		018F4E4A298C2CBD00B25F6B /* UploadRecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4E49298C2CBD00B25F6B /* UploadRecordsViewModel.swift */; };
+		018F4E4C298C31AD00B25F6B /* UploadRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4E4B298C31AD00B25F6B /* UploadRecordsView.swift */; };
+		018F4E4E298C333600B25F6B /* DataUploadRecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4E4D298C333600B25F6B /* DataUploadRecordCellView.swift */; };
+		018F4E50298C53CC00B25F6B /* FullScreenModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F4E4F298C53CC00B25F6B /* FullScreenModal.swift */; };
 		0198ECB62898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */; };
 		0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */; };
 		01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451029660085009212F4 /* SimpleBindingTextField.swift */; };
 		01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */; };
-		01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */; };
-		01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */; };
 		01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5D4CE29820EF9009492D3 /* Collections+Util.swift */; };
-		01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */; };
-		01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */; };
 		01B79FB528E63A2B00A299F7 /* DataStreamGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */; };
 		01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */; };
 		01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */; };
@@ -145,8 +130,6 @@
 		01CA3BA4281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
 		01CA3BAC281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
 		01CA3BAD281A46CE0004875D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAB281A46CE0004875D /* Path.swift */; };
-		01CA3BAF281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
-		01CA3BB0281A472B0004875D /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BAE281A472B0004875D /* LineView.swift */; };
 		01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */; };
 		01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */; };
 		01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2AF9C28F84C5D00FE5E9E /* ChartParameters.swift */; };
@@ -168,8 +151,6 @@
 		01E7F2882818734A00ED6F15 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F2862818734A00ED6F15 /* Color.swift */; };
 		01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* DevicesView.swift */; };
 		01E7F28B281C0FB500ED6F15 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F289281C0FB500ED6F15 /* DevicesView.swift */; };
-		01E7F28D281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */; };
-		01E7F28E281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */; };
 		01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F292281C153500ED6F15 /* HelpHeaderView.swift */; };
 		01E7F298281C277500ED6F15 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F297281C277500ED6F15 /* Card.swift */; };
@@ -181,8 +162,13 @@
 		01E7F29F281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01E7F2A0281C3A9C00ED6F15 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7F29C281C3A9C00ED6F15 /* HelpView.swift */; };
 		01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */; };
-		01F1E54F2988B97100270081 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54E2988B97100270081 /* flexible-swift */; };
-		01F1E5512988B97100270081 /* FlexiBLESignal in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E5502988B97100270081 /* FlexiBLESignal */; };
+		01F1E54329888F0B00270081 /* flexible-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54229888F0B00270081 /* flexible-swift */; };
+		01F1E54529888F0B00270081 /* FlexiBLESignal in Frameworks */ = {isa = PBXBuildFile; productRef = 01F1E54429888F0B00270081 /* FlexiBLESignal */; };
+		01F1E5472988A59700270081 /* ProfileSelectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */; };
+		01F1E5492988A5C700270081 /* ProfileSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */; };
+		01F1E54B2988ACB200270081 /* ProfileSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */; };
+		01F1E54D2988B04900270081 /* ProfileDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E54C2988B04900270081 /* ProfileDetailCell.swift */; };
+		01F1E5532989768B00270081 /* CreateProfileFromURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5522989768B00270081 /* CreateProfileFromURLView.swift */; };
 		01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F585F12892D24A00E0F8E5 /* AppDelegate.swift */; };
 		5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */; };
 		5C3E739A289B165300511D56 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E7399289B165300511D56 /* LocationManager.swift */; };
@@ -220,8 +206,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBView.swift; sourceTree = "<group>"; };
-		0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataQuestDBViewModel.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
 		0109A022292C423C00CE02A9 /* DevSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
 		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
@@ -241,17 +225,13 @@
 		011F487A280769C000B359EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		011F488228076AF000B359EB /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		011F488A28076B3B00B359EB /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		011F488F28076B3B00B359EB /* DataExplorerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerTableView.swift; sourceTree = "<group>"; };
-		011F489028076B3B00B359EB /* DataExplorerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerView.swift; sourceTree = "<group>"; };
-		011F489128076B3B00B359EB /* DataExplorerColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerColumnView.swift; sourceTree = "<group>"; };
-		011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerTableViewModel.swift; sourceTree = "<group>"; };
-		011F489328076B3B00B359EB /* DataExplorerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerViewModel.swift; sourceTree = "<group>"; };
 		011F48B828076C6D00B359EB /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		011F48B928076C6D00B359EB /* ShareUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtil.swift; sourceTree = "<group>"; };
 		011F48BE28076CA600B359EB /* fxb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fxb.swift; sourceTree = "<group>"; };
 		011F48C128076CCD00B359EB /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
 		011F48CD28076D5600B359EB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		011FE29428085BEB006CCA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01225B3E2979850B00105FC9 /* ae-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ae-ios.entitlements"; sourceTree = "<group>"; };
 		01286302294D020B000DD78E /* LiveUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUploader.swift; sourceTree = "<group>"; };
 		012863042950DE8B000DD78E /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		012B302728D8DD1400BA623A /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -295,18 +275,17 @@
 		0179D5C328F86E64006CC558 /* ChartControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControlButton.swift; sourceTree = "<group>"; };
 		0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
 		0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisAdjustmentPanel.swift; sourceTree = "<group>"; };
-		01911E362964C7DA00F208C3 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
-		01949152297AD0D300646908 /* ae-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ae-ios.entitlements"; sourceTree = "<group>"; };
+		018F4E49298C2CBD00B25F6B /* UploadRecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecordsViewModel.swift; sourceTree = "<group>"; };
+		018F4E4B298C31AD00B25F6B /* UploadRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecordsView.swift; sourceTree = "<group>"; };
+		018F4E4D298C333600B25F6B /* DataUploadRecordCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUploadRecordCellView.swift; sourceTree = "<group>"; };
+		018F4E4F298C53CC00B25F6B /* FullScreenModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenModal.swift; sourceTree = "<group>"; };
 		0198ECB52898B3C000F93E13 /* AERegisteredDeviceDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceDetailCellView.swift; sourceTree = "<group>"; };
 		0198ECB72898B3E600F93E13 /* AERegisteredDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AERegisteredDeviceViewModel.swift; sourceTree = "<group>"; };
 		019971DD29114A6C0020276D /* flexible-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift"; path = "../../flexible-swift"; sourceTree = "<group>"; };
 		01A2451029660085009212F4 /* SimpleBindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBindingTextField.swift; sourceTree = "<group>"; };
 		01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfluxDBConnectionModel.swift; sourceTree = "<group>"; };
-		01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConfigSelectionView.swift; sourceTree = "<group>"; };
-		01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSelectionHeaderView.swift; sourceTree = "<group>"; };
+		01A2674D298820260033BE13 /* flexible-swift-signal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flexible-swift-signal"; path = "../../flexible-swift-signal"; sourceTree = "<group>"; };
 		01B5D4CE29820EF9009492D3 /* Collections+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+Util.swift"; sourceTree = "<group>"; };
-		01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamDataView.swift; sourceTree = "<group>"; };
-		01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExplorerLineGraphView.swift; sourceTree = "<group>"; };
 		01B79FB428E63A2B00A299F7 /* DataStreamGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphView.swift; sourceTree = "<group>"; };
 		01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsView.swift; sourceTree = "<group>"; };
 		01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsViewModel.swift; sourceTree = "<group>"; };
@@ -320,7 +299,6 @@
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		01CA3BAE281A472B0004875D /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		01E2AF9728F1D7D600FE5E9E /* ChartControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartControls.swift; sourceTree = "<group>"; };
 		01E2AF9928F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigBitEncodingMultiselectEditView.swift; sourceTree = "<group>"; };
 		01E2AF9C28F84C5D00FE5E9E /* ChartParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartParameters.swift; sourceTree = "<group>"; };
@@ -333,11 +311,15 @@
 		01E7F283281871C300ED6F15 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		01E7F2862818734A00ED6F15 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		01E7F289281C0FB500ED6F15 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
-		01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiBLESpecViewModel.swift; sourceTree = "<group>"; };
 		01E7F292281C153500ED6F15 /* HelpHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHeaderView.swift; sourceTree = "<group>"; };
 		01E7F297281C277500ED6F15 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		01E7F29C281C3A9C00ED6F15 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		01ECBA2D28E4FCBB005F4305 /* Numbers+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Util.swift"; sourceTree = "<group>"; };
+		01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionHeader.swift; sourceTree = "<group>"; };
+		01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionViewModel.swift; sourceTree = "<group>"; };
+		01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectionView.swift; sourceTree = "<group>"; };
+		01F1E54C2988B04900270081 /* ProfileDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailCell.swift; sourceTree = "<group>"; };
+		01F1E5522989768B00270081 /* CreateProfileFromURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileFromURLView.swift; sourceTree = "<group>"; };
 		01F585F12892D24A00E0F8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1973112881FA6F0048AAB2 /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		5C3E7399289B165300511D56 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -361,8 +343,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F1E54F2988B97100270081 /* flexible-swift in Frameworks */,
-				01F1E5512988B97100270081 /* FlexiBLESignal in Frameworks */,
+				01F1E54329888F0B00270081 /* flexible-swift in Frameworks */,
+				01F1E54529888F0B00270081 /* FlexiBLESignal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				01C2329C28C6B029006C6B33 /* uploading */,
-				0105E36528C0F1E700AAB5E2 /* questdb */,
 				0105E36428C0F1DE00AAB5E2 /* influxdb */,
 			);
 			path = Upload;
@@ -408,15 +389,6 @@
 				01A2451229666514009212F4 /* InfluxDBConnectionModel.swift */,
 			);
 			path = influxdb;
-			sourceTree = "<group>";
-		};
-		0105E36528C0F1E700AAB5E2 /* questdb */ = {
-			isa = PBXGroup;
-			children = (
-				0105E36628C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift */,
-				0105E36928C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift */,
-			);
-			path = questdb;
 			sourceTree = "<group>";
 		};
 		0109A026292C427F00CE02A9 /* DevSettings */ = {
@@ -456,7 +428,7 @@
 		011F48212807692E00B359EB /* ae-ios */ = {
 			isa = PBXGroup;
 			children = (
-				01949152297AD0D300646908 /* ae-ios.entitlements */,
+				01225B3E2979850B00105FC9 /* ae-ios.entitlements */,
 				01E7F276281858B900ED6F15 /* Device */,
 				01717C2A28DCE0A900B7DF39 /* Data */,
 				5C19730D2881FA420048AAB2 /* Shared */,
@@ -549,23 +521,8 @@
 				0109A026292C427F00CE02A9 /* DevSettings */,
 				0105E36028C0F0F300AAB5E2 /* Upload */,
 				011F488A28076B3B00B359EB /* SettingsView.swift */,
-				011F488E28076B3B00B359EB /* DataExplorer */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		011F488E28076B3B00B359EB /* DataExplorer */ = {
-			isa = PBXGroup;
-			children = (
-				01B79FB028E627DA00A299F7 /* DataExplorerLineGraphView.swift */,
-				011F488F28076B3B00B359EB /* DataExplorerTableView.swift */,
-				011F489028076B3B00B359EB /* DataExplorerView.swift */,
-				011F489128076B3B00B359EB /* DataExplorerColumnView.swift */,
-				011F489228076B3B00B359EB /* DataExplorerTableViewModel.swift */,
-				011F489328076B3B00B359EB /* DataExplorerViewModel.swift */,
-				01CA3BAE281A472B0004875D /* LineView.swift */,
-			);
-			path = DataExplorer;
 			sourceTree = "<group>";
 		};
 		011F489628076B3B00B359EB /* Event */ = {
@@ -588,7 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				019971DD29114A6C0020276D /* flexible-swift */,
-				01911E362964C7DA00F208C3 /* flexible-swift-signal */,
+				01A2674D298820260033BE13 /* flexible-swift-signal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -634,14 +591,22 @@
 		017810BF28E224A700E1264D /* FXBDevice */ = {
 			isa = PBXGroup;
 			children = (
-				01E7F28C281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift */,
-				01A5E337289A28FA00E0D5AB /* DeviceConfigSelectionView.swift */,
 				01551D1528DBFF8A00000DCB /* FXBLEConnectionView.swift */,
 				01551D1728DC0BAE00000DCB /* FXBDeviceSpecConnectionView.swift */,
 				01551D1B28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift */,
 				01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */,
 			);
 			path = FXBDevice;
+			sourceTree = "<group>";
+		};
+		018F4E48298C2C6500B25F6B /* UploadRecords */ = {
+			isa = PBXGroup;
+			children = (
+				018F4E49298C2CBD00B25F6B /* UploadRecordsViewModel.swift */,
+				018F4E4B298C31AD00B25F6B /* UploadRecordsView.swift */,
+				018F4E4D298C333600B25F6B /* DataUploadRecordCellView.swift */,
+			);
+			path = UploadRecords;
 			sourceTree = "<group>";
 		};
 		0198ECB42898B39400F93E13 /* RegisteredDevice */ = {
@@ -719,8 +684,8 @@
 		01E7F26D2818559900ED6F15 /* DataStreams */ = {
 			isa = PBXGroup;
 			children = (
+				018F4E48298C2C6500B25F6B /* UploadRecords */,
 				01B79FB628E63A7200A299F7 /* DataExploration */,
-				01B79FAE28E6274700A299F7 /* DataStreamDataView.swift */,
 				01E7F26E281855B100ED6F15 /* DataStreamsView.swift */,
 				01E7F27D28186BEF00ED6F15 /* DataStreamDetailCellView.swift */,
 				01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */,
@@ -743,14 +708,26 @@
 		01E7F276281858B900ED6F15 /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				01F1E55429898BB800270081 /* ProfileSelect */,
 				01E7F289281C0FB500ED6F15 /* DevicesView.swift */,
-				01A5E339289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift */,
 				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
 				017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */,
 				017810BF28E224A700E1264D /* FXBDevice */,
 				0198ECB42898B39400F93E13 /* RegisteredDevice */,
 			);
 			path = Device;
+			sourceTree = "<group>";
+		};
+		01F1E55429898BB800270081 /* ProfileSelect */ = {
+			isa = PBXGroup;
+			children = (
+				01F1E5462988A59700270081 /* ProfileSelectionHeader.swift */,
+				01F1E5482988A5C700270081 /* ProfileSelectionViewModel.swift */,
+				01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */,
+				01F1E54C2988B04900270081 /* ProfileDetailCell.swift */,
+				01F1E5522989768B00270081 /* CreateProfileFromURLView.swift */,
+			);
+			path = ProfileSelect;
 			sourceTree = "<group>";
 		};
 		5C19730D2881FA420048AAB2 /* Shared */ = {
@@ -771,6 +748,7 @@
 				01E59BC428C1AC0A00C21FE9 /* FXBButtonStyle.swift */,
 				01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */,
 				012863042950DE8B000DD78E /* ActivityViewController.swift */,
+				018F4E4F298C53CC00B25F6B /* FullScreenModal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -835,8 +813,8 @@
 			);
 			name = "ae-ios";
 			packageProductDependencies = (
-				01F1E54E2988B97100270081 /* flexible-swift */,
-				01F1E5502988B97100270081 /* FlexiBLESignal */,
+				01F1E54229888F0B00270081 /* flexible-swift */,
+				01F1E54429888F0B00270081 /* FlexiBLESignal */,
 			);
 			productName = "ae-ios";
 			productReference = 011F48202807692E00B359EB /* ae-ios.app */;
@@ -995,11 +973,10 @@
 			files = (
 				011F489B28076B3B00B359EB /* SettingsView.swift in Sources */,
 				014DB6D9289B6FA1008982C6 /* TimestampsViewModel.swift in Sources */,
-				01A5E33A289A2F5F00E0D5AB /* ConfigSelectionHeaderView.swift in Sources */,
 				014DB6C5289B63E4008982C6 /* NewExperimentViewModel.swift in Sources */,
 				5CC0EC0628C81A4C007C2654 /* UserDefaults+Utils.swift in Sources */,
 				011F48BA28076C6D00B359EB /* UIDevice.swift in Sources */,
-				011F48A528076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
+				01F1E54D2988B04900270081 /* ProfileDetailCell.swift in Sources */,
 				01A2451129660085009212F4 /* SimpleBindingTextField.swift in Sources */,
 				01E2AF9A28F6334600FE5E9E /* ConfigBitEncodingMultiselectEditView.swift in Sources */,
 				01E7F284281871C300ED6F15 /* String.swift in Sources */,
@@ -1012,6 +989,7 @@
 				014DB6DD289B71E1008982C6 /* TimestampViewModel.swift in Sources */,
 				01E7F26F281855B100ED6F15 /* DataStreamsView.swift in Sources */,
 				01E7F2742818562C00ED6F15 /* GlobalConfigurationsView.swift in Sources */,
+				018F4E4E298C333600B25F6B /* DataUploadRecordCellView.swift in Sources */,
 				017810C628E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
 				014DB6B8289B5235008982C6 /* ExperimentMapView.swift in Sources */,
 				014DB6BE289B613B008982C6 /* ExperimentViewModel.swift in Sources */,
@@ -1020,8 +998,6 @@
 				011F48CE28076D5600B359EB /* Logger.swift in Sources */,
 				0157ECA528ECC15F003DC4A8 /* DataStreamDataService.swift in Sources */,
 				5C3E739A289B165300511D56 /* LocationManager.swift in Sources */,
-				01B79FAF28E6274700A299F7 /* DataStreamDataView.swift in Sources */,
-				01B79FB128E627DA00A299F7 /* DataExplorerLineGraphView.swift in Sources */,
 				01ECBA2E28E4FCBB005F4305 /* Numbers+Util.swift in Sources */,
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */,
@@ -1032,21 +1008,18 @@
 				01F585F22892D24A00E0F8E5 /* AppDelegate.swift in Sources */,
 				01E59BC528C1AC0A00C21FE9 /* FXBButtonStyle.swift in Sources */,
 				012B302828D8DD1400BA623A /* UIApplication.swift in Sources */,
-				01E7F28D281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */,
-				0105E36728C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
 				01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */,
 				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
+				018F4E4A298C2CBD00B25F6B /* UploadRecordsViewModel.swift in Sources */,
 				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
-				011F48A728076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */,
 				014DB6C7289B63F2008982C6 /* NewExperimentView.swift in Sources */,
 				01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */,
 				01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */,
-				01A5E338289A28FA00E0D5AB /* DeviceConfigSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
@@ -1058,6 +1031,7 @@
 				015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				011F48232807692E00B359EB /* ae_iosApp.swift in Sources */,
+				018F4E50298C53CC00B25F6B /* FullScreenModal.swift in Sources */,
 				014DB6C3289B626D008982C6 /* ActiveExperimentView.swift in Sources */,
 				011F487B280769C000B359EB /* ContentView.swift in Sources */,
 				01551D1C28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
@@ -1067,20 +1041,24 @@
 				01B5D4CF29820EF9009492D3 /* Collections+Util.swift in Sources */,
 				5C5419502899809C005CBA25 /* String+Util.swift in Sources */,
 				0109A023292C423C00CE02A9 /* DevSettingsView.swift in Sources */,
+				01F1E54B2988ACB200270081 /* ProfileSelectionView.swift in Sources */,
 				01A2451329666514009212F4 /* InfluxDBConnectionModel.swift in Sources */,
 				012863052950DE8B000DD78E /* ActivityViewController.swift in Sources */,
 				5C1973122881FA6F0048AAB2 /* ConfigViewModel.swift in Sources */,
+				01F1E5532989768B00270081 /* CreateProfileFromURLView.swift in Sources */,
 				5CBAAB4228871B3400367FDC /* FXBButton.swift in Sources */,
 				01E59BCB28C1B05D00C21FE9 /* DataUploadingView.swift in Sources */,
 				011F48C228076CCD00B359EB /* KeyValueView.swift in Sources */,
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				01286303294D020B000DD78E /* LiveUploader.swift in Sources */,
-				011F48A128076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
+				01F1E5492988A5C700270081 /* ProfileSelectionViewModel.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,
 				01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */,
 				01E7F293281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
+				01F1E5472988A59700270081 /* ProfileSelectionHeader.swift in Sources */,
+				018F4E4C298C31AD00B25F6B /* UploadRecordsView.swift in Sources */,
 				01E7F29D281C3A9C00ED6F15 /* HelpView.swift in Sources */,
 				01551D1628DBFF8A00000DCB /* FXBLEConnectionView.swift in Sources */,
 				014DB6CB289B65F3008982C6 /* ExperimentsView.swift in Sources */,
@@ -1096,15 +1074,11 @@
 				017810C928E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
 				013F767528888577000D88E2 /* ConfigValueView.swift in Sources */,
 				014DB6CD289B6814008982C6 /* ExperimentsListView.swift in Sources */,
-				01CA3BAF281A472B0004875D /* LineView.swift in Sources */,
 				01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */,
 				0198ECB82898B3E600F93E13 /* AERegisteredDeviceViewModel.swift in Sources */,
 				01C232A728C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				011F488328076AF000B359EB /* MainTabView.swift in Sources */,
-				011F48A928076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
 				01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */,
-				011F48A328076B3B00B359EB /* DataExplorerView.swift in Sources */,
-				0105E36A28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				623EC496A71AE7A6216DA182 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,12 +1089,9 @@
 			files = (
 				012B302928D8DD1400BA623A /* UIApplication.swift in Sources */,
 				011F489C28076B3B00B359EB /* SettingsView.swift in Sources */,
-				0105E36B28C0F20B00AAB5E2 /* UploadDataQuestDBViewModel.swift in Sources */,
 				01717C3328DCE14D00B7DF39 /* DeviceSelectionView.swift in Sources */,
 				011F48BB28076C6D00B359EB /* UIDevice.swift in Sources */,
-				011F48A628076B3B00B359EB /* DataExplorerColumnView.swift in Sources */,
 				01551D1D28DCA9D600000DCB /* SelectFXBDeviceConnectionView.swift in Sources */,
-				017810C028E224BE00E1264D /* DeviceConfigSelectionView.swift in Sources */,
 				01E7F285281871C300ED6F15 /* String.swift in Sources */,
 				017810C728E227A600E1264D /* RegisteredDeviceConnectionCellView.swift in Sources */,
 				01E7F270281855B100ED6F15 /* DataStreamsView.swift in Sources */,
@@ -1134,11 +1105,9 @@
 				01CA3BAD281A46CE0004875D /* Path.swift in Sources */,
 				01C232A828C6B1E7006C6B33 /* UploadErrorView.swift in Sources */,
 				017810CA28E227C600E1264D /* RegisteredDeviceViewModel.swift in Sources */,
-				01E7F28E281C0FE400ED6F15 /* FlexiBLESpecViewModel.swift in Sources */,
 				01C232AB28C6B255006C6B33 /* UploadCompletedView.swift in Sources */,
 				01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
 				01E7F2882818734A00ED6F15 /* Color.swift in Sources */,
-				011F48A828076B3B00B359EB /* DataExplorerTableViewModel.swift in Sources */,
 				01E7F28B281C0FB500ED6F15 /* DevicesView.swift in Sources */,
 				01C232A528C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
 				01C232A228C6B155006C6B33 /* UploadInitializingView.swift in Sources */,
@@ -1153,7 +1122,6 @@
 				011F48BD28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				017810C128E224C200E1264D /* FXBLEConnectionView.swift in Sources */,
 				0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */,
-				011F48A228076B3B00B359EB /* DataExplorerTableView.swift in Sources */,
 				01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */,
 				01E7F299281C277500ED6F15 /* Card.swift in Sources */,
 				01E7F294281C153500ED6F15 /* HelpHeaderView.swift in Sources */,
@@ -1162,12 +1130,8 @@
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
 				017810C428E226D500E1264D /* SelectRegisteredDeviceConnectionView.swift in Sources */,
 				013F766F288882FE000D88E2 /* ConfigEditView.swift in Sources */,
-				01CA3BB0281A472B0004875D /* LineView.swift in Sources */,
-				0105E36828C0F1FE00AAB5E2 /* UploadDataQuestDBView.swift in Sources */,
 				011F488428076AF000B359EB /* MainTabView.swift in Sources */,
 				01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
-				011F48AA28076B3B00B359EB /* DataExplorerViewModel.swift in Sources */,
-				011F48A428076B3B00B359EB /* DataExplorerView.swift in Sources */,
 				62DEC4DFF7F251156A03C3C6 /* TimeSeriesBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1346,6 +1310,7 @@
 				INFOPLIST_FILE = "ae-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1435,6 +1400,7 @@
 				INFOPLIST_FILE = "ae-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "flexi-BLE";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to connect and collect data from support BLE sensing devices.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app records location in the background when conducting experiments.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Provide location permission to track user while conducting a experiment.";
@@ -1968,11 +1934,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		01F1E54E2988B97100270081 /* flexible-swift */ = {
+		01F1E54229888F0B00270081 /* flexible-swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "flexible-swift";
 		};
-		01F1E5502988B97100270081 /* FlexiBLESignal */ = {
+		01F1E54429888F0B00270081 /* FlexiBLESignal */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FlexiBLESignal;
 		};

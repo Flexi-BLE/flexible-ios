@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import UIKit
 import Foundation
 import Combine
-//import FlexiBLE
+import FlexiBLE
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     
 //    @State private var isPresentingPurgeAllConfirm: Bool = false
 //    @State private var isPresentingPurgeUploadConfirm: Bool = false
 //    @State private var isPresentingConnectionWarning: Bool = false
+    @Environment(\.openURL) private var openURL
     
     @State private var isPresentingShare: Bool = false
     
@@ -40,12 +43,27 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Data Management")) {
-                    NavigationLink(
-                        destination: DataExplorerView(),
-                        label: {
-                            Text("Data Explorer")
-                        }
-                    )
+                    
+#if targetEnvironment(macCatalyst)
+                    Button("Copy App Data Path") {
+                        UIPasteboard.general.string = FlexiBLE.shared.appDataPath.absoluteString
+                    }
+#else
+                    Link("Open FlexiBLE's app data in Files", destination: FlexiBLE.shared.appDataPath)
+                        .environment(\.openURL, OpenURLAction { url in
+
+                            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+                            components?.scheme = "shareddocuments"
+
+                            print("Open \(components!.url!)")
+                            openURL(components!.url!) { accepted in
+                                print(accepted ? "Success" : "Failure")
+                            }
+                            return .handled
+                        })
+                    
+#endif
+
                     
                     NavigationLink(
                         destination: {
@@ -58,47 +76,19 @@ struct SettingsView: View {
                         }
                     )
                     
-                    Button("Share Database") {
-                        isPresentingShare = true
-                    }
-                    .sheet(isPresented: $isPresentingShare, onDismiss: {
-                        print("Dismiss")
-                    }, content: {
-                        ActivityViewController(
-                            activityItems: [ShareUtil.dbCopy(path: fxb.db.dbPath) ?? fxb.db.dbPath]
-                        )
-                    })
+                    NavigationLink(
+                        destination: {
+                            UploadRecordsView(vm: UploadRecordsViewModel(dataStream: nil))
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarTitle("Upload Records")
+                        },
+                        label: {
+                            Text("View Upload Records")
+                        }
+                    )
                 }
                 
                 Section(header: Text("⚠️ Danger Zone")) {
-                    Button ("Purge Uploaded Records") {
-                        alertInfo = AlertInfo(
-                            title: "Are you sure?",
-                            message: "This will remove all sensor data that has been uploaded to a remote database. This action is irreversible.",
-                            primaryButton: .destructive(Text("Delete")) { Task { try? await fxb.write.purgeAllUploadedRecords() } },
-                            secondaryButton: .cancel(Text("Cancel"))
-                        )
-                    }
-                    
-                    Button("Purge All Records") {
-                        if fxb.conn.fxbConnectedDevices.count > 0 || fxb.conn.connectedRegisteredDevices.count > 0 {
-                            alertInfo = connectedDeviceWarningAlert
-                        } else {
-                            alertInfo = AlertInfo(
-                                title: "Are you sure?",
-                                message: "This will remove all data in the local database. This action is irreversible.",
-                                primaryButton: .destructive(Text("Delete")) {
-                                    fxb.write.purgeAllRecords()
-                                    Task {
-                                        if let spec = fxb.spec {
-                                            try? await fxb.setSpec(spec)
-                                        }
-                                    }
-                                },
-                                secondaryButton: .cancel(Text("Cancel"))
-                            )
-                        }
-                    }
                     
                     
                     Button("Purge All Local Configurations") {

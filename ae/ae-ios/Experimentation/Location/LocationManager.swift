@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import Combine
 import FlexiBLE
+import UIKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     public static var sharedInstance = LocationManager()
@@ -80,14 +81,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return
         }
         
-        let _ = await fxb.exp.trackGPSLocation(
+        let deviceName = UserDefaults.standard.string(forKey: InfluxDBConnection.UserDefaultsKey.deviceId.rawValue) ?? "phone"
+        var location = FXBLocation(
+            ts: latest.timestamp,
             latitude: Double(latest.coordinate.latitude),
             longitude: Double(latest.coordinate.longitude),
             altitude: latest.altitude,
-            horizontalAcc: latest.horizontalAccuracy,
-            verticalAcc: latest.verticalAccuracy,
-            timestamp: latest.timestamp,
-            specId: fxb.specId
+            horizontalAccuracy: latest.horizontalAccuracy,
+            verticalAccuracy: latest.verticalAccuracy,
+            deviceName: deviceName
         )
+        
+        do {
+            try FlexiBLE.shared.dbAccess?.location.record(&location)
+        } catch {
+            GeneralLogger.error("unable to commit location to database: \(error.localizedDescription)")
+        }
     }
 }

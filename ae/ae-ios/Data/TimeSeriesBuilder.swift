@@ -4,6 +4,7 @@
 
 import Foundation
 import FlexiBLE
+import FlexiBLESignal
 import Combine
 
 /*

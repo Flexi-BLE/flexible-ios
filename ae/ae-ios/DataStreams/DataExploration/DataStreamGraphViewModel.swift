@@ -48,8 +48,6 @@ import Combine
         self.dataStreamParameters = self.defaultDSParams()
         self.chartParameters = self.defaultChartParams()
         parametersUpdated()
-        
-        subscribeData()
     }
     
     func editingParameters() {
@@ -69,8 +67,8 @@ import Combine
     }
     
     func parametersUpdated() {
-        saveParameters()
         subscribeData()
+        saveParameters()
         dataService.set(chartParams: self.chartParameters)
         dataService.setPersistence(10000)
     }
@@ -136,20 +134,21 @@ import Combine
     
     private func subscribeData() {
         self.tsObserver = dataService
-                .tsPublisher
-                .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
-                .compactMap(self.trimTimeSeriesToChartParams)
-                .sink(
-                    receiveCompletion: { comp in
-                        switch comp {
-                        case .failure(let error):
-                            self.state = .error(msg: error.localizedDescription)
-                        case .finished: break
-                        }
-                    },
-                    receiveValue: self.parseTimeSeries
-                )
-
+            .tsPublisher
+            .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
+            .compactMap(self.trimTimeSeriesToChartParams)
+            .sink(
+                receiveCompletion: { comp in
+                    switch comp {
+                    case .failure(let error):
+                        self.state = .error(msg: error.localizedDescription)
+                    case .finished: break
+                    }
+                },
+                receiveValue: self.parseTimeSeries
+            )
+        
+        parseTimeSeries(ts: dataService.ts)
     }
 
     private func trimTimeSeriesToChartParams(ts: TimeSeries<Float>) -> TimeSeries<Float>? {

@@ -48,7 +48,19 @@ import SwiftUI
         let end = experiment.end ?? Date()
         
         do {
-            self.totalRecords = try await fxb.read.getTotalRecords(from: experiment.start, to: end)
+            var count = 0
+            let tables = try fxb.dbAccess?.dynamicTable.tableNames() ?? []
+            for name in tables {
+                count += try await FlexiBLE.shared.dbAccess?
+                    .timeseries.count(
+                        for: .dynamicData(name: name),
+                        start: experiment.start,
+                        end: end,
+                        deviceName: nil,
+                        uploaded: nil
+                    ) ?? 0
+            }
+            self.totalRecords = count
         } catch {
             self.errorMsg = "unable to fetch total record count"
         }
@@ -59,13 +71,14 @@ import SwiftUI
     func stopExperiment() async {
         guard let id = self.experiment.id else { return }
         
-        let res = await fxb.exp.stopExperiment(id: id)
-        
-        switch res {
-        case .success(let exp):
-            self.experiment = exp
-        case .failure(let e):
-            errorMsg = e.localizedDescription
+        do {
+            if let exp = try await FlexiBLE.shared.dbAccess?.experiment.stopExperiment(id: id) {
+                experiment = exp
+            } else {
+                errorMsg = "Unable to find experiment"
+            }
+        } catch {
+            errorMsg = error.localizedDescription
         }
         
         Task {
@@ -76,14 +89,11 @@ import SwiftUI
     func deleteExperiment() async -> Bool {
         guard let id = self.experiment.id else { return false}
         
-        let res = await fxb.exp.deleteExperiment(id: id)
-        
-        switch res {
-        case .success(let status):
-            print(status)
-            return status
-        case .failure(let error):
-            print(error.localizedDescription)
+        do {
+            try await FlexiBLE.shared.dbAccess?.experiment.deleteExperiment(id: id)
+            return true
+        } catch {
+            errorMsg = error.localizedDescription
             return false
         }
     }

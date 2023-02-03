@@ -9,38 +9,35 @@ import SwiftUI
 import FlexiBLE
 
 struct DevicesView: View {
-    @StateObject var vm: FlexiBLESpecViewModel
+    @StateObject var vm: ProfileSelectionViewModel
     
     var body: some View {
         NavigationView {
             VStack {
-                ConfigSelectionHeaderView(vm: vm)
+                ProfileSelectionHeader(vm: vm)
                     .padding()
                 Divider()
                 Spacer()
                 switch vm.state {
-                case .loading:
+                case .loading(_):
                     Text("loading device config")
                     Spacer()
-                case .unselected:
+                case .noProfileSelected:
                     Text("no config selected")
                     Spacer()
-                case .selected(let spec, _):
+                case .active(let profile):
                     ScrollView {
-                        FXBLEConnectionView(spec: spec)
+                        FXBLEConnectionView(spec: profile.specification)
                             .modifier(Card())
-                        ForEach(spec.devices, id: \.id) { deviceSpec in
+                        ForEach(profile.specification.devices, id: \.id) { deviceSpec in
                             FXBDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)
                                 .modifier(Card())
                         }
-                        ForEach(spec.bleRegisteredDevices, id: \.name) { deviceSpec in
+                        ForEach(profile.specification.bleRegisteredDevices, id: \.name) { deviceSpec in
                             FXBRegisteredDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)
                                 .modifier(Card())
                         }
                     }
-                case .error(let message):
-                    Text("😵 \(message)")
-                    Spacer()
                 }
             }
             .navigationBarTitle("")
@@ -51,6 +48,6 @@ struct DevicesView: View {
 
 struct DevicesView_Previews: PreviewProvider {
     static var previews: some View {
-        DevicesView(vm: FlexiBLESpecViewModel())
+        DevicesView(vm: ProfileSelectionViewModel())
     }
 }
