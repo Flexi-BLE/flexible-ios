@@ -9,19 +9,14 @@ import SwiftUI
 import FlexiBLE
 
 struct FXBLEConnectionView: View {
-    var spec: FXBSpec
+    @EnvironmentObject var profile: FlexiBLEProfile
+    
     @State var isEnabled: Bool = true
     @State var angle: Double = 0
-    
-//    @StateObject private var conn: FXBConnectionManager = fxb.conn
     
     var rotationAnimation: Animation {
         Animation.linear(duration: 1.0)
         .repeatForever(autoreverses: false)
-    }
-    
-    init(spec: FXBSpec) {
-        self.spec = spec
     }
     
     var body: some View {
@@ -34,15 +29,11 @@ struct FXBLEConnectionView: View {
                         Image(systemName: "circle.grid.cross.up.filled")
                             .font(.title2)
                             .foregroundColor(.blue)
-                            .rotationEffect(.degrees(angle))
-//                            .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: angle)
-//                            .onAppear() { angle = 360 }
-//                            .onDisappear() { angle = 0 }
                     }
                     Spacer()
                     Toggle("Enabled", isOn: $isEnabled)
                         .labelsHidden()
-                        .disabled(fxb.conn.centralState != .poweredOn)
+                        .disabled(profile.conn.centralState != .poweredOn)
                         .onChange(of: isEnabled) { value in
                             enabledChanged()
                         }
@@ -59,13 +50,13 @@ struct FXBLEConnectionView: View {
     }
     
     private func enabledChanged() {
-        if isEnabled { fxb.startScan(with: spec) }
-        else { fxb.stopScan() }
+        if isEnabled { profile.startScan() }
+        else { profile.stopScan() }
     }
 }
 
 struct FXBLEConnectionView_Previews: PreviewProvider {
     static var previews: some View {
-        FXBLEConnectionView(spec: FXBSpec.mock)
+        FXBLEConnectionView()
     }
 }

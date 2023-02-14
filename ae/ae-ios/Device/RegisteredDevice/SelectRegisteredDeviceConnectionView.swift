@@ -10,11 +10,12 @@ import Combine
 import FlexiBLE
 
 struct SelectRegisteredDeviceConnectionView: View {
+    @EnvironmentObject var profile: FlexiBLEProfile
     var deviceSpec: FXBRegisteredDeviceSpec
     
     var body: some View {
-        List(fxb.conn.foundRegisteredDevices + fxb.conn.connectedRegisteredDevices) {
-            RegisteredDeviceConnectionCellView(vm: RegisteredDeviceViewModel(with: $0))
+        List(profile.conn.foundRegisteredDevices + profile.conn.connectedRegisteredDevices) {
+            RegisteredDeviceConnectionCellView(vm: RegisteredDeviceViewModel(profile: profile, device: $0))
         }
     }
 }

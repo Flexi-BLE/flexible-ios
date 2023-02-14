@@ -10,6 +10,8 @@ import FlexiBLE
 
 struct DataStreamsView: View {
     
+    @StateObject var profile: FlexiBLEProfile
+    
     var deviceSpec: FXBDeviceSpec
     var deviceName: String
     @State var pageIndex = 0
@@ -19,7 +21,7 @@ struct DataStreamsView: View {
             ScrollView {
                 ForEach(deviceSpec.dataStreams, id: \.name) { ds in
                     DataStreamDetailCellView(
-                        vm: AEDataStreamViewModel(ds, deviceName: deviceName)
+                        vm: AEDataStreamViewModel(profile: profile, dataStream: ds, deviceName: deviceName)
                     ).modifier(Card())
                 }
             }

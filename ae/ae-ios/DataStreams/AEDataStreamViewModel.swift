@@ -14,6 +14,7 @@ import GRDB
 @MainActor class AEDataStreamViewModel: ObservableObject {
     
     var dataStream: FXBDataStream
+    private var profile: FlexiBLEProfile
     
     enum State {
         case loading
@@ -47,7 +48,8 @@ import GRDB
         return 0
     }
     
-    init(_ dataStream: FXBDataStream, deviceName: String) {
+    init(profile: FlexiBLEProfile, dataStream: FXBDataStream, deviceName: String) {
+        self.profile = profile
         self.state = .loading
         self.dataStream = dataStream
         self.deviceName = deviceName
@@ -57,9 +59,9 @@ import GRDB
     }
     
     private func setupDevice() {
-        if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
+        if let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
             
-            self.deviceVM = FXBDeviceViewModel(with: device)
+            self.deviceVM = FXBDeviceViewModel(profile: profile, device: device)
             setInitialRecordCount()
             
         } else {
@@ -98,13 +100,13 @@ import GRDB
         guard let deviceVM = deviceVM else  { return }
         Task { [weak self] in
             do {
-                self?.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
+                self?.recordCount = try await profile.database.timeseries.count(
                     for: .dynamicData(name: dataStream.name),
                     start: nil,
                     end: Date.now,
                     deviceName: deviceName,
                     uploaded: nil
-                ) ?? 0
+                )
             } catch {
                 gLog.error("unable to detemine record count for \(self?.dataStream.name ?? "-- unknown --")")
             }
@@ -131,7 +133,7 @@ import GRDB
         guard !dataStream.configValues.isEmpty else {
             return
         }
-        guard let persistedConfig = await FlexiBLE.shared.dbAccess?.dataStreamConfig.config(for: dataStream, deviceName: deviceName) else {
+        guard let persistedConfig = await profile.database.dataStreamConfig.config(for: dataStream, deviceName: deviceName) else {
             return
         }
         
@@ -152,7 +154,7 @@ import GRDB
     }
     
     func loadDefaultConfigs() {
-        fxb.conn.updateConfig(
+        profile.conn.updateConfig(
             deviceName: deviceName,
             dataStream: dataStream
         )
@@ -174,7 +176,7 @@ import GRDB
             }
         }
         
-        fxb.conn.updateConfig(
+        profile.conn.updateConfig(
             deviceName: deviceName,
             dataStream: dataStream,
             data: data

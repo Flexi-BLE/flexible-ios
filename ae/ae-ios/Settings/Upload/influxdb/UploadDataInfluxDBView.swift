@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct UploadDataInfluxDBView: View {
-    var model = InfluxDBConnection.shared
+    @EnvironmentObject var model: InfluxDBConnection
     
     @State var showUploading: Bool = false
     @State var influxDetailsValidated: Bool = false
     @State var continousUploadEnabled: Bool = false
-    
-    init() {
-        _showUploading = .init(initialValue: false)
-        _influxDetailsValidated = .init(initialValue: model.validated)
-        _continousUploadEnabled = .init(initialValue: model.continousUploadEnabled)
-    }
     
     var body: some View {
         List {
@@ -200,7 +194,10 @@ struct UploadDataInfluxDBView: View {
             } else {
                 Text("uh oh")
             }
-        })
+        }).onAppear() {
+            influxDetailsValidated = model.validated
+            continousUploadEnabled = model.continousUploadEnabled
+        }
     }
 }
 

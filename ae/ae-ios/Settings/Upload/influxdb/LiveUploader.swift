@@ -18,9 +18,10 @@ class LiveUploader {
     private let logger = Logger(subsystem: "com.blainerothrock.flexible", category: "live-uploader")
     
     private var credentials: InfluxDBCredentials
+    private var profile: FlexiBLEProfile
     private var uploadTask: Task<Bool, Error>?
     
-    init(model: InfluxDBConnection) {
+    init(model: InfluxDBConnection, profile: FlexiBLEProfile) {
         self.credentials = InfluxDBCredentials(
             url: model.url!,
             org: model.org,
@@ -31,6 +32,7 @@ class LiveUploader {
             purgeOnUpload: model.purgeOnUpload,
             uploadInterval: Double(model.continousUploadInterval)
         )
+        self.profile = profile
         self.start()
     }
     
@@ -76,6 +78,7 @@ class LiveUploader {
             logger.info("starting scheduled upload")
             
             let uploader = InfluxDBUploader(
+                profile: profile,
                 credentials: credentials,
                 startDate: Date.now.addingTimeInterval(-Double(credentials.uploadInterval ?? 30 * 4)),
                 endDate: Date.now

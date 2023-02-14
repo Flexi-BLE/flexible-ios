@@ -12,16 +12,21 @@ import FlexiBLE
 import UIKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    public static var sharedInstance = LocationManager()
     private var shouldTrackLocation = false
     private let locationManager = CLLocationManager()
     @Published var locationStatus: CLAuthorizationStatus?
     @Published var lastLocation: CLLocation?
     
+    private var database: FXBLocalDataAccessor?
+    
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func set(database: FXBLocalDataAccessor) {
+        self.database = database
     }
     
     var statusString: String {
@@ -93,7 +98,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         )
         
         do {
-            try FlexiBLE.shared.dbAccess?.location.record(&location)
+            try database?.location.record(&location)
         } catch {
             GeneralLogger.error("unable to commit location to database: \(error.localizedDescription)")
         }

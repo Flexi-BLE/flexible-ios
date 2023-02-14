@@ -16,7 +16,10 @@ import FlexiBLE
     @Published var region: MKCoordinateRegion = MKCoordinateRegion.placeholder()
     @Published var locations: [FXBLocation] = []
     
-    init(_ experiment: FXBExperiment) {
+    var profile: FlexiBLEProfile
+    
+    init(profile: FlexiBLEProfile, experiment: FXBExperiment) {
+        self.profile = profile
         self.experiment = experiment
         fetchLocations()
     }
@@ -24,11 +27,11 @@ import FlexiBLE
     private func fetchLocations() {
         Task {
             
-            let allLocations = try await FlexiBLE.shared.dbAccess?.location.get(
+            let allLocations = try await profile.database.location.get(
                 from: experiment.start,
                 to: experiment.end,
                 limit: 1000
-            ) ?? []
+            )
             
             self.locations = [allLocations[0]]
             

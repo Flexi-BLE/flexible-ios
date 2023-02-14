@@ -9,6 +9,10 @@ import SwiftUI
 import FlexiBLE
 
 struct ActiveExperimentView: View {
+    
+    @EnvironmentObject var profile: FlexiBLEProfile
+    @EnvironmentObject var remoteDataStore: InfluxDBConnection
+    
     @StateObject var vm: ExperimentViewModel
     
     @State var nowDate = Date()
@@ -28,7 +32,7 @@ struct ActiveExperimentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if (vm.experiment.trackGPS) {
-                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
+                ExperimentMapView(vm: ExperimentMapViewModel(profile: profile, experiment: vm.experiment))
             }
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 12) {
@@ -73,7 +77,7 @@ struct ActiveExperimentView: View {
             
             VStack(alignment: .leading, spacing: 11) {
                 TimestampListView(
-                    vm: TimestampsViewModel(with: vm.experiment.id),
+                    vm: TimestampsViewModel(profile: profile, with: vm.experiment.id),
                     canCreate: true)
             }.padding()
         }
@@ -81,7 +85,7 @@ struct ActiveExperimentView: View {
             _ = self.countupTimer
         })
         .sheet(isPresented: $isShowingUpload) {
-            if let m = InfluxDBConnection.shared.uploader(
+            if let m = remoteDataStore.uploader(
                 start: vm.experiment.start.addingTimeInterval(-30),
                 end: vm.experiment.end?.addingTimeInterval(30) ?? Date.now
             ) {
@@ -104,11 +108,5 @@ struct ActiveExperimentView: View {
                       abs(components.hour ?? 00),
                       components.minute ?? 00,
                       components.second ?? 00)
-    }
-}
-
-struct NewActiveExperimentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActiveExperimentView(vm: ExperimentViewModel(FXBExperiment.dummyActive()), onDismiss: {})
     }
 }

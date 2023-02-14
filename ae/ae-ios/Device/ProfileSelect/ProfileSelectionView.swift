@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct ProfileSelectionView: View {
     @Environment(\.dismiss) var dismiss
@@ -106,6 +107,6 @@ struct ProfileSelectionView: View {
 
 struct ProfileSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSelectionView(vm: ProfileSelectionViewModel())
+        ProfileSelectionView(vm: ProfileSelectionViewModel(flexiBLE: FlexiBLE()))
     }
 }

@@ -9,10 +9,12 @@ import SwiftUI
 import FlexiBLE
 
 struct MainTabView: View {
-    @StateObject var locationManager = LocationManager()
+    @EnvironmentObject var profile: FlexiBLEProfile
+    private var remoteDataStore = InfluxDBConnection()
+    
     var body: some View {
         TabView {
-            DevicesView(vm: ProfileSelectionViewModel())
+            DevicesView()
                 .tabItem{
                     Image(systemName: "memorychip")
                     Text("Devices")
@@ -27,9 +29,13 @@ struct MainTabView: View {
             SettingsView()
                 .tabItem {
                     Image(systemName: "ellipsis.circle.fill")
-                    Text("More")
+                    Text("Settings")
                 }
         }
+        .onAppear() {
+            remoteDataStore.set(profile: profile)
+        }
+        .environmentObject(remoteDataStore)
     }
 }
 

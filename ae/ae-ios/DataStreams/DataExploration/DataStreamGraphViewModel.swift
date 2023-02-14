@@ -29,6 +29,8 @@ import Combine
     static var dataStreamParamsKeyPrefix: String = "fxb_data_stream_chart_params"
     static var chartParamsKeyPrefix: String = "fxb_chart_params"
     
+    private var profile: FlexiBLEProfile
+    
     typealias Point = (x: Date, y: Float)
     var dataService: DataStreamDataService
     
@@ -39,10 +41,11 @@ import Combine
     
     private var tsObserver: AnyCancellable?
     
-    init(dataStream: FXBDataStream, deviceName: String) {
+    init(profile: FlexiBLEProfile, dataStream: FXBDataStream, deviceName: String) {
+        self.profile = profile
         self.deviceName = deviceName
         self.spec = dataStream
-        self.dataService = DataStreamDataService(dataStream: dataStream, deviceName: deviceName)
+        self.dataService = DataStreamDataService(profile: profile, dataStream: dataStream, deviceName: deviceName)
         self.data = [:]
 
         self.dataStreamParameters = self.defaultDSParams()
@@ -266,7 +269,7 @@ import Combine
         } else {
             let params = ChartParameters()
             
-            if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) {
+            if let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) {
                 if device.connectionState == .connected {
                     params.state = .live
                     params.liveInterval = 10

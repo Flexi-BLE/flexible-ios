@@ -13,21 +13,6 @@ struct DataStreamChartView: View {
     @StateObject var vm: DataStreamGraphViewModel
     
     var body: some View {
-//        let pinchGesture = MagnificationGesture()
-//            .onChanged { amount in
-//                vm.updateRange(amount: amount)
-//            }
-//            .onEnded { amount in
-//                vm.updateRange(amount: amount, end: true)
-//            }
-        
-//        let dragGesture = DragGesture()
-//            .onChanged { value in
-//                print("ZOOM: drag: \(value.translation) (\(value.location)")
-//            }
-//
-//        let zoomGesture = pinchGesture.simultaneously(with: dragGesture)
-        
         ZStack {
             Chart {
                 ForEach(Array(vm.data), id: \.key) { key, value in
@@ -74,6 +59,7 @@ struct DataStreamChartView_Previews: PreviewProvider {
     static var previews: some View {
         DataStreamChartView(
             vm: DataStreamGraphViewModel(
+                profile: FlexiBLEProfile(name: "test", spec: FXBSpec.mock),
                 dataStream: FXBSpec.mock.devices[0].dataStreams[0],
                 deviceName: "nothing"
             )

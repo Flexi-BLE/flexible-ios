@@ -11,17 +11,17 @@ import FlexiBLE
 
 struct SelectFXBDeviceConnectionView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var profile: FlexiBLEProfile
     
     var deviceSpec: FXBDeviceSpec
-    @StateObject private var conn = fxb.conn
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                ForEach((fxb.conn.fxbConnectedDevices + fxb.conn.fxbFoundDevices)
+                ForEach((profile.conn.fxbConnectedDevices + profile.conn.fxbFoundDevices)
                     .sorted(by: { $0.deviceName < $1.deviceName })) {
                         
-                        DeviceConnectionCellView(vm: FXBDeviceViewModel(with: $0))
+                        DeviceConnectionCellView(vm: FXBDeviceViewModel(profile: profile, device: $0))
                             .modifier(Card())
                     }
                 Spacer()

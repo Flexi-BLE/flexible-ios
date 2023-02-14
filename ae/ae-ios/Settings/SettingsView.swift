@@ -19,9 +19,10 @@ struct SettingsView: View {
 //    @State private var isPresentingConnectionWarning: Bool = false
     @Environment(\.openURL) private var openURL
     
+    @EnvironmentObject var flexiBLE: FlexiBLE
     @State private var isPresentingShare: Bool = false
-    
     @State private var alertInfo: AlertInfo?
+    
     var connectedDeviceWarningAlert: AlertInfo {
         return AlertInfo(
             title: "Device Connected",
@@ -49,7 +50,7 @@ struct SettingsView: View {
                         UIPasteboard.general.string = FlexiBLE.shared.appDataPath.absoluteString
                     }
 #else
-                    Link("Open FlexiBLE's app data in Files", destination: FlexiBLE.shared.appDataPath)
+                    Link("Open FlexiBLE's app data in Files", destination: flexiBLE.appDataPath)
                         .environment(\.openURL, OpenURLAction { url in
 
                             var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
@@ -78,7 +79,7 @@ struct SettingsView: View {
                     
                     NavigationLink(
                         destination: {
-                            UploadRecordsView(vm: UploadRecordsViewModel(dataStream: nil))
+                            UploadRecordsView(vm: UploadRecordsViewModel(profile: flexiBLE.profile!, dataStream: nil))
                                 .navigationBarTitleDisplayMode(.inline)
                                 .navigationBarTitle("Upload Records")
                         },

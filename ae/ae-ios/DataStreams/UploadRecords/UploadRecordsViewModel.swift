@@ -19,9 +19,9 @@ import FlexiBLE
     
     @Published var uploadRecords: [FXBDataUpload] = []
     
-    init(dataStream: String?) {
+    init(profile: FlexiBLEProfile, dataStream: String?) {
         self.dataStream = dataStream
-        uploadPub = try? fxb.dbAccess?.dataUpload.publisher(table: dataStream)
+        uploadPub = try? profile.database.dataUpload.publisher(table: dataStream)
         uploadPub?.sink(receiveCompletion: { comp in
             // TODO
         }, receiveValue: { recs in

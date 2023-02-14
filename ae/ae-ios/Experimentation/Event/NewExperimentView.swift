@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct NewExperimentView: View {
-    @StateObject var vm: NewExperimentViewModel = NewExperimentViewModel()
+    @EnvironmentObject var flexiBLE: FlexiBLE
+    @EnvironmentObject var locationManager: LocationManager
+    
+    @StateObject var vm = NewExperimentViewModel()
     
     var onDismiss: () -> ()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    init(onDismiss: @escaping ()->()) {
+        self.onDismiss = onDismiss
+    }
     
     var body: some View {
         ScrollView {

@@ -14,8 +14,10 @@ import UIKit
     @Published var errorMsg: String?=nil
     
     private let experimentId: Int64?
+    private let profile: FlexiBLEProfile
     
-    init(with experimentId: Int64?) {
+    init(profile: FlexiBLEProfile, with experimentId: Int64?) {
+        self.profile = profile
         self.timestamps = []
         self.experimentId = experimentId
         Task {
@@ -29,9 +31,8 @@ import UIKit
         }
         
         do {
-            if let timestamps = try await FlexiBLE.shared.dbAccess?.experiment.getTimestamps(for: id) {
-                self.timestamps = timestamps
-            }
+            let timestamps = try await profile.database.experiment.getTimestamps(for: id)
+            self.timestamps = timestamps
         } catch {
             errorMsg = error.localizedDescription
         }
@@ -42,12 +43,11 @@ import UIKit
         let name = "Timestamp - \(Date().getDetailedDate())"
         
         do {
-            if let ts = try await FlexiBLE.shared.dbAccess?.experiment.createTimestamp(
+            let ts = try await profile.database.experiment.createTimestamp(
                 name: name,
                 experimentId: experimentId
-            ) {
-                timestamps.append(ts)
-            }
+            )
+            timestamps.append(ts)
         } catch {
             errorMsg = error.localizedDescription
         }

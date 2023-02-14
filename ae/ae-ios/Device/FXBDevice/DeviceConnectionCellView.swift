@@ -9,6 +9,7 @@ import SwiftUI
 import FlexiBLE
 
 struct DeviceConnectionCellView: View {
+    @EnvironmentObject var profile: FlexiBLEProfile
     @StateObject var vm: FXBDeviceViewModel
     
     var body: some View {
@@ -47,7 +48,7 @@ struct DeviceConnectionCellView: View {
                 HStack {
                     Spacer()
                     NavigationLink(destination: {
-                        DataStreamsView(deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
+                        DataStreamsView(profile: profile, deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationTitle("\(vm.device.deviceName)")
                     }, label: {

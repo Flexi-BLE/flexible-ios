@@ -11,6 +11,7 @@ import FlexiBLESignal
 import Combine
 
 class DataStreamDataService {
+    var profile: FlexiBLEProfile
     var dataStream: FXBDataStream
     var deviceName: String
     var chartParams: ChartParameters?
@@ -36,7 +37,8 @@ class DataStreamDataService {
     private var tsObserver: AnyCancellable?
     private var queryObserver: AnyCancellable?
     
-    init(dataStream: FXBDataStream, deviceName: String) {
+    init(profile: FlexiBLEProfile, dataStream: FXBDataStream, deviceName: String) {
+        self.profile = profile
         self.dataStream = dataStream
         self.deviceName = deviceName
         self.ts = TimeSeries(persistence: 5000) // FIXME: Manage Persistence
@@ -72,7 +74,7 @@ class DataStreamDataService {
     }
     
     private func liveFeed() {
-        guard let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) else {
+        guard let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) else {
             tsPublisher.send(completion: .failure(CustomError.deviceNotConnected))
             return
         }
@@ -115,7 +117,7 @@ class DataStreamDataService {
     private func queryDataTS(start: Date, end: Date) {
         Task {
             do {
-                let records = try await fxb.dbAccess?.dataStream.records(
+                let records = try await profile.database.dataStream.records(
                         for: self.dataStream.name,
                         from: start,
                         to: end,
@@ -123,7 +125,7 @@ class DataStreamDataService {
                         uploaded: nil
                 )
 
-                records?.forEach { row in
+                records.forEach { row in
                     guard let timestamp: Int64 = row.getValue(for: "ts") else {
                         return
                     }

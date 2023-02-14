@@ -11,6 +11,8 @@ import FlexiBLE
 
 @MainActor class ProfileSelectionViewModel: ObservableObject {
     
+    private var flexiBLE: FlexiBLE
+    
     enum State {
         case noProfileSelected
         case loading(description: String)
@@ -20,11 +22,14 @@ import FlexiBLE
     @Published var state: State = .noProfileSelected
     @Published var errorMessage: String? = nil
     
-    var profiles = fxb.profiles()
+    var profiles: [FlexiBLEProfile]
     private var observables: [AnyCancellable] = []
     
-    init() {
-        fxb.$profile.sink { profile in
+    init(flexiBLE: FlexiBLE) {
+        self.flexiBLE = flexiBLE
+        self.profiles = flexiBLE.profiles
+
+        flexiBLE.$profile.sink { profile in
             if let profile = profile {
                 self.state = .active(profile: profile)
                 self.checkAutoConnect()
@@ -33,7 +38,7 @@ import FlexiBLE
             }
         }.store(in: &observables)
         
-        fxb.setLastProfile()
+        flexiBLE.setLastProfile()
     }
     
     func create(name: String, urlString: String, setActive: Bool) {
@@ -45,9 +50,11 @@ import FlexiBLE
         self.state = .loading(description: url.lastPathComponent)
         Task {
             if let spec = await loadSpecification(with: url) {
-                fxb.createProfile(with: spec, name: name, setActive: setActive)
-                fxb.startScan(with: spec)
-                self.profiles = fxb.profiles()
+                flexiBLE.createProfile(with: spec, name: name, setActive: setActive)
+                if let profile = flexiBLE.profile {
+                    profile.startScan()
+                    self.profiles = flexiBLE.profiles
+                }
             } else {
                 errorMessage = "Unable to load remote configuration \(url.lastPathComponent)"
             }  
@@ -55,7 +62,7 @@ import FlexiBLE
     }
     
     func setProfile(with id: UUID) {
-        fxb.switchProfile(to: id)
+        flexiBLE.switchProfile(to: id)
     }
     
     func clearError() {
@@ -75,7 +82,7 @@ import FlexiBLE
             .standard
             .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey) else  { return }
                 
-        fxb.conn.registerAutoConnect(devices: autoConnects)
+        flexiBLE.profile?.conn.registerAutoConnect(devices: autoConnects)
     }
     
 }

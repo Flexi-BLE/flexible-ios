@@ -10,6 +10,8 @@ import Combine
 import FlexiBLE
 
 struct DataStreamDetailCellView: View {
+    
+    @EnvironmentObject var profile: FlexiBLEProfile
     @ObservedObject var vm: AEDataStreamViewModel
     
     @State var editConfigPopover: Bool = false
@@ -76,7 +78,7 @@ struct DataStreamDetailCellView: View {
                             NavigationView {
                                 FullScreenModal {
                                     UploadRecordsView(
-                                        vm: UploadRecordsViewModel(dataStream: vm.dataStream.name)
+                                        vm: UploadRecordsViewModel(profile: profile, dataStream: vm.dataStream.name)
                                     )
                                 }
                             }
@@ -99,6 +101,7 @@ struct DataStreamDetailCellView: View {
                             NavigationView {
                                 DataStreamGraphView(
                                     vm: DataStreamGraphViewModel(
+                                        profile: profile,
                                         dataStream: vm.dataStream,
                                         deviceName: device.deviceName
                                     )

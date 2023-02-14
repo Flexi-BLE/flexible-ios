@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct CreateProfileFromURLView: View {
     @Environment(\.dismiss) var dismiss
@@ -57,20 +58,12 @@ struct CreateProfileFromURLView: View {
                     Spacer()
                     
                     Button {
-                        vm.create(name: newProfileName, urlString: urlString, setActive: false)
+                        vm.create(name: newProfileName, urlString: urlString, setActive: true)
+                        dismiss()
                     } label: {
                         Text("Create")
                     }
                     .buttonStyle(SecondaryButtonStyle())
-                    
-                    Button {
-                        vm.create(name: newProfileName, urlString: urlString, setActive: true)
-                        dismiss()
-                    } label: {
-                        Text("Create and Select")
-                    }
-                    .buttonStyle(PrimaryButtonStyle())
-                    
                     
                 }
                 
@@ -81,6 +74,6 @@ struct CreateProfileFromURLView: View {
 
 struct CreateProfileFromURLView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateProfileFromURLView(vm: ProfileSelectionViewModel())
+        CreateProfileFromURLView(vm: ProfileSelectionViewModel(flexiBLE: FlexiBLE()))
     }
 }

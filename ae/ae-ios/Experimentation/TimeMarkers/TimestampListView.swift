@@ -9,6 +9,7 @@ import SwiftUI
 import FlexiBLE
 
 struct TimestampListView: View {
+    @EnvironmentObject var profile: FlexiBLEProfile
     @StateObject var vm: TimestampsViewModel
     
     @State var canCreate: Bool
@@ -31,17 +32,10 @@ struct TimestampListView: View {
             }
             List {
                 ForEach(vm.timestamps, id: \.ts) { timestamp in
-                    TimestampCellView(vm: TimestampViewModel(timestamp: timestamp))
+                    TimestampCellView(vm: TimestampViewModel(database: profile.database, timestamp: timestamp))
                 }
             }
             .listStyle(.plain)
         }
     }
 }
-
-struct NewMarkTimeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimestampListView(vm: TimestampsViewModel(with: FXBExperiment.dummyActive().id), canCreate: true)
-    }
-}
-

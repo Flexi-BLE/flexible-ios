@@ -20,20 +20,31 @@ import FlexiBLE
     
     @Published var errorMsg: String?=nil
     
+    private var profile: FlexiBLEProfile?
+    private var locationManager: LocationManager?
+    
+    func set(profile: FlexiBLEProfile, locationManager: LocationManager) {
+        self.profile = profile
+        self.locationManager = locationManager
+    }
+    
     func createExperiment() async {
         
+        guard let profile = self.profile,
+              let locationManager = self.locationManager else { return }
+        
         do {
-            if let exp = try await FlexiBLE.shared.dbAccess?.experiment.start(
+            let exp = try await profile.database.experiment.start(
                 name: name,
                 description: description,
                 start: hasStartDate ? startDate : Date.now,
                 end: hasEndDate ? endDate : nil,
                 active: true,
                 trackGPS: trackGPS
-            ) {
-                if exp.trackGPS {
-                    LocationManager.sharedInstance.trackGPS(status: exp.trackGPS)
-                }
+            )
+            
+            if exp.trackGPS {
+                locationManager.trackGPS(status: exp.trackGPS)
             }
         } catch {
             errorMsg = error.localizedDescription

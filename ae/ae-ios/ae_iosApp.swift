@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import FlexiBLE
+
 @main
 struct ae_iosApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    private var flexiBLE: FlexiBLE
+    
+    init() {
+        flexiBLE = FlexiBLE()
+    }
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            ContentView()
                 .preferredColorScheme(.light)
+                .environmentObject(flexiBLE)
         }
     }
 }

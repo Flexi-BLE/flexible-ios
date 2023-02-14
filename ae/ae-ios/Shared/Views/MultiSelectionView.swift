@@ -61,9 +61,3 @@ struct MultiSelectionView: View {
         }
     }
 }
-
-struct MultiSelectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

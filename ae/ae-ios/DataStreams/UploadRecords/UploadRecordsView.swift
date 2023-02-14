@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct UploadRecordsView: View {
     
@@ -28,6 +29,6 @@ struct UploadRecordsView: View {
 
 struct UploadRecordsView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadRecordsView(vm: UploadRecordsViewModel(dataStream: "none"))
+        UploadRecordsView(vm: UploadRecordsViewModel(profile: FlexiBLEProfile(name: "test", spec: FXBSpec.mock), dataStream: "none"))
     }
 }

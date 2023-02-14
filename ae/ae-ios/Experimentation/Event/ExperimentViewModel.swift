@@ -15,9 +15,11 @@ import SwiftUI
     @Published var experiment: FXBExperiment
     @Published var errorMsg: String?=nil
     @Published var totalRecords: Int = 0
+    private var database: FXBLocalDataAccessor
     
-    init(_ experiment: FXBExperiment) {
+    init(experiment: FXBExperiment, database: FXBLocalDataAccessor) {
         self.experiment = experiment
+        self.database = database
         Task {
             await getTotalRecords()
         }
@@ -49,16 +51,16 @@ import SwiftUI
         
         do {
             var count = 0
-            let tables = try fxb.dbAccess?.dynamicTable.tableNames() ?? []
+            let tables = try database.dynamicTable.tableNames()
             for name in tables {
-                count += try await FlexiBLE.shared.dbAccess?
+                count += try await database
                     .timeseries.count(
                         for: .dynamicData(name: name),
                         start: experiment.start,
                         end: end,
                         deviceName: nil,
                         uploaded: nil
-                    ) ?? 0
+                    )
             }
             self.totalRecords = count
         } catch {
@@ -72,7 +74,7 @@ import SwiftUI
         guard let id = self.experiment.id else { return }
         
         do {
-            if let exp = try await FlexiBLE.shared.dbAccess?.experiment.stopExperiment(id: id) {
+            if let exp = try await database.experiment.stopExperiment(id: id) {
                 experiment = exp
             } else {
                 errorMsg = "Unable to find experiment"
@@ -90,7 +92,7 @@ import SwiftUI
         guard let id = self.experiment.id else { return false}
         
         do {
-            try await FlexiBLE.shared.dbAccess?.experiment.deleteExperiment(id: id)
+            try await database.experiment.deleteExperiment(id: id)
             return true
         } catch {
             errorMsg = error.localizedDescription

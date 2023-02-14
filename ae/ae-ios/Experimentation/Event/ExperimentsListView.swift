@@ -9,7 +9,8 @@ import SwiftUI
 import FlexiBLE
 
 struct ExperimentsListView: View {
-    @StateObject var vm: ExperimentsViewModel
+    @EnvironmentObject var profile: FlexiBLEProfile
+    @StateObject var vm: ExperimentsViewModel = ExperimentsViewModel()
     
     var body: some View {
         List {
@@ -18,7 +19,7 @@ struct ExperimentsListView: View {
                 case true:
                     NavigationLink(
                         destination: ActiveExperimentView(
-                            vm: ExperimentViewModel(experiment),
+                            vm: ExperimentViewModel(experiment: experiment, database: profile.database),
                             onDismiss: {
                                 Task {
                                     await vm.getExperiments()
@@ -28,16 +29,16 @@ struct ExperimentsListView: View {
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationBarTitle(experiment.name)
                     ) {
-                        ExperimentListCellView(vm: ExperimentViewModel(experiment))
+                        ExperimentListCellView(vm: ExperimentViewModel(experiment: experiment, database: profile.database))
                     }
                 case false:
                     EmptyView()
                     NavigationLink(
-                        destination: InactiveExperimentsView(vm: ExperimentViewModel(experiment))
+                        destination: InactiveExperimentsView(vm: ExperimentViewModel(experiment: experiment, database: profile.database))
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationBarTitle(experiment.name)
                     ) {
-                        ExperimentListCellView(vm: ExperimentViewModel(experiment))
+                        ExperimentListCellView(vm: ExperimentViewModel(experiment: experiment, database: profile.database))
                     }
                 }
             }
@@ -50,11 +51,14 @@ struct ExperimentsListView: View {
             }
         }
         .listStyle(.plain)
+        .onAppear() {
+            vm.set(profile: profile)
+        }
     }
 }
 
 struct NewExperimentsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentsListView(vm: ExperimentsViewModel())
+        ExperimentsListView()
     }
 }

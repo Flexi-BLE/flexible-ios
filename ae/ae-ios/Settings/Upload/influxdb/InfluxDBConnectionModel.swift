@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import Combine
 import FlexiBLE
 import UIKit
 
 
-final class InfluxDBConnection {
+final class InfluxDBConnection: ObservableObject {
     
-    static var shared = InfluxDBConnection()
+    var profile: FlexiBLEProfile?
     
-    private init() {
+    init() {
         if continousUploadInterval == 0 {
             self.continousUploadInterval = 30
         }
@@ -24,6 +25,10 @@ final class InfluxDBConnection {
         }
         
         updateLiveUpload()
+    }
+    
+    func set(profile: FlexiBLEProfile) {
+        self.profile = profile
     }
     
     enum UserDefaultsKey: String {
@@ -132,6 +137,10 @@ final class InfluxDBConnection {
     }
     
     func uploader(start: Date?, end: Date=Date.now) -> InfluxDBUploader? {
+        guard let profile = profile else {
+            return nil
+        }
+        
         if validated {
             let creds = InfluxDBCredentials(
                 url: url!,
@@ -144,6 +153,7 @@ final class InfluxDBConnection {
                 uploadInterval: Double(continousUploadInterval)
             )
             return InfluxDBUploader(
+                profile: profile,
                 credentials: creds,
                 startDate: start,
                 endDate: end
@@ -154,8 +164,10 @@ final class InfluxDBConnection {
     }
     
     func updateLiveUpload() {
-        guard continousUploadEnabled else {
-            liveUploader?.stop()
+        guard let profile = profile,
+              continousUploadEnabled else {
+            
+                  liveUploader?.stop()
             liveUploader = nil
             return
         }
@@ -165,6 +177,6 @@ final class InfluxDBConnection {
             return
         }
         
-        liveUploader = LiveUploader(model: self)
+        liveUploader = LiveUploader(model: self, profile: profile)
     }
 }

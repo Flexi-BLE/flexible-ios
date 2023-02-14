@@ -44,9 +44,3 @@ struct ExperimentListCellView: View {
         return "\(start.getShortDate())".appending(" - \(end.getShortDate())")
     }
 }
-
-struct NewExperimentListCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExperimentListCellView(vm: ExperimentViewModel(FXBExperiment.dummyActive()))
-    }
-}

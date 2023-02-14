@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct ProfileSelectionHeader: View {
     
@@ -40,6 +41,6 @@ struct ProfileSelectionHeader: View {
 
 struct ProfileSelectionHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSelectionHeader(vm: ProfileSelectionViewModel())
+        ProfileSelectionHeader(vm: ProfileSelectionViewModel(flexiBLE: FlexiBLE()))
     }
 }

@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct FXBRegisteredDeviceSpecConnectionView: View {
     var spec: FXBRegisteredDeviceSpec
-    @StateObject var conn: FXBConnectionManager
+    @EnvironmentObject var profile: FlexiBLEProfile
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,12 +27,12 @@ struct FXBRegisteredDeviceSpecConnectionView: View {
             Divider()
             HStack {
                 VStack(alignment: .leading) {
-                    switch conn.foundRegisteredDevices.count {
+                    switch profile.conn.foundRegisteredDevices.count {
                     case let count where count == 1: Text("\(count) device found").font(.body)
                     case let count where count > 1: Text("\(count) devices found").font(.body)
                     default: Text("No devices found").font(.body)
                     }
-                    switch conn.connectedRegisteredDevices.count {
+                    switch profile.conn.connectedRegisteredDevices.count {
                     case let count where count == 1: Text("\(count) device connected").font(.body)
                     case let count where count > 1: Text("\(count) devices connected").font(.body)
                     default: Text("No devices connected").font(.body)
@@ -52,6 +52,6 @@ struct FXBRegisteredDeviceSpecConnectionView: View {
 
 struct FXBRegisteredDeviceSpecConnectionView_Previews: PreviewProvider {
     static var previews: some View {
-        FXBRegisteredDeviceSpecConnectionView(spec: FXBSpec.mock.bleRegisteredDevices.first!, conn: fxb.conn)
+        FXBRegisteredDeviceSpecConnectionView(spec: FXBSpec.mock.bleRegisteredDevices.first!)
     }
 }

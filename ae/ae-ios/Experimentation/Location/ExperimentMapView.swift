@@ -27,7 +27,11 @@ struct ExperimentMapView_Previews: PreviewProvider {
     static var previews: some View {
         ExperimentMapView(
             vm: ExperimentMapViewModel(
-                FXBExperiment.dummyActive()
+                profile: FlexiBLEProfile(
+                    name: "test",
+                    spec: FXBSpec.mock
+                ),
+                experiment: FXBExperiment.dummyActive()
             )
         )
     }

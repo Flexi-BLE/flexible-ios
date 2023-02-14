@@ -19,9 +19,3 @@ struct TimestampCellView: View {
         }
     }
 }
-
-struct NewTimeMarkerCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimestampCellView(vm: TimestampViewModel(timestamp: FXBTimestamp.dummy()))
-    }
-}

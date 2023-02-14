@@ -9,32 +9,18 @@ import SwiftUI
 import FlexiBLE
 
 struct InactiveExperimentsView: View {
+    @EnvironmentObject var profile: FlexiBLEProfile
     @StateObject var vm: ExperimentViewModel
-    
-    @State var isShowingUpload = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 29) {
             if (vm.experiment.trackGPS) {
-                ExperimentMapView(vm: ExperimentMapViewModel(vm.experiment))
+                ExperimentMapView(vm: ExperimentMapViewModel(profile: profile, experiment: vm.experiment))
             }
-            HStack(alignment: .center) {
-                VStack(alignment: .leading) {
-                    HStack {
-//                        Text(vm.experiment.name)
-//                            .font(.title)
-                        Spacer()
-                        Image(systemName: "square.and.arrow.up.circle")
-                            .resizable()
-                            .frame(width: 44.0, height: 44.0)
-                            .onTapGesture {
-                                isShowingUpload = true
-                            }
-                    }
-                    Text(vm.experiment.description ?? "")
-                        .font(.subheadline)
-                }
-            }
+            
+            Text(vm.experiment.description ?? "")
+                .font(.subheadline)
+                
             
             VStack(alignment: .leading, spacing: 11) {
                 Label("Details", systemImage: "info.circle.fill")
@@ -52,25 +38,11 @@ struct InactiveExperimentsView: View {
                     Spacer()
                 }
                 TimestampListView(
-                    vm: TimestampsViewModel(with: vm.experiment.id),
+                    vm: TimestampsViewModel(profile: profile, with: vm.experiment.id),
                     canCreate: false
                 )
             }
         }
         .padding()
-        .sheet(isPresented: $isShowingUpload) {
-            if let m = InfluxDBConnection.shared.uploader(
-                start: vm.experiment.start.addingTimeInterval(-30),
-                end: vm.experiment.end?.addingTimeInterval(30) ?? Date.now
-            ) {
-                DataUploadingView(uploader: RemoteUploadViewModel(uploader: m))
-            }
-        }
-    }
-}
-
-struct NewInactiveExperimentsView_Previews: PreviewProvider {
-    static var previews: some View {
-        InactiveExperimentsView(vm: ExperimentViewModel(FXBExperiment.dummyActive()))
     }
 }

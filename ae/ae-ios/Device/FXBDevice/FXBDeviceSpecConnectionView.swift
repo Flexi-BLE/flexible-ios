@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct FXBDeviceSpecConnectionView: View {
     var spec: FXBDeviceSpec
-    @StateObject var conn: FXBConnectionManager = fxb.conn
+    @EnvironmentObject var profile: FlexiBLEProfile
 
     @State var isShowingConnectionManager: Bool = false
     @State var avaiableDevicesText: String = ""
@@ -31,12 +31,12 @@ struct FXBDeviceSpecConnectionView: View {
             
             Divider()
             
-            switch conn.fxbFoundDevices {
+            switch profile.conn.fxbFoundDevices {
             case let ds where ds.count == 1: Text("\(ds.count) device found").font(.body)
             case let ds where ds.count > 1: Text("\(ds.count) devices found").font(.body)
             default: Text("No devices found").font(.body)
             }
-            switch conn.fxbConnectedDevices {
+            switch profile.conn.fxbConnectedDevices {
             case let ds where ds.count == 1: Text("\(ds.count) device connected").font(.body)
             case let ds where ds.count > 1: Text("\(ds.count) devices connected").font(.body)
             default: Text("No devices connected").font(.body)

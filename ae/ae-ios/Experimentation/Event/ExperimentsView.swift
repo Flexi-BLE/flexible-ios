@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import FlexiBLE
 
 struct ExperimentsView: View {
-    @StateObject var vm: ExperimentsViewModel = ExperimentsViewModel()
+    @EnvironmentObject var profile: FlexiBLEProfile
+    
+    @StateObject private var vm = ExperimentsViewModel()
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {
@@ -25,6 +29,7 @@ struct ExperimentsView: View {
                                 }
                             }
                         )
+                        .environmentObject(locationManager)
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationBarTitle("New Experiment")
                     ) {
@@ -65,11 +70,16 @@ struct ExperimentsView: View {
                 }
             }
         }
+        .onAppear() {
+            locationManager.set(database: profile.database)
+            vm.set(profile: profile)
+        }
     }
 }
 
 struct NewExperimentsView_Previews: PreviewProvider {
     static var previews: some View {
         ExperimentsView()
+            .environmentObject(FlexiBLE())
     }
 }

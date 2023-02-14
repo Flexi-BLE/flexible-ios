@@ -87,6 +87,7 @@ struct ChartControls_Previews: PreviewProvider {
     static var previews: some View {
         ChartControls(
             vm: DataStreamGraphViewModel(
+                profile: FlexiBLEProfile(name: "test", spec: FXBSpec.mock),
                 dataStream: FXBSpec.mock.devices[0].dataStreams[0],
                 deviceName: "nothing"
             )

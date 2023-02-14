@@ -13,8 +13,10 @@ import FlexiBLE
     
     @Published var newName: String = ""
     @Published var newDescription: String = ""
+    private var database: FXBLocalDataAccessor
     
-    init(timestamp: FXBTimestamp) {
+    init(database: FXBLocalDataAccessor, timestamp: FXBTimestamp) {
+        self.database = database
         self.timestamp = timestamp
         self.newName = timestamp.name ?? ""
         self.newDescription = timestamp.description ?? ""
@@ -26,7 +28,7 @@ import FlexiBLE
         }
         
         do {
-            if let timestamp = try await FlexiBLE.shared.dbAccess?.experiment.updateTimestamp(
+            if let timestamp = try await database.experiment.updateTimestamp(
                 id: id,
                 name: newName,
                 description: newDescription

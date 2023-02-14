@@ -12,27 +12,32 @@ import FlexiBLE
 @MainActor class RegisteredDeviceViewModel: ObservableObject {
     var device: FXBRegisteredDevice
     
-    @Published var bleIsPoweredOn: Bool = fxb.conn.centralState == .poweredOn
+    private var profile: FlexiBLEProfile
+    
+    @Published var bleIsPoweredOn: Bool
     @Published var connectionLoading: Bool = false
     @Published var isEnabled: Bool = false
     
     private var observers = Set<AnyCancellable>()
     
-    init(with device: FXBRegisteredDevice) {
+    init(profile: FlexiBLEProfile, device: FXBRegisteredDevice) {
+        self.profile = profile
         self.device = device
+        _bleIsPoweredOn = .init(initialValue: profile.conn.centralState == .poweredOn)
+        
         setupPubs()
     }
     
     func connect() {
-        fxb.conn.enable(device: self.device)
+        profile.conn.enable(device: self.device)
     }
     
     func disconnect() {
-        fxb.conn.disable(device: self.device)
+        profile.conn.disable(device: self.device)
     }
     
     private func setupPubs() {
-        fxb.conn.$centralState
+        profile.conn.$centralState
             .sink { [weak self] state in
                 switch state {
                 case .poweredOn: self?.bleIsPoweredOn = true

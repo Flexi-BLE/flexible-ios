@@ -9,6 +9,7 @@ import Foundation
 import FlexiBLE
 
 @MainActor class ExperimentsViewModel: ObservableObject {
+    private var profile: FlexiBLEProfile?
     
     enum State {
         case loading
@@ -22,33 +23,43 @@ import FlexiBLE
     
     init() {
         self.state = .noExperiment
+    }
+    
+    func set(profile: FlexiBLEProfile) {
+        self.profile = profile
         Task {
             await self.getExperiments()
         }
     }
     
     func getExperiments() async {
+        guard let profile = profile else {
+            return
+        }
         self.state = .loading
         
         do {
-            if let exps = try await FlexiBLE.shared.dbAccess?.experiment.getActives() {
-                if exps.isEmpty {
-                    state = .noExperiment
-                    return
-                }
-                experiments = exps
-                state = .fetched
+            let exps = try await profile.database.experiment.getActives()
+            if exps.isEmpty {
+                state = .noExperiment
+                return
             }
+            experiments = exps
+            state = .fetched
         } catch {
             state = .error(error: error)
         }
     }
     
     func deleteExperiment(at index: Int) async {
-        guard let id = experiments[index].id else { return }
+        guard let profile = profile,
+                let id = experiments[index].id else {
+            return
+        }
+        
         self.state = .loading
         
-        try? await FlexiBLE.shared.dbAccess?.experiment.deleteExperiment(id: id)
+        try? await profile.database.experiment.deleteExperiment(id: id)
         await self.getExperiments()
     }
 }
