@@ -23,21 +23,21 @@ import FlexiBLE
     init(profile: FlexiBLEProfile, device: FXBRegisteredDevice) {
         self.profile = profile
         self.device = device
-        _bleIsPoweredOn = .init(initialValue: profile.conn.centralState == .poweredOn)
+        _bleIsPoweredOn = .init(initialValue: profile.conn?.centralState == .poweredOn)
         
         setupPubs()
     }
     
     func connect() {
-        profile.conn.enable(device: self.device)
+        profile.conn?.enable(device: self.device)
     }
     
     func disconnect() {
-        profile.conn.disable(device: self.device)
+        profile.conn?.disable(device: self.device)
     }
     
     private func setupPubs() {
-        profile.conn.$centralState
+        profile.conn?.$centralState
             .sink { [weak self] state in
                 switch state {
                 case .poweredOn: self?.bleIsPoweredOn = true

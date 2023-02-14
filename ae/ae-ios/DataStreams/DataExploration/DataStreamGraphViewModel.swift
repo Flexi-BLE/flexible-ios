@@ -269,7 +269,7 @@ import Combine
         } else {
             let params = ChartParameters()
             
-            if let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) {
+            if let device = profile.conn?.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) {
                 if device.connectionState == .connected {
                     params.state = .live
                     params.liveInterval = 10

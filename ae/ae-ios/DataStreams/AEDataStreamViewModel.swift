@@ -59,9 +59,10 @@ import GRDB
     }
     
     private func setupDevice() {
-        if let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
+        if let connection = profile.conn,
+            let device = connection.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
             
-            self.deviceVM = FXBDeviceViewModel(profile: profile, device: device)
+            self.deviceVM = FXBDeviceViewModel(connection: connection, device: device)
             setInitialRecordCount()
             
         } else {
@@ -154,7 +155,7 @@ import GRDB
     }
     
     func loadDefaultConfigs() {
-        profile.conn.updateConfig(
+        profile.conn?.updateConfig(
             deviceName: deviceName,
             dataStream: dataStream
         )
@@ -176,7 +177,7 @@ import GRDB
             }
         }
         
-        profile.conn.updateConfig(
+        profile.conn?.updateConfig(
             deviceName: deviceName,
             dataStream: dataStream,
             data: data

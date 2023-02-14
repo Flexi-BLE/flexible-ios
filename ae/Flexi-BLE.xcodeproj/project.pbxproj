@@ -14,6 +14,7 @@
 		0109A025292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */; };
 		01184865299AA86C00753738 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01184864299AA86C00753738 /* ContentView.swift */; };
 		01184867299ADDD500753738 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01184866299ADDD500753738 /* CreateProfileView.swift */; };
+		0118486C299C08DB00753738 /* UnknownFlexibleDeviceConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0118486B299C08DB00753738 /* UnknownFlexibleDeviceConnectionView.swift */; };
 		011F48232807692E00B359EB /* ae_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F48222807692E00B359EB /* ae_iosApp.swift */; };
 		011F48272807693000B359EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48262807693000B359EB /* Assets.xcassets */; };
 		011F482A2807693000B359EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011F48292807693000B359EB /* Preview Assets.xcassets */; };
@@ -196,6 +197,7 @@
 		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
 		01184864299AA86C00753738 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		01184866299ADDD500753738 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
+		0118486B299C08DB00753738 /* UnknownFlexibleDeviceConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownFlexibleDeviceConnectionView.swift; sourceTree = "<group>"; };
 		011F48202807692E00B359EB /* ae-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ae-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011F48222807692E00B359EB /* ae_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ae_iosApp.swift; sourceTree = "<group>"; };
 		011F48262807693000B359EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +378,14 @@
 				0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */,
 			);
 			path = DevSettings;
+			sourceTree = "<group>";
+		};
+		01184868299C059F00753738 /* UnknownDevices */ = {
+			isa = PBXGroup;
+			children = (
+				0118486B299C08DB00753738 /* UnknownFlexibleDeviceConnectionView.swift */,
+			);
+			path = UnknownDevices;
 			sourceTree = "<group>";
 		};
 		011F47E62807685C00B359EB = {
@@ -671,6 +681,7 @@
 		01E7F276281858B900ED6F15 /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				01184868299C059F00753738 /* UnknownDevices */,
 				01F1E55429898BB800270081 /* ProfileSelect */,
 				01E7F289281C0FB500ED6F15 /* DevicesView.swift */,
 				01E7F27A2818594500ED6F15 /* FXBDeviceViewModel.swift */,
@@ -1011,6 +1022,7 @@
 				0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */,
 				011F48BC28076C6D00B359EB /* ShareUtil.swift in Sources */,
 				01286303294D020B000DD78E /* LiveUploader.swift in Sources */,
+				0118486C299C08DB00753738 /* UnknownFlexibleDeviceConnectionView.swift in Sources */,
 				01F1E5492988A5C700270081 /* ProfileSelectionViewModel.swift in Sources */,
 				01E7F298281C277500ED6F15 /* Card.swift in Sources */,
 				01551D1A28DC0F2400000DCB /* FXBRegisteredDeviceSpecConnectionView.swift in Sources */,

@@ -12,7 +12,7 @@ import FlexiBLE
 
 @MainActor class FXBDeviceViewModel: ObservableObject {
     var device: FXBDevice
-    var profile: FlexiBLEProfile
+    var connection: FXBConnectionManager
     
     @Published var bleIsPoweredOn: Bool
     @Published var connectionLoading: Bool = false
@@ -25,21 +25,21 @@ import FlexiBLE
     
     private var timer: Timer? = nil
     
-    init(profile: FlexiBLEProfile, device: FXBDevice) {
+    init(connection: FXBConnectionManager, device: FXBDevice) {
         self.device = device
-        self.profile = profile
-        self._bleIsPoweredOn = .init(initialValue: profile.conn.centralState == .poweredOn)
+        self.connection = connection
+        self._bleIsPoweredOn = .init(initialValue: connection.centralState == .poweredOn)
         
         checkAutoConnect()
         setupPubs()
     }
     
     func connect() {
-        profile.conn.enable(device: device)
+        connection.enable(device: device)
     }
     
     func disconnect() {
-        profile.conn.disable(device: device)
+        connection.disable(device: device)
     }
     
     func setAutoConnect(to shouldAutoConnect: Bool) {
@@ -64,11 +64,11 @@ import FlexiBLE
             newAutoConnects,
             forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey
         )
-        profile.conn.registerAutoConnect(devices: newAutoConnects)
+        connection.registerAutoConnect(devices: newAutoConnects)
     }
     
     private func setupPubs() {
-        profile.conn.$centralState
+        connection.$centralState
             .sink { [weak self] state in
                 switch state {
                 case .poweredOn: self?.bleIsPoweredOn = true
@@ -116,12 +116,12 @@ import FlexiBLE
                 .standard
                 .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey)
                 
-            profile.conn.registerAutoConnect(devices: autoConnects)
+            connection.registerAutoConnect(devices: autoConnects)
             let contained = autoConnects.contains(self.device.deviceName)
             if !self.shouldAutoConnect, contained { self.shouldAutoConnect = true }
             if self.shouldAutoConnect, !contained { self.shouldAutoConnect = false }
         } catch {
-            profile.conn.registerAutoConnect(devices: [])
+            connection.registerAutoConnect(devices: [])
             if self.shouldAutoConnect { self.shouldAutoConnect = false }
         }
     }

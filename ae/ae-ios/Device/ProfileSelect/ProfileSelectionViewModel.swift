@@ -41,23 +41,27 @@ import FlexiBLE
         flexiBLE.setLastProfile()
     }
     
-    func create(name: String, urlString: String, setActive: Bool) {
-        guard let url = URL(string: urlString) else {
-            self.errorMessage = "You entered an invalid URL"
-            return
-        }
-        
-        self.state = .loading(description: url.lastPathComponent)
+    func create(name: String?, urlString: String?, setActive: Bool) {
         Task {
-            if let spec = await loadSpecification(with: url) {
-                flexiBLE.createProfile(with: spec, name: name, setActive: setActive)
-                if let profile = flexiBLE.profile {
-                    profile.startScan()
-                    self.profiles = flexiBLE.profiles
+            if let urlString = urlString, !urlString.isEmpty {
+                guard let url = URL(string: urlString) else {
+                    errorMessage = "invalid URL"
+                    return
+                }
+                self.state = .loading(description: url.lastPathComponent)
+                if let spec = await loadSpecification(with: url) {
+                    flexiBLE.createProfile(with: spec, name: name, setActive: setActive)
+                    if let profile = flexiBLE.profile {
+                        profile.startScan()
+                        self.profiles = flexiBLE.profiles
+                    }
+                } else {
+                    errorMessage = "Unable to load remote configuration \(url.lastPathComponent)"
                 }
             } else {
-                errorMessage = "Unable to load remote configuration \(url.lastPathComponent)"
-            }  
+                flexiBLE.createProfile(with: nil, name: name, setActive: setActive)
+                self.profiles = flexiBLE.profiles
+            }
         }
     }
     
@@ -82,7 +86,7 @@ import FlexiBLE
             .standard
             .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey) else  { return }
                 
-        flexiBLE.profile?.conn.registerAutoConnect(devices: autoConnects)
+        flexiBLE.profile?.conn?.registerAutoConnect(devices: autoConnects)
     }
     
 }

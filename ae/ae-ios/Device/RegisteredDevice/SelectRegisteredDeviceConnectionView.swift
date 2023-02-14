@@ -14,7 +14,7 @@ struct SelectRegisteredDeviceConnectionView: View {
     var deviceSpec: FXBRegisteredDeviceSpec
     
     var body: some View {
-        List(profile.conn.foundRegisteredDevices + profile.conn.connectedRegisteredDevices) {
+        List((profile.conn?.foundRegisteredDevices ?? []) + (profile.conn?.connectedRegisteredDevices ?? [])) {
             RegisteredDeviceConnectionCellView(vm: RegisteredDeviceViewModel(profile: profile, device: $0))
         }
     }

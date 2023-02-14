@@ -10,7 +10,7 @@ import FlexiBLE
 
 struct FXBDeviceSpecConnectionView: View {
     var spec: FXBDeviceSpec
-    @EnvironmentObject var profile: FlexiBLEProfile
+    @ObservedObject var connection: FXBConnectionManager
 
     @State var isShowingConnectionManager: Bool = false
     @State var avaiableDevicesText: String = ""
@@ -31,12 +31,12 @@ struct FXBDeviceSpecConnectionView: View {
             
             Divider()
             
-            switch profile.conn.fxbFoundDevices {
+            switch connection.fxbFoundDevices {
             case let ds where ds.count == 1: Text("\(ds.count) device found").font(.body)
             case let ds where ds.count > 1: Text("\(ds.count) devices found").font(.body)
             default: Text("No devices found").font(.body)
             }
-            switch profile.conn.fxbConnectedDevices {
+            switch connection.fxbConnectedDevices {
             case let ds where ds.count == 1: Text("\(ds.count) device connected").font(.body)
             case let ds where ds.count > 1: Text("\(ds.count) devices connected").font(.body)
             default: Text("No devices connected").font(.body)
@@ -47,7 +47,7 @@ struct FXBDeviceSpecConnectionView: View {
             HStack {
                 Spacer()
                 NavigationLink(destination: {
-                    SelectFXBDeviceConnectionView(deviceSpec: spec)
+                    SelectFXBDeviceConnectionView(connection: connection, deviceSpec: spec)
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationTitle("\(spec.name) Devices")
                 }, label: {
@@ -56,11 +56,5 @@ struct FXBDeviceSpecConnectionView: View {
             }
             
         }.padding()
-    }
-}
-
-struct FXBDeviceSpecConnectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        FXBDeviceSpecConnectionView(spec: FXBSpec.mock.devices.first!)
     }
 }

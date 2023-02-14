@@ -24,12 +24,19 @@ struct DevicesView: View {
                 ScrollView {
                     FXBLEConnectionView()
                         .modifier(Card())
-                    ForEach(profile.specification.devices, id: \.id) { deviceSpec in
-                        FXBDeviceSpecConnectionView(spec: deviceSpec)
-                            .modifier(Card())
-                    }
-                    ForEach(profile.specification.bleRegisteredDevices, id: \.name) { deviceSpec in
-                        FXBRegisteredDeviceSpecConnectionView(spec: deviceSpec)
+                
+                    if let connection = profile.conn {
+                        
+                        ForEach(profile.specification.devices, id: \.id) { deviceSpec in
+                            FXBDeviceSpecConnectionView(spec: deviceSpec, connection: connection)
+                                .modifier(Card())
+                        }
+                        ForEach(profile.specification.bleRegisteredDevices, id: \.name) { deviceSpec in
+                            FXBRegisteredDeviceSpecConnectionView(spec: deviceSpec, connection: connection)
+                                .modifier(Card())
+                        }
+                        
+                        UnknownFlexibleDeviceConnectionView(connection: connection)
                             .modifier(Card())
                     }
                 }
@@ -44,5 +51,6 @@ struct DevicesView_Previews: PreviewProvider {
     static var previews: some View {
         DevicesView()
             .environmentObject(FlexiBLE())
+            .environmentObject(FlexiBLEProfile(name: "test", spec: nil))
     }
 }

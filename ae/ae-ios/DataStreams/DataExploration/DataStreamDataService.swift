@@ -74,7 +74,7 @@ class DataStreamDataService {
     }
     
     private func liveFeed() {
-        guard let device = profile.conn.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) else {
+        guard let device = profile.conn?.fxbConnectedDevices.first(where: { $0.deviceName == self.deviceName }) else {
             tsPublisher.send(completion: .failure(CustomError.deviceNotConnected))
             return
         }

@@ -10,6 +10,7 @@ import FlexiBLE
 
 struct DeviceConnectionCellView: View {
     @EnvironmentObject var profile: FlexiBLEProfile
+    
     @StateObject var vm: FXBDeviceViewModel
     
     var body: some View {
@@ -31,9 +32,6 @@ struct DeviceConnectionCellView: View {
                 KeyValueView(key: "Status", value: "Connected")
                 if let connectionRecord = vm.device.connectionRecord {
                     KeyValueView(key: "Connection Time", value: "\(connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--none--")")
-                    Divider()
-                    KeyValueView(key: "Reference Date", value: "\(connectionRecord.latestReferenceDate?.getShortDateAndTime() ?? "--none--")")
-                    KeyValueView(key: "Spec", value: "\(connectionRecord.specificationIdString ?? "--none--") (\(connectionRecord.specificationVersion ?? "--none--"))")
                 }
                 Divider()
                 HStack {

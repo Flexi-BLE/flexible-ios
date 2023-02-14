@@ -11,7 +11,7 @@ import FlexiBLE
 struct FXBLEConnectionView: View {
     @EnvironmentObject var profile: FlexiBLEProfile
     
-    @State var isEnabled: Bool = true
+    @State var isEnabled: Bool = false
     @State var angle: Double = 0
     
     var rotationAnimation: Animation {
@@ -33,7 +33,6 @@ struct FXBLEConnectionView: View {
                     Spacer()
                     Toggle("Enabled", isOn: $isEnabled)
                         .labelsHidden()
-                        .disabled(profile.conn.centralState != .poweredOn)
                         .onChange(of: isEnabled) { value in
                             enabledChanged()
                         }
@@ -50,8 +49,12 @@ struct FXBLEConnectionView: View {
     }
     
     private func enabledChanged() {
-        if isEnabled { profile.startScan() }
-        else { profile.stopScan() }
+        if isEnabled {
+            profile.startScan()
+        }
+        else {
+            profile.stopScan()
+        }
     }
 }
 

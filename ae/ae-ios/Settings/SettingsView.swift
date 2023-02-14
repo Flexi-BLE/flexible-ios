@@ -47,7 +47,7 @@ struct SettingsView: View {
                     
 #if targetEnvironment(macCatalyst)
                     Button("Copy App Data Path") {
-                        UIPasteboard.general.string = FlexiBLE.shared.appDataPath.absoluteString
+                        UIPasteboard.general.string = flexiBLE.appDataPath.absoluteString
                     }
 #else
                     Link("Open FlexiBLE's app data in Files", destination: flexiBLE.appDataPath)

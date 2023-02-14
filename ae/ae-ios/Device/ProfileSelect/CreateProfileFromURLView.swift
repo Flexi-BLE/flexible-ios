@@ -35,7 +35,7 @@ struct CreateProfileFromURLView: View {
                     .keyboardType(.default)
                     .disableAutocorrection(true)
                 
-                Text("FlexiBLE Specification URL")
+                Text("FlexiBLE Specification URL (Optional)")
                     .font(.callout)
                     .bold()
                 TextField("", text: $urlString)
