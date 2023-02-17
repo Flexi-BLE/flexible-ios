@@ -19,6 +19,7 @@ struct SelectFXBDeviceConnectionView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 ForEach((fxb.conn.fxbConnectedDevices + fxb.conn.fxbFoundDevices)
+                    .filter({ $0.deviceName.starts(with: deviceSpec.name) })
                     .sorted(by: { $0.deviceName < $1.deviceName })) {
                         
                         DeviceConnectionCellView(vm: FXBDeviceViewModel(with: $0))
