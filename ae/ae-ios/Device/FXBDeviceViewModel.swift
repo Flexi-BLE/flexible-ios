@@ -39,28 +39,19 @@ import FlexiBLE
     }
     
     func setAutoConnect(to shouldAutoConnect: Bool) {
-        guard let autoConnects: [String] = try? UserDefaults
-            .standard
-            .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey),
-              self.device.connectionState == .connected else {
-            
+        guard self.device.connectionState == .connected else {
             return
         }
         
-        let contained = autoConnects.contains(self.device.deviceName)
-        var newAutoConnects = autoConnects.map({ $0 })
+        let contained = fxb.profile?.autoConnectDeviceNames.contains(self.device.deviceName) ?? false
         
         if shouldAutoConnect, !contained {
-            newAutoConnects.append(self.device.deviceName)
+            fxb.profile?.autoConnectDeviceNames.append(self.device.deviceName)
         } else if !shouldAutoConnect, contained {
-            newAutoConnects.removeAll(where: { $0 == self.device.deviceName })
+            fxb.profile?.autoConnectDeviceNames.removeAll(where: { $0 == self.device.deviceName })
         }
         
-        try? UserDefaults.standard.setCustomObject(
-            newAutoConnects,
-            forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey
-        )
-        fxb.conn.registerAutoConnect(devices: newAutoConnects)
+        fxb.conn.registerAutoConnect(devices: fxb.profile?.autoConnectDeviceNames ?? [])
     }
     
     private func setupPubs() {
@@ -107,18 +98,12 @@ import FlexiBLE
     }
     
     private func checkAutoConnect() {
-        do {
-            let autoConnects: [String] = try UserDefaults
-                .standard
-                .getCustomObject(forKey: FXBDeviceViewModel.userDefaultsAutoConnectKey)
-                
-            fxb.conn.registerAutoConnect(devices: autoConnects)
-            let contained = autoConnects.contains(self.device.deviceName)
-            if !self.shouldAutoConnect, contained { self.shouldAutoConnect = true }
-            if self.shouldAutoConnect, !contained { self.shouldAutoConnect = false }
-        } catch {
-            fxb.conn.registerAutoConnect(devices: [])
-            if self.shouldAutoConnect { self.shouldAutoConnect = false }
+        guard let autoConnects = fxb.profile?.autoConnectDeviceNames else {
+            return
         }
+        
+        let contained = autoConnects.contains(self.device.deviceName)
+        if !self.shouldAutoConnect, contained { self.shouldAutoConnect = true }
+        if self.shouldAutoConnect, !contained { self.shouldAutoConnect = false }
     }
 }
