@@ -32,6 +32,7 @@ struct DevicesView: View {
                         ForEach(profile.specification.devices, id: \.id) { deviceSpec in
                             FXBDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)
                                 .modifier(Card())
+                            
                         }
                         ForEach(profile.specification.bleRegisteredDevices, id: \.name) { deviceSpec in
                             FXBRegisteredDeviceSpecConnectionView(spec: deviceSpec, conn: fxb.conn)

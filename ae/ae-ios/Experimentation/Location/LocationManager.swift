@@ -13,6 +13,7 @@ import UIKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     public static var sharedInstance = LocationManager()
+    
     private var shouldTrackLocation = false
     private let locationManager = CLLocationManager()
     @Published var locationStatus: CLAuthorizationStatus?
@@ -36,6 +37,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .restricted: return "restricted"
         case .denied: return "denied"
         default: return "unknown"
+        }
+    }
+    
+    func checkExperiments() {
+        Task {
+            if let exps = try? await fxb.dbAccess?.experiment.getActives() {
+                self.trackGPS(status: exps.reduce(false, { $0 || $1.trackGPS }))
+            } else {
+                self.trackGPS(status: false)
+            }
         }
     }
     

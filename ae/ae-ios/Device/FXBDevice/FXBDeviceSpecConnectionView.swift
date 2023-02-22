@@ -16,8 +16,6 @@ struct FXBDeviceSpecConnectionView: View {
     @State var avaiableDevicesText: String = ""
     @State var connectedDevicesText: String = ""
     
-    @State private var open: Int? = 0
-    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -47,22 +45,23 @@ struct FXBDeviceSpecConnectionView: View {
             
             Spacer()
             
-            NavigationLink(
-                destination: SelectFXBDeviceConnectionView(deviceSpec: spec)
+            NavigationLink(destination: {
+                SelectFXBDeviceConnectionView(deviceSpec: spec)
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle("\(spec.name) Devices"),
-                tag: 1,
-                selection: $open
-            ) {
-                EmptyView()
-            }
+                    .navigationTitle("\(spec.name) Devices")
+            }, label: {
+                CenteredView(
+                    Text("Manage Devices")
+                        .padding(11)
+                        .background(Color(UIColor.systemIndigo))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .frame(height: 45.0)
+                )
+                
+            })
         }
         .padding()
-        .contentShape(Rectangle())
-        .onTapGesture {
-            self.open = self.open == 1 ? 0 : 1
-        }
-        
     }
 }
 

@@ -27,6 +27,7 @@ import FlexiBLE
         fxb.$profile.sink { profile in
             if let profile = profile {
                 self.state = .active(profile: profile)
+                LocationManager.sharedInstance.checkExperiments()
                 self.checkAutoConnect()
             } else {
                 self.state = .noProfileSelected

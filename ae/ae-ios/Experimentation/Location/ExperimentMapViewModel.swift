@@ -27,8 +27,12 @@ import FlexiBLE
             let allLocations = try await FlexiBLE.shared.dbAccess?.location.get(
                 from: experiment.start,
                 to: experiment.end,
-                limit: 1000
+                limit: 100000
             ) ?? []
+            
+            guard !allLocations.isEmpty else {
+                return
+            }
             
             self.locations = [allLocations[0]]
             

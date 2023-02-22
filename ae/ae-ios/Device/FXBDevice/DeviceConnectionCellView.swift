@@ -51,7 +51,12 @@ struct DeviceConnectionCellView: View {
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationTitle("\(vm.device.deviceName)")
                     }, label: {
-                        Text("Manage Data Streams").buttonStyle(.bordered)
+                        Text("Manage Data Streams")
+                            .padding(11)
+                            .background(Color(UIColor.systemIndigo))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .frame(height: 45.0)
                     })
                 }
                 
