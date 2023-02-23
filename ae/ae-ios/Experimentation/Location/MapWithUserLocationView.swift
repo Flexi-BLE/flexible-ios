@@ -10,7 +10,7 @@ import MapKit
 
 struct MapWithUserLocationView: View {
     
-    @StateObject var locationManager = LocationManager()
+    @StateObject var locationManager = LocationManager.sharedInstance
     
     let MapLocations = [
             MapLocation(name: "St Francis Memorial Hospital", latitude: 42.037230, longitude: -87.706624),

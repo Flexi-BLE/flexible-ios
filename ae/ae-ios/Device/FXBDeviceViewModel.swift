@@ -46,9 +46,9 @@ import FlexiBLE
         let contained = fxb.profile?.autoConnectDeviceNames.contains(self.device.deviceName) ?? false
         
         if shouldAutoConnect, !contained {
-            fxb.profile?.autoConnectDeviceNames.append(self.device.deviceName)
+            fxb.profile?.autoConnect(self.device.deviceName)
         } else if !shouldAutoConnect, contained {
-            fxb.profile?.autoConnectDeviceNames.removeAll(where: { $0 == self.device.deviceName })
+            fxb.profile?.removeAutoConnect(self.device.deviceName)
         }
         
         fxb.conn.registerAutoConnect(devices: fxb.profile?.autoConnectDeviceNames ?? [])
@@ -105,5 +105,6 @@ import FlexiBLE
         let contained = autoConnects.contains(self.device.deviceName)
         if !self.shouldAutoConnect, contained { self.shouldAutoConnect = true }
         if self.shouldAutoConnect, !contained { self.shouldAutoConnect = false }
+        fxb.conn.registerAutoConnect(devices: autoConnects)
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 import FlexiBLE
 
 struct MainTabView: View {
-    @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
             DevicesView(vm: ProfileSelectionViewModel())

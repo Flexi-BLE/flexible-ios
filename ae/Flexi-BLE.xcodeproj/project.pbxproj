@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01008FB329A54B70007E4DF3 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01008FB229A54B70007E4DF3 /* ValueView.swift */; };
+		01008FB529A54BE1007E4DF3 /* CenteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01008FB429A54BE1007E4DF3 /* CenteredView.swift */; };
 		0105E36D28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E36E28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */; };
 		0105E37228C126EA00AAB5E2 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5419512899836B005CBA25 /* Date+Utils.swift */; };
@@ -206,6 +208,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01008FB229A54B70007E4DF3 /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
+		01008FB429A54BE1007E4DF3 /* CenteredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredView.swift; sourceTree = "<group>"; };
 		0105E36C28C0F2F400AAB5E2 /* UploadDataInfluxDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataInfluxDBView.swift; sourceTree = "<group>"; };
 		0109A022292C423C00CE02A9 /* DevSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevSettingsView.swift; sourceTree = "<group>"; };
 		0109A024292C427B00CE02A9 /* DataStreamParamUpdateDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamParamUpdateDelayView.swift; sourceTree = "<group>"; };
@@ -749,6 +753,8 @@
 				01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */,
 				012863042950DE8B000DD78E /* ActivityViewController.swift */,
 				018F4E4F298C53CC00B25F6B /* FullScreenModal.swift */,
+				01008FB229A54B70007E4DF3 /* ValueView.swift */,
+				01008FB429A54BE1007E4DF3 /* CenteredView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1002,6 +1008,7 @@
 				01CA3BAC281A46CE0004875D /* Path.swift in Sources */,
 				01E2AF9D28F84C5D00FE5E9E /* ChartParameters.swift in Sources */,
 				014DB6BA289B52D2008982C6 /* MapKit+Utils.swift in Sources */,
+				01008FB529A54BE1007E4DF3 /* CenteredView.swift in Sources */,
 				014DB6D7289B6F82008982C6 /* TimestampListView.swift in Sources */,
 				0157ECA728ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift in Sources */,
 				014DB6E1289B73C3008982C6 /* EditTimestampView.swift in Sources */,
@@ -1026,6 +1033,7 @@
 				01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,
 				01E7F27E28186BEF00ED6F15 /* DataStreamDetailCellView.swift in Sources */,
 				014DB6D1289B6A24008982C6 /* InactiveExperimentsView.swift in Sources */,
+				01008FB329A54B70007E4DF3 /* ValueView.swift in Sources */,
 				01CA3BA3281A1ACC0004875D /* Int.swift in Sources */,
 				01E7F27B2818594500ED6F15 /* FXBDeviceViewModel.swift in Sources */,
 				015D4E3A28FDEAF8001CE272 /* AlertInfo.swift in Sources */,
