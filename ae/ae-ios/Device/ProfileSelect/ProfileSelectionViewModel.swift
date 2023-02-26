@@ -63,6 +63,14 @@ import FlexiBLE
         errorMessage = nil
     }
     
+    func delete(at offsets: IndexSet) {
+        offsets.forEach({
+            guard let profile = fxb.profiles()[optional: $0] else { return }
+            fxb.delete(profile: profile)
+        })
+        self.profiles = fxb.profiles()
+    }
+    
     private func loadSpecification(with url: URL) async -> FXBSpec? {
         if let spec = try? await FXBSpec.load(from: url) {
             return spec

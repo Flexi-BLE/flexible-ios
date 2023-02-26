@@ -1293,7 +1293,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ae-ios/ae-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1389,7 +1389,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ae-ios/ae-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;

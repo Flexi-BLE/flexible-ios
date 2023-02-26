@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileSelectionView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.openURL) var openURL
     
     @StateObject var vm: ProfileSelectionViewModel
     
@@ -16,90 +17,66 @@ struct ProfileSelectionView: View {
     @State private var newProfileName: String = ""
     @State private var existingSelection: UUID? = nil
     
-    @State private var viewSelection: Int
+    @State private var showCreate: Bool = false
     
     init(vm: ProfileSelectionViewModel) {
         self._vm = .init(wrappedValue: vm)
-        self._viewSelection = .init(wrappedValue: vm.profiles.isEmpty ? 0 : 1)
     }
     
     var body: some View {
         Group {
             VStack(alignment: .leading) {
                 Spacer().frame(height: 16)
-                
-                Group {
-                    Text("Select a Profile").font(.largeTitle).bold()
-                    HStack {
-                        Image(systemName: "info.circle.fill")
-                            .font(.title)
-                        Text("Switching profiles will disconnect any devices connected in the current profile.")
-                            .font(.callout)
-                    }
-                    Spacer().frame(height: 32)
-                    
-                }
-                
-                Picker("", selection: $viewSelection) {
-                    Text("New").tag(0)
-                    Text("Existing").tag(1)
-                }
-                .pickerStyle(.segmented)
-                .onChange(of: viewSelection) { newValue in
-                    vm.clearError()
-                }
-                
-                Spacer().frame(height: 32)
-                
-                Group {
-                    if let errorMessage = vm.errorMessage {
-                        Text("Error: ").font(.title2).bold()
-                        Text(errorMessage)
-                        Divider()
-                    }
-                }
-                
-                switch viewSelection {
-                case 0:
-                    CreateProfileFromURLView(vm: vm)
-                case 1:
-                    Text("Select an Existing Profile")
-                        .font(.title2)
-                        .bold()
-                    
-                    if !vm.profiles.isEmpty {
-                        List(vm.profiles, id: \.id, selection: $existingSelection) { profile in
-                            ProfileDetailCell(profile: profile)
-                        }
-                        .scrollContentBackground(.hidden)
-                        .onChange(of: existingSelection) { newValue in
-                            if let id = newValue {
-                                vm.setProfile(with: id)
-                                dismiss()
-                            }
-                        }
-                    } else {
-                        Spacer()
-                        Text("No Existing Profiles").font(.title3).bold()
-                        Spacer()
-                    }
-                default: EmptyView()
-                }
-                
-                Spacer()
-                
+
                 
                 HStack {
+                    Text("FlexiBLE Profiles")
+                        .font(.title)
                     Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Dismiss")
-                    }
-                }.buttonStyle(SecondaryButtonStyle())
-                
-                
+                    Button(
+                        action: {
+                            showCreate = true
+                        },
+                        label: {
+                            Image(systemName: "plus.app")
+                        }
+                    ).buttonStyle(PrimaryButtonStyle())
+                }
+                .sheet(isPresented: $showCreate, content: {
+                    CreateProfileFromURLView(vm: vm)
+                })
             }.padding()
+            
+            List {
+                ForEach(vm.profiles, id: \.id) { profile in
+                    ProfileDetailCell(profile: profile)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        existingSelection = profile.id
+                    }
+                }
+                .onDelete(perform: vm.delete)
+                .swipeActions(edge: .leading) {
+                    Button {
+                        var components = URLComponents(url: fxb.appDataPath, resolvingAgainstBaseURL: true)
+                        components?.scheme = "shareddocuments"
+
+                        print("Open \(components!.url!)")
+                        openURL(components!.url!) { accepted in
+                            print(accepted ? "Success" : "Failure")
+                        }
+                    } label: {
+                        Label("Important", systemImage: "square.and.arrow.up")
+                    }
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .onChange(of: existingSelection) { newValue in
+                if let id = newValue {
+                    vm.setProfile(with: id)
+                    dismiss()
+                }
+            }
         }
     }
 }

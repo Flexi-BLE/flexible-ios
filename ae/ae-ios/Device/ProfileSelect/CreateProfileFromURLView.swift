@@ -20,11 +20,20 @@ struct CreateProfileFromURLView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                Spacer().frame(height: 16.0)
                 Text("Create a new profile")
-                    .font(.title2)
+                    .font(.title)
                     .bold()
                 
                 Spacer().frame(height: 16.0)
+                
+                Group {
+                    if let errorMessage = vm.errorMessage {
+                        Text("Error: ").font(.title2).bold()
+                        Text(errorMessage)
+                        Divider()
+                    }
+                }
                 
                 Text("Profile Name")
                     .font(.callout)
@@ -57,24 +66,17 @@ struct CreateProfileFromURLView: View {
                     Spacer()
                     
                     Button {
-                        vm.create(name: newProfileName, urlString: urlString, setActive: false)
-                    } label: {
-                        Text("Create")
-                    }
-                    .buttonStyle(SecondaryButtonStyle())
-                    
-                    Button {
                         vm.create(name: newProfileName, urlString: urlString, setActive: true)
                         dismiss()
                     } label: {
-                        Text("Create and Select")
+                        Text("Create")
                     }
                     .buttonStyle(PrimaryButtonStyle())
                     
                     
                 }
                 
-            }
+            }.padding()
         }
     }
 }
