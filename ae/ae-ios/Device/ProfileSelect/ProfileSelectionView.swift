@@ -8,14 +8,7 @@
 import SwiftUI
 
 struct ProfileSelectionView: View {
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.openURL) var openURL
-    
     @StateObject var vm: ProfileSelectionViewModel
-    
-    @State private var urlString: String = ""
-    @State private var newProfileName: String = ""
-    @State private var existingSelection: UUID? = nil
     
     @State private var showCreate: Bool = false
     
@@ -47,36 +40,22 @@ struct ProfileSelectionView: View {
                 })
             }.padding()
             
-            List {
-                ForEach(vm.profiles, id: \.id) { profile in
-                    ProfileDetailCell(profile: profile)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        existingSelection = profile.id
+            if vm.profiles.isEmpty {
+                Spacer()
+                Text("No Profiles").font(.title2)
+                Button(
+                    action: {
+                        showCreate = true
+                    },
+                    label: {
+                        Text("Create a Profile")
                     }
-                }
-                .onDelete(perform: vm.delete)
-                .swipeActions(edge: .leading) {
-                    Button {
-                        var components = URLComponents(url: fxb.appDataPath, resolvingAgainstBaseURL: true)
-                        components?.scheme = "shareddocuments"
-
-                        print("Open \(components!.url!)")
-                        openURL(components!.url!) { accepted in
-                            print(accepted ? "Success" : "Failure")
-                        }
-                    } label: {
-                        Label("Important", systemImage: "square.and.arrow.up")
-                    }
-                }
+                ).buttonStyle(PrimaryButtonStyle())
+                Spacer()
+            } else {
+                ProfileListView(vm: vm)
             }
-            .scrollContentBackground(.hidden)
-            .onChange(of: existingSelection) { newValue in
-                if let id = newValue {
-                    vm.setProfile(with: id)
-                    dismiss()
-                }
-            }
+            
         }
     }
 }
