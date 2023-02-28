@@ -54,7 +54,7 @@ extension Date {
     
     func timeSinceHumanReadable(ref: Date=Date.now) -> String {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.day, .hour, .minute]
+        formatter.allowedUnits = [.day, .hour, .minute, .second]
         formatter.unitsStyle = .brief
         return formatter.string(from: self, to: ref) ?? "--"
     }

@@ -11,6 +11,9 @@ import FlexiBLE
 struct DeviceConnectionCellView: View {
     @StateObject var vm: FXBDeviceViewModel
     
+    @State private var connectedSince: String = "00:00:00"
+    private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -29,7 +32,10 @@ struct DeviceConnectionCellView: View {
                 EmptyView()
                 KeyValueView(key: "Status", value: "Connected")
                 if let connectionRecord = vm.device.connectionRecord {
-                    KeyValueView(key: "Connection Time", value: "\(connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--none--")")
+                    KeyValueView(key: "Connection Time", value: "\(connectedSince)")
+                        .onReceive(timer) { _ in
+                            self.connectedSince = connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--invalid date--"
+                        }
                     Divider()
                     KeyValueView(key: "Reference Date", value: "\(connectionRecord.latestReferenceDate?.getShortDateAndTime() ?? "--none--")")
                     KeyValueView(key: "Spec", value: "\(connectionRecord.specificationIdString ?? "--none--") (\(connectionRecord.specificationVersion ?? "--none--"))")
