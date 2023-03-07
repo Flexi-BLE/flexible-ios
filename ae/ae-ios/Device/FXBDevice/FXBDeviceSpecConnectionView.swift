@@ -16,6 +16,14 @@ struct FXBDeviceSpecConnectionView: View {
     @State var avaiableDevicesText: String = ""
     @State var connectedDevicesText: String = ""
     
+    private var foundDeviceCount: Int {
+        return conn.fxbFoundDevices.filter({ $0.deviceName.hasPrefix(spec.name) }).count
+    }
+    
+    private var connectedDeviceCount: Int {
+        return conn.fxbConnectedDevices.filter({ $0.deviceName.hasPrefix(spec.name) }).count
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -33,33 +41,34 @@ struct FXBDeviceSpecConnectionView: View {
             
             HStack {
                 ValueView(
-                    value: conn.fxbFoundDevices.filter({ $0.deviceName.hasPrefix(spec.name) }).count,
+                    value: foundDeviceCount,
                     text: "Found"
-                )
+                )   
                 Spacer()
                 ValueView(
-                    value: conn.fxbConnectedDevices.filter({ $0.deviceName.hasPrefix(spec.name) }).count,
+                    value: connectedDeviceCount,
                     text: "Connected"
                 )
             }
             
             Spacer()
             
-            NavigationLink(destination: {
-                SelectFXBDeviceConnectionView(deviceSpec: spec)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle("\(spec.name) Devices")
-            }, label: {
-                CenteredView(
-                    Text("Manage Devices")
-                        .padding(11)
-                        .background(Color(UIColor.systemIndigo))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .frame(height: 45.0)
-                )
-                
-            })
+            if (foundDeviceCount + connectedDeviceCount > 0) {
+                NavigationLink(destination: {
+                    SelectFXBDeviceConnectionView(deviceSpec: spec)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationTitle("\(spec.name) Devices")
+                }, label: {
+                    CenteredView(
+                        Text("Manage Devices")
+                            .padding(11)
+                            .background(Color(UIColor.systemIndigo))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .frame(height: 45.0)
+                    )
+                })
+            }
         }
         .padding()
     }

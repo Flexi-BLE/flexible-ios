@@ -29,7 +29,7 @@ struct ProfileSelectionHeader: View {
             FXBButton {
                 showSwitch.toggle()
             } content: {
-                Text("Switch")
+                Text("Manage")
             }
             .sheet(isPresented: $showSwitch) {
                 ProfileSelectionView(vm: vm)

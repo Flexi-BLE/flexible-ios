@@ -23,9 +23,9 @@ import GRDB
     
     @Published var state: State = .loading
     
-    @Published var recordCount: Int = 0
-    @Published var frequency: Double = 0
-    @Published var reliability: Double? = 0
+    @Published var recordCount: Int? = nil
+    @Published var frequency: Double? = nil
+    @Published var reliability: Double? = nil
     @Published var configVMs: [ConfigViewModel] = []
     @Published var isOn: Bool
     
@@ -96,35 +96,42 @@ import GRDB
     
     private func setInitialRecordCount() {
         guard let deviceVM = deviceVM else  { return }
-        Task { [weak self] in
+        Task {
             do {
-                self?.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
+                
+                self.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
                     for: .dynamicData(name: dataStream.name),
                     start: nil,
                     end: Date.now,
                     deviceName: deviceName,
                     uploaded: nil
                 ) ?? 0
+                
+                deviceVM.device
+                    .dataHandler(for: dataStream.name)?
+                    .firehoseTS
+                    .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
+                    .sink(receiveValue: { [weak self] dates in
+                        guard let self = self else { return }
+                        
+                        let dedupedDates = Array(Set(dates)).sorted(by: { $1 > $0 })
+                        
+                        withAnimation(.spring()) {
+                            if self.recordCount != nil {
+                                self.recordCount! += dedupedDates.count
+                            }
+                            self.frequency = self.frequency(from: dedupedDates)
+                            if self.frequency != nil {
+                                self.reliability = self.reliability(from: self.frequency!)
+                            }
+                        }
+                        
+                    })
+                    .store(in: &self.observers)
             } catch {
-                gLog.error("unable to detemine record count for \(self?.dataStream.name ?? "-- unknown --")")
+                gLog.error("unable to detemine record count for \(self.dataStream.name)")
             }
         }
-        deviceVM.device
-            .dataHandler(for: dataStream.name)?
-            .firehoseTS
-            .collect(Publishers.TimeGroupingStrategy.byTime(DispatchQueue.main, 1.0))
-            .sink(receiveValue: { [weak self] dates in
-                guard let self = self else { return }
-                let dedupedDates = Array(Set(dates)).sorted(by: { $1 > $0 })
-                
-                withAnimation(.spring()) {
-                    self.recordCount += dates.count
-                    self.frequency = self.frequency(from: dedupedDates)
-                    self.reliability = self.reliability(from: self.frequency)
-                }
-                
-            })
-            .store(in: &observers)
     }
     
     func fetchLatestConfig() async {

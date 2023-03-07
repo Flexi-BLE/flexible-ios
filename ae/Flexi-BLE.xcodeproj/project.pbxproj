@@ -114,6 +114,7 @@
 		01B79FB928E643CC00A299F7 /* DataStreamGraphParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */; };
 		01B79FBB28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */; };
 		01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */; };
+		01B7CEE929ACE3ED0018F918 /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B7CEE829ACE3ED0018F918 /* ProfileListView.swift */; };
 		01C2329E28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C2329F28C6B0C0006C6B33 /* UploadRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */; };
 		01C232A128C6B155006C6B33 /* UploadInitializingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A028C6B155006C6B33 /* UploadInitializingView.swift */; };
@@ -294,6 +295,7 @@
 		01B79FB828E643CC00A299F7 /* DataStreamGraphParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsView.swift; sourceTree = "<group>"; };
 		01B79FBA28E643E900A299F7 /* DataStreamGraphParamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphParamsViewModel.swift; sourceTree = "<group>"; };
 		01B79FBC28E6572400A299F7 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
+		01B7CEE829ACE3ED0018F918 /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
 		01C2329D28C6B0C0006C6B33 /* UploadRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRunningView.swift; sourceTree = "<group>"; };
 		01C232A028C6B155006C6B33 /* UploadInitializingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInitializingView.swift; sourceTree = "<group>"; };
 		01C232A328C6B1A5006C6B33 /* UploadPausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPausedView.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				01F1E54A2988ACB200270081 /* ProfileSelectionView.swift */,
 				01F1E54C2988B04900270081 /* ProfileDetailCell.swift */,
 				01F1E5522989768B00270081 /* CreateProfileFromURLView.swift */,
+				01B7CEE829ACE3ED0018F918 /* ProfileListView.swift */,
 			);
 			path = ProfileSelect;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				012B302828D8DD1400BA623A /* UIApplication.swift in Sources */,
 				5C5419522899836B005CBA25 /* Date+Utils.swift in Sources */,
 				01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */,
+				01B7CEE929ACE3ED0018F918 /* ProfileListView.swift in Sources */,
 				014DB6CF289B6907008982C6 /* ExperimentListCellView.swift in Sources */,
 				01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */,
 				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
@@ -1293,7 +1297,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ae-ios/ae-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
@@ -1389,7 +1393,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ae-ios/ae-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"ae-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MQDGC4RM2;
