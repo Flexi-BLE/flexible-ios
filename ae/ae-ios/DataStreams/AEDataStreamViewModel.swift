@@ -107,6 +107,7 @@ import GRDB
 //                    deviceName: deviceName,
 //                    uploaded: nil
 //                ) ?? 0
+                self.recordCount = 0
                 
                 deviceVM.device
                     .dataHandler(for: dataStream.name)?
