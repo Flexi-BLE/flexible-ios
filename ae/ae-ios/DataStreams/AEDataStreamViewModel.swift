@@ -99,13 +99,14 @@ import GRDB
         Task {
             do {
                 
-                self.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
-                    for: .dynamicData(name: dataStream.name),
-                    start: nil,
-                    end: Date.now,
-                    deviceName: deviceName,
-                    uploaded: nil
-                ) ?? 0
+                // FIXME: counting is too much with large data tables.
+//                self.recordCount = try await FlexiBLE.shared.dbAccess?.timeseries.count(
+//                    for: .dynamicData(name: dataStream.name),
+//                    start: nil,
+//                    end: Date.now,
+//                    deviceName: deviceName,
+//                    uploaded: nil
+//                ) ?? 0
                 
                 deviceVM.device
                     .dataHandler(for: dataStream.name)?
