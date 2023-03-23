@@ -84,6 +84,7 @@
 		015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		01684B3029C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -271,6 +272,7 @@
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEWMAAdjustmentPanel.swift; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				0179D5C328F86E64006CC558 /* ChartControlButton.swift */,
 				0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */,
 				0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */,
+				01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */,
 				01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
+				01684B3029C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,

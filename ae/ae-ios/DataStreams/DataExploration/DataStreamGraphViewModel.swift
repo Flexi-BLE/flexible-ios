@@ -174,24 +174,15 @@ import Combine
         
         let tss = timeseries.splitSort(criteria: conditions)
         var _data: [String: [Point]] = [:]
+        
         for ts in tss {
-            for i in 0..<ts.colCount {
-                guard let colName = ts.colNames[i] else {
-                    continue
-                }
-                let points = zip(ts.indexDates(), ts.col(at: i)).map {
+            for (i, column) in ts.columns.enumerated() {
+    
+                let points = zip(ts.indexDates(), column.vector).map {
                     Point(x: $0, y: $1)
                 }
-                _data[colName] = points
+                _data[column.name ?? "\(i)"] = points
             }
-//            var tsCopy = ts
-//            tsCopy.apply(filter: .zscore, to: 2)
-//            let points: [Point] = zip(tsCopy.index, tsCopy.col(at: 3)).map { Point(x: Date(timeIntervalSince1970: $0), y: $1) }
-//            if ts.colNames.count > 0, let colName = tsCopy.colNames[0] {
-//                DispatchQueue.main.async {
-//                    self.data[colName] = points
-//                }
-//            }
         }
 
         // single update to the graph

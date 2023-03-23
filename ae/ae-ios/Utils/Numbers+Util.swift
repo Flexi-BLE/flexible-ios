@@ -12,3 +12,10 @@ extension Double {
         return String(format: "%.\(precision)f", self)
     }
 }
+
+
+extension Float {
+    func uiReadable(precision: Int=2) -> String {
+        return String(format: "%.\(precision)f", self)
+    }
+}
