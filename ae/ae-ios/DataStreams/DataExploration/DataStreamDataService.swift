@@ -30,6 +30,7 @@ class DataStreamDataService {
     }
     
     typealias Point = (x: Date, y: Float)
+    
     var ts: TimeSeries<Float>
     var tsPublisher = PassthroughSubject<TimeSeries<Float>, Error>()
     
@@ -88,6 +89,25 @@ class DataStreamDataService {
             .sink { [weak self] records in
                 guard let self = self else { return }
 
+                if self.chartParams?.ewmaEnabled == true,
+                   let alpha = self.chartParams?.ewmaAlpha {
+                    
+                    for column in self.ts.columns {
+                        if let ewmaFilter = column.filters.first(where: { $0 is ExponentiallyWeightedMovingAverage }) as? ExponentiallyWeightedMovingAverage {
+                            if !(ewmaFilter.alpha == alpha) {
+                                column.clearFilters()
+                                column.enable(ExponentiallyWeightedMovingAverage(alpha: alpha))
+                            }
+                        } else {
+                            column.enable(ExponentiallyWeightedMovingAverage(alpha: alpha))
+                        }
+                    }
+                } else {
+                    for column in self.ts.columns {
+                        column.clearFilters()
+                    }
+                }
+                
                 records.forEach { (date: Date, values: [AEDataValue]) in
                     let vector = values
                         .enumerated()

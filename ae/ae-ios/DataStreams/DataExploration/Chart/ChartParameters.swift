@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FlexiBLESignal
 
 class ChartParameters: Codable {
     enum State: String, Codable {
@@ -24,6 +25,9 @@ class ChartParameters: Codable {
     var yMax: Float = 100.0
     
     var shouldAutoScale: Bool = false
+    
+    var ewmaEnabled: Bool = false
+    var ewmaAlpha: Double = 1.0
     
     var yRange: ClosedRange<Float> {
         return yMin...yMax

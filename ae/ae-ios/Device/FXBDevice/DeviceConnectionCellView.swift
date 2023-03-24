@@ -36,9 +36,6 @@ struct DeviceConnectionCellView: View {
                         .onReceive(timer) { _ in
                             self.connectedSince = connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--invalid date--"
                         }
-                    Divider()
-                    KeyValueView(key: "Reference Date", value: "\(connectionRecord.latestReferenceDate?.getShortDateAndTime() ?? "--none--")")
-                    KeyValueView(key: "Spec", value: "\(connectionRecord.specificationIdString ?? "--none--") (\(connectionRecord.specificationVersion ?? "--none--"))")
                 }
                 Divider()
                 HStack {
@@ -51,13 +48,25 @@ struct DeviceConnectionCellView: View {
                 Divider()
                 
                 HStack {
+                    NavigationLink(destination: {
+                        DeviceManagementView(vm: vm)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationTitle("\(vm.device.deviceName)")
+                    }, label: {
+                        Text("Manage Device")
+                            .padding(11)
+                            .background(Color(UIColor.systemIndigo))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .frame(height: 45.0)
+                    })
                     Spacer()
                     NavigationLink(destination: {
                         DataStreamsView(deviceSpec: vm.device.spec, deviceName: vm.device.deviceName)
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationTitle("\(vm.device.deviceName)")
                     }, label: {
-                        Text("Manage Data Streams")
+                        Text("Data Streams")
                             .padding(11)
                             .background(Color(UIColor.systemIndigo))
                             .foregroundColor(.white)

@@ -84,6 +84,7 @@
 		015D4E3B28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3C28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
 		015D4E3D28FDEAF8001CE272 /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E3928FDEAF8001CE272 /* AlertInfo.swift */; };
+		01684B3029C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */; };
 		01717C2928DCAF0500B7DF39 /* DeviceConnectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */; };
 		01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
 		01717C2D28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */; };
@@ -127,6 +128,7 @@
 		01C232AB28C6B255006C6B33 /* UploadCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232A928C6B255006C6B33 /* UploadCompletedView.swift */; };
 		01C232AD28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */; };
 		01C232AE28C6B2A1006C6B33 /* UploadNotStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */; };
+		01CA322A29B9216700E887E7 /* DeviceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA322929B9216700E887E7 /* DeviceManagementView.swift */; };
 		01CA3BA0281A189C0004875D /* AEDataStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */; };
 		01CA3BA1281A189C0004875D /* AEDataStreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */; };
 		01CA3BA3281A1ACC0004875D /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA3BA2281A1ACC0004875D /* Int.swift */; };
@@ -270,6 +272,7 @@
 		0157ECA428ECC15F003DC4A8 /* DataStreamDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamDataService.swift; sourceTree = "<group>"; };
 		0157ECA628ECC1AD003DC4A8 /* DataStreamGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStreamGraphViewModel.swift; sourceTree = "<group>"; };
 		015D4E3928FDEAF8001CE272 /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEWMAAdjustmentPanel.swift; sourceTree = "<group>"; };
 		01717C2828DCAF0500B7DF39 /* DeviceConnectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionCellView.swift; sourceTree = "<group>"; };
 		01717C2B28DCE0BB00B7DF39 /* DeviceDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataView.swift; sourceTree = "<group>"; };
 		01717C2E28DCE0CD00B7DF39 /* DeviceDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataViewModel.swift; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 		01C232A628C6B1E7006C6B33 /* UploadErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadErrorView.swift; sourceTree = "<group>"; };
 		01C232A928C6B255006C6B33 /* UploadCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCompletedView.swift; sourceTree = "<group>"; };
 		01C232AC28C6B2A1006C6B33 /* UploadNotStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadNotStartedView.swift; sourceTree = "<group>"; };
+		01CA322929B9216700E887E7 /* DeviceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagementView.swift; sourceTree = "<group>"; };
 		01CA3B9F281A189C0004875D /* AEDataStreamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEDataStreamViewModel.swift; sourceTree = "<group>"; };
 		01CA3BA2281A1ACC0004875D /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		01CA3BAB281A46CE0004875D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
@@ -683,6 +687,7 @@
 				0179D5C328F86E64006CC558 /* ChartControlButton.swift */,
 				0179D5C528F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift */,
 				0179D5C728F88F5C006CC558 /* ChartXAxisAdjustmentPanel.swift */,
+				01684B2F29C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				017810C828E227C600E1264D /* RegisteredDeviceViewModel.swift */,
 				017810BF28E224A700E1264D /* FXBDevice */,
 				0198ECB42898B39400F93E13 /* RegisteredDevice */,
+				01CA322929B9216700E887E7 /* DeviceManagementView.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1025,6 +1031,7 @@
 				01E2AF9828F1D7D600FE5E9E /* ChartControls.swift in Sources */,
 				0157ECA128EC8DFD003DC4A8 /* DataStreamChartView.swift in Sources */,
 				01E7F2872818734A00ED6F15 /* Color.swift in Sources */,
+				01CA322A29B9216700E887E7 /* DeviceManagementView.swift in Sources */,
 				018F4E4A298C2CBD00B25F6B /* UploadRecordsViewModel.swift in Sources */,
 				012B302B28D8FFF400BA623A /* RemoteUploadViewModel.swift in Sources */,
 				0179D5C628F87FCB006CC558 /* ChartYAxisAdjustmentPanel.swift in Sources */,
@@ -1032,6 +1039,7 @@
 				01E7F28A281C0FB500ED6F15 /* DevicesView.swift in Sources */,
 				01B79FBD28E6572400A299F7 /* MultiSelectionView.swift in Sources */,
 				01C232A428C6B1A5006C6B33 /* UploadPausedView.swift in Sources */,
+				01684B3029C4A7EA004FD47D /* ChartEWMAAdjustmentPanel.swift in Sources */,
 				011F48BF28076CA600B359EB /* fxb.swift in Sources */,
 				014DB6BC289B55AA008982C6 /* ExperimentMapViewModel.swift in Sources */,
 				01717C2C28DCE0BB00B7DF39 /* DeviceDataView.swift in Sources */,

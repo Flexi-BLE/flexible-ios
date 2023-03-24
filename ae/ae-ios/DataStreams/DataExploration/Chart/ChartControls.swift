@@ -12,6 +12,7 @@ struct ChartControls: View {
     private enum PanelState {
         case yAxis
         case xAxis
+        case ewma
         case hidden
     }
     
@@ -50,11 +51,22 @@ struct ChartControls: View {
                 case .hidden: EmptyView()
                 case .yAxis: ChartYAxisAdjustmentPanel(chartParams: vm.chartParameters)
                 case .xAxis: ChartXAxisAdjustmentPanel(chartParams: vm.chartParameters)
+                case .ewma: ChartEWMAAdjustmentPanel(chartParams: vm.chartParameters)
                 }
                 Spacer()
                 VStack {
                     switch panelState {
                     case .hidden:
+                        ChartControlButton(
+                            imageName: "line.3.horizontal.decrease.circle",
+                            size: 50,
+                            action: {
+
+                            },
+                            longPressAction: {
+                                panelState = .ewma
+                            }
+                        )
                         ChartControlButton(
                             imageName: "timeline.selection",
                             size: 50,
@@ -75,7 +87,7 @@ struct ChartControls: View {
                                 panelState = .yAxis
                             }
                         )
-                    case .yAxis, .xAxis: EmptyView()
+                    case .yAxis, .xAxis, .ewma: EmptyView()
                     }
                 }
             }.padding()

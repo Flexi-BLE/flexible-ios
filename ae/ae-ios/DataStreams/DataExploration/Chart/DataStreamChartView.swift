@@ -13,21 +13,6 @@ struct DataStreamChartView: View {
     @StateObject var vm: DataStreamGraphViewModel
     
     var body: some View {
-//        let pinchGesture = MagnificationGesture()
-//            .onChanged { amount in
-//                vm.updateRange(amount: amount)
-//            }
-//            .onEnded { amount in
-//                vm.updateRange(amount: amount, end: true)
-//            }
-        
-//        let dragGesture = DragGesture()
-//            .onChanged { value in
-//                print("ZOOM: drag: \(value.translation) (\(value.location)")
-//            }
-//
-//        let zoomGesture = pinchGesture.simultaneously(with: dragGesture)
-        
         ZStack {
             Chart {
                 ForEach(Array(vm.data), id: \.key) { key, value in
