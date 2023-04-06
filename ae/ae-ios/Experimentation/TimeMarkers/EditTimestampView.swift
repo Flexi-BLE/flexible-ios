@@ -17,18 +17,14 @@ struct EditTimestampView: View {
         Form {
             Section(header: Text("Edit Timemarker")) {
                 TextField("Name", text: $vm.newName)
-//                if #available(iOS 16.0, *) {
-//                    TextField("Description", text: $vm.description,  axis: .vertical)
-//                        .lineLimit(4...10)
-//                } else {
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
                 TextField("Description", text: $vm.newDescription)
-//                }
-                
-                Button("Confirm Edit") {
-                    Task {
-                        await self.vm.updateTimeMarkerDetails()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
+                Button("Save") {
+                    self.vm.updateTimeMarkerDetails()
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             }
         }

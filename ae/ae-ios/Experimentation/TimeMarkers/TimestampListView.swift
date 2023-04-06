@@ -33,6 +33,7 @@ struct TimestampListView: View {
                 ForEach(vm.timestamps, id: \.ts) { timestamp in
                     TimestampCellView(vm: TimestampViewModel(timestamp: timestamp))
                 }
+                .onDelete(perform: vm.delete)
             }
             .listStyle(.plain)
         }

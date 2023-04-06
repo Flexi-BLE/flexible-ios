@@ -53,4 +53,15 @@ import UIKit
         }
     }
     
+    func delete(at offsets: IndexSet) {
+        for offset in offsets {
+            if let id = self.timestamps[offset].id {
+                Task {
+                    try await FlexiBLE.shared.dbAccess?.experiment.deleteTimestamp(id: id)
+                    self.timestamps.remove(at: offset)
+                }
+            }
+        }
+    }
+    
 }

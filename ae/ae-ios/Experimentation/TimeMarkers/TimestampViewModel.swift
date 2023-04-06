@@ -20,12 +20,12 @@ import FlexiBLE
         self.newDescription = timestamp.description ?? ""
     }
     
-    func updateTimeMarkerDetails() async {
-        guard let id = self.timestamp.experimentId else {
+    func updateTimeMarkerDetails() {
+        guard let id = self.timestamp.id else {
             return
         }
         
-        do {
+        Task(priority: .userInitiated) {
             if let timestamp = try await FlexiBLE.shared.dbAccess?.experiment.updateTimestamp(
                 id: id,
                 name: newName,
@@ -33,8 +33,6 @@ import FlexiBLE
             ) {
                 self.timestamp = timestamp
             }
-        } catch {
-            GeneralLogger.error("unable to update time stamp record: \(error.localizedDescription)")
         }
     }
 }
