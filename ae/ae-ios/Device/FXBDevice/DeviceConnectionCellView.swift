@@ -34,7 +34,7 @@ struct DeviceConnectionCellView: View {
                 if let connectionRecord = vm.device.connectionRecord {
                     KeyValueView(key: "Connection Time", value: "\(connectedSince)")
                         .onReceive(timer) { _ in
-                            self.connectedSince = connectionRecord.connectedAt?.timeSinceHumanReadable() ?? "--invalid date--"
+                            self.connectedSince = connectionRecord.connectedAt.timeSinceHumanReadable()
                         }
                 }
                 Divider()
@@ -44,6 +44,7 @@ struct DeviceConnectionCellView: View {
                     Toggle("Auto Connect", isOn: $vm.shouldAutoConnect)
                         .labelsHidden()
                 }
+                KeyValueView(key: "Role", value: "\(vm.device.connectionRecord?.role.description ?? "none")")
                 
                 Divider()
                 

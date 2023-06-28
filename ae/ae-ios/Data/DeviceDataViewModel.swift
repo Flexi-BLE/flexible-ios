@@ -12,7 +12,7 @@ import FlexiBLE
 // TODO: connected records
 
 @MainActor class DeviceDataViewModel: ObservableObject {
-    @Published var deviceConnectionRecords: [FXBConnection] = []
+    @Published var deviceConnectionRecords: [FXBDeviceRecord] = []
     
     @Published var selectedDeviceId: Int = -1 {
         didSet {
