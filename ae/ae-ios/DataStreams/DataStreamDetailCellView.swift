@@ -24,10 +24,16 @@ struct DataStreamDetailCellView: View {
             
             switch vm.state {
             case .loading:
-                ProgressView()
-                    .progressViewStyle(.circular)
-                Text("Loading Data Stream ...")
-                    .font(.title2)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Loading Data \(vm.dataStream.name)")
+                            .font(.title2)
+                        Text("Please wait ...")
+                    }
+                    Spacer()
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                }
             case .error(let msg):
                 Text("Error: \(msg)")
                     .font(.title2)

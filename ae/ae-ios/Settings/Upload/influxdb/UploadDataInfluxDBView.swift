@@ -12,7 +12,11 @@ struct UploadDataInfluxDBView: View {
     
     @State var showUploading: Bool = false
     @State var influxDetailsValidated: Bool = false
-    @State var continousUploadEnabled: Bool = false
+    
+    @State private var continousUploadEnabled: Bool = false
+    @State private var uploadInterval: Int = 5
+    @State private var maxLookback: Int = 60*60
+    @State private var purgeOnUpload: Bool = false
     
     init() {
         _showUploading = .init(initialValue: false)
@@ -110,16 +114,12 @@ struct UploadDataInfluxDBView: View {
                                 .bold()
                             Spacer()
                             Toggle(
-                                isOn: Binding<Bool>(
-                                    get: { model.continousUploadEnabled },
-                                    set: {
-                                        model.continousUploadEnabled = $0
-                                        continousUploadEnabled = $0
-                                         influxDetailsValidated = model.validated
-                                    }
-                                ),
+                                isOn: $continousUploadEnabled,
                                 label: { Text("Enable Continuous Upload") })
                             .labelsHidden()
+                        }.onChange(of: continousUploadEnabled, initial: false) { oldValue, newValue in
+                            model.continousUploadEnabled = newValue
+                            influxDetailsValidated = model.validated
                         }
                         
                         
@@ -131,13 +131,7 @@ struct UploadDataInfluxDBView: View {
                                 Spacer()
                                 Picker(
                                     "",
-                                    selection: Binding<Int>(
-                                        get: { model.continousUploadInterval },
-                                        set: {
-                                            model.continousUploadInterval = $0
-                                            influxDetailsValidated = model.validated
-                                        }
-                                    )
+                                    selection: $uploadInterval
                                 ) {
                                     Text("30 seconds").tag(30)
                                     Text("1 minute").tag(60)
@@ -145,6 +139,32 @@ struct UploadDataInfluxDBView: View {
                                     Text("10 minutes").tag(600)
                                     Text("30 minutes").tag(1800)
                                 }
+                            }.onChange(of: uploadInterval, initial: false) { oldValue, newValue in
+                                model.continousUploadInterval = newValue
+                                influxDetailsValidated = model.validated
+                            }
+                            
+                            HStack {
+                                Text("Max Upload Lookback")
+                                    .font(.callout)
+                                    .bold()
+                                Spacer()
+                                Picker(
+                                    "",
+                                    selection: $maxLookback
+                                ) {
+                                    Text("1 minute").tag(60)
+                                    Text("5 minutes").tag(60*5)
+                                    Text("10 minutes").tag(60*10)
+                                    Text("30 minutes").tag(60*30)
+                                    Text("1 hour").tag(60*60)
+                                    Text("5 hours").tag(60*60*5)
+                                    Text("12 hours").tag(60*60*12)
+                                    Text("24 Hours").tag(60*60*24)
+                                }
+                            }.onChange(of: maxLookback, initial: false) { oldValue, newValue in
+                                model.maxUploadLookback = newValue
+                                influxDetailsValidated = model.validated
                             }
                             
                             HStack {
@@ -162,7 +182,11 @@ struct UploadDataInfluxDBView: View {
                                 .labelsHidden()
                             }
                         }
-                    }
+                    }.onAppear(perform: {
+                        continousUploadEnabled = model.continousUploadEnabled
+                        uploadInterval = model.continousUploadInterval
+                        maxLookback = model.maxUploadLookback
+                    })
                 }
             }
                 

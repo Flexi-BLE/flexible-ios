@@ -16,11 +16,15 @@ final class InfluxDBConnection {
     
     private init() {
         if continousUploadInterval == 0 {
-            self.continousUploadInterval = 30
+            self.continousUploadInterval = 60*5
         }
         
         if batchSize == 0 {
             self.batchSize = 1000
+        }
+        
+        if maxUploadLookback == 0 {
+            self.maxUploadLookback = 60*60
         }
         
         updateLiveUpload()
@@ -37,6 +41,7 @@ final class InfluxDBConnection {
         
         case continousUploadEnabled = "fxb_continous_upload_enabled"
         case continousUploadInterval = "fxb_continous_upload_interval"
+        case maxUploadLookback = "fxb_max_upload_lookback"
         case purgeOnUpload = "fxb_continuous_upload_purge"
     }
     
@@ -115,6 +120,12 @@ final class InfluxDBConnection {
         }
     }
     
+    var maxUploadLookback: Int = UserDefaults.standard.integer(forKey: UserDefaultsKey.maxUploadLookback.rawValue) {
+        didSet {
+            UserDefaults.standard.set(maxUploadLookback, forKey: UserDefaultsKey.maxUploadLookback.rawValue)
+        }
+    }
+    
     var purgeOnUpload: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKey.purgeOnUpload.rawValue) {
         didSet {
             UserDefaults.standard.set(purgeOnUpload, forKey: UserDefaultsKey.purgeOnUpload.rawValue)
@@ -141,7 +152,8 @@ final class InfluxDBConnection {
                 batchSize: batchSize,
                 deviceId: deviceId,
                 purgeOnUpload: purgeOnUpload,
-                uploadInterval: Double(continousUploadInterval)
+                uploadInterval: Double(continousUploadInterval),
+                maxLookback: Double(maxUploadLookback)
             )
             return InfluxDBUploader(
                 credentials: creds,

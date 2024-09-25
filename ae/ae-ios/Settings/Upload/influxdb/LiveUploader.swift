@@ -29,7 +29,8 @@ class LiveUploader {
             batchSize: model.batchSize,
             deviceId: model.deviceId,
             purgeOnUpload: model.purgeOnUpload,
-            uploadInterval: Double(model.continousUploadInterval)
+            uploadInterval: Double(model.continousUploadInterval),
+            maxLookback: Double(model.maxUploadLookback)
         )
         self.start()
     }
@@ -77,7 +78,7 @@ class LiveUploader {
             
             let uploader = InfluxDBUploader(
                 credentials: credentials,
-                startDate: Date.now.addingTimeInterval(-Double(credentials.uploadInterval ?? 30 * 4)),
+                startDate: Date.now.addingTimeInterval(-(credentials.maxLookback ?? 60*60*24)),
                 endDate: Date.now
             )
             

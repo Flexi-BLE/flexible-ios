@@ -29,6 +29,8 @@ import GRDB
     @Published var configVMs: [ConfigViewModel] = []
     @Published var isOn: Bool
     
+    private var timer: Timer?
+    
     var deviceVM: FXBDeviceViewModel?
     
     var hasConfigurations: Bool {
@@ -56,11 +58,37 @@ import GRDB
         self.setupDevice()
     }
     
+    var timerCount = 0
+    @objc func fireTimer() {
+        
+        if timerCount < 20 {
+            timerCount += 1
+            Task {
+                await self.fetchLatestConfig()
+            }
+        } else {
+            self.state = .connected
+            timer?.invalidate()
+            timer = nil
+            timerCount = 0
+        }
+    }
+    
     private func setupDevice() {
         if let device = fxb.conn.fxbConnectedDevices.first(where: { $0.deviceName == deviceName }) {
             
             self.deviceVM = FXBDeviceViewModel(with: device)
             setInitialRecordCount()
+            
+            deviceVM?.device
+                .dataHandler(for: dataStream.name)?
+                .configUpdate
+                .sink(receiveValue: { _ in
+                    Task {
+                        await self.fetchLatestConfig()
+                    }
+                })
+                .store(in: &observers)
             
         } else {
             self.state = .error(msg: "Device not connected")
@@ -160,6 +188,28 @@ import GRDB
         }
     }
     
+//    func fetchAndWait(timeout: TimeInterval = 20.0, lastConfig: GenericRow) async {
+//        
+//        guard !dataStream.configValues.isEmpty else {
+//            return
+//        }
+//        
+//        var configDef = dataStream.configValues
+//        var configVMs = self.configVMs
+//        let dataStream = self.dataStream
+//        let deviceName = self.deviceName
+//        
+//        var timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+//            Task {
+//                guard let latestConfig = await FlexiBLE.shared.dbAccess?.dataStreamConfig.config(for: dataStream, deviceName: deviceName) else {
+//                    return
+//                }
+//                
+//                let eq = latestConfig != lastConfig
+//            }
+//        }
+//    }
+    
     func loadDefaultConfigs() {
         fxb.conn.updateConfig(
             deviceName: deviceName,
@@ -174,6 +224,8 @@ import GRDB
     
     func updateConfigs() {
         var data: Data = Data()
+        
+        self.state = .loading
         
         for vm in configVMs {
             if let _ = vm.config.range {
@@ -190,10 +242,19 @@ import GRDB
         )
         
         Task(priority: .userInitiated) { [weak self] in
-            try? await Task.sleep(nanoseconds: UInt64(DataStreamParamUpdateDelay.get() * 1_000_000))
+//            try? await Task.sleep(nanoseconds: UInt64(DataStreamParamUpdateDelay.get() * 1_000_000))
             await self?.fetchLatestConfig()
+            self?.state = .connected
         }
         
+//        self.timer = Timer.scheduledTimer(
+//            timeInterval: 1.0,
+//            target: self,
+//            selector: #selector(fireTimer),
+//            userInfo: nil,
+//            repeats: true
+//        )
+//        self.timer?.fire()
     }
     
     private func frequency(from dates: [Date]) -> Double {
