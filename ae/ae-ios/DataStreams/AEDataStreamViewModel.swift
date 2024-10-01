@@ -111,7 +111,9 @@ import GRDB
                 self.state = .connected
             }
             
-            self.$isOn.sink { newValue in
+            self.$isOn
+                .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+                .sink { newValue in
                 if let selectedVal = self.sensorStateConfig?.selectedValue {
                     if (newValue ? "1" : "0") != selectedVal {
                         self.sensorStateConfig?.update(with: newValue ? "1" : "0")
